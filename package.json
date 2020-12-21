@@ -4,10 +4,11 @@
   "workspaces": [
     "packages/*"
   ],
-  "version": "0.0.1",
+  "version": "--preid",
   "description": "Nuxt storyblok starter module",
   "scripts": {
-    "publish:ci": "esno ./scripts/publish.js"
+    "publish:ci": "esno ./scripts/publish.js",
+    "release": "esno ./scripts/release.js && git push --follow-tags"
   },
   "lint-staged": {
     "*.{js,vue}": "eslint --fix"
@@ -21,7 +22,6 @@
   "license": "MIT",
   "devDependencies": {
     "consola": "^2.15.0",
-    "@marvr/storyblok-rich-text-vue-renderer": "^2.0.1",
     "@nuxtjs/eslint-config": "^5.0.0",
     "@nuxtjs/eslint-module": "^3.0.1",
     "@nuxtjs/tailwindcss": "https://github.com/nuxt-community/tailwindcss-module#feat/tailwindcss2",
@@ -33,21 +33,11 @@
     "eslint-plugin-vue": "^7.1.0",
     "husky": "^4.3.0",
     "lint-staged": "^10.4.0",
-    "lodash.clonedeep": "^4.5.0",
-    "lodash.get": "^4.4.2",
-    "lodash.intersection": "^4.4.0",
-    "lodash.isequal": "^4.5.0",
-    "lodash.kebabcase": "^4.1.1",
-    "lodash.map": "^4.6.0",
-    "lodash.mapvalues": "^4.6.0",
-    "lodash.merge": "^4.6.2",
-    "lodash.pick": "^4.4.0",
-    "lodash.range": "^3.2.0",
     "prettier": "^2.1.2",
     "slugify": "^1.4.6",
     "tailwindcss": "^1.9.6",
     "vue-clickaway": "^2.2.2",
-    "vue-lazy-hydration": "^2.0.0-beta.4",
-    "esno": "^0.3.0"
+    "esno": "^0.3.0",
+    "version-bump-prompt": "^6.1.0"
   }
 }
