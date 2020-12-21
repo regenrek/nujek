@@ -21,11 +21,14 @@
     "url": "https://github.com/regenrek/nujek/issues"
   },
   "homepage": "https://github.com/regenrek/nujek#readme",
-  "devDependencies": {
+  "dependencies": {
+    "storyblok-nuxt": "^1.3.0",
     "@wearewondrous/nuxt-storyblok-queries": "https://github.com/regenrek/nuxt-storyblok-queries#master",
     "@wearewondrous/nuxt-storyblok-router": "^1.5.2",
-    "@marvr/storyblok-rich-text-vue-renderer": "^2.0.1",
-    "vue-lazy-hydration": "^2.0.0-beta.4",
-    "@nujek/shared": "^0.0.1"
+    "@marvr/storyblok-rich-text-vue-renderer": "^2.0.1"
+  },
+  "devDependencies": {
+    "@nujek/shared": "^0.0.1",
+    "vue-lazy-hydration": "^2.0.0-beta.4"
   }
 }
