@@ -1,0 +1,24 @@
+{
+  "name": "@nujek/shared",
+  "description": "Nujek - Shared Components",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/regenrek/nujek.git"
+  },
+  "keywords": [
+    "nuxt",
+    "nuxtjs",
+    "nuxt ui",
+    "nuxtjs ui",
+    "nuxt storyblok",
+    "nuxtjs storyblok"
+  ],
+  "author": "Kevin Regenrek <https://github.com/regenrek>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/regenrek/nujek/issues"
+  },
+  "homepage": "https://github.com/regenrek/nujek#readme"
+}

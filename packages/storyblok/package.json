@@ -1,0 +1,31 @@
+{
+  "name": "@nujek/storyblok",
+  "description": "Nujek - Storyblok Components",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/regenrek/nujek.git"
+  },
+  "keywords": [
+    "nuxt",
+    "nuxtjs",
+    "nuxt ui",
+    "nuxtjs ui",
+    "nuxt storyblok",
+    "nuxtjs storyblok"
+  ],
+  "author": "Kevin Regenrek <https://github.com/regenrek>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/regenrek/nujek/issues"
+  },
+  "homepage": "https://github.com/regenrek/nujek#readme",
+  "devDependencies": {
+    "@wearewondrous/nuxt-storyblok-queries": "https://github.com/regenrek/nuxt-storyblok-queries#master",
+    "@wearewondrous/nuxt-storyblok-router": "^1.5.2",
+    "@marvr/storyblok-rich-text-vue-renderer": "^2.0.1",
+    "vue-lazy-hydration": "^2.0.0-beta.4",
+    "@nujek/shared": "^0.0.1"
+  }
+}
