@@ -8,7 +8,7 @@ export default async function ({
 }) {
   const logger = consola.withScope('@nujek/storyblok')
 
-  await this.requireModule('@nujek/core', { withConsole })
+  // await this.requireModule('@nujek/core', { withConsole })
 
   if (!disableAutoModuleLoad) {
     if (!storyblokConfig) {
@@ -17,15 +17,15 @@ export default async function ({
 
     console.log('Storyblok config', storyblokConfig)
 
-    await this.requireModule('storyblok-nuxt', storyblokConfig)
-    await this.requireModule(
+    await this.requireModule(['storyblok-nuxt', storyblokConfig])
+    await this.requireModule([
       '@wearewondrous/nuxt-storyblok-queries',
       storyblokConfig
-    )
-    await this.requireModule(
+    ])
+    await this.requireModule([
       '@wearewondrous/nuxt-storyblok-router',
       storyblokConfig
-    )
+    ])
 
     console.success({
       message: 'Storyblok modules ready',

@@ -4,27 +4,26 @@ import consola from 'consola'
 export default function ({ withConsole = false }) {
   const logger = consola.withScope('@nujek/ui')
 
-  this.nuxt.hook('builder:extendPlugins', (plugins) => {
-    plugins.push({
-      ssr: true,
-      src: resolve(__dirname, 'plugins', 'init-store.js')
-    })
-  })
+  // this.nuxt.hook('builder:extendPlugins', (plugins) => {
+  //   plugins.push({
+  //     ssr: true,
+  //     src: resolve(__dirname, 'plugins', 'init-store.js')
+  //   })
+  // })
 
   this.nuxt.hook('components:extend', (components) => {
     // this.addPlugin({
     //   src: resolve(__dirname, 'plugins/init-store.js'),
     //   options: {}
     // })
-
-    console.success({
-      message: '@nujek/ui',
-      additional: `store initialzed ${resolve(
-        __dirname,
-        'plugins/init-store.js'
-      )}`,
-      badge: true
-    })
+    // console.success({
+    //   message: '@nujek/ui',
+    //   additional: `store initialzed ${resolve(
+    //     __dirname,
+    //     'plugins/init-store.js'
+    //   )}`,
+    //   badge: true
+    // })
   })
 
   this.nuxt.hook('components:dirs', (dirs) => {

@@ -189,6 +189,16 @@
     "@nodelib/fs.scandir" "2.1.3"
     fastq "^1.6.0"
 
+"@nujek/core@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.npmjs.org/@nujek/core/-/core-0.0.1.tgz#e54c75a2845ac18700bdb1a43f3a3c7a3fc34af4"
+  integrity sha512-4GeN0fy7Luykx2gSUDqxU02iCRs4Ny25QYWCrSAbwkxE2OH6JW11HLOhh/mnKR4uhx096QN2SOAXaaBBnT+Rhw==
+
+"@nujek/shared@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.npmjs.org/@nujek/shared/-/shared-0.0.1.tgz#83a0f2ce15872ec6d53382f04bced388165d88f6"
+  integrity sha512-bb+GozQjLX5+2sKCkoLArBCJbByIxi0bkqxnEFFEsdXE4lYcz/B0vEQ7kDyaQou6LQWF0F4es8RmOKwQxSZEdg==
+
 "@nuxtjs/eslint-config@^5.0.0":
   version "5.0.0"
   resolved "https://registry.npmjs.org/@nuxtjs/eslint-config/-/eslint-config-5.0.0.tgz#d66143ee4ada9d944de0bfbe2d7e4693a2e20d60"

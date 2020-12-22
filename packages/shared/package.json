@@ -1,7 +1,7 @@
 {
   "name": "@nujek/shared",
   "description": "Nujek - Shared Components",
-  "version": "0.0.1",
+  "version": "0.0.6",
   "main": "index.js",
   "repository": {
     "type": "git",
