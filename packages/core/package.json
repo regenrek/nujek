@@ -1,7 +1,7 @@
 {
   "name": "@nujek/core",
   "description": "Nujek core framework",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -22,6 +22,6 @@
   },
   "homepage": "https://github.com/regenrek/nujek#readme",
   "dependencies": {
-    "@nujek/shared": "^0.0.1"
+    "@nujek/shared": "^0.0.7"
   }
 }
