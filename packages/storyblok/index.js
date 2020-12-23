@@ -12,10 +12,8 @@ export default async function ({
 
   if (!disableAutoModuleLoad) {
     if (!storyblokConfig) {
-      consola.warn('Storyblok Configuration is empty')
+      logger.warn('Storyblok Configuration is empty')
     }
-
-    console.log('Storyblok config', storyblokConfig)
 
     await this.requireModule(['storyblok-nuxt', storyblokConfig])
     await this.requireModule([
@@ -27,7 +25,7 @@ export default async function ({
       storyblokConfig
     ])
 
-    console.success({
+    logger.success({
       message: 'Storyblok modules ready',
       additional: `Module storyblok-nuxt registered.\nModule '@wearewondrous/nuxt-storyblok-queries' registered.\nModule '@wearewondrous/nuxt-storyblok-router' registered.`,
       badge: true
