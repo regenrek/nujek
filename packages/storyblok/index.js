@@ -1,10 +1,12 @@
 import { join, resolve } from 'path'
 import consola from 'consola'
+import { toPascalCase } from '@nujek/shared'
 
 export default async function ({
   storyblokConfig = {},
   withConsole = false,
-  disableAutoModuleLoad = false
+  disableAutoModuleLoad = false,
+  debug = false
 }) {
   const logger = consola.withScope('@nujek/storyblok')
 
@@ -56,6 +58,32 @@ export default async function ({
       logger.success({
         message: '@nujek/storyblok - rich-text-renderer added'
       })
+    }
+
+    if (debug) {
+      // grab all possible prefixes
+      const prefixes = [
+        ...new Set(
+          components
+            .filter((c) => !c.async)
+            .map((c) => {
+              const filename = c.filePath.split('\\').pop()
+              const componentName = filename.replace('.vue', '')
+              const re = new RegExp(`${toPascalCase(componentName)}$`)
+              return c.pascalName.replace(re, '')
+            })
+        )
+      ]
+
+      if (withConsole) {
+        logger.success({
+          message: 'prefixes for debug mode added',
+          additional: `items as dynamic components (with prefixes: ${prefixes
+            .map((prefix) => `'${prefix}'`)
+            .join(', ')})`,
+          badge: true
+        })
+      }
     }
   })
 
