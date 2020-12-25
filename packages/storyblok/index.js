@@ -34,19 +34,6 @@ export default async function ({
     })
   }
 
-  this.nuxt.hook('builder:extendPlugins', (plugins) => {
-    // const { dst } = this.addTemplate({
-    //   src: resolve(__dirname, 'filters/index.js'),
-    //   fileName: 'nujek-filters.js',
-    //   options: {}
-    // })
-    //
-    // plugins.push({
-    //   ssr: true,
-    //   src: resolve(this.options.buildDir, dst)
-    // })
-  })
-
   this.nuxt.hook('components:extend', (components) => {
     // Add rich text renderer
     this.addPlugin({
@@ -74,6 +61,11 @@ export default async function ({
             })
         )
       ]
+
+      this.addPlugin({
+        src: resolve(__dirname, 'plugins/dynamic-bloks.js'),
+        options: {}
+      })
 
       if (withConsole) {
         logger.success({

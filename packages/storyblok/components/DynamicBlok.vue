@@ -68,7 +68,10 @@ export default {
     lazyComponent() {
       console.log('lazy', this.name)
       //return this.hydrate ? this.hydrate(this.name) : this.name
-      return this.name
+      return this.$nuxtDynamic.debug &&
+        this.$nuxtDynamic.prefixes.includes(toPascalCase(this.name))
+        ? this.name
+        : 'BlokDebug'
     }
   },
   methods: {
