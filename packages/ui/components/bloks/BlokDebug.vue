@@ -32,7 +32,7 @@
 
 <script>
 export default {
-  name: 'DebugComponent'
+  name: 'BlokDebug'
 }
 </script>
 

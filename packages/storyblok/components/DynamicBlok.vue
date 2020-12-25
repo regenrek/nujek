@@ -53,18 +53,6 @@ export default {
     hydrate() {
       return this[`hydrate${this.hydration}`] ?? null
     },
-    componentLoader() {
-      const prefixes = ['Blok']
-      const loaders = ['', ...prefixes]
-        .map((prefix) => {
-          const name = `Lazy${prefix}${toPascalCase(this.name)}`
-          return name in this.$nuxtDynamic.loaders
-            ? this.$nuxtDynamic.loaders[name]
-            : null
-        })
-        .filter((loader) => loader)
-      return loaders.shift() ?? null
-    },
     lazyComponent() {
       console.log('lazy', this.name)
       //return this.hydrate ? this.hydrate(this.name) : this.name
