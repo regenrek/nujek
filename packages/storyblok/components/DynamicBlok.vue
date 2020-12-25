@@ -59,7 +59,7 @@ export default {
       return this.$nuxtDynamic.debug &&
         this.$nuxtDynamic.prefixes.includes(toPascalCase(this.name))
         ? this.name
-        : 'BlokDebug'
+        : 'blok-debug'
     }
   },
   methods: {
