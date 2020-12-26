@@ -5,7 +5,7 @@
     "packages/*"
   ],
   "version": "--preid",
-  "description": "Nuxt storyblok starter module",
+  "description": "Nujek - Nuxt storyblok starter module",
   "scripts": {
     "publish:ci": "esno ./scripts/publish.js",
     "release": "esno ./scripts/release.js && git push --follow-tags"
