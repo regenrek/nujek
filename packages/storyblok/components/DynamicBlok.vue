@@ -54,12 +54,19 @@ export default {
       return this[`hydrate${this.hydration}`] ?? null
     },
     lazyComponent() {
-      console.log('lazy', this.name)
-      //return this.hydrate ? this.hydrate(this.name) : this.name
-      return this.$nuxtDynamic.debug &&
-        this.$nuxtDynamic.prefixes.includes(toPascalCase(this.name))
-        ? this.name
-        : 'blok-debug'
+      const component = this.$nuxtDynamic.prefixes.includes(
+        toPascalCase(this.name)
+      )
+
+      if (!component) {
+        if (this.$nuxtDynamic.debug) {
+          return 'blok-debug'
+        } else {
+          return 'blok-debug'
+        }
+      }
+
+      return this.name
     }
   },
   methods: {

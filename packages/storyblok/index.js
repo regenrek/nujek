@@ -64,7 +64,7 @@ export default async function ({
 
       this.addPlugin({
         src: resolve(__dirname, 'plugins/dynamic-bloks.js'),
-        options: {}
+        options: { debug, prefixes }
       })
 
       if (withConsole) {
