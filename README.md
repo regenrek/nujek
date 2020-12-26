@@ -7,7 +7,7 @@ I highly recommend to use [Nuxt Storyblok Starter Kit](https://github.com/regenr
 Helping you to stay productive following and eliminating repetive tasks. 
 
 - 🎲 &nbsp;Demos on CodeSandbox - WIP
-- 📖 [&nbsp;Read the documentation](https://nujek.vercel.app/)
+- 📖 [&nbsp;Read the documentation](https://nujek-docs.vercel.app/)
 
 ## Contribute
 
@@ -18,7 +18,7 @@ git clone git@github.com:regenrek/nujek.git nujek
 yarn # install
 ```
 
-- 📖 [&nbsp;Read the documentation](https://nujek.vercel.app/)
+- 📖 [&nbsp;Read the documentation](https://nujek-docs.vercel.app/)
 
 ## What's inside
 
