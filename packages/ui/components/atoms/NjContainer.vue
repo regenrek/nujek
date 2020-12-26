@@ -23,7 +23,7 @@ export default {
       type: String,
       default: ''
     },
-    imagePath: {
+    bgImage: {
       type: String,
       default: ''
     }
@@ -31,15 +31,15 @@ export default {
   computed: {
     bgImageStyle() {
       return {
-        ...(this.imagePath && { backgroundImage: `url(${this.imagePath})` })
+        ...(this.bgImage && { backgroundImage: `url(${this.bgImage})` })
       }
     },
     classes() {
       return [
         {
-          ...((this.imagePath && ['bg-cover', 'bg-center']) || []),
-          [`pxo-1 lg:pxo-1 xxl:px-12 ${
-            this.maxWidth || 'xxl:max-w-page'
+          ...((this.bgImage && ['bg-cover', 'bg-center']) || []),
+          [`pxo-2 lg:px-2 xxl:px-12 ${
+            this.maxWidth || 'xxl:max-w-container'
           }`]: !this.isFullWidth
         },
         { 'mx-auto': this.isCentered }

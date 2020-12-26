@@ -65,7 +65,6 @@ export default {
     },
     placeholderImage: {
       type: String,
-      //default: require('../../../assets/images/placeholder.png')
       default: ''
     }
   },

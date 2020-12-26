@@ -1,12 +1,16 @@
 <template>
-  <component :is="tag" class="nj-section relative" :class="classes">
-    <div :class="bgImageClass" :style="bgImageStyle">
-      <slot />
+  <component :is="tag" class="nj-section flex" :class="classes">
+    <div :class="bgImageClasses" :style="bgImageStyle">
+      <div :class="containerClasses">
+        <slot />
+      </div>
     </div>
   </component>
 </template>
 
 <script>
+// @TODO: Variants boxed-center - e.g.
+
 export default {
   props: {
     tag: {
@@ -14,13 +18,16 @@ export default {
       default: 'div',
       validator: (value) => ['div', 'section'].includes(value)
     },
-    imagePath: {
+    bgImage: {
       type: String,
       default: ''
     },
-    sectionSpacing: {
-      type: Boolean,
-      default: false
+    position: {
+      type: String,
+      default: '',
+      validator: function (value) {
+        return ['left', 'center', 'right'].indexOf(value) !== -1
+      }
     },
     width: {
       type: String,
@@ -29,7 +36,7 @@ export default {
         return ['content', 'boxed', 'full-width'].indexOf(value) !== -1
       }
     },
-    vSpacing: {
+    spacingY: {
       type: Boolean,
       default: false
     }
@@ -37,31 +44,33 @@ export default {
   computed: {
     bgImageStyle() {
       return {
-        ...(this.imagePath && { backgroundImage: `url(${this.imagePath})` })
+        ...(this.bgImage && { backgroundImage: `url(${this.bgImage})` })
       }
     },
-    bgImageClass() {
+    bgImageClasses() {
       return [
-        ...((this.imagePath && ['bg-cover', 'bg-center']) || []),
-        ...((this.imagePath &&
-          this.sectionSpacing && [
-            'pto-1',
-            'xxl:pt-24',
-            'pbo-1',
-            'xxl:pb-24'
-          ]) ||
-          []),
+        ...((this.bgImage && ['bg-cover', 'bg-center']) || []),
         {
           'mxo-05': this.isContent,
-          'w-full': !this.imagePath
+          'w-full': !this.bgImage
         }
       ]
+    },
+    containerClasses() {
+      return [...(!this.isFullWidth && ['xxl:max-w-container'])]
     },
     classes() {
       return [
         ...((!this.isFullWidth && ['xxl:max-w-page', 'mx-auto', 'w-full']) ||
           []),
-        ...((this.vSpacing && ['my-8', 'lg:my-12', 'xl:my-16']) || [])
+        ...((this.vSpacing && ['my-8', 'lg:my-12', 'xl:my-16']) || []),
+        ...((this.position === 'left' && ['justify-start']) ||
+          (this.position === 'center' && 'justify-center') ||
+          (this.position && 'justify-end') ||
+          []),
+        {
+          'justify-center': this.isCenter
+        }
       ]
     },
     spacingClass() {

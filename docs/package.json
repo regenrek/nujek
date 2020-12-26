@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "generate": "nuxt generate",
+    "now-build": "yarn generate",
+    "build": "nuxt generate"
+  },
+  "devDependencies": {
+    "@nuxt/content-theme-docs": "^0.8.1",
+    "nuxt": "^2.14.7"
+  }
+}
