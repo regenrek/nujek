@@ -63,7 +63,7 @@ export default {
       return [
         ...((!this.isFullWidth && ['xxl:max-w-page', 'mx-auto', 'w-full']) ||
           []),
-        ...((this.vSpacing && ['my-8', 'lg:my-12', 'xl:my-16']) || []),
+        ...((this.spacingY && ['my-8', 'lg:my-12', 'xl:my-16']) || []),
         ...((this.position === 'left' && ['justify-start']) ||
           (this.position === 'center' && 'justify-center') ||
           (this.position && 'justify-end') ||
@@ -72,9 +72,6 @@ export default {
           'justify-center': this.isCenter
         }
       ]
-    },
-    spacingClass() {
-      return []
     },
     isFullWidth() {
       return this.width === 'full-width'
