@@ -189,15 +189,19 @@
     "@nodelib/fs.scandir" "2.1.3"
     fastq "^1.6.0"
 
-"@nujek/core@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.npmjs.org/@nujek/core/-/core-0.0.1.tgz#e54c75a2845ac18700bdb1a43f3a3c7a3fc34af4"
-  integrity sha512-4GeN0fy7Luykx2gSUDqxU02iCRs4Ny25QYWCrSAbwkxE2OH6JW11HLOhh/mnKR4uhx096QN2SOAXaaBBnT+Rhw==
+"@nujek/nuxt-storyblok-queries@^1.2.11":
+  version "1.2.11"
+  resolved "https://registry.npmjs.org/@nujek/nuxt-storyblok-queries/-/nuxt-storyblok-queries-1.2.11.tgz#2df8b1f680b688d844ef8caeda5b035496a8feb8"
+  integrity sha512-k5UtyxtngU9frmt+WfSKLoMzoZE+cmsyjmmmvmHp1M2sSLdu5Wi2a730rcKVwW7onigwGVEs/2sW2PtE3hMOIA==
+  dependencies:
+    axios "^0.21.0"
+    consola "^2.15.0"
+    storyblok-js-client "^2.5.2"
 
-"@nujek/shared@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.npmjs.org/@nujek/shared/-/shared-0.0.1.tgz#83a0f2ce15872ec6d53382f04bced388165d88f6"
-  integrity sha512-bb+GozQjLX5+2sKCkoLArBCJbByIxi0bkqxnEFFEsdXE4lYcz/B0vEQ7kDyaQou6LQWF0F4es8RmOKwQxSZEdg==
+"@nujek/shared@^0.0.7":
+  version "0.0.7"
+  resolved "https://registry.npmjs.org/@nujek/shared/-/shared-0.0.7.tgz#9be29235128bdd3b6659917f52e40ec8b59f3ece"
+  integrity sha512-lbcbztHFzYBD+ibb+DHJlWYENj5jXoIl039kET50UmPXFKaIFP90u98WT9atzoccbDWklFxC4F2a1BnsdCfEew==
 
 "@nuxtjs/eslint-config@^5.0.0":
   version "5.0.0"
@@ -342,13 +346,6 @@
   dependencies:
     "@typescript-eslint/types" "4.10.0"
     eslint-visitor-keys "^2.0.0"
-
-"@wearewondrous/nuxt-storyblok-queries@https://github.com/regenrek/nuxt-storyblok-queries#master":
-  version "1.2.8"
-  resolved "https://github.com/regenrek/nuxt-storyblok-queries#4899613ca5c3b224ddf628be7ac843e41d95527f"
-  dependencies:
-    consola "^2.15.0"
-    storyblok-js-client "^2.5.2"
 
 "@wearewondrous/nuxt-storyblok-router@^1.5.2":
   version "1.5.2"
@@ -522,6 +519,13 @@ axios@^0.19.0:
   integrity sha512-fjgm5MvRHLhx+osE2xoekY70AhARk3a6hkN+3Io1jc00jtquGvxYlKlsFUhmUET0V5te6CcZI7lcv2Ym61mjHA==
   dependencies:
     follow-redirects "1.5.10"
+
+axios@^0.21.0:
+  version "0.21.1"
+  resolved "https://registry.npmjs.org/axios/-/axios-0.21.1.tgz#22563481962f4d6bde9a76d516ef0e5d3c09b2b8"
+  integrity sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA==
+  dependencies:
+    follow-redirects "^1.10.0"
 
 babel-eslint@^10.1.0:
   version "10.1.0"
@@ -1398,6 +1402,11 @@ follow-redirects@1.5.10:
   dependencies:
     debug "=3.1.0"
 
+follow-redirects@^1.10.0:
+  version "1.13.1"
+  resolved "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.13.1.tgz#5f69b813376cee4fd0474a3aba835df04ab763b7"
+  integrity sha512-SSG5xmZh1mkPGyKzjZP8zLjltIfpW32Y5QpdNJyjcfGxK3qo3NDDkZOZSFiGn1A6SclQxY9GzEwAHQ3dmYRWpg==
+
 fresh@^0.5.2:
   version "0.5.2"
   resolved "https://registry.npmjs.org/fresh/-/fresh-0.5.2.tgz#3d8cadd90d976569fa835ab1f8e4b23a105605a7"
@@ -1813,6 +1822,11 @@ jsonfile@^6.0.1:
     universalify "^2.0.0"
   optionalDependencies:
     graceful-fs "^4.1.6"
+
+lazysizes@^5.3.0-beta1:
+  version "5.3.0-beta1"
+  resolved "https://registry.npmjs.org/lazysizes/-/lazysizes-5.3.0-beta1.tgz#a2fa48145b28f8cf54df5d20aa8a47b63fa35641"
+  integrity sha512-4ZEoV4UXvz5L96XBuaFphGlq8BVi78kIA4kL3ls2qSYMEgGBdXMgsh8u+bTVjbdwbXfzXtWc71OH4EfEEPVZoA==
 
 levn@^0.4.1:
   version "0.4.1"
