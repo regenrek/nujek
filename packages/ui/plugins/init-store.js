@@ -1,13 +1,15 @@
-import { registerNavStore } from '../store/nav'
+import { state, mutations, getters, actions } from '../store/nav'
 
-const vuex = {
-  moduleName: 'nav',
-  syncNavOpen: true
-}
-
-export default async (context) => {
+export default (context) => {
   const { store } = context
-  console.log('registerNavStore', vuex, store)
 
-  registerNavStore(store, vuex)
+  store.registerModule('nav', {
+    namespaced: true,
+    state,
+    actions,
+    mutations,
+    getters
+  })
+
+  console.log('registerNavStore', store)
 }

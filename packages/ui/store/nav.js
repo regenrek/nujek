@@ -1,45 +1,41 @@
-export const registerNavStore = (store, vuex) => {
-  store.registerModule(
-    vuex.moduleName,
-    {
-      namespaced: true,
-      state: () => ({
-        ...(vuex.syncNavOpen ? { navOpen: false } : {})
-      }),
-      actions: {
-        ...(vuex.syncNavOpen
-          ? {
-              setNavbar({ commit }, openclose) {
-                commit('setNavbar', openclose)
-              }
-            }
-          : {}),
-        ...(vuex.syncNavOpen
-          ? {
-              setNavbar({ commit }) {
-                commit('toggle')
-              }
-            }
-          : {})
-      },
-      mutations: {
-        ...(vuex.syncNavOpen
-          ? {
-              setNavbar(state, openclose) {
-                state.navOpen = openclose
-              }
-            }
-          : {}),
-        ...(vuex.syncNavOpen
-          ? {
-              toggle(state) {
-                state.navOpen = !state.navOpen
-              }
-            }
-          : {})
-      },
-      getters: {}
-    },
-    { preserveState: !!store.state[vuex.moduleName] }
-  )
+const types = {
+  SET_NAV: 'SET_NAV',
+  TOGGLE_NAV: 'TOGGLE_NAV'
+}
+
+const state = () => ({
+  navOpen: false
+})
+
+// getters
+const getters = {}
+
+const mutations = {
+  [types.SET_NAV](state, status) {
+    state.showNav = status
+  },
+  [types.TOGGLE_NAV](state) {
+    state.showNav = !state.showNav
+  }
+}
+const actions = {
+  openNav({ commit }) {
+    commit(types.SET_NAV, true)
+  },
+  closeNav({ commit }) {
+    commit(types.SET_NAV, false)
+  },
+  setNav({ commit }, active) {
+    commit(types.SET_NAV, active)
+  },
+  toggle({ commit }) {
+    commit(types.TOGGLE_NAV)
+  }
+}
+
+export default {
+  state,
+  getters,
+  actions,
+  mutations
 }

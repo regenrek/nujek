@@ -18,10 +18,7 @@ export default async function ({
     }
 
     await this.requireModule(['storyblok-nuxt', storyblokConfig])
-    await this.requireModule([
-      '@wearewondrous/nuxt-storyblok-queries',
-      storyblokConfig
-    ])
+    await this.requireModule(['@nujek/nuxt-storyblok-queries', storyblokConfig])
     await this.requireModule([
       '@wearewondrous/nuxt-storyblok-router',
       storyblokConfig
@@ -29,7 +26,7 @@ export default async function ({
 
     logger.success({
       message: 'Storyblok modules ready',
-      additional: `Module storyblok-nuxt registered.\nModule '@wearewondrous/nuxt-storyblok-queries' registered.\nModule '@wearewondrous/nuxt-storyblok-router' registered.`,
+      additional: `Module storyblok-nuxt registered.\nModule '@nujek/nuxt-storyblok-queries' registered.\nModule '@wearewondrous/nuxt-storyblok-router' registered.`,
       badge: true
     })
   }
