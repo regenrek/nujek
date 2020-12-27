@@ -17,14 +17,34 @@ export default function ({ withConsole = false }) {
       fileName: join(ROOT_DIR, 'plugins/init-store.js'),
       options: {}
     })
-    console.success({
-      message: '@nujek/ui',
-      additional: `store initialzed ${resolve(
-        __dirname,
-        'plugins/init-store.js'
-      )}`,
-      badge: true
+
+    if (withConsole) {
+      logger.success({
+        message: '@nujek/ui',
+        additional: `store initialzed ${resolve(
+          __dirname,
+          'plugins/init-store.js'
+        )}`,
+        badge: true
+      })
+    }
+
+    this.addPlugin({
+      src: join(__dirname, 'plugins/lazysizes.js'),
+      fileName: join(ROOT_DIR, 'plugins/lazysizes.js'),
+      options: {}
     })
+
+    if (withConsole) {
+      logger.success({
+        message: '@nujek/ui',
+        additional: `lazysizes initialzed ${resolve(
+          __dirname,
+          'plugins/lazysizes.js'
+        )}`,
+        badge: true
+      })
+    }
   })
 
   this.nuxt.hook('components:dirs', (dirs) => {

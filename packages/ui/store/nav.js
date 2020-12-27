@@ -12,10 +12,10 @@ const getters = {}
 
 const mutations = {
   [types.SET_NAV](state, status) {
-    state.showNav = status
+    state.navOpen = status
   },
   [types.TOGGLE_NAV](state) {
-    state.showNav = !state.showNav
+    state.navOpen = !state.navOpen
   }
 }
 const actions = {
