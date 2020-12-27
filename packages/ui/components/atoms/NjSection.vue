@@ -24,7 +24,7 @@ export default {
     },
     position: {
       type: String,
-      default: '',
+      default: 'center',
       validator: function (value) {
         return ['left', 'center', 'right'].indexOf(value) !== -1
       }
