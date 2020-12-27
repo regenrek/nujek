@@ -5,10 +5,6 @@ category: Getting started
 position: 2
 ---
 
-## Nujek Starter Project
-
-If you want to see this module package in action please look at [regenrek/nuxt-storyblok-starter](https://github.com/regenrek/nuxt-storyblok-starter) project. 
-
 ## Quick start
 
 First, install @nujek modules and its recommend depencendy modules like

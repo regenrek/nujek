@@ -69,10 +69,6 @@ module.exports = {
 <NjBurger />
 ```
 
-**Result**
-
-@TODO
-
 ### `<NjSection>`
 
 **Props**
@@ -123,10 +119,6 @@ module.exports = {
 }
 ```
 
-**Result**
-
-@TODO
-
 ### `<NjImage>`
 
 **Hint:** If you want to show images from storyblok please use [`SbImage`](#sbimage)`. 
@@ -172,10 +164,6 @@ module.exports = {
 <NjBurger />
 ```
 
-**Result**
-
-@TODO
-
 ### `<SbImage>`
 
 SbImage is used to handles images from storyblok api. It transforms images on the fly and gives you optimized output on the fly. 
@@ -216,9 +204,23 @@ SbImage is used to handles images from storyblok api. It transforms images on th
 <SbImage :src="image" />
 ```
 
-**Result**
 
-@TODO
+### `<SbRichtext>`
+
+Renders storyblok richtext field with [storyblok-rich-text-vue-renderer](/nujek-storyblok/packages#marvrstoryblok-rich-text-vue-renderer)
+
+**Props**
+
+- `content`
+  - Type: `Object`
+  - Default: `null`
+
+**Example**
+
+```md
+<SbRichtext :text="content" v-if="content" />
+```
+
 
 ## molecules
 
@@ -274,11 +276,6 @@ The following example shows a custom `Nav.vue` component which uses `NjNav` to d
     </template>
   </NjNav>
 ```
-
-**Result**
-
-@TODO
-
 
 ### `<NjSidebar>`
 
