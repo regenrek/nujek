@@ -67,10 +67,7 @@ export default {
         ...((this.position === 'left' && ['justify-start']) ||
           (this.position === 'center' && 'justify-center') ||
           (this.position && 'justify-end') ||
-          []),
-        {
-          'justify-center': this.isCenter
-        }
+          [])
       ]
     },
     isFullWidth() {
