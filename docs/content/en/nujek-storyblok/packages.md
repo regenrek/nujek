@@ -38,23 +38,22 @@ export default {
 
 Nuxt.js module to use storyblok routes and content-types instead of classic `pages/` directory
 
-```
+```bash
 - pages/
 -- LandingPage.vue # Storyblok `LandingPage` content type
-
 ```
 
 ## [`@marvr/storyblok-rich-text-vue-renderer`](https://github.com/MarvinRudolph/storyblok-rich-text-renderer/tree/master/packages/storyblok-rich-text-vue-renderer)
 
 Vue.js plugin for rendering the rich-text content.
 
-```
-// @nujek/ui/components/atoms/SbRuntimeRichtext
+```vue
+// @nujek/ui/components/atoms/SbRichtext
 <SbRichtext
-        v-if="description"
-        :text="description"
-        class="prose lg:prose-lg"
-    />
+  v-if="content"
+  :text="content"
+  class="prose lg:prose-lg"
+/>
 ```
 
 **Docs:** https://storyblok-rich-text-renderer.netlify.app/vue-plugin/usage/#with-nuxt-js
