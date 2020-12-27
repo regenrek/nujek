@@ -52,21 +52,20 @@ export default {
         ...((this.bgImage && ['bg-cover', 'bg-center']) || []),
         {
           'mxo-05': this.isContent,
-          'w-full': !this.bgImage
+          'w-full': !!this.bgImage
         }
       ]
     },
     containerClasses() {
-      return [...(!this.isFullWidth && ['xxl:max-w-container'])]
+      return [...((!this.isFullWidth && ['xxl:max-w-container']) || [])]
     },
     classes() {
       return [
-        ...((!this.isFullWidth && ['xxl:max-w-page', 'mx-auto', 'w-full']) ||
-          []),
+        ...((!this.isFullWidth && ['mx-auto', 'w-full']) || []),
         ...((this.spacingY && ['my-8', 'lg:my-12', 'xl:my-16']) || []),
         ...((this.position === 'left' && ['justify-start']) ||
-          (this.position === 'center' && 'justify-center') ||
-          (this.position && 'justify-end') ||
+          (this.position === 'center' && ['justify-center']) ||
+          (this.position && ['justify-end']) ||
           [])
       ]
     },
