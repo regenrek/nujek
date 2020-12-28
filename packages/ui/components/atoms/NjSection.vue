@@ -1,7 +1,11 @@
 <template>
-  <component :is="tag" class="nj-section flex" :class="classes">
-    <div :class="bgImageClasses" :style="bgImageStyle">
-      <div :class="containerClasses">
+  <component
+    :is="tag"
+    class="nj-section flex"
+    :class="getElementCssClass('wrapper')"
+  >
+    <div :class="getElementCssClass('bgImage')" :style="bgImageStyle">
+      <div :class="getElementCssClass('container')">
         <slot />
       </div>
     </div>
@@ -9,9 +13,11 @@
 </template>
 
 <script>
-// @TODO: Variants boxed-center - e.g.
+import Component from '../../base/Component'
+//import { Component } from 'vue-tailwind'
 
-export default {
+const NjSection = Component.extend({
+  name: 'NjSection',
   props: {
     tag: {
       type: String,
@@ -39,6 +45,25 @@ export default {
     spacingY: {
       type: Boolean,
       default: false
+    },
+    fixedClasses: {
+      type: Object,
+      default() {
+        return {
+          wrapper: 'flex',
+          wrapperFullWidth: 'w-full',
+          wrapperBoxed: 'justify-center',
+          container: '',
+          containerBoxed: 'xl:max-w-container',
+          bgImage: ''
+        }
+      }
+    },
+    classes: {
+      type: Object,
+      default() {
+        return {}
+      }
     }
   },
   computed: {
@@ -57,9 +82,9 @@ export default {
       ]
     },
     containerClasses() {
-      return [...((!this.isFullWidth && ['xxl:max-w-container']) || [])]
+      return [...((!this.isFullWidth && ['xl:max-w-container']) || [])]
     },
-    classes() {
+    wrapperClasses() {
       return [
         ...((!this.isFullWidth && ['mx-auto', 'w-full']) || []),
         ...((this.spacingY && ['my-8', 'lg:my-12', 'xl:my-16']) || []),
@@ -79,5 +104,7 @@ export default {
       return this.width === 'content'
     }
   }
-}
+})
+
+export default NjSection
 </script>
