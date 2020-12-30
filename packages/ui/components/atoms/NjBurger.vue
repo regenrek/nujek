@@ -1,6 +1,5 @@
 <template>
   <div
-    id="burger"
     class="menu-button menu-toggle lg:hidden"
     :class="{ active: navOpen }"
     @click="toggle"
@@ -30,7 +29,6 @@ export default {
   computed: {
     ...mapState({
       navOpen: (state) => state.nav.navOpen
-      // colorMode: (state) => state.header.colorMode
     })
   },
   methods: {
@@ -40,7 +38,7 @@ export default {
   }
 }
 </script>
-<style lang="postcss">
+<style lang="postcss" scoped>
 :root {
   --burger-x: 9px;
   --burger-size: 50px;

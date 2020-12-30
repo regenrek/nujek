@@ -1,5 +1,5 @@
 <template>
-  <div class="nj-grid-post-wrapper grid gap-y-8">
+  <div class="sb-grid grid">
     <slot name="header" />
     <ul
       v-if="collection.length"
@@ -8,17 +8,11 @@
     >
       <li v-for="item in collection" :key="item.uuid" class="w-full">
         <slot name="card" v-bind="{ item }">
-          <component :is="cardName" v-if="cardName" :blok="item">
-            <template #header>
-              <nuxt-link :to="`/${item.full_slug}`">
-                <SbImage
-                  :src="image(item)"
-                  aspect-ratio="16/9"
-                  class="block border border-gray-lightest shadow-vh"
-                />
-              </nuxt-link>
-            </template>
-          </component>
+          <component
+            :is="gridItem(item) | dashify"
+            v-if="gridItem(item)"
+            :blok="{ ...item.content }"
+          />
           <pre v-else>
             {{ item.name }}
           </pre>
@@ -53,7 +47,7 @@ const SORT_BY = 'created_at:desc'
 const RESOLVE_RELATIONS = ''
 const PER_PAGE = 12
 const RESOLVE_LINKS = ''
-const CARD_STYLE_DEFAULT = 'nj-card'
+const CARD_STYLE_DEFAULT = 'NjCard'
 
 export default {
   name: 'SbGrid',
@@ -82,6 +76,16 @@ export default {
       type: Number,
       default: 3,
       validator: (value) => [1, 2, 3, 4].includes(value)
+    },
+    disableFetch: {
+      type: Boolean,
+      default: false
+    },
+    dataSource: {
+      type: Array,
+      default() {
+        return []
+      }
     }
   },
   data() {
@@ -95,6 +99,10 @@ export default {
     }
   },
   async fetch() {
+    if (this.disable_fetch) {
+      return
+    }
+
     const { $storyblok, error } = this.$nuxt.context
 
     await $storyblok
@@ -120,6 +128,8 @@ export default {
         }
 
         this.collection = stories
+
+        console.log('Collection fetched', this.collection)
       })
       .catch((res) => {
         error(res)
@@ -177,6 +187,9 @@ export default {
         item.content?.featuredImage?.length &&
         (item.content.featuredImage || item.content?.featuredImage)
       )
+    },
+    gridItem(item) {
+      return item?.content?.component
     }
   }
 }

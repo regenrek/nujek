@@ -42,6 +42,7 @@ module.exports = {
         math: 'always'
       }
     ],
+    'comma-dangle': ['error', 'never'],
     'vue/max-attributes-per-line': 'off',
     'vue/no-v-html': 'off',
     'no-unused-vars': ['warn'],
