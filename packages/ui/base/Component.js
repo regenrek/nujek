@@ -41,12 +41,13 @@ const mergeClasses = (classesA, classesB) => {
 }
 
 const Component = Vue.extend({
+  inject: ['$nujekConfig'],
   props: {
     classes: {
       type: [String, Array, Object],
       default: undefined
     },
-    fixedClasses: {
+    defaultClasses: {
       type: [String, Array, Object],
       default: undefined
     },
@@ -59,7 +60,6 @@ const Component = Vue.extend({
       default: undefined
     }
   },
-
   computed: {
     componentClass() {
       return this.getElementCssClass()
@@ -77,51 +77,69 @@ const Component = Vue.extend({
       }
 
       return this.variant
+    },
+    getClasses() {
+      return this.classes || this.$nujekConfig().classes
+    },
+    getVariants() {
+      return this.variants || this.$nujekConfig().variants
+    },
+    getDefaultClasses() {
+      return this.defaultClasses || this.$nujekConfig().defaultClasses
     }
   },
-
   methods: {
-    getElementCssClass(elementName, defaultClasses = '') {
+    getThemeClass(elementName, overrideDefaultClasses = '') {
       let classes
 
       if (elementName) {
         if (this.activeVariant) {
           const elementVariant = get(
-            this.variants,
+            this.getVariants,
             `${this.activeVariant}.${elementName}`
           )
+
           // If the variant exists but not for the element fallback to the default
           if (
             elementVariant === undefined &&
-            get(this.variants, this.activeVariant) !== undefined
+            get(this.getVariants, this.activeVariant) !== undefined
           ) {
-            classes = get(this.classes, elementName, defaultClasses)
+            classes = get(this.getClasses, elementName, overrideDefaultClasses)
           } else {
             classes =
-              elementVariant === undefined ? defaultClasses : elementVariant
+              elementVariant === undefined
+                ? overrideDefaultClasses
+                : elementVariant
           }
         } else {
-          classes = get(this.classes, elementName, defaultClasses)
+          classes = get(this.getClasses, elementName, overrideDefaultClasses)
         }
 
-        const fixedClasses = get(this.fixedClasses, elementName)
+        console.log('CLASSES', classes)
 
-        if (fixedClasses) {
-          return mergeClasses(fixedClasses, classes)
+        const defaultClasses = get(this.getDefaultClasses, elementName)
+
+        if (defaultClasses) {
+          return mergeClasses(defaultClasses, classes)
         }
 
         return classes
       }
 
       if (this.activeVariant) {
-        classes = get(this.variants, this.activeVariant, defaultClasses)
+        classes = get(this.variants, this.activeVariant, overrideDefaultClasses)
       } else {
-        classes = this.classes === undefined ? defaultClasses : this.classes
+        classes =
+          this.getClasses === undefined
+            ? overrideDefaultClasses
+            : this.getClasses
       }
 
-      if (this.fixedClasses) {
-        return mergeClasses(this.fixedClasses, classes)
+      if (this.getDefaultClasses) {
+        return mergeClasses(this.getDefaultClasses, classes)
       }
+
+      console.log('CONFIG', this.$nujekConfig())
 
       return classes
     }

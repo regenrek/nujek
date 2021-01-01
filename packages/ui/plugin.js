@@ -1,4 +1,6 @@
-const configure = (component, props) => {
+import Vue from 'vue'
+
+export const getConfig = (component, props) => {
   const componentProps = component?.options?.props
 
   if (!props || !componentProps) {
@@ -14,54 +16,23 @@ const configure = (component, props) => {
       return
     }
     const newDefaultValue = props[customPropName]
-
-    console.log('install', newDefaultValue)
-
-    customProps[customPropName] = {
-      type: defaultProp?.type,
-      default: ['object', 'function'].includes(typeof newDefaultValue)
-        ? () => newDefaultValue
-        : newDefaultValue
-    }
+    customProps[customPropName] = newDefaultValue
   })
 
-  return component.extend({
-    props: customProps
-  })
+  return customProps
 }
 
-// install function executed by Vue.use()
-// eslint-disable-next-line max-len
 const install = function installNujek(vueInstance, settings) {
-  if (install.installed) return
-
-  install.installed = true
-
-  // eslint-disable-next-line no-param-reassign
-  vueInstance.prototype.$nujek = true
-
-  if (!settings) {
-    return
-  }
-
-  Object.keys(settings).forEach((componentName) => {
-    const componentSettings = settings[componentName]
-
-    if (
-      typeof componentSettings === 'function' &&
-      typeof componentSettings.extend !== undefined
-    ) {
-      const component = componentSettings
-      vueInstance.component(componentName, configure(component))
-      return
-    }
-
-    const { component, props } = componentSettings
-
-    vueInstance.component(
-      componentName.replace('nj', 'n'),
-      configure(component, props)
-    )
+  Vue.mixin({
+    // Dependency injection forces us to explicitly require that function
+    provide: {
+      $nujekConfig(componentName) {
+        const componentSettings = settings[componentName || this.$options.name]
+        const { component, props } = componentSettings
+        return getConfig(component, props)
+      }
+    },
+    computed: {}
   })
 }
 

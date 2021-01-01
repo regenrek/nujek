@@ -2,10 +2,10 @@
   <component
     :is="tag"
     class="nj-section flex"
-    :class="getElementCssClass('wrapper')"
+    :class="getThemeClass('wrapper')"
   >
-    <div :class="getElementCssClass('bgImage')" :style="bgImageStyle">
-      <div :class="getElementCssClass('container')">
+    <div :class="getThemeClass('bgImage')" :style="bgImageStyle">
+      <div :class="getThemeClass('container')">
         <slot />
       </div>
     </div>
