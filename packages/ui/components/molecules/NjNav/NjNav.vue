@@ -1,27 +1,40 @@
 <template>
-  <div :class="{ fixed }" class="w-full">
-    <header class="nj-nav relative flex justify-between items-center">
-      <div class="flex space-x-1 md:space-x-4 lg:space-x-0 items-center">
-        <slot name="burger-menu" />
+  <div :class="getThemeClass('wrapper')">
+    <slot name="header">
+      <header :class="getThemeClass('header')">
+        <slot name="burger-menu">
+          <NjBurger :open.sync="burgerOpen" />
+        </slot>
         <slot name="logo" />
-      </div>
-      <slot name="nav" />
-      <slot name="toolbar" />
-    </header>
+        <slot name="nav" />
+        <slot name="toolbar" />
+      </header>
+    </slot>
   </div>
 </template>
 <script>
+import Component from '../../base/Component'
 import Vue from 'vue'
 import NjNavItem from './NjNavItem'
 Vue.component('NjNavItem', NjNavItem)
 
-export default {
+const NjNav = Component.extend({
   name: 'NjNav',
   props: {
-    fixed: {
+    burgerOpen: {
       type: Boolean,
-      default: true
+      default: false
+    },
+    classes: {
+      type: Object,
+      default() {
+        return {
+          wrapper: 'w-full fixed',
+          header: 'flex items-center'
+        }
+      }
     }
   }
-}
+})
+export default NjNav
 </script>

@@ -1,14 +1,10 @@
 <template>
-  <div
-    class="menu-button menu-toggle lg:hidden"
-    :class="{ active: navOpen }"
-    @click="toggle"
-  >
+  <div :class="[{ active: navOpen }, getThemeClass('wrapper')]" @click="toggle">
     <slot>
       <button
         type="button"
         class="relative block border-0 cursor-pointer focus:outline-none"
-        :class="[colorMode, { active: navOpen }]"
+        :class="[{ active: open }, getThemeClass('button')]"
         title="Menu"
       >
         <span class="burger-bar--1" />
@@ -19,27 +15,43 @@
   </div>
 </template>
 <script>
-import { mapState, mapActions } from 'vuex'
+// import { mapState, mapActions } from 'vuex'
+import Component from '../../base/Component'
 
-export default {
-  data: () => ({
-    status: 0, // 1: moving, 2:leaving , 0:normal
-    colorMode: 'light'
-  }),
-  computed: {
-    ...mapState({
-      navOpen: (state) => state.nav.navOpen
-    })
+const NjBurger = Component.extend({
+  name: 'NjBurger',
+  props: {
+    open: {
+      type: Boolean,
+      default: false
+    }
   },
-  methods: {
-    ...mapActions({
-      toggle: 'nav/toggle'
-    })
+  computed: {
+    model: {
+      get() {
+        return this.open
+      },
+      set(val) {
+        this.$emit('update:open', val)
+      }
+    }
   }
-}
+  // computed: {
+  //   ...mapState({
+  //     navOpen: (state) => state.nav.navOpen
+  //   })
+  // },
+  // methods: {
+  //   ...mapActions({
+  //     toggle: 'nav/toggle'
+  //   })
+  // }
+})
+
+export default NjBurger
 </script>
 <style lang="postcss" scoped>
-:root {
+.burger {
   --burger-x: 9px;
   --burger-size: 50px;
   --burger-thickness: 3px;
@@ -105,5 +117,5 @@ export default {
   .burger-bar--3 {
     transform: rotate(-45deg);
   }
-}
+})
 </style>
