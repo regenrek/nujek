@@ -2,13 +2,16 @@
 title: Packages
 description: ''
 category: Nujek Storyblok
-position: 1
+position: 4
 ---
 
+
+The `@nujek/storyblok` packages will install some useful nuxt modules to quickstart your project. 
 
 ## storyblok-nuxt
 
 **Package:** [`storyblok-nuxt`](https://github.com/storyblok/storyblok-nuxt)
+
 
 
 This is the official storyblok nuxt.js module to connect your app with storyblok cms.
@@ -19,9 +22,7 @@ This is the official storyblok nuxt.js module to connect your app with storyblok
 
 **Hint**: This is a slightly modified version of the official nuxt-storyblok-queries module which has more features and support for storyblok management api
 
-```vue
-// pages/LandingPage.vue
-
+```vue{1,3-5}[pages/LandingPage.js]
 <template>
   <!-- Your template -->
 </template>

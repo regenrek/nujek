@@ -28,12 +28,10 @@ Add @nujek modules to your `nuxt.config.js` file
   ],
 ```
 
+## External Deps
 
-<alert type="info">
-
-@nuxtjs/composition-api is needed for using [@marvr/storyblok-rich-text-vue-renderer](https://github.com/MarvinRudolph/storyblok-rich-text-renderer/tree/master/packages/storyblok-rich-text-vue-renderer) and @nuxtjs/tailwindcss is needed for @nujek/ui
-
-</alert>
+* @nuxtjs/composition-api -> [@marvr/storyblok-rich-text-vue-renderer](https://github.com/MarvinRudolph/storyblok-rich-text-renderer/tree/master/packages/storyblok-rich-text-vue-renderer) 
+* @nuxtjs/tailwindcss -> @nujek/ui
 
 
 
