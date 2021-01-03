@@ -20,6 +20,11 @@ export default async function ({
 
   if (enableStoryblokNuxt) {
     await this.requireModule(['storyblok-nuxt', storyblokConfig])
+    logger.success({
+      message: 'Storyblok modules ready',
+      additional: `Module '@nujek/storyblok-nuxt' registered.`,
+      badge: true
+    })
   }
 
   if (enableStoryblokRouter) {
@@ -27,17 +32,21 @@ export default async function ({
       '@wearewondrous/nuxt-storyblok-router',
       storyblokConfig
     ])
+    logger.success({
+      message: 'Storyblok modules ready',
+      additional: `Module '@nujek/nuxt-storyblok-router' registered.`,
+      badge: true
+    })
   }
 
   if (enableStoryblokQueries) {
     await this.requireModule(['@nujek/nuxt-storyblok-queries', storyblokConfig])
+    logger.success({
+      message: 'Storyblok modules ready',
+      additional: `Module '@nujek/nuxt-storyblok-queries' registered.`,
+      badge: true
+    })
   }
-
-  logger.success({
-    message: 'Storyblok modules ready',
-    additional: `Module storyblok-nuxt registered.\nModule '@nujek/nuxt-storyblok-queries' registered.\nModule '@wearewondrous/nuxt-storyblok-router' registered.`,
-    badge: true
-  })
 
   this.nuxt.hook('components:extend', (components) => {
     // Add rich text renderer
