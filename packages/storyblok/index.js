@@ -4,6 +4,7 @@ import { toPascalCase } from '@nujek/shared'
 
 export default async function ({
   storyblokConfig = {},
+  storyblokRouter = true,
   withConsole = false,
   disableAutoModuleLoad = false,
   debug = false
@@ -19,10 +20,13 @@ export default async function ({
 
     await this.requireModule(['storyblok-nuxt', storyblokConfig])
     await this.requireModule(['@nujek/nuxt-storyblok-queries', storyblokConfig])
-    await this.requireModule([
-      '@wearewondrous/nuxt-storyblok-router',
-      storyblokConfig
-    ])
+
+    if (storyblokRouter) {
+      await this.requireModule([
+        '@wearewondrous/nuxt-storyblok-router',
+        storyblokConfig
+      ])
+    }
 
     logger.success({
       message: 'Storyblok modules ready',
