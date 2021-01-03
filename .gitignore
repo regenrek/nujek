@@ -94,3 +94,6 @@ sw.*
 
 # disable vs code counter
 .VSCodeCounter
+
+.nuxt-storybook
+storybook-static
