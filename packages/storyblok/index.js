@@ -5,28 +5,45 @@ import { toPascalCase } from '@nujek/shared'
 export default async function ({
   storyblokConfig = {},
   withConsole = false,
-  disableAutoModuleLoad = false,
+  enableStoryblokRouter = true,
+  enableStoryblokQueries = true,
+  enableStoryblokNuxt = true,
   debug = false
 }) {
   const logger = consola.withScope('@nujek/storyblok')
 
   // await this.requireModule('@nujek/core', { withConsole })
 
-  if (!disableAutoModuleLoad) {
-    if (!storyblokConfig) {
-      logger.warn('Storyblok Configuration is empty')
-    }
+  if (!storyblokConfig) {
+    logger.warn('Storyblok Configuration is empty')
+  }
 
+  if (enableStoryblokNuxt) {
     await this.requireModule(['storyblok-nuxt', storyblokConfig])
-    await this.requireModule(['@nujek/nuxt-storyblok-queries', storyblokConfig])
+    logger.success({
+      message: 'Storyblok modules ready',
+      additional: `Module '@nujek/storyblok-nuxt' registered.`,
+      badge: true
+    })
+  }
+
+  if (enableStoryblokRouter) {
     await this.requireModule([
       '@wearewondrous/nuxt-storyblok-router',
       storyblokConfig
     ])
-
     logger.success({
       message: 'Storyblok modules ready',
-      additional: `Module storyblok-nuxt registered.\nModule '@nujek/nuxt-storyblok-queries' registered.\nModule '@wearewondrous/nuxt-storyblok-router' registered.`,
+      additional: `Module '@nujek/nuxt-storyblok-router' registered.`,
+      badge: true
+    })
+  }
+
+  if (enableStoryblokQueries) {
+    await this.requireModule(['@nujek/nuxt-storyblok-queries', storyblokConfig])
+    logger.success({
+      message: 'Storyblok modules ready',
+      additional: `Module '@nujek/nuxt-storyblok-queries' registered.`,
       badge: true
     })
   }

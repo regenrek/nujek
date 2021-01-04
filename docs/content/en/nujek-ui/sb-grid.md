@@ -6,51 +6,166 @@ position: 2
 ---
 
 
-A wrapper component which is used to `position` and `size` content. By default, it renders a `div` element.
+SbGrid is a powerful component for showing a list of data. 
 
-The `n-section` component helps with the following use cases:
+The `SbGrid` component helps with the following use cases:
 
-* Set `width` and `position` of your inner content with `flexbox`
-* Add a `background image` or `background color` to your section
-* Add optional default spacing to your section with `spacingY` to get consistent section spacings.
-
-### Best practices
-
-We define a section as something which the user can see in his viewport. So we define a section always as root node of a storyblok `blok_<name>` component. So in terms of **storyblok** its the same as a `blok`. If you add a `blok`in your storyblok story you basically always have a `section` wrapper around it.
+* Display a list of components in a grid/list (Team members, products, portfolio items)
+* Archive pages for news or blog items
+* Filter/Sort grid
+* Make items searchable inside a grid
 
 
-### `<n-section>`
 
-**Props**
+## Props
 
-- `bgImage`
+- `blok`
+  - Type: `Object`
+  - Default: `...`
+
+- `searchTerm`
   - Type: `String`
-  - Default: ``
+  - Default: `''`
 
-- `maxWidth`
-  - Type: `String`
-  - Default: ``
+- `filterQuery`
+  - Type: `Object`
+  - Default: `{}`
 
-- `position`
-  - Type: `String`
-  - Default: ``
-  - Values: `['left', 'center', 'right']`
+- `columns`
+  - Type: `Number`
+  - Default: `3`
+  - Values: `[1, 2, 3, 4]`
 
-- `width`
-  - Type: `String`
-  - Default: ``
-  - Values: `['content', 'boxed', 'full-width']`
+## Example
 
-- `spacingY`
-  - Type: `Boolean`
-  - Default: `false`
-  - Desc: Adds default y spacing to Sections
 
-**Example**
+### Using with storyblok
 
-```md
-<NjSection width="boxed" position="center">
-    <h1>My Blog</h1>
-    <p>Lorem ipsum dolor at simet...</p>
-</NjSection>
+The following example shows a storyblok dynamic grid component where
+SbGrid is used to display different types of data (Team members, News e.g.)
+
+
+First define a Storyblok wrapper component where `blok` prop is spreaded
+and forwared to a `CustomGrid` component.
+
+```js[bloks/BlokGrid.js]
+import { forwardProps } from '@nujek/shared'
+import TkGrid from '../molecules/CustomGrid.vue'
+
+export default {
+  name: 'BlokGrid',
+  functional: true,
+  props: ['blok'],
+  render(h, context) {
+    return h(TkGrid, {
+      props: forwardProps(context.props.blok)
+    })
+  }
+}
+
+```
+
+SbGrid is capable of showing dynamic bloks according to the current storyblok slug. 
+All you need todo is to use the `post_type` prop.
+
+```vue[molecules/CustomGrid.vue]
+<template>
+  <NjSection variant="boxed">
+    <NjHeading class="font-fjord leading-13 mb-20" variant="display2" tag="h1">
+      {{ title }}
+    </NjHeading>
+
+    <SbGrid
+      class="gap-y-8"
+      :blok="{ post_type: fullSlug }"
+      :columns="gridCols"
+    />
+  </NjSection>
+</template>
+```
+
+### Other examples
+
+
+```vue
+<template>
+    <SbGrid
+        :blok="{
+            post_type: 'posts',
+            posts_per_page: 3,
+            excluding_slugs: story.full_slug,
+            is_finite: true
+        }"
+    />
+</template>
+```
+
+```vue
+<template>
+    <SbGrid
+        :blok="{
+            post_type: 'kategorien',
+            sort_by: 'name:asc'
+        }"
+    />
+</template>
+```
+
+* Example: Filter by graphql query
+
+```vue
+<template>
+<SbGrid
+    :blok="{
+        post_type: 'blog',
+        posts_per_page: 3,
+        is_finite: true
+    }"
+    v-bind="{
+        filterQuery
+    }"
+/>
+</template>
+<script>
+export default {
+  computed: {
+    filterQuery() {
+      return {
+        user_id: {
+          in: this.user.id
+        }
+      }
+    }
+  }
+}
+</script>
+```
+
+
+```vue
+<template>
+    <SbGrid
+        :blok="{
+            post_type: 'portfolio',
+            posts_per_page: 3,
+            is_finite: true
+        }"
+        v-bind="{
+            columns: 1,
+            filterQuery
+        }"
+    />
+</template>
+```
+## Storyblok Schema
+
+```json[blok_grid]
+{
+  "_uid": "8e119b5d-32b3-4ed1-ab5e-23e9281782xd",
+  "title": "Portfolio",
+  "source": "b9d20c2d-15bc-4x3c-2308-6b29734c2234",
+  "variant": "portfolioGrid",    // Variant is optional
+  "subtitle": "",
+  "component": "blok_grid"
+}
 ```

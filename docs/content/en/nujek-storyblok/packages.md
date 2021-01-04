@@ -22,7 +22,7 @@ This is the official storyblok nuxt.js module to connect your app with storyblok
 
 **Hint**: This is a slightly modified version of the official nuxt-storyblok-queries module which has more features and support for storyblok management api
 
-```vue{1,3-5}[pages/LandingPage.js]
+```vue[pages/LandingPage.js]
 <template>
   <!-- Your template -->
 </template>
