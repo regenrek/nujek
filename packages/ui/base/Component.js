@@ -40,6 +40,9 @@ const mergeClasses = (classesA, classesB) => {
   return [a, b]
 }
 
+// @TODO: $nujekConfig has to be initialized in the future but for now we check
+const isFun = (obj) => !!(obj && obj.constructor && obj.call && obj.apply)
+
 const Component = Vue.extend({
   inject: ['$nujekConfig'],
   props: {
@@ -79,13 +82,25 @@ const Component = Vue.extend({
       return this.variant
     },
     getClasses() {
-      return this.classes || this.$nujekConfig().classes
+      return (
+        this.classes ||
+        (isFun(this.$nujekConfig) && this.$nujekConfig()?.classes) ||
+        []
+      )
     },
     getVariants() {
-      return this.variants || this.$nujekConfig().variants
+      return (
+        this.variants ||
+        (isFun(this.$nujekConfig) && this.$nujekConfig()?.variants) ||
+        []
+      )
     },
     getDefaultClasses() {
-      return this.defaultClasses || this.$nujekConfig().defaultClasses
+      return (
+        this.defaultClasses ||
+        (isFun(this.$nujekConfig) && this.$nujekConfig()?.defaultClasses) ||
+        []
+      )
     }
   },
   methods: {
@@ -115,8 +130,6 @@ const Component = Vue.extend({
           classes = get(this.getClasses, elementName, overrideDefaultClasses)
         }
 
-        console.log('CLASSES', classes)
-
         const defaultClasses = get(this.getDefaultClasses, elementName)
 
         if (defaultClasses) {
@@ -138,8 +151,6 @@ const Component = Vue.extend({
       if (this.getDefaultClasses) {
         return mergeClasses(this.getDefaultClasses, classes)
       }
-
-      console.log('CONFIG', this.$nujekConfig())
 
       return classes
     }

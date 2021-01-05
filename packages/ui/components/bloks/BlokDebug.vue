@@ -21,7 +21,7 @@
       </pre>
           <small
             ><strong>HowTo Implement:</strong> Create a Storyblok Wrapper
-            component in bloks/Blok&lt;Name&gt;.vue. Then Import and use your
+            component in bloks/Blok&lt;Name&gt;.js. Then Import and use your
             custom designed component from ~/components dir</small
           >
         </div>

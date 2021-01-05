@@ -8,7 +8,8 @@
   "description": "Nujek - Nuxt storyblok starter module",
   "scripts": {
     "publish:ci": "esno ./scripts/publish.js",
-    "release": "esno ./scripts/release.js && git push --follow-tags"
+    "release": "esno ./scripts/release.js && git push --follow-tags",
+    "storybook": "npx nuxt storybook"
   },
   "lint-staged": {
     "*.{js,vue}": "eslint --fix"
@@ -24,7 +25,7 @@
     "@nuxtjs/eslint-config": "^5.0.0",
     "@nuxtjs/eslint-module": "^3.0.1",
     "@nuxtjs/storybook": "^3.3.0",
-    "@nuxtjs/tailwindcss": "https://github.com/nuxt-community/tailwindcss-module#feat/tailwindcss2",
+    "@nuxtjs/tailwindcss": "^3.4.2",
     "babel-eslint": "^10.1.0",
     "consola": "^2.15.0",
     "eslint": "^7.10.0",
@@ -35,9 +36,13 @@
     "esno": "^0.3.0",
     "husky": "^4.3.0",
     "lint-staged": "^10.4.0",
+    "nuxt": "^2.14.12",
+    "postcss": "^7",
+    "postcss-import": "^14.0.0",
+    "postcss-nested": "4.2.3",
     "prettier": "^2.1.2",
     "slugify": "^1.4.6",
-    "tailwindcss": "^1.9.6",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "version-bump-prompt": "^6.1.0",
     "vue-clickaway": "^2.2.2"
   }

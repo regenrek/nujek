@@ -1,5 +1,8 @@
 <template>
-  <div :class="[{ active: navOpen }, getThemeClass('wrapper')]" @click="toggle">
+  <div
+    :class="[{ active: open }, getThemeClass('wrapper')]"
+    @click="open = !open"
+  >
     <slot>
       <button
         type="button"
@@ -24,6 +27,12 @@ const NjBurger = Component.extend({
     open: {
       type: Boolean,
       default: false
+    },
+    classes: {
+      type: [String, Array, Object],
+      default: () => ({
+        wrapper: 'burger'
+      })
     }
   },
   computed: {
@@ -117,5 +126,5 @@ export default NjBurger
   .burger-bar--3 {
     transform: rotate(-45deg);
   }
-})
+}
 </style>
