@@ -8,6 +8,7 @@ export default {
   tailwindcss: {
     cssPath: '~/storybook/styles/tailwind.css'
   },
+  plugins: [{ src: '~/storybook/plugins/nujek-ui.js' }],
   build: {
     postcss: {
       plugins: {

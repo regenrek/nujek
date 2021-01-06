@@ -13,7 +13,7 @@
   </div>
 </template>
 <script>
-import Component from '../../base/Component'
+import Component from '../../../base/Component'
 import Vue from 'vue'
 import NjNavItem from './NjNavItem'
 Vue.component('NjNavItem', NjNavItem)
