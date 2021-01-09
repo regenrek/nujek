@@ -50,6 +50,7 @@ module.exports = {
     'no-lonely-if': ['warn'],
     'require-await': ['warn'],
     'handle-callback-err': ['warn'],
-    'vue/custom-event-name-casing': ['off']
+    'vue/custom-event-name-casing': ['off'],
+    'prettier/prettier': 2
   }
 }

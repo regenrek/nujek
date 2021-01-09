@@ -14,12 +14,16 @@
 </template>
 <script>
 import Component from '../../../base/Component'
+import NjBurger from '../../atoms/NjBurger'
 import Vue from 'vue'
 import NjNavItem from './NjNavItem'
 Vue.component('NjNavItem', NjNavItem)
 
 const NjNav = Component.extend({
   name: 'NjNav',
+  components: {
+    NjBurger
+  },
   props: {
     burgerOpen: {
       type: Boolean,

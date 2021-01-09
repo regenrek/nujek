@@ -9,7 +9,8 @@
   "scripts": {
     "publish:ci": "esno ./scripts/publish.js",
     "release": "esno ./scripts/release.js && git push --follow-tags",
-    "storybook": "npx nuxt storybook"
+    "storybook": "npx nuxt storybook",
+    "prettier-format": "prettier --config .prettierrc 'packages/**/*.{js,ts,vue}' --write"
   },
   "lint-staged": {
     "*.{js,vue}": "eslint --fix"

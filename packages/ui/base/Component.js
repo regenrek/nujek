@@ -50,7 +50,7 @@ const Component = Vue.extend({
       type: [String, Array, Object],
       default: undefined
     },
-    defaultClasses: {
+    fixedClasses: {
       type: [String, Array, Object],
       default: undefined
     },
@@ -82,25 +82,13 @@ const Component = Vue.extend({
       return this.variant
     },
     getClasses() {
-      return (
-        this.classes ||
-        (isFun(this.$nujekConfig) && this.$nujekConfig()?.classes) ||
-        []
-      )
+      return this.$nujekConfig()?.classes || this.classes || []
     },
     getVariants() {
-      return (
-        this.variants ||
-        (isFun(this.$nujekConfig) && this.$nujekConfig()?.variants) ||
-        []
-      )
+      return this.$nujekConfig()?.variants || this.variants || []
     },
-    getDefaultClasses() {
-      return (
-        this.defaultClasses ||
-        (isFun(this.$nujekConfig) && this.$nujekConfig()?.defaultClasses) ||
-        []
-      )
+    getFixedClasses() {
+      return this.$nujekConfig()?.fixedClasses || this.fixedClasses || []
     }
   },
   methods: {
@@ -130,10 +118,10 @@ const Component = Vue.extend({
           classes = get(this.getClasses, elementName, overrideDefaultClasses)
         }
 
-        const defaultClasses = get(this.getDefaultClasses, elementName)
+        const fixedClasses = get(this.getFixedClasses, elementName)
 
-        if (defaultClasses) {
-          return mergeClasses(defaultClasses, classes)
+        if (fixedClasses) {
+          return mergeClasses(fixedClasses, classes)
         }
 
         return classes
@@ -148,8 +136,8 @@ const Component = Vue.extend({
             : this.getClasses
       }
 
-      if (this.getDefaultClasses) {
-        return mergeClasses(this.getDefaultClasses, classes)
+      if (this.getFixedClasses) {
+        return mergeClasses(this.getFixedClasses, classes)
       }
 
       return classes

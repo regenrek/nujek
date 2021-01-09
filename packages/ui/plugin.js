@@ -28,8 +28,10 @@ const install = function installNujek(vueInstance, settings) {
     provide: {
       $nujekConfig(componentName) {
         const componentSettings = settings[componentName || this.$options.name]
-        const { component, props } = componentSettings
-        return getConfig(component, props)
+        if (componentSettings) {
+          const { component, props } = componentSettings
+          return getConfig(component, props)
+        }
       }
     },
     computed: {}

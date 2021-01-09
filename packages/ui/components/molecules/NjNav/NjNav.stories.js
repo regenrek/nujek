@@ -4,9 +4,8 @@ export default {
   component: NjNav
 }
 
-export const Burger = (arg, { argTypes }) => ({
+export const Nav = (arg, { argTypes }) => ({
   components: { NjNav },
   // props: Object.keys(argTypes),
-  template:
-    '<NjNav v-bind="$props"><template #burger-menu>BURGER</template></NjNav>'
+  template: '<NjNav v-bind="$props" />'
 })
