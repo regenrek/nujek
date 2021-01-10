@@ -1,9 +1,13 @@
 <template>
-  <NjNav :burger-open="navOpen">
+  <NjNav>
     <template #logo>
       <div class="w-40 lg:w-48">
-        <nuxt-link to="/" class="block"> Logo </nuxt-link>
+        <nuxt-link to="/" class="block"> Logo 2 </nuxt-link>
       </div>
+    </template>
+
+    <template #burger-menu>
+      <NjBurger :open.sync="navOpen" />
     </template>
 
     <template #nav>
@@ -34,8 +38,12 @@
 
 <script>
 import { mapState, mapGetters, mapActions } from 'vuex'
+import NjNav from '../../molecules/NjNav/NjNav'
 
 export default {
+  components: {
+    NjNav
+  },
   computed: {
     ...mapState({
       navOpen: (state) => state.nav.navOpen

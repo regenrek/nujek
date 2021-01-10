@@ -1,4 +1,4 @@
-import NjBurger from './NjBurger'
+import NjBurger from '@nujek/ui/components/atoms/NjBurger'
 export default {
   title: 'NjBurger',
   component: NjBurger

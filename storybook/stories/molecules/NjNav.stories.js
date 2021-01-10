@@ -1,4 +1,4 @@
-import NjNav from './NjNav'
+import NjNav from '@nujek/ui/components/molecules/NjNav/NjNav'
 export default {
   title: 'NjNav',
   component: NjNav

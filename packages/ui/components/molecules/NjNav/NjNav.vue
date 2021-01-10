@@ -2,9 +2,7 @@
   <div :class="getThemeClass('wrapper')">
     <slot name="header">
       <header :class="getThemeClass('header')">
-        <slot name="burger-menu">
-          <NjBurger :open.sync="burgerOpen" />
-        </slot>
+        <slot name="burger-menu" />
         <slot name="logo" />
         <slot name="nav" />
         <slot name="toolbar" />
