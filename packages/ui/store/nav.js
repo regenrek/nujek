@@ -19,6 +19,9 @@ export const registerNavStore = (store) => {
         },
         close({ commit }) {
           commit('set', false)
+        },
+        set({ commit }, val) {
+          commit('set', val)
         }
       },
       mutations: {

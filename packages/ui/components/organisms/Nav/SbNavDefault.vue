@@ -7,7 +7,7 @@
     </template>
 
     <template #burger-menu>
-      <NjBurger :open.sync="navOpen" />
+      <NjBurger :open.sync="isOpenBurger" />
     </template>
 
     <template #nav>
@@ -50,7 +50,15 @@ export default {
     }),
     ...mapGetters({
       mainNavigation: 'nav/main'
-    })
+    }),
+    isOpenBurger: {
+      get: function () {
+        return this.navOpen
+      },
+      set: function (val) {
+        this.$store.dispatch('nav/set', val)
+      }
+    }
   },
   methods: {
     ...mapActions({

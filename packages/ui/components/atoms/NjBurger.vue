@@ -1,7 +1,7 @@
 <template>
   <div
-    :class="[{ active: open }, getThemeClass('wrapper')]"
-    @click="open = !open"
+    :class="[{ active: isOpenBurger }, getThemeClass('wrapper')]"
+    @click="isOpenBurger = !isOpenBurger"
   >
     <slot>
       <button
@@ -36,11 +36,11 @@ const NjBurger = Component.extend({
     }
   },
   computed: {
-    model: {
-      get() {
+    isOpenBurger: {
+      get: function () {
         return this.open
       },
-      set(val) {
+      set: function (val) {
         this.$emit('update:open', val)
       }
     }
