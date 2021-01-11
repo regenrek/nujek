@@ -35,7 +35,7 @@ const NjBurger = Component.extend({
       type: [String, Array, Object],
       default: () => ({
         wrapper: 'nj-burger fixed z-600',
-        button: 'relative block border-0',
+        button: 'relative block border-0 focus:outline-none',
         bar: 'bg-gray-800'
       })
     }
