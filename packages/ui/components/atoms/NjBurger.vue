@@ -6,19 +6,18 @@
     <slot>
       <button
         type="button"
-        class="relative block border-0 cursor-pointer focus:outline-none"
         :class="[{ active: open }, getThemeClass('button')]"
+        :active="open"
         title="Menu"
       >
-        <span class="burger-bar--1" />
-        <span class="burger-bar--2" />
-        <span class="burger-bar--3" />
+        <span class="nj-burger-bar--1" :class="getThemeClass('bar')" />
+        <span class="nj-burger-bar--2" :class="getThemeClass('bar')" />
+        <span class="nj-burger-bar--3" :class="getThemeClass('bar')" />
       </button>
     </slot>
   </div>
 </template>
 <script>
-// import { mapState, mapActions } from 'vuex'
 import Component from '../../base/Component'
 
 const NjBurger = Component.extend({
@@ -31,7 +30,9 @@ const NjBurger = Component.extend({
     classes: {
       type: [String, Array, Object],
       default: () => ({
-        wrapper: 'burger'
+        wrapper: 'nj-burger',
+        button: 'relative block border-0',
+        bar: 'bg-gray-800 active:bg-gray-200'
       })
     }
   },
@@ -45,16 +46,6 @@ const NjBurger = Component.extend({
       }
     }
   }
-  // computed: {
-  //   ...mapState({
-  //     navOpen: (state) => state.nav.navOpen
-  //   })
-  // },
-  // methods: {
-  //   ...mapActions({
-  //     toggle: 'nav/toggle'
-  //   })
-  // }
 })
 
 export default NjBurger
