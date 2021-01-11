@@ -10,7 +10,7 @@ export const DefaultNav = (arg, { argTypes }) => ({
   components: { NjNav },
   template: `
     <div>
-      <NjNav v-bind="$props">
+      <NjNav class="bg-gray-200" v-bind="$props">
         <template #burger-menu>
           <NjBurger :open.sync="isOpenBurger" />
         </template>

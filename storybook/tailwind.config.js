@@ -15,6 +15,12 @@ module.exports = {
       },
       maxWidth: {
         container: '1400px'
+      },
+      zIndex: {
+        400: 400,
+        500: 500,
+        600: 600,
+        700: 700
       }
     }
   },

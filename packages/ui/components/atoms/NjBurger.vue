@@ -1,6 +1,10 @@
 <template>
   <div
-    :class="[{ active: isOpenBurger }, getThemeClass('wrapper')]"
+    :class="[
+      { active: isOpenBurger, fixed: isOpenBurger },
+      getThemeClass('wrapper')
+    ]"
+    :active="open"
     @click="isOpenBurger = !isOpenBurger"
   >
     <slot>
@@ -30,9 +34,9 @@ const NjBurger = Component.extend({
     classes: {
       type: [String, Array, Object],
       default: () => ({
-        wrapper: 'nj-burger',
+        wrapper: 'nj-burger fixed z-600',
         button: 'relative block border-0',
-        bar: 'bg-gray-800 active:bg-gray-200'
+        bar: 'bg-gray-800'
       })
     }
   },

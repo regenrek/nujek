@@ -34,7 +34,7 @@
   left: 0;
   top: 0;
   background: rgba(0, 0, 0, 0.7);
-  z-index: 9998;
+  z-index: 400;
   position: fixed;
 }
 
@@ -43,7 +43,7 @@
   left: 0;
   top: 0;
   height: 100%;
-  z-index: 9999;
+  z-index: 500;
   transition: transform 250ms;
   overflow-y: scroll;
 }
@@ -59,7 +59,6 @@
       left: 0;
       right: 0;
       width: 100%;
-      z-index: 999;
     }
   }
   > ul > li > a {

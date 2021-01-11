@@ -31,7 +31,7 @@ const NjNav = Component.extend({
       type: Object,
       default() {
         return {
-          wrapper: 'w-full fixed',
+          wrapper: 'w-full',
           header: 'flex items-center'
         }
       }
