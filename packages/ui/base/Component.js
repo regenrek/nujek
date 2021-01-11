@@ -82,13 +82,13 @@ const Component = Vue.extend({
       return this.variant
     },
     getClasses() {
-      return this.$nujekConfig()?.classes || this.classes || []
+      return this.classes || this.$nujekConfig()?.classes || []
     },
     getVariants() {
-      return this.$nujekConfig()?.variants || this.variants || []
+      return this.variants || this.$nujekConfig()?.variants || []
     },
     getFixedClasses() {
-      return this.$nujekConfig()?.fixedClasses || this.fixedClasses || []
+      return this.fixedClasses || this.$nujekConfig()?.fixedClasses || []
     }
   },
   methods: {
@@ -118,11 +118,17 @@ const Component = Vue.extend({
           classes = get(this.getClasses, elementName, overrideDefaultClasses)
         }
 
+        const fixd = this.getFixedClasses
+
         const fixedClasses = get(this.getFixedClasses, elementName)
 
         if (fixedClasses) {
           return mergeClasses(fixedClasses, classes)
         }
+
+        // check if we have overwritten default prop via direct
+        // prop input -> for example <myc variants="{ ...}" />
+        // need to merge this too
 
         return classes
       }

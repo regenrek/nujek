@@ -5,7 +5,7 @@ import { toPascalCase } from '@nujek/shared'
 export default async function ({
   storyblokConfig = {},
   withConsole = false,
-  enableStoryblokRouter = true,
+  enableStoryblokRouter = false,
   enableStoryblokQueries = true,
   enableStoryblokNuxt = true,
   debug = false

@@ -18,51 +18,104 @@ The `NjSection` component helps with the following use cases:
 
 - `bgImage`
   - Type: `String`
-  - Default: ``
+  - Default: `''`
 
-- `maxWidth`
-  - Type: `String`
-  - Default: ``
+## Variants
 
-- `position`
-  - Type: `String`
-  - Default: ``
-  - Values: `['left', 'center', 'right']`
+### Boxed
 
-- `width`
-  - Type: `String`
-  - Default: ``
-  - Values: `['content', 'boxed', 'full-width']`
+<img src="/boxed_layout.svg" class="img" alt="Nujek - Boxed Layout" />
 
-- `spacingY`
-  - Type: `Boolean`
-  - Default: `false`
-  - Desc: Adds default y spacing to Sections
-
-## Example
+With `boxed` you can create a section which has a centered container and max width.
 
 ```md
-<NjSection width="boxed" position="center">
+<NjSection variant="boxed">
     <h1>My Blog</h1>
     <p>Lorem ipsum dolor at simet...</p>
 </NjSection>
 ```
 
-<NjSection width="boxed" position="center">
+### Full Width
+
+<img src="/full_width_layout.svg" class="img" alt="Nujek - Boxed Layout" />
+
+```md
+<NjSection variant="fullWidth">
     <h1>My Blog</h1>
     <p>Lorem ipsum dolor at simet...</p>
 </NjSection>
+```
 
+### Examples
 
+#### Simple Example
+
+```html
+<NjSection>
+    <h1>My Blog</h1>
+    <p>Lorem ipsum dolor at simet...</p>
+</NjSection>
+```
+
+#### Landingpage
+
+In this example we're going to stack `NjSection` and make use of
+its variants to display different layout sizes.
+
+<img src="/landing_page.svg" class="img" alt="Nujek - Boxed Layout" />
+
+```html
+<div>
+      <NjSection class="bg-blue-200 py-4 md:py-16" variant="boxed">
+        ...
+      </NjSection>
+      <NjSection class="py-4 md:py-16" variant="boxed">
+        ...
+      </NjSection>
+      <NjSection class="py-4 md:py-16" variant="boxed">
+        ...
+      </NjSection>
+      <NjSection class="py-4 md:py-16" variant="fullWidth">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 xl_gap-8">
+          <div class="flex">
+            <div class="py-4 md:p-12">
+              <h3 class="text-2xl">Card 1</h3>
+              <p>
+                ...
+              </p>
+            </div>
+          </div>
+          <div class="flex">
+            <div class="py-4 md:p-12">
+              <h3 class="text-2xl">Card 1</h3>
+              <p>
+                ...
+              </p>
+            </div>
+          </div>
+          <div class="flex">
+            <div class="py-4 md:p-12">
+              <h3 class="text-2xl">Card 1</h3>
+              <p>
+                ...
+              </p>
+            </div>
+          </div>
+        </div>
+      </NjSection>
+</div>
+```
+
+<a target="_blank" href="http://localhost:3003/?path=/story/njsection--landingpage">Full Storybook example here</a>
 
 ## Best practices
 
-We define a section as something which the user can see in his viewport. So we define a section always as root node of a storyblok `blok_<name>` component. So in terms of **storyblok** its the same as a `blok`. If you add a `blok`in your storyblok story you basically always have a `section` wrapper around it.
+We define a section as something which the user can see in his viewport. Mostly its the first element inside a storyblok `blok_<name>` component. In terms of **storyblok** its the same as a `blok`. If you add a `blok`in your storyblok story you basically always have a `section` wrapper around it.
 
 
 ## Theme Configuration
 
-```
+```js
 import NjSection from '@nujek/ui/components/atoms/NjSection.vue'
 
 
@@ -76,7 +129,7 @@ const settings = {
       },
       variants: {
         boxed: {
-          wrapper: 'bg-teal-200 flex justify-center',
+          wrapper: 'bg-gray-200 flex justify-center',
           container: 'bg-red-400 max-w-2xl'
         },
         fullWidth: {
@@ -85,7 +138,7 @@ const settings = {
         }
       }
     }
-  }
+  },
 }
 
 ```

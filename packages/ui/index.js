@@ -53,7 +53,7 @@ export default function ({ withConsole = false }) {
       path: join(__dirname, 'components')
     })
 
-    console.success({
+    console.log({
       message: '@nujek/ui',
       additional: `ui components loaded ${join(__dirname, 'components')}`,
       badge: true

@@ -11,6 +11,7 @@ export default {
     '~/components'
   ],
   storybook: {
+    addons: ['@storybook/addon-storysource'],
     stories: [
       //'~/packages/ui/components/**/*.stories.js',
       '~/stories/**/*.stories.js'
