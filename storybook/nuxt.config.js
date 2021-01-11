@@ -10,6 +10,7 @@ export default {
     },
     '~/components'
   ],
+  css: ['@nujek/ui/css/nujek-ui.css'],
   storybook: {
     addons: ['@storybook/addon-storysource'],
     stories: [
