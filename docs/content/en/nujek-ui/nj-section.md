@@ -62,6 +62,8 @@ With `boxed` you can create a section which has a centered container and max wid
 In this example we're going to stack `NjSection` and make use of
 its variants to display different layout sizes.
 
+<a target="_blank" href="http://localhost:3003/?path=/story/njsection--landingpage">Full Storybook example here</a>
+
 <img src="/landing_page.svg" class="img" alt="Nujek - Boxed Layout" />
 
 ```html
@@ -106,7 +108,19 @@ its variants to display different layout sizes.
 </div>
 ```
 
-<a target="_blank" href="http://localhost:3003/?path=/story/njsection--landingpage">Full Storybook example here</a>
+### With Image
+
+```html
+ <NjSection :fixedClasses="{ wrapper: 'flex bg-cover bg-no-repeat aspect-ratio-16/9' }" bgImage="http://placekitten.com/400/300" variant="boxedBgImage">
+    My Section
+</NjSection>
+```
+
+<alert>
+
+More Examples here: <a href="http://localhost:3003/?path=/story/njsection--boxed">Storybook examples</a>
+
+</alert>
 
 ## Best practices
 
