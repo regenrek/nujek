@@ -42,6 +42,9 @@
     "vuex": "^3.6.0"
   },
   "dependencies": {
+    "@nujek/core": "^0.0.24",
+    "@nujek/storyblok": "^0.0.24",
+    "@nujek/ui": "^0.0.117",
     "@nuxtjs/composition-api": "^0.18.0",
     "@tailwindcss/forms": "^0.2.1"
   }
