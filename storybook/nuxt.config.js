@@ -42,6 +42,7 @@ export default {
   ],
   modules: ['nuxt-client-init-module'],
   build: {
+    transpile: ['@nujek/shared', '@nujek/ui'],
     postcss: {
       plugins: {
         'postcss-nested': {}
