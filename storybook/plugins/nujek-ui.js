@@ -25,7 +25,15 @@ const settings = {
     }
   },
   NjBurger: {
-    component: NjBurger
+    component: NjBurger,
+    props: {
+      fixedClasses: {
+        wrapper: ''
+      },
+      classes: {
+        bar: 'bg-yellow-500'
+      }
+    }
   }
   // NjNav: {
   //   component: NjNav,

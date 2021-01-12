@@ -5,14 +5,11 @@ category: Nujek Storyblok
 position: 4
 ---
 
-
-The `@nujek/storyblok` packages will install some useful nuxt modules to quickstart your project. 
+The `@nujek/storyblok` packages will install some useful nuxt modules to quickstart your project. This will help your development workflow.
 
 ## storyblok-nuxt
 
 **Package:** [`storyblok-nuxt`](https://github.com/storyblok/storyblok-nuxt)
-
-
 
 This is the official storyblok nuxt.js module to connect your app with storyblok cms.
 
@@ -44,7 +41,6 @@ export default {
 
 **Package:** [`@wearewondrous/nuxt-storyblok-router`](https://github.com/wearewondrous/nuxt-storyblok-router)
 
-
 Nuxt.js module to use storyblok routes and content-types instead of classic `pages/` directory
 
 ```bash
@@ -54,21 +50,15 @@ Nuxt.js module to use storyblok routes and content-types instead of classic `pag
 
 ## @marvr/storyblok-rich-text-vue-renderer
 
-
-
 Vue.js plugin for rendering the rich-text content.
 
 ```vue
 // @nujek/ui/components/atoms/SbRichtext
-<SbRichtext
-  v-if="content"
-  :text="content"
-  class="prose lg:prose-lg"
-/>
+<SbRichtext v-if="content" :text="content" class="prose lg:prose-lg" />
 ```
 
 **Component**: [`<SbRichtext/>`](/nujek-ui/components)
 
-**Package:**  [`@marvr/storyblok-rich-text-vue-renderer`](https://github.com/MarvinRudolph/storyblok-rich-text-renderer/tree/master/packages/storyblok-rich-text-vue-renderer)
+**Package:** [`@marvr/storyblok-rich-text-vue-renderer`](https://github.com/MarvinRudolph/storyblok-rich-text-renderer/tree/master/packages/storyblok-rich-text-vue-renderer)
 
 **Docs:** [`rich-text-renderer Nuxtjs`](https://storyblok-rich-text-renderer.netlify.app/vue-plugin/usage/#with-nuxt-js)

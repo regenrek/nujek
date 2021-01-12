@@ -5,27 +5,32 @@ category: Nujek Ui
 position: 2
 ---
 
-The component is part `<NjNav>` to make it work with the predefined state.
+A burger is a simple toggle which is mostly used for mobile menus.
+The component is build to work with `<NjNav>` but can be used independently.
 
-<alert>
-Possibily we make this component independtly of the current used <code>nav</code> store but for now you need to use it in combination with <code>NjNav</code>
-</alert>
+## Examples
 
-## Props
+Basic example with <a href="/nujek-ui/nj-nav">NjNav</a>
 
-- `@TODO`
-  - Type: `String`
-  - Default: ``
-
-## Example
-
-```md
+```html
 <NjNav>
     <template #burger-menu>
-      <NjBurger />
+      <NjBurger open.sync="isOpenBurger" />
     </template>
 </Njav>
 ```
+
+## Props
+
+- `open`
+  - Type: `Boolean`
+  - Default: `false`
+
+## Slots
+
+| Slot    | description                                                                    |
+| ------- | ------------------------------------------------------------------------------ |
+| default | Custom Burger button. Notice: 'bar' variant not available if you use this slot |
 
 ## Best practices
 
@@ -43,6 +48,9 @@ const settings = {
     props: {
       fixedClasses: {
         'wrapper': 'lg:hidden'
+      },
+      classes: {
+
       }
     }
   }

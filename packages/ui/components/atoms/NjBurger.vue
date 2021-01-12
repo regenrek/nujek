@@ -7,18 +7,18 @@
     :active="open"
     @click="isOpenBurger = !isOpenBurger"
   >
-    <slot>
-      <button
-        type="button"
-        :class="[{ active: open }, getThemeClass('button')]"
-        :active="open"
-        title="Menu"
-      >
+    <button
+      type="button"
+      :class="[{ active: open }, getThemeClass('button')]"
+      :active="open"
+      title="Menu"
+    >
+      <slot>
         <span class="nj-burger-bar--1" :class="getThemeClass('bar')" />
         <span class="nj-burger-bar--2" :class="getThemeClass('bar')" />
         <span class="nj-burger-bar--3" :class="getThemeClass('bar')" />
-      </button>
-    </slot>
+      </slot>
+    </button>
   </div>
 </template>
 <script>
