@@ -1,7 +1,7 @@
 // rollup.config.js
 import vue from 'rollup-plugin-vue'
-import typescript from 'rollup-plugin-typescript2'
-import path from 'path'
+// import typescript from 'rollup-plugin-typescript2'
+// import path from 'path'
 // import renameExtensions from '@betit/rollup-plugin-rename-extensions'
 
 const packages = require('./scripts/packages')
@@ -38,7 +38,6 @@ for (const [pkg, options] of packages) {
       vue()
     ],
     external: [
-      'vue-demi',
       'vue',
       '@vue/composition-api',
       '@vue/runtime-dom',
