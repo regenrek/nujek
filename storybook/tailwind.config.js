@@ -21,6 +21,15 @@ module.exports = {
         500: 500,
         600: 600,
         700: 700
+      },
+      // used for Custom Hero
+      height: {
+        520: '520px',
+        680: '680px',
+        768: '768px'
+      },
+      width: {
+        80: '80px'
       }
     }
   },
