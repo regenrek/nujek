@@ -41,9 +41,9 @@
     "version-bump-prompt": "^6.1.0",
     "vue-clickaway": "^2.2.2",
     "vuex": "^3.6.0",
-    "@nujek/core": "^0.0.25",
-    "@nujek/storyblok": "^0.0.25",
-    "@nujek/ui": "^0.0.118",
+    "@nujek/core": "latest",
+    "@nujek/storyblok": "latest",
+    "@nujek/ui": "latest",
     "@nuxtjs/composition-api": "^0.18.0",
     "@tailwindcss/forms": "^0.2.1"
   }

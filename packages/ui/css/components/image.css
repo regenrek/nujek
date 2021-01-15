@@ -1,0 +1,11 @@
+.blur-up {
+    /* filter: blur(20px); */
+    /* transition: filter 400ms; */
+    opacity: 0;
+    transition: opacity 400ms;
+  }
+  
+  .blur-up.lazyloaded {
+    /* filter: blur(0); */
+    opacity: 1;
+  }

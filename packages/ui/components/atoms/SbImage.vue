@@ -10,27 +10,11 @@ export default {
       type: Object,
       default: null
     },
-    objectFit: {
-      type: String,
-      default: 'cover'
-    },
-    effect: {
-      type: String,
-      default: ''
-    },
     srcSets: {
       type: Array,
       default() {
         return [720, 1440, 2160]
       }
-    },
-    aspectRatio: {
-      type: String,
-      default: '16/9'
-    },
-    aspectRatioMobile: {
-      type: String,
-      default: '16/9'
     }
   },
   computed: {

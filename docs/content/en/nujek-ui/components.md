@@ -18,23 +18,6 @@ This component is used internally by `@nujek/storyblok` module. It shows the cur
 
 ## atoms
 
-### `<NjAspectRatio>`
-
-**Props**
-
-- `aspectRatio`
-  - Type: `String`
-  - Default: `'16/9'`
-  - Values: `['1/1', '9/16', '4/3', '3/4']`
-
-**Example**
-
-```md
-<NjAspectRatio :aspectRatio="16/9">
-    <NjImage src="image" />
-</NjAspectRatio>
-```
-
 **Tailwind Config**
 
 ```js

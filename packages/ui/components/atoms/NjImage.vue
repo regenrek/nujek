@@ -1,7 +1,7 @@
 <template>
-  <figure :class="`is-${objectFit}`">
-    <NjAspectRatio :aspect-ratio="aspectRatio">
-      <picture v-if="src">
+  <figure :class="getThemeClass('figure')">
+    <div :class="getThemeClass('aspectRatio')">
+      <picture v-if="src" :class="getThemeClass('picture')">
         <source v-if="src.webp" :data-srcset="src.webp" type="image/webp" />
         <source v-if="srcset" :data-srcset="srcset" />
 
@@ -21,7 +21,7 @@
       <template v-else>
         <img v-if="usePlaceholder" :src="placeholderImage" />
       </template>
-    </NjAspectRatio>
+    </div>
     <slot v-bind="{ caption, copyright }" name="content">
       <span>{{ caption }}</span>
       <span v-if="copyright">&copy; {{ copyright }}</span>
@@ -31,7 +31,9 @@
 </template>
 
 <script>
-export default {
+import Component from '../../base/Component'
+
+const NjImage = Component.extend({
   components: {},
   inheritAttrs: false,
   props: {
@@ -51,14 +53,6 @@ export default {
       type: String,
       default: ''
     },
-    aspectRatio: {
-      type: String,
-      default: ''
-    },
-    objectFit: {
-      type: String,
-      default: 'cover'
-    },
     usePlaceholder: {
       type: Boolean,
       default: true
@@ -66,6 +60,14 @@ export default {
     placeholderImage: {
       type: String,
       default: ''
+    },
+    classes: {
+      type: Object,
+      default() {
+        return {
+          aspectRatio: 'aspect-ratio-16/9'
+        }
+      }
     }
   },
   computed: {
@@ -90,19 +92,7 @@ export default {
       return false
     }
   }
-}
+})
+
+export default NjImage
 </script>
-
-<style lang="postcss" scoped>
-.blur-up {
-  /* filter: blur(20px); */
-  /* transition: filter 400ms; */
-  opacity: 0;
-  transition: opacity 400ms;
-}
-
-.blur-up.lazyloaded {
-  /* filter: blur(0); */
-  opacity: 1;
-}
-</style>
