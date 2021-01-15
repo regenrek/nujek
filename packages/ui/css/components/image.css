@@ -9,3 +9,33 @@
     /* filter: blur(0); */
     opacity: 1;
   }
+
+  figure {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  margin: 0;
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+figure.is-cover img {
+  object-fit: cover;
+  font-family: 'object-fit: cover';
+}
+figure.is-contain img {
+  object-fit: contain;
+  font-family: 'object-fit: contain';
+}
+figure.is-none img {
+  object-fit: none;
+  font-family: 'object-fit: none';
+}
+
+

@@ -1,4 +1,5 @@
 import NjImage from '@nujek/ui/components/atoms/NjImage'
+
 export default {
   title: 'NjImage',
   component: NjImage
