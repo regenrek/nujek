@@ -82,6 +82,8 @@ const Component = Vue.extend({
       return this.variant
     },
     getClasses() {
+      const cl = this.classes
+      console.log(cl)
       return this.classes || this.$nujekConfig()?.classes || []
     },
     getVariants() {
@@ -117,8 +119,6 @@ const Component = Vue.extend({
         } else {
           classes = get(this.getClasses, elementName, overrideDefaultClasses)
         }
-
-        const fixd = this.getFixedClasses
 
         const fixedClasses = get(this.getFixedClasses, elementName)
 

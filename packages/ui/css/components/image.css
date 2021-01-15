@@ -5,12 +5,12 @@
     transition: opacity 400ms;
   }
   
-  .blur-up.lazyloaded {
-    /* filter: blur(0); */
-    opacity: 1;
-  }
+.blur-up.lazyloaded {
+  /* filter: blur(0); */
+  opacity: 1;
+}
 
-  figure {
+figure {
   position: relative;
   overflow: hidden;
   display: block;

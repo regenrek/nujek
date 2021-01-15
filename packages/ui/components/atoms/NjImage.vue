@@ -10,11 +10,10 @@
           :alt="srcAlt"
           :src="srcImg"
           :data-src="srcImg"
-          :srcset="
-            !disableLazyLoad &&
-            `data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==`
-          "
-          :class="!disableLazyLoad && 'lazyload blur-up'"
+          :class="[
+            getThemeClass('image'),
+            !disableLazyLoad && 'lazyload blur-up'
+          ]"
         />
       </picture>
 
@@ -65,7 +64,8 @@ const NjImage = Component.extend({
       type: Object,
       default() {
         return {
-          aspectRatio: 'aspect-ratio-16/9'
+          aspectRatio: 'aspect-ratio-16/9',
+          image: 'object-cover	'
         }
       }
     }
@@ -82,7 +82,7 @@ const NjImage = Component.extend({
       if (this.src.alt) {
         return this.src.alt
       } else {
-        return 'Storyblok Image'
+        return 'imagemage'
       }
     },
     srcset() {

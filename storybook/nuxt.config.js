@@ -21,7 +21,7 @@ export default {
   tailwindcss: {
     cssPath: '~/styles/tailwind.css'
   },
-  plugins: [{ src: '~/plugins/nujek-ui.js' }, '~/plugins/lazysizes.js'],
+  plugins: [{ src: '~/plugins/nujek-ui.js' }],
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',

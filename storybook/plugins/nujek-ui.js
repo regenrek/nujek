@@ -3,6 +3,7 @@ import Nujek from '@nujek/ui/plugin'
 import NjSection from '@nujek/ui/components/atoms/NjSection.vue'
 import NjBurger from '@nujek/ui/components/atoms/NjBurger.vue'
 // import NjNav from '@ui/components/molecules/NjNav/NjNav.vue'
+console.log('>>>>> nujek/ui <<<<<<<')
 
 const settings = {
   NjSection: {
