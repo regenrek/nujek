@@ -82,13 +82,32 @@ const Component = Vue.extend({
       return this.variant
     },
     getClasses() {
-      return this.classes || this.$nujekConfig()?.classes || []
+      // 1. are component props set -> then use props
+      // 2. use nujekConfig props
+      // 3. use default props
+      // 4. use empty
+      return (
+        (!!this.$options.propsData.classes && this.classes) ||
+        this.$nujekConfig()?.classes ||
+        this.classes ||
+        []
+      )
     },
     getVariants() {
-      return this.variants || this.$nujekConfig()?.variants || []
+      return (
+        (!!this.$options.propsData.variants && this.variants) ||
+        this.$nujekConfig()?.variants ||
+        this.fixedClasses ||
+        []
+      )
     },
     getFixedClasses() {
-      return this.fixedClasses || this.$nujekConfig()?.fixedClasses || []
+      return (
+        (!!this.$options.propsData.fixedClasses && this.fixedClasses) ||
+        this.$nujekConfig()?.fixedClasses ||
+        this.fixedClasses ||
+        []
+      )
     }
   },
   methods: {

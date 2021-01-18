@@ -31,11 +31,17 @@ const NjBurger = Component.extend({
       type: Boolean,
       default: false
     },
+    fixedClasses: {
+      type: [String, Array, Object],
+      default: () => ({
+        wrapper: 'nj-burger',
+        button: 'relative block border-0 focus:outline-none',
+        bar: ''
+      })
+    },
     classes: {
       type: [String, Array, Object],
       default: () => ({
-        wrapper: 'nj-burger fixed z-600',
-        button: 'relative block border-0 focus:outline-none',
         bar: 'bg-gray-800'
       })
     }

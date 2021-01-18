@@ -26,9 +26,6 @@ const settings = {
   NjBurger: {
     component: NjBurger,
     props: {
-      fixedClasses: {
-        wrapper: ''
-      },
       classes: {
         bar: 'bg-yellow-500'
       }

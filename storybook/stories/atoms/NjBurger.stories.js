@@ -8,7 +8,6 @@ export default {
 
 export const Burger = (arg, { argTypes }) => ({
   components: { NjBurger },
-  // props: Object.keys(argTypes),
   data() {
     return {
       isOpenBurger: false

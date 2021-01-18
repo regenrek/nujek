@@ -65,7 +65,7 @@ const NjImage = Component.extend({
       default() {
         return {
           aspectRatio: 'aspect-ratio-16/9',
-          image: 'object-cover	'
+          image: 'object-cover'
         }
       }
     }
