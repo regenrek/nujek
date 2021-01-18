@@ -1,7 +1,7 @@
 {
   "name": "@nujek/storyblok",
   "description": "Nujek - Storyblok Components",
-  "version": "0.0.29",
+  "version": "0.0.32",
   "main": "index.js",
   "repository": {
     "type": "git",
