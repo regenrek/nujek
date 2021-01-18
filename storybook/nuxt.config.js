@@ -47,10 +47,6 @@ export default {
       plugins: {
         'postcss-nested': {}
       }
-    },
-    extend(config) {
-      // console.log('path', path.join(__dirname, '..', 'packages/ui/'))
-      // config.resolve.alias['@ui'] = path.join(__dirname, '..', 'packages/ui/')
     }
   }
 }

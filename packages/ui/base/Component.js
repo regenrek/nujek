@@ -82,8 +82,6 @@ const Component = Vue.extend({
       return this.variant
     },
     getClasses() {
-      const cl = this.classes
-      console.log(cl)
       return this.classes || this.$nujekConfig()?.classes || []
     },
     getVariants() {
