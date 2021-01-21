@@ -1,24 +1,29 @@
 <template>
   <div class="sb-grid grid">
     <slot name="header" />
-    <ul
+
+    <component
+      :is="tag"
       v-if="collection.length"
       class="grid gap-x-6 gap-y-10"
       :class="gridCasses"
     >
-      <li v-for="item in collection" :key="item.uuid" class="w-full">
+      <template v-for="item in collection">
         <slot name="card" v-bind="{ item }">
-          <component
-            :is="gridItem(item) | dashify"
-            v-if="gridItem(item)"
-            :blok="{ ...item.content }"
-          />
-          <pre v-else>
-            {{ item.name }}
-          </pre>
+          <li :key="item.uuid" class="w-full">
+            <component
+              :is="gridItem(item) | dashify"
+              v-if="gridItem(item)"
+              :blok="{ ...item.content }"
+            />
+            <pre v-else>
+              {{ item.name }}
+            </pre>
+          </li>
         </slot>
-      </li>
-    </ul>
+      </template>
+    </component>
+
     <slot v-else name="no-results">
       <div class="h-20 flex justify-center items-center">
         <h5>Keine Beiträge gefunden</h5>
@@ -40,7 +45,6 @@
     </slot>
   </div>
 </template>
-
 <script>
 const POST_TYPE = 'projekte'
 const SORT_BY = 'created_at:desc'
@@ -48,6 +52,7 @@ const RESOLVE_RELATIONS = ''
 const PER_PAGE = 12
 const RESOLVE_LINKS = ''
 const CARD_STYLE_DEFAULT = 'NjCard'
+const GRID_COLUMNS = Array.from({ length: 12 }, (_, i) => i + 1)
 
 export default {
   name: 'SbGrid',
@@ -75,7 +80,7 @@ export default {
     columns: {
       type: Number,
       default: 3,
-      validator: (value) => [1, 2, 3, 4].includes(value)
+      validator: (value) => GRID_COLUMNS.includes(value)
     },
     disableFetch: {
       type: Boolean,
@@ -86,6 +91,11 @@ export default {
       default() {
         return []
       }
+    },
+    tag: {
+      type: String,
+      validator: (value) => ['ul', 'div', 'section'].includes(value),
+      default: 'ul'
     }
   },
   data() {
@@ -99,12 +109,10 @@ export default {
     }
   },
   async fetch() {
-    if (this.disable_fetch) {
+    if (this.disableFetch) {
       return
     }
-
     const { $storyblok, error } = this.$nuxt.context
-
     await $storyblok
       .getStoryCollection(this.blok.post_type || POST_TYPE, {
         excluding_slugs: this.blok.excluding_slugs,
@@ -120,7 +128,6 @@ export default {
         this.pagination.page++
         const stories = res.stories
         this.pagination.total = res.total
-
         if (this.extendCollection) {
           this.collection.push(...stories)
           this.extendCollection = false

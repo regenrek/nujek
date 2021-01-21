@@ -8,7 +8,8 @@ export default {
 export const Image = (arg, { argTypes }) => ({
   components: { NjImage },
   template: `
-  <NjImage :disableLazyLoad="true" :classes="{aspectRatio: 'aspect-ratio-4/3', image: 'object-cover'}" src="http://placekitten.com/400/300" />`
+  <div style="max-width: 400px">
+  <NjImage :disableLazyLoad="true" :classes="{aspectRatio: 'aspect-ratio-3/4', image: 'object-cover'}" src="http://placekitten.com/400/300" /></div>`
 })
 
 export const ImageLazyLoad = (arg, { argTypes }) => ({

@@ -34,7 +34,17 @@ The `SbGrid` component helps with the following use cases:
 - `columns`
   - Type: `Number`
   - Default: `3`
-  - Values: `[1, 2, 3, 4]`
+  - Values: `[1, 2, 3, ... 12]`
+
+- `disableFetch`
+  - Type: `Boolean`
+  - Default: `false`
+  - Desc: `Experimental: You can disable remote fetching. Use this in combination with dataSource`
+
+- `disableFetch`
+  - Type: `Boolean`
+  - Default: `false`
+  - Desc: `Experimental: Instead of auto remote fetching a grid source you can add your manual data source to the grid`
 
 ## Example
 
@@ -43,7 +53,6 @@ The `SbGrid` component helps with the following use cases:
 
 The following example shows a storyblok dynamic grid component where
 SbGrid is used to display different types of data (Team members, News e.g.)
-
 
 First define a Storyblok wrapper component where `blok` prop is spreaded
 and forwared to a `CustomGrid` component.
