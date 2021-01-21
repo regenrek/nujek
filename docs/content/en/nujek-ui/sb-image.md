@@ -11,7 +11,7 @@ position: 2
 ## Examples
 
 ```html
-<SbImage src="https://myimage.jpg" :classes="{aspectRatio: 'aspect-ratio-16/9'}" />
+<SbImage :src="https://myimage.jpg" :classes="{aspectRatio: 'aspect-ratio-16/9'}" />
 ```
 
 
