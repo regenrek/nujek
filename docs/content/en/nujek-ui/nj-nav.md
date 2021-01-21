@@ -5,17 +5,8 @@ category: Nujek Ui
 position: 2
 ---
 
-The component is part `<NjNav>` to make it work with the predefined state.
+Build quickly website navigation menus with `NjNav`. 
 
-<alert>
-Possibily we make this component independtly of the current used <code>nav</code> store but for now you need to use it in combination with <code>NjNav</code>
-</alert>
-
-## Props
-
-- `open`
-  - Type: `Boolean`
-  - Default: `false`
 
 ## Examples
 
@@ -28,6 +19,15 @@ Basic example with <a href="">NjNav</a>
     </template>
 </Njav>
 ```
+
+<a target="_blank" href="https://nujek-storybook.vercel.app/?path=/story/njnav--default-nav">All Storyblok examples</a>
+
+## Props
+
+- `open`
+  - Type: `Boolean`
+  - Default: `false`
+
 
 ## Best practices
 
