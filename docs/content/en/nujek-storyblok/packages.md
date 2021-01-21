@@ -9,13 +9,16 @@ The `@nujek/storyblok` packages will install some useful nuxt modules to quickst
 
 ## storyblok-nuxt
 
-**Package:** [`storyblok-nuxt`](https://github.com/storyblok/storyblok-nuxt)
+* Default: `enabled`
+* Package: [`storyblok-nuxt`](https://github.com/storyblok/storyblok-nuxt)
+
 
 This is the official storyblok nuxt.js module to connect your app with storyblok cms.
 
 ## @wearewondrous/nuxt-storyblok-queries
 
-**Package:** [`@wearewondrous/nuxt-storyblok-queries`](https://github.com/regenrek/nuxt-storyblok-queries)
+* Default: `enabled`
+* Package: [`@wearewondrous/nuxt-storyblok-queries`](https://github.com/regenrek/nuxt-storyblok-queries)
 
 **Hint**: This is a slightly modified version of the official nuxt-storyblok-queries module which has more features and support for storyblok management api
 
@@ -39,9 +42,15 @@ export default {
 
 ## @wearewondrous/nuxt-storyblok-router
 
-**Package:** [`@wearewondrous/nuxt-storyblok-router`](https://github.com/wearewondrous/nuxt-storyblok-router)
+* Default: `disabled`
+* Package: [`@wearewondrous/nuxt-storyblok-router`](https://github.com/wearewondrous/nuxt-storyblok-router)
 
 Nuxt.js module to use storyblok routes and content-types instead of classic `pages/` directory
+
+<alert>
+While this module is perfect for simple websites it will
+take away some flexibility for complex/custom routes. So we decided to disable storyblok router for default. (Maybe even removed in future releases)
+</alert>
 
 ```bash
 - pages/
