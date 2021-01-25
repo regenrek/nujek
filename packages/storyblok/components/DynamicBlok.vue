@@ -1,8 +1,8 @@
 <template>
   <component
     :is="lazyComponent"
-    v-if="lazyComponent"
     v-bind="$attrs"
+    v-if="lazyComponent"
     v-on="$listeners"
   >
     <!-- pass through normal slots -->
@@ -62,7 +62,7 @@ export default {
         if (this.$nuxtDynamic.debug) {
           return 'blok-debug'
         } else {
-          return 'blok-debug'
+          return ''
         }
       }
 

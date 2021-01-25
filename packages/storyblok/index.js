@@ -61,35 +61,33 @@ export default async function ({
       })
     }
 
-    if (debug) {
-      // grab all possible prefixes
-      const prefixes = [
-        ...new Set(
-          components
-            .filter((c) => !c.async)
-            .map((c) => {
-              const filename = c.filePath.split('\\').pop()
-              const componentName = filename.replace('.vue', '')
-              const re = new RegExp(`${toPascalCase(componentName)}$`)
-              return c.pascalName.replace(re, '')
-            })
-        )
-      ]
+    // grab all possible prefixes
+    const prefixes = [
+      ...new Set(
+        components
+          .filter((c) => !c.async)
+          .map((c) => {
+            const filename = c.filePath.split('\\').pop()
+            const componentName = filename.replace('.vue', '')
+            const re = new RegExp(`${toPascalCase(componentName)}$`)
+            return c.pascalName.replace(re, '')
+          })
+      )
+    ]
 
-      this.addPlugin({
-        src: resolve(__dirname, 'plugins/dynamic-bloks.js'),
-        options: { debug, prefixes }
+    this.addPlugin({
+      src: resolve(__dirname, 'plugins/dynamic-bloks.js'),
+      options: { debug, prefixes }
+    })
+
+    if (withConsole) {
+      logger.success({
+        message: 'prefixes for debug mode added',
+        additional: `items as dynamic components (with prefixes: ${prefixes
+          .map((prefix) => `'${prefix}'`)
+          .join(', ')})`,
+        badge: true
       })
-
-      if (withConsole) {
-        logger.success({
-          message: 'prefixes for debug mode added',
-          additional: `items as dynamic components (with prefixes: ${prefixes
-            .map((prefix) => `'${prefix}'`)
-            .join(', ')})`,
-          badge: true
-        })
-      }
     }
   })
 
