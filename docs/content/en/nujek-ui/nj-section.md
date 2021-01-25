@@ -101,7 +101,7 @@ its variants to display different layout sizes.
 ```html
 <NjSection
   :fixedClasses="{ wrapper: 'flex bg-cover bg-no-repeat aspect-ratio-16/9' }"
-  bgImage="http://placekitten.com/400/300"
+  bgImage="https://placekitten.com/400/300"
   variant="boxedBgImage"
 >
   My Section
