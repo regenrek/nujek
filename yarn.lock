@@ -1330,6 +1330,13 @@
   dependencies:
     mkdirp "^1.0.4"
 
+"@nujek/core@^0.0.30":
+  version "0.0.30"
+  resolved "https://registry.npmjs.org/@nujek/core/-/core-0.0.30.tgz#9a1538d400309f08b8b6030d972a4b7266a7a133"
+  integrity sha512-lxUpESnmRBjFBiXv/XtZf2S5Rl5urm3KnMuvVs3BWia/VBdullja4tZosYC8ikWjuEfe8sUflEmKAaiLLVQjQw==
+  dependencies:
+    "@nujek/shared" "^0.0.7"
+
 "@nujek/nuxt-storyblok-queries@^1.2.11":
   version "1.2.11"
   resolved "https://registry.npmjs.org/@nujek/nuxt-storyblok-queries/-/nuxt-storyblok-queries-1.2.11.tgz#2df8b1f680b688d844ef8caeda5b035496a8feb8"
@@ -1343,6 +1350,31 @@
   version "0.0.7"
   resolved "https://registry.npmjs.org/@nujek/shared/-/shared-0.0.7.tgz#9be29235128bdd3b6659917f52e40ec8b59f3ece"
   integrity sha512-lbcbztHFzYBD+ibb+DHJlWYENj5jXoIl039kET50UmPXFKaIFP90u98WT9atzoccbDWklFxC4F2a1BnsdCfEew==
+
+"@nujek/storyblok@^0.0.29":
+  version "0.0.29"
+  resolved "https://registry.npmjs.org/@nujek/storyblok/-/storyblok-0.0.29.tgz#ab560a66767c4bd0659fae86055ec051ae5552f5"
+  integrity sha512-CJqbasitSy4pzbstR2yv802JEf41vTTgT7l1amS9oPkBwc/nd9jz8PZLwCNlNyd0opJMSHDMpO2pEWznkkR6nQ==
+  dependencies:
+    "@marvr/storyblok-rich-text-vue-renderer" "^2.0.1"
+    "@nujek/nuxt-storyblok-queries" "^1.2.11"
+    "@nujek/shared" "^0.0.7"
+    "@wearewondrous/nuxt-storyblok-router" "^1.5.2"
+    storyblok-nuxt "^1.3.0"
+    vue-lazy-hydration "^2.0.0-beta.4"
+
+"@nujek/ui@^0.0.123":
+  version "0.0.123"
+  resolved "https://registry.npmjs.org/@nujek/ui/-/ui-0.0.123.tgz#c8c2f385edf93709de654e3abb368fc50c8958a3"
+  integrity sha512-X7rBqfOX6C03yAPggLCMpRfmkE65BIyjyXTs3z/O9ea24FkBG15z2DCPTAuSUN4KF18e+3QnCm5L4C9JAvAoXg==
+  dependencies:
+    lazysizes "^5.3.0-beta1"
+    lodash.get "^4.4.2"
+    postcss-hexrgba "^2.0.1"
+    postcss-import "^12.0.1"
+    postcss-mixins "6.2.3"
+    postcss-nested "^4.2.3"
+    postcss-scss "^3.0.2"
 
 "@nuxt/babel-preset-app@2.14.12":
   version "2.14.12"
