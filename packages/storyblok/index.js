@@ -8,7 +8,10 @@ export default async function ({
   enableStoryblokRouter = false,
   enableStoryblokQueries = true,
   enableStoryblokNuxt = true,
-  debug = false
+  debug = false,
+  storyblokQueries = {
+    formatResponse: false
+  }
 }) {
   const logger = consola.withScope('@nujek/storyblok')
 
@@ -40,7 +43,13 @@ export default async function ({
   }
 
   if (enableStoryblokQueries) {
-    await this.requireModule(['@nujek/nuxt-storyblok-queries', storyblokConfig])
+    await this.requireModule([
+      '@nujek/nuxt-storyblok-queries',
+      {
+        ...storyblokConfig,
+        ...storyblokQueries
+      }
+    ])
     logger.success({
       message: 'Storyblok modules ready',
       additional: `Module '@nujek/nuxt-storyblok-queries' registered.`,

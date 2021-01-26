@@ -15,12 +15,12 @@ The `@nujek/storyblok` packages will install some useful nuxt modules to quickst
 
 This is the official storyblok nuxt.js module to connect your app with storyblok cms.
 
-## @wearewondrous/nuxt-storyblok-queries
+## @nujek/nuxt-storyblok-queries
 
 * Default: `enabled`
-* Package: [`@wearewondrous/nuxt-storyblok-queries`](https://github.com/regenrek/nuxt-storyblok-queries)
+* Package: [`@nujek/nuxt-storyblok-queries`](https://github.com/regenrek/nuxt-storyblok-queries)
 
-**Hint**: This is a slightly modified version of the official nuxt-storyblok-queries module which has more features and support for storyblok management api
+**Hint**: This is a slightly modified version of nuxt-storyblok-queries module which has more features and support for storyblok management api
 
 ```vue[pages/LandingPage.js]
 <template>
