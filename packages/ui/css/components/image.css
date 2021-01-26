@@ -24,18 +24,3 @@ figure {
     transform: translate(-50%, -50%);
   }
 }
-
-figure.is-cover img {
-  object-fit: cover;
-  font-family: 'object-fit: cover';
-}
-figure.is-contain img {
-  object-fit: contain;
-  font-family: 'object-fit: contain';
-}
-figure.is-none img {
-  object-fit: none;
-  font-family: 'object-fit: none';
-}
-
-
