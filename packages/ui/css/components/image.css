@@ -10,7 +10,7 @@
   opacity: 1;
 }
 
-figure {
+figure.has-aspect-ratio {
   position: relative;
   overflow: hidden;
   display: block;

@@ -15,6 +15,27 @@ export default {
       default() {
         return [720, 1440, 2160]
       }
+    },
+    quality: {
+      type: String,
+      default: '70'
+    },
+    resize: {
+      type: Object,
+      default() {
+        return {
+          width: '1440',
+          height: '0'
+        }
+      }
+    },
+    facialDetection: {
+      type: Boolean,
+      default: false
+    },
+    fitIn: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -29,11 +50,17 @@ export default {
       return filename
         ? {
             alt: this.src.alt,
-            opt: this.transformImage(filename, '1440x0/filters:quality(70)'),
-            lowsrc: this.transformImage(filename, '200x0/filters:quality(1)'),
+            opt: this.transformImage(
+              filename,
+              `${this.fitInC}${this.resize.width}x${this.resize.height}/${this.facial}filters:quality(${this.quality})`
+            ),
+            lowsrc: this.transformImage(
+              filename,
+              `200x0/${this.facial}filters:quality(1)`
+            ),
             webp: this.transformImage(
               filename,
-              '1440x0/filters:quality(70):format(webp)'
+              `${this.fitInC}${this.resize.width}x${this.resize.height}/${this.facial}filters:quality(${this.quality}):format(webp)`
             ),
             srcset: this.srcSets
               .map((width, index) => {
@@ -42,13 +69,19 @@ export default {
                 return (
                   this.transformImage(
                     filename,
-                    `${width}x0/filters:quality(70)`
+                    `${this.fitInC}${width}x0/${this.facial}filters:quality(${this.quality})`
                   ) + size
                 )
               })
               .join(', ')
           }
         : null
+    },
+    facial() {
+      return (this.facialDetection && 'smart/') || ''
+    },
+    fitInC() {
+      return (this.fitIn && 'fit-in/') || ''
     }
   },
   methods: {
