@@ -2,7 +2,7 @@
 title: Starter Project
 description: ''
 category: Examples
-position: 2
+position: 1
 ---
 
 ## Nujek Starter Project

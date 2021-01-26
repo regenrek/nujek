@@ -14,6 +14,5 @@ export const Image = (arg, { argTypes }) => ({
 
 export const ImageLazyLoad = (arg, { argTypes }) => ({
   components: { NjImage },
-  template: `
-  <NjImage src="https://placekitten.com/400/300" />`
+  template: `<NjImage src="https://placekitten.com/400/300" />`
 })
