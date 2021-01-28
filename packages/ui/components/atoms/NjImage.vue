@@ -1,5 +1,5 @@
 <template>
-  <figure :class="getThemeClass('figure')">
+  <figure :class="[getThemeClass('figure'), hasAspectRatio]">
     <div :class="getThemeClass('aspectRatio')">
       <picture v-if="src" :class="getThemeClass('picture')">
         <source v-if="src.webp" :data-srcset="src.webp" type="image/webp" />
@@ -90,6 +90,12 @@ const NjImage = Component.extend({
         return this.src.srcset
       }
       return false
+    },
+    hasAspectRatio() {
+      return (
+        /aspect-ratio-/.test(this.getThemeClass('aspectRatio')) &&
+        'has-aspect-ratio'
+      )
     }
   }
 })
