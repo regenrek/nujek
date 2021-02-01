@@ -1,7 +1,7 @@
 {
   "name": "@nujek/ui",
   "description": "Nujek - UI Components",
-  "version": "0.0.133",
+  "version": "0.0.134",
   "main": "index.js",
   "repository": {
     "type": "git",
