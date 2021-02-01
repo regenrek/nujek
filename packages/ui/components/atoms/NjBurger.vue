@@ -1,9 +1,6 @@
 <template>
   <div
-    :class="[
-      { active: isOpenBurger, fixed: isOpenBurger },
-      getThemeClass('wrapper')
-    ]"
+    :class="[{ active: isOpenBurger }, getThemeClass('wrapper')]"
     :active="open"
     @click="isOpenBurger = !isOpenBurger"
   >
