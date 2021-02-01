@@ -1,10 +1,14 @@
 <template>
-  <div class="sidebar">
+  <div class="sidebar" :class="getThemeClass('sidebar')">
     <transition name="backdrop" @afterLeave="handleClose">
-      <div v-if="show" class="backdrop-bg" @click="handleClose" />
+      <div
+        v-if="show"
+        :class="getThemeClass('backdrop')"
+        @click="handleClose"
+      />
     </transition>
     <transition name="slide">
-      <div v-if="show" class="sidenav bg-white" :style="getStyle">
+      <div v-if="show" :class="getThemeClass('sidenav')" :style="getStyle">
         <slot name="header" />
         <slot />
         <slot name="footer" />
@@ -13,7 +17,10 @@
   </div>
 </template>
 <script>
-export default {
+import Component from '../../../base/Component'
+
+const NjSidebar = Component.extend({
+  name: 'NjSidebar',
   props: {
     width: {
       type: String,
@@ -23,6 +30,15 @@ export default {
     show: {
       type: Boolean,
       default: false
+    },
+    fixedClasses: {
+      type: [String, Array, Object],
+      default: () => ({
+        backdrop:
+          'fixed z-400 bg-black bg-opacity-75 w-full h-full left-0 top-0 fixed',
+        sidenav:
+          'bg-white fixed left-0 top-0 z-500 duration-200 transition-transform h-full overflow-scroll'
+      })
     }
   },
   data: () => ({
@@ -38,5 +54,7 @@ export default {
       this.$emit('update:show', false)
     }
   }
-}
+})
+
+export default NjSidebar
 </script>
