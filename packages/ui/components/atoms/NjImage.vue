@@ -2,8 +2,13 @@
   <figure :class="[getThemeClass('figure'), hasAspectRatio]">
     <div :class="getThemeClass('aspectRatio')">
       <picture v-if="src" :class="getThemeClass('picture')">
-        <source v-if="src.webp" :data-srcset="src.webp" type="image/webp" />
-        <source v-if="srcset" :data-srcset="srcset" />
+        <source
+          v-if="src.webp"
+          ref="webp"
+          :data-srcset="src.webp"
+          type="image/webp"
+        />
+        <source v-if="srcset" ref="srcset" :data-srcset="srcset" />
 
         <img
           v-bind="$attrs"
@@ -68,6 +73,16 @@ const NjImage = Component.extend({
           image: 'object-cover'
         }
       }
+    }
+  },
+  watch: {
+    src: function (src) {
+      // not needed if lazyload is disabeld
+      if (this.disableLazyLoad) {
+        return
+      }
+      this.$refs['webp'].srcset = ''
+      this.$refs['srcset'].srcset = ''
     }
   },
   computed: {
