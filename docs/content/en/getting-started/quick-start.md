@@ -5,9 +5,7 @@ category: Getting started
 position: 2
 ---
 
-## Quick start
-
-### Install
+## Install
 
 First, install @nujek modules and its recommend depencendy modules like
 
@@ -15,7 +13,7 @@ First, install @nujek modules and its recommend depencendy modules like
 yarn add -D @nujek/core @nujek/ui @nujek/storyblok @nujek/shared @nuxtjs/composition-api @nuxtjs/tailwindcss
 ```
 
-### Module Setup
+## Module Setup
 
 Add @nujek modules to your `nuxt.config.js` file
 
@@ -25,16 +23,20 @@ Add @nujek modules to your `nuxt.config.js` file
     '@nuxtjs/composition-api',
     '@nuxtjs/tailwindcss',
     '@nujek/core',
-    ['@nujek/ui', { withConsole: true }],
+    ['@nujek/ui'],
     [
       '@nujek/storyblok',
-      { storyblokConfig: storyblokConfig, withConsole: true, debug: true }
+      { storyblokConfig: storyblokConfig, debug: true }
     ]
   ],
 }
 ```
 
-### Styles
+<alert>
+It's recommended to set <code>debug: true</code> for <code>@nujek/storyblok</code> module. Very helpful to see which component bloks needs implementation.
+</alert>
+
+## Styles
 
 Optionally but recommend you can add the nujek css styles to your project.
 
@@ -44,12 +46,3 @@ Optionally but recommend you can add the nujek css styles to your project.
   css: ['@nujek/ui/css/nujek-ui.css']
 }
 ```
-
-## External Deps
-
-* @nuxtjs/composition-api -> [@marvr/storyblok-rich-text-vue-renderer](https://github.com/MarvinRudolph/storyblok-rich-text-renderer/tree/master/packages/storyblok-rich-text-vue-renderer) 
-* @nuxtjs/tailwindcss -> @nujek/ui
-
-
-
-

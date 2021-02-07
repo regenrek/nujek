@@ -101,10 +101,7 @@ const NjImage = Component.extend({
       }
     },
     srcset() {
-      if (Object.prototype.hasOwnProperty.call(this.src, 'srcset')) {
-        return this.src.srcset
-      }
-      return false
+      return this.src?.srcset || false
     },
     hasAspectRatio() {
       return (

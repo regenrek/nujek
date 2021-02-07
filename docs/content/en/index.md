@@ -13,7 +13,11 @@ storyblok-items:
  - 'storyblok-nuxt - Offical Storyblok nuxt module integrated'
 ---
 
-Nujek is a collection of useful nuxt modules which helps you to build [storyblok](https://www.storyblok.com/) websites and apps as easy as possible.
+
+<img src="/preview.png" class="light-img" alt="nujek"/>
+<img src="/preview-dark.png" class="dark-img" alt="nujek module"/>
+
+Nujek is a collection of useful Vue.js components and libraries which helps you to build [Storyblok](https://www.storyblok.com/) websites and apps as easy as possible.
 
 ## `@nujek/core` Features
 

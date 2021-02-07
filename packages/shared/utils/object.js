@@ -12,11 +12,3 @@ export function forwardProps(props) {
   }
   return pure
 }
-
-/**
- * Checks if object has a specific property.
- * @param {Object} obj
- * @param {String} prop
- */
-export const hasOwn = (obj, prop) =>
-  Object.prototype.hasOwnProperty.call(obj, prop)
