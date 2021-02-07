@@ -1,6 +1,6 @@
-# Nujek Framework
-
 ![Nujek Framework](docs/static/nujek.png)
+
+# Nujek Framework
 
 Nujek is a collection of useful Vue.js components and libraries which helps you to build [Storyblok](https://www.storyblok.com/) websites and apps as easy as possible.
 
