@@ -27,10 +27,6 @@ yarn # install
 
 - 📖 [&nbsp;Read the documentation](https://nujek-docs.vercel.app/)
 
-## What's inside
-
-@TODO
-
 ## License
 
 [MIT License](./LICENSE)
