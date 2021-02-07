@@ -12,7 +12,7 @@ tasks.
 
 ## Starter Project
 
-I highly recommend to use [Nuxt Storyblok Starter Kit](https://github.com/regenrek/nuxt-storyblok-starter) as starter project if you want start a new project.
+[Nuxt Storyblok Starter Kit](https://github.com/regenrek/nuxt-storyblok-starter) is an example website to quickstart your project.
 
 
 ## Contribute
