@@ -4,12 +4,16 @@
 
 Nujek is a collection of useful Vue.js components and libraries which helps you to build [Storyblok](https://www.storyblok.com/) websites and apps as easy as possible.
 
-I highly recommend to use [Nuxt Storyblok Starter Kit](https://github.com/regenrek/nuxt-storyblok-starter) as starter project if you want start a new project.
-
-Helping you to stay productive following and eliminating repetive tasks.
+Helping you to stay productive following and eliminating repetive 
+tasks.
 
 - 🎲 &nbsp;Demos on CodeSandbox - WIP
 - 📖 [&nbsp;Read the documentation](https://nujek-docs.vercel.app/)
+
+## Starter Project
+
+I highly recommend to use [Nuxt Storyblok Starter Kit](https://github.com/regenrek/nuxt-storyblok-starter) as starter project if you want start a new project.
+
 
 ## Contribute
 
