@@ -15,7 +15,7 @@ tasks.
 
 * [Docs](https://nujek-docs.vercel.app/), [interactive examples](https://nujek-storybook.vercel.app/) and [Starter Website template](https://github.com/regenrek/nuxt-storyblok-starter)
 * Written for vue2
-* '@nuxtjs/components - Auto import components support
+* Auto import components support with @nuxtjs/components
 * `@nujek/storyblok` Complete Nuxt.js Storyblok Integration
 * `@nujek/storyblok` Simple API queries with [@nujek/nuxt-storyblok-queries](https://github.com/regenrek/nuxt-storyblok-queries#readme)
 * `@nujek/storyblok` Useful Storyblok blok viewer for development.
