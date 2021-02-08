@@ -13,7 +13,8 @@ tasks.
 
 ## 🚀 Features
 
-* Complete Nuxt.js Storyblok Integration incl. simplied queries [@nujek/nuxt-storyblok-queries](https://github.com/regenrek/nuxt-storyblok-queries#readme) 
+* Complete Nuxt.js Storyblok Integration
+* Simplied queries [@nujek/nuxt-storyblok-queries](https://github.com/regenrek/nuxt-storyblok-queries#readme) 
 * [Docs](https://nujek-docs.vercel.app/), [interactive examples](https://nujek-storybook.vercel.app/) and [Starter Website template](https://github.com/regenrek/nuxt-storyblok-starter)
 * Written for vue2
 * Powerful tree-shakeable and reusable nuxt components for your next website project
