@@ -20,6 +20,7 @@ tasks.
 * `@nujek/storyblok` Simple API queries with [@nujek/nuxt-storyblok-queries](https://github.com/regenrek/nuxt-storyblok-queries#readme)
 * `@nujek/storyblok` Useful Storyblok blok viewer for development.
 * `@nujek/ui` Powerful tree-shakeable and reusable nuxt components for your next website project
+* `@nujek/ui` Component Theming with a configuration approach
 
 ## 📦 Install
 

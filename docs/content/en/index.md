@@ -9,6 +9,8 @@ items:
  - 'Written for vue2'
 ui-items:
  - 'Powerful tree-shakeable and reusable nuxt components for your next website project'
+ - Component Theming with a configuration approach
+
 storyblok-items:
  - 'Simple API queries with @nujek/nuxt-storyblok-queries'
  - 'Useful Storyblok blok viewer for development.'

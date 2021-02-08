@@ -16,7 +16,7 @@ Add you tokens and secret data to the <code>.env</code> file and read them via <
 
 ```js
   buildModules: [
-    ['@nujek/ui'],
+    '@nujek/ui',
     [
       '@nujek/storyblok',
       { 
@@ -33,7 +33,10 @@ Add you tokens and secret data to the <code>.env</code> file and read them via <
   ],
 ```
 
-## Storyblok Management API example
+
+## `@nujek/storyblok`
+
+### Storyblok Management API example
 
 [Storyblok Management Api](https://www.storyblok.com/docs/api/management) allows deep integration with the CMS and offers a programmatic approach to creating and updating your content.
 
@@ -64,13 +67,13 @@ If you don't need user generated content you probably won't need management api.
   ],
 ```
 
-## Module Configuration
+### Module Configuration
 
-### Nuxt Storyblok Queries
+#### Nuxt Storyblok Queries
 
 ```js
   buildModules: [
-    ['@nujek/ui'],
+    '@nujek/ui',
     [
       '@nujek/storyblok',
       { 
@@ -84,9 +87,9 @@ If you don't need user generated content you probably won't need management api.
 ```
 
 
-## Properties
+### Properties
 
-### `storyblokConfig`
+#### `storyblokConfig`
 
 * Type: `Object`
 * Default: `{}`
@@ -106,7 +109,7 @@ storyblokConfig: {
 ```
 
 
-### `storyblokQueries`
+#### `storyblokQueries`
 
 * Type: `Object`
 * Default: `{ formatResponse: false }`
@@ -122,7 +125,7 @@ storyblokConfig: {
 ```
 
 
-### `storyblokQueries.formatResponse`
+#### `storyblokQueries.formatResponse`
 
 * Type: `Object`
 * Default: `{ formatResponse: false }`
@@ -140,7 +143,7 @@ storyblokConfig: {
 ```
 
 
-### `debug`
+#### `debug`
 
 * Type: `Boolean`
 * Default: `false`
@@ -153,7 +156,7 @@ storyblokConfig: {
 }, 
 ```
 
-### `withConsole`
+#### `withConsole`
 
 * Type: `Boolean`
 * Default: `false`
@@ -166,13 +169,13 @@ storyblokConfig: {
 }, 
 ```
 
-### `enableStoryblokRouter`
+#### `enableStoryblokRouter`
 
 <alert type="warning">
 Deprecated. We decided to remove nuxt-storyblok-router.
 </alert>
 
-### `enableStoryblokQueries`
+#### `enableStoryblokQueries`
 
 * Type: `Boolean`
 * Default: `true`
@@ -186,7 +189,7 @@ storyblokConfig: {
 ```
 
 
-### `enableStoryblokNuxt`
+#### `enableStoryblokNuxt`
 
 * Type: `Boolean`
 * Default: `true`
@@ -198,3 +201,28 @@ storyblokConfig: {
   enableStoryblokNuxt: true
 }, 
 ```
+
+## `@nujek/ui`
+
+### addDefaultPostCssPlugins
+
+* Type: `Boolean`
+* Default: `true`
+
+Nujek [Styles](getting-started/quick-start#styles) are using `postcss` plugins like `nested` e.g. So we add these plugins on `@nujek/ui` module initialization.
+
+Basically `@nujek/ui` components don't use any predefined `<styles>` so if you don't need any `postcss` plugin you can disable this option.
+
+### enableLazySizesPlugin
+
+Type: `Boolean`
+Default: `true`
+
+The `NjImage` (`SbImage`) component has lazyloading support which uses the popular [`lazysizes`](https://github.com/aFarkas/lazysizes) plugin. You can disable this plugin with this option.
+
+### storeTemplates.nav
+
+Type: `Boolean`
+Default: `true`
+
+To quickstart `NjNav` component we add a functional state to the project. You can disable this state with this options
