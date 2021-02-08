@@ -27,7 +27,7 @@ tasks.
 yarn add -D @nujek/ui @nujek/storyblok @nuxtjs/composition-api @nuxtjs/tailwindcss
 ```
 
-[See install Instructiosn](https://nujek-docs.vercel.app/getting-started/quick-start)
+[See install Instructions](https://nujek-docs.vercel.app/getting-started/quick-start)
 
 ## 🧱 Contribute
 
