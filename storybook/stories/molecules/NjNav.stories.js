@@ -10,8 +10,15 @@ export const DefaultNav = (arg, { argTypes }) => ({
   components: { NjNav },
   template: `
     <div>
-      <NjNav class="bg-gray-200" v-bind="$props">
-        <template #burger-menu>
+      <NjNav class="bg-gray-200 h-18" v-bind="$props" navbarPos="left">
+        <template #logo>
+          <img src="http://placekitten.com/100/100" alt="logo" />
+        </template>
+        <template #nav>
+          <img src="http://placekitten.com/100/100" alt="logo" />
+        </template>
+        <template #toolbar>
+          <img src="http://placekitten.com/100/100" alt="logo" />
           <NjBurger :open.sync="isOpenBurger" />
         </template>
       </NjNav>
