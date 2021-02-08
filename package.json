@@ -6,7 +6,7 @@
     "storybook"
   ],
   "version": "--preid",
-  "description": "Nujek - Nuxt storyblok starter module",
+  "description": "Nujek - Build Websites with Nuxt.js and Storyblok",
   "scripts": {
     "publish:ci": "esno ./scripts/publish.js",
     "release": "esno ./scripts/release.js && git push --follow-tags",

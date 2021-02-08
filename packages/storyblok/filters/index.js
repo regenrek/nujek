@@ -14,11 +14,3 @@ Vue.filter('dashify', function (value) {
 
   return dashified
 })
-
-Vue.filter('truncate', (str, num, clamp = '...') => {
-  if (str.length > num) {
-    return str.slice(0, num) + clamp
-  } else {
-    return str
-  }
-})

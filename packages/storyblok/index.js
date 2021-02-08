@@ -5,7 +5,6 @@ import { toPascalCase } from '@nujek/shared'
 export default async function ({
   storyblokConfig = {},
   withConsole = false,
-  enableStoryblokRouter = false,
   enableStoryblokQueries = true,
   enableStoryblokNuxt = true,
   debug = false,
@@ -14,8 +13,6 @@ export default async function ({
   }
 }) {
   const logger = consola.withScope('@nujek/storyblok')
-
-  // await this.requireModule('@nujek/core', { withConsole })
 
   if (!storyblokConfig) {
     logger.warn('Storyblok Configuration is empty')
@@ -26,18 +23,6 @@ export default async function ({
     logger.success({
       message: 'Storyblok modules ready',
       additional: `Module '@nujek/storyblok-nuxt' registered.`,
-      badge: true
-    })
-  }
-
-  if (enableStoryblokRouter) {
-    await this.requireModule([
-      '@wearewondrous/nuxt-storyblok-router',
-      storyblokConfig
-    ])
-    logger.success({
-      message: 'Storyblok modules ready',
-      additional: `Module '@nujek/nuxt-storyblok-router' registered.`,
       badge: true
     })
   }
@@ -58,6 +43,18 @@ export default async function ({
   }
 
   this.nuxt.hook('components:extend', (components) => {
+    // Add Vue.filters
+    this.addPlugin({
+      src: resolve(__dirname, 'filters/index.js'),
+      options: {}
+    })
+
+    if (withConsole) {
+      logger.success({
+        message: '@nujek/core initialized'
+      })
+    }
+
     // Add rich text renderer
     this.addPlugin({
       src: resolve(__dirname, 'plugins/rich-text-renderer.js'),

@@ -19,10 +19,6 @@ storyblok-items:
 
 Nujek is a collection of useful Vue.js components and libraries which helps you to build [Storyblok](https://www.storyblok.com/) websites and apps as easy as possible.
 
-## `@nujek/core` Features
-
-<list :items="core-items"></list>
-
 ## `@nujek/ui` Features
 
 <list :items="ui-items"></list>

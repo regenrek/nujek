@@ -28,14 +28,12 @@ export default {
     '@nuxtjs/composition-api',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
-    '@nujek/core',
     ['@nujek/ui', { withConsole: true }],
     [
       '@nujek/storyblok',
       {
         storyblokConfig: {},
         withConsole: true,
-        enableStoryblokRouter: false,
         debug: true
       }
     ]

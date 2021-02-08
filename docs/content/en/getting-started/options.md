@@ -168,17 +168,9 @@ storyblokConfig: {
 
 ### `enableStoryblokRouter`
 
-* Type: `Boolean`
-* Default: `false`
-
-Enable/disable <nuxt-link to="/nujek-storyblok/packages#wearewondrousnuxt-storyblok-router">Storyblok Router</nuxt-link>
-
-```js
-storyblokConfig: {
-  enableStoryblokRouter: false
-}, 
-```
-
+<alert type="warning">
+Deprecated. We decided to remove nuxt-storyblok-router.
+</alert>
 
 ### `enableStoryblokQueries`
 

@@ -24,7 +24,6 @@
   "dependencies": {
     "storyblok-nuxt": "^1.3.0",
     "@nujek/nuxt-storyblok-queries": "^1.2.16",
-    "@wearewondrous/nuxt-storyblok-router": "^1.5.2",
     "@marvr/storyblok-rich-text-vue-renderer": "^2.0.1",
     "vue-lazy-hydration": "^2.0.0-beta.4",
     "@nujek/shared": "latest"

@@ -10,30 +10,36 @@ position: 2
 First, install @nujek modules and its recommend depencendy modules like
 
 ```bash
-yarn add -D @nujek/core @nujek/ui @nujek/storyblok @nujek/shared @nuxtjs/composition-api @nuxtjs/tailwindcss
+yarn add -D @nujek/ui @nujek/storyblok @nujek/shared @nuxtjs/composition-api @nuxtjs/tailwindcss
 ```
 
 ## Module Setup
 
-Add @nujek modules to your `nuxt.config.js` file
+Add `@nujek modules` to your `nuxt.config.js` file
 
 ```js[nuxt.config.js]
-{
+const storyblokConfig = {
+    accessToken: '<Storyblok access token>',
+    defaultLanguage: 'en',
+    cacheProvider: 'memory',
+    version: 'auto',
+    disableManagementApi: true
+}
+
+export default {
   buildModules: [
     '@nuxtjs/composition-api',
     '@nuxtjs/tailwindcss',
-    '@nujek/core',
-    ['@nujek/ui'],
+    '@nujek/ui',
     [
-      '@nujek/storyblok',
-      { storyblokConfig: storyblokConfig, debug: true }
+      '@nujek/storyblok', { storyblokConfig, debug: true }
     ]
   ],
 }
 ```
 
 <alert>
-It's recommended to set <code>debug: true</code> for <code>@nujek/storyblok</code> module. Very helpful to see which component bloks needs implementation.
+In <code>development</code> mode set <code>debug: true</code> for <code>@nujek/storyblok</code> module. Debugging allows you to get a visual representation of all available bloks from storyblok.
 </alert>
 
 ## Styles

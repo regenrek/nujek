@@ -8,20 +8,27 @@ tasks.
 
 ## Starter Project
 
-[Nuxt Storyblok Starter Kit](https://github.com/regenrek/nuxt-storyblok-starter) is an example website to quickstart your project.
+[Nuxt Storyblok Starter Website](https://github.com/regenrek/nuxt-storyblok-starter) is an example website to quickstart your project.
 
 
-## Contribute
+## 🚀 Features
 
-Clone the project and install dependencies
+* Complete Nuxt.js Storyblok Integration incl. simplied queries [@nujek/nuxt-storyblok-queries](https://github.com/regenrek/nuxt-storyblok-queries#readme) 
+* [Docs](https://nujek-docs.vercel.app/), [interactive examples](https://nujek-storybook.vercel.app/) and [Starter Website template](https://github.com/regenrek/nuxt-storyblok-starter)
+* Written for vue2
+* Powerful tree-shakeable and reusable nuxt components for your next website project
+* Useful Storyblok blok viewer - just build your components.
+## 📦 Install
 
 ```
-git clone git@github.com:regenrek/nujek.git nujek
-
-yarn # install
+yarn add -D @nujek/ui @nujek/storyblok @nuxtjs/composition-api @nuxtjs/tailwindcss
 ```
 
-- 📖 [&nbsp;Read the documentation](https://nujek-docs.vercel.app/)
+[See install Instructiosn](https://nujek-docs.vercel.app/getting-started/quick-start)
+
+## 🧱 Contribute
+
+[See contribute Guide](https://nujek-docs.vercel.app/contribute/how-to-contribue)
 
 ## License
 

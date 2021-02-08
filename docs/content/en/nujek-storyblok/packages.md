@@ -42,6 +42,11 @@ export default {
 
 ## @wearewondrous/nuxt-storyblok-router
 
+<alert type="warning">
+Deprecated. We decided to remove nuxt-storyblok-router.
+</alert>
+
+
 * Default: `disabled`
 * Package: [`@wearewondrous/nuxt-storyblok-router`](https://github.com/wearewondrous/nuxt-storyblok-router)
 

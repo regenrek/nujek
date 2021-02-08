@@ -1,7 +1,10 @@
 {
-    "title": "Nujek",
-    "url": "https://nujek.regenrek.com",
-    "twitter": "regenrek",
-    "github": "regenrek/nujek"
-  }
-  
+  "title": "Nujek - Nuxt.js & Storyblok CMS",
+  "url": "https://nujek-docs.vercel.app/",
+  "logo": {
+    "light": "/logo-light.svg",
+    "dark": "/logo-dark.svg"
+  },
+  "github": "regenrek/nujek",
+  "twitter": "@regenrek"
+}
