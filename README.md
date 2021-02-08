@@ -8,8 +8,7 @@ tasks.
 
 ## Starter Project
 
-[Nuxt Storyblok Starter Website](https://github.com/regenrek/nuxt-storyblok-starter) is an example website to quickstart your project.
-
+[Nuxt Storyblok Starter Website](https://github.com/regenrek/nuxt-storyblok-starter) is an example website template to quickstart your project.
 
 ## 🚀 Features
 
