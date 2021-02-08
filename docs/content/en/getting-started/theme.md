@@ -8,7 +8,7 @@ position: 3
 To adjust components to your project in terms of style, colors e.g. you will have to create different theme variants.
 
 <alert>
-The theming system works like vue-tailwind's <a href="https://www.vue-tailwind.com/docs/theming">Theming</a> approach. The only difference here is that we don't register new components on plugin initialization. Instead we inject the settings and merge it with possible props. This gives us the possibility to use it with <code>@nuxt/components`</code>.
+The theming system works like vue-tailwind's <a href="https://www.vue-tailwind.com/docs/theming">Theming</a> approach. The only difference here is that we don't register new components on plugin initialization. Instead we inject the settings and merge it with possible props. This gives us the possibility to use it with <code>@nuxt/components</code>.
 </alert>
 
 ## Use Theme system
