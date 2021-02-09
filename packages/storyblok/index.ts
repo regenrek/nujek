@@ -2,7 +2,9 @@ import { join, resolve } from 'path'
 import consola from 'consola'
 import { toPascalCase } from '@nujek/shared'
 
-export default async function ({
+import type { Module } from '@nuxt/types'
+
+const storyblokModule: Module<any> = async function storyblokModule({
   storyblokConfig = {},
   withConsole = false,
   enableStoryblokQueries = true,
@@ -110,3 +112,9 @@ export default async function ({
     }
   })
 }
+
+export default storyblokModule
+
+// eslint-disable-next-line
+// @ts-ignore
+storyblokModule.meta = require('../package.json')

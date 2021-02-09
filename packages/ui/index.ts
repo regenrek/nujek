@@ -1,7 +1,9 @@
 import { join, resolve } from 'path'
 import consola from 'consola'
 
-export default function ({
+import type { Module } from '@nuxt/types'
+
+const uiModule: Module<any> = function uiModule({
   addDefaultPostCssPlugins = true,
   enableLazySizesPlugin = true,
   withConsole = false,
@@ -12,7 +14,7 @@ export default function ({
   const logger = consola.withScope('@nujek/ui')
   const ROOT_DIR = 'nujek'
 
-  this.nuxt.hook('components:extend', (components) => {
+  this.nuxt.hook('components:extend', () => {
     if (addDefaultPostCssPlugins) {
       // Fix issue with postCSS that needs process.env.NODE_ENV
       /* istanbul ignore if */
@@ -99,3 +101,9 @@ export default function ({
     })
   })
 }
+
+export default uiModule
+
+// eslint-disable-next-line
+// @ts-ignore
+uiModule.meta = require('../package.json')

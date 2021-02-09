@@ -1,8 +1,14 @@
 {
   "name": "@nujek/storyblok",
   "description": "Nujek - Storyblok Components",
-  "version": "0.0.42",
-  "main": "index.js",
+  "version": "0.0.45",
+  "main": "dist/index.cjs.js",
+  "types": "dist/index.d.ts",
+  "module": "dist/index.esm.js",
+  "unpkg": "dist/index.umd.min.js",
+  "jsdelivr": "dist/index.umd.min.js",
+  "sideEffects": false,
+  "typings": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/regenrek/nujek.git"
@@ -26,6 +32,6 @@
     "@nujek/nuxt-storyblok-queries": "^1.2.16",
     "@marvr/storyblok-rich-text-vue-renderer": "^2.0.1",
     "vue-lazy-hydration": "^2.0.0-beta.4",
-    "@nujek/shared": "latest"
+    "@nujek/shared": "*"
   }
 }

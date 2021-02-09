@@ -23,15 +23,6 @@ blok_grid -> BlokGrid
 ... and so on 
 ```
 
-
-## events
-
-### `debounce`
-
-The `debounce()` function forces a function to wait a certain amount of time before running again. The function is built to limit the number of times a function is called.
-
-Pretty useful to use it for key input events. 
-
 ## object
 
 ### `forwardProps`

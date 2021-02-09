@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "module": "esnext",
+    "lib": ["ESNext", "DOM"],
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "strict": true,
+    "declaration": true,
+    "declarationDir": "./types",
+    "rootDir": ".",
+    "baseUrl": ".",
+    "jsx": "preserve",
+    "skipLibCheck": true,
+    "noImplicitAny": false,
+    "paths": {
+      "@nujek/shared": ["./packages/shared/index.ts"]
+    },
+    "types": ["node", "@nuxt/types", "jest"]
+  },
+  "include": ["packages"],
+  "exclude": [
+    "node_modules",
+    "**/**/*.test.ts",
+    "**/**/*.stories.tsx",
+    "**/**/*.md",
+    "packages/docs"
+  ]
+}

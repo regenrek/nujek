@@ -19,9 +19,9 @@
   "author": "Kevin Regenrek",
   "license": "MIT",
   "devDependencies": {
-    "@nujek/core": "*",
-    "@nujek/storyblok": "*",
-    "@nujek/ui": "*",
+    "@nujek/core": "0.0.42",
+    "@nujek/storyblok": "0.0.42",
+    "@nujek/ui": "0.0.136",
     "@nuxtjs/composition-api": "^0.18.0",
     "@nuxtjs/eslint-config": "^5.0.0",
     "@nuxtjs/eslint-module": "^3.0.1",

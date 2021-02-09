@@ -1,7 +1,7 @@
 {
   "name": "@nujek/core",
   "description": "Nujek core framework",
-  "version": "0.0.42",
+  "version": "0.0.43",
   "main": "index.js",
   "repository": {
     "type": "git",
