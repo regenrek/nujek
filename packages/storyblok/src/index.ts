@@ -15,6 +15,7 @@ const storyblokModule: Module<any> = async function storyblokModule({
   }
 }) {
   const logger = consola.withScope('@nujek/storyblok')
+  const ROOT_DIR = 'nujek'
 
   if (!storyblokConfig) {
     logger.warn('Storyblok Configuration is empty')
@@ -84,7 +85,8 @@ const storyblokModule: Module<any> = async function storyblokModule({
     ]
 
     this.addPlugin({
-      src: resolve(__dirname, 'plugins/dynamic-bloks.js'),
+      src: resolve(__dirname, '../templates', 'plugins/dynamic-bloks.js'),
+      fileName: join(ROOT_DIR, 'plugins/dynamic-bloks.js'),
       options: { debug, prefixes }
     })
 

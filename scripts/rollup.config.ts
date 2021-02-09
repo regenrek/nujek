@@ -1,8 +1,3 @@
-// rollup.config.js
-// import vue from 'rollup-plugin-vue'
-// import typescript from 'rollup-plugin-typescript2'
-// import path from 'path'
-// import renameExtensions from '@betit/rollup-plugin-rename-extensions'
 import typescript from 'rollup-plugin-typescript2'
 import { terser } from 'rollup-plugin-terser'
 import dts from 'rollup-plugin-dts'
@@ -20,7 +15,7 @@ for (const { globals, name, display, external } of activePackages) {
   const umdName = name === 'core' ? 'Nujek' : `Nujek${display}`
 
   configs.push({
-    input: `packages/${name}/index.ts`,
+    input: `packages/${name}/src/index.ts`,
     output: [
       {
         file: `packages/${name}/dist/index.cjs.js`,
@@ -65,7 +60,7 @@ for (const { globals, name, display, external } of activePackages) {
   })
 
   configs.push({
-    input: `packages/${name}/index.ts`,
+    input: `packages/${name}/src/index.ts`,
     output: {
       file: `packages/${name}/dist/index.d.ts`,
       format: 'es'
@@ -75,26 +70,3 @@ for (const { globals, name, display, external } of activePackages) {
 }
 
 export default configs
-
-// for (const [pkg, options] of packages) {
-//   configs.push({
-//     input: `packages/${pkg}/index.ts`,
-//     output: [
-//       // format: 'esm', // This is what tells rollup to use ES6 modules
-//       // dir: 'dist',
-//       {
-//         file: `dist/${pkg}/index.cjs.js`,
-//         format: 'cjs'
-//       }
-//     ],
-//     plugins: [
-//       vue()
-//     ],
-//     external: [
-//       'vue',
-//       '@vue/composition-api',
-//       '@vue/runtime-dom',
-//       ...(options.external || [])
-//     ]
-//   })
-// }

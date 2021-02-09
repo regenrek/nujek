@@ -45,13 +45,13 @@ const uiModule: Module<any> = function uiModule({
 
     if (storeTemplates.nav) {
       this.addTemplate({
-        src: resolve(__dirname, 'store/nav.js'),
+        src: resolve(__dirname, '../templates', 'store/nav.js'),
         fileName: join(ROOT_DIR, 'store/nav.js'),
         options: {}
       })
 
       this.addPlugin({
-        src: join(__dirname, 'plugins/init-store.js'),
+        src: join(__dirname, '../templates', 'init-store.js'),
         fileName: join(ROOT_DIR, 'plugins/init-store.js'),
         options: {}
       })
@@ -70,7 +70,7 @@ const uiModule: Module<any> = function uiModule({
 
     if (enableLazySizesPlugin) {
       this.addPlugin({
-        src: join(__dirname, 'plugins/lazysizes.js'),
+        src: join(__dirname, '../templates', 'lazysizes.js'),
         fileName: join(ROOT_DIR, 'plugins/lazysizes.js'),
         options: {}
       })

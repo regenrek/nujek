@@ -40,9 +40,6 @@ const mergeClasses = (classesA, classesB) => {
   return [a, b]
 }
 
-// @TODO: $nujekConfig has to be initialized in the future but for now we check
-const isFun = (obj) => !!(obj && obj.constructor && obj.call && obj.apply)
-
 const Component = Vue.extend({
   inject: ['$nujekConfig'],
   props: {
