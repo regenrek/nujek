@@ -42,29 +42,28 @@ export default {
     // representing a storyblok schema
     blok: {
       type: Object,
-      default: () => ({})
+      default: () => ({}),
     },
     // can be `OnInteraction`, `SsrOnly`, `WhenIdle`, `WhenVisible`
     hydration: {
       type: String,
-      default: 'WhenIdle'
-    }
+      default: 'WhenIdle',
+    },
   },
   computed: {
     /**
      * detect all properties of the blok which represent blok schemas as children
      */
     children() {
-      const isArray = (value) => Array.isArray(value) && value.length > 0
-      const isObject = (value) => typeof value === 'object' && value !== null
-      const isBlok = (value) => 'component' in value
+      const isArray = (value) => Array.isArray(value) && value.length > 0;
+      const isObject = (value) => typeof value === 'object' && value !== null;
+      const isBlok = (value) => 'component' in value;
       return Object.fromEntries(
         Object.entries(this.blok).filter(
-          ([prop, value]) =>
-            isArray(value) && isObject(value[0]) && isBlok(value[0])
-        )
-      )
-    }
-  }
-}
+          ([prop, value]) => isArray(value) && isObject(value[0]) && isBlok(value[0]),
+        ),
+      );
+    },
+  },
+};
 </script>

@@ -1,7 +1,7 @@
 {
   "name": "@nujek/ui",
   "description": "Nujek - UI Components",
-  "version": "0.0.142",
+  "version": "0.0.155",
   "main": "dist/index.cjs.js",
   "types": "dist/index.d.ts",
   "module": "dist/index.esm.js",
@@ -29,11 +29,14 @@
   "homepage": "https://github.com/regenrek/nujek#readme",
   "dependencies": {
     "lazysizes": "^5.3.0-beta1",
+    "lodash.get": "^4.4.2",
     "postcss-hexrgba": "^2.0.1",
     "postcss-import": "^12.0.1",
     "postcss-mixins": "6.2.3",
     "postcss-nested": "^4.2.3",
-    "postcss-scss": "^3.0.2",
-    "lodash.get": "^4.4.2"
+    "postcss-scss": "^3.0.2"
+  },
+  "devDependencies": {
+    "@types/lodash.get": "^4.4.6"
   }
 }

@@ -16,7 +16,7 @@ export default {
         title: null,
         filename: '',
         copyright: null,
-        fieldtype: 'asset'
+        fieldtype: 'asset',
       },
       component: 'settings',
       navigation: [
@@ -27,10 +27,10 @@ export default {
             url: '/',
             linktype: 'url',
             fieldtype: 'multilink',
-            cached_url: '/'
+            cached_url: '/',
           },
           name: 'Home',
-          component: 'navigation-item'
+          component: 'navigation-item',
         },
         {
           _uid: 'e4bee1c5-612c-489a-a5c6-122b7e4b9bce',
@@ -39,10 +39,10 @@ export default {
             url: '',
             linktype: 'story',
             fieldtype: 'multilink',
-            cached_url: 'blog/'
+            cached_url: 'blog/',
           },
           name: 'Blog',
-          component: 'navigation-item'
+          component: 'navigation-item',
         },
         {
           _uid: '7eb90a13-6750-426c-a137-83f53325eb0f',
@@ -51,11 +51,11 @@ export default {
             url: '',
             linktype: 'story',
             fieldtype: 'multilink',
-            cached_url: 'test'
+            cached_url: 'test',
           },
           name: 'Test',
-          component: 'navigation-item'
-        }
+          component: 'navigation-item',
+        },
       ],
       subnavigation: [],
       footer_navigation: [],
@@ -67,10 +67,10 @@ export default {
             url: '',
             linktype: 'story',
             fieldtype: 'multilink',
-            cached_url: 'home'
+            cached_url: 'home',
           },
           name: 'Home',
-          component: 'navigation-item'
+          component: 'navigation-item',
         },
         {
           _uid: '0137c2e8-4aac-48be-b154-40dbc8b64627',
@@ -79,10 +79,10 @@ export default {
             url: '',
             linktype: 'story',
             fieldtype: 'multilink',
-            cached_url: 'blog/'
+            cached_url: 'blog/',
           },
           name: 'Blog',
-          component: 'navigation-item'
+          component: 'navigation-item',
         },
         {
           _uid: '2529b582-6459-48a5-819a-01e39118853e',
@@ -91,13 +91,13 @@ export default {
             url: '',
             linktype: 'story',
             fieldtype: 'multilink',
-            cached_url: 'test'
+            cached_url: 'test',
           },
           name: 'Test',
-          component: 'navigation-item'
-        }
+          component: 'navigation-item',
+        },
       ],
-      mobile_subnavigation: []
+      mobile_subnavigation: [],
     },
     slug: 'settings',
     full_slug: 'settings',
@@ -113,6 +113,6 @@ export default {
     release_id: null,
     lang: 'default',
     path: null,
-    translated_slugs: []
-  }
-}
+    translated_slugs: [],
+  },
+};

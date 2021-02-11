@@ -1,1 +1,3 @@
-packages/storyblok/plugins/dynamic-bloks.js
+packages/storyblok/templates/dynamic-bloks.js
+dist
+node_modules

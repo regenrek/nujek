@@ -1,10 +1,10 @@
-import NjNav from '@nujek/ui/components/molecules/NjNav/NjNav'
-import { mapState, mapGetters, mapActions } from 'vuex'
+import NjNav from '@nujek/ui/components/molecules/NjNav/NjNav';
+import { mapState, mapGetters, mapActions } from 'vuex';
 
 export default {
   title: 'NjNav',
-  component: NjNav
-}
+  component: NjNav,
+};
 
 export const DefaultNav = (arg, { argTypes }) => ({
   components: { NjNav },
@@ -21,24 +21,24 @@ export const DefaultNav = (arg, { argTypes }) => ({
   `,
   computed: {
     ...mapState({
-      navOpen: (state) => state.nav.navOpen
+      navOpen: (state) => state.nav.navOpen,
     }),
     ...mapGetters({
-      mainNavigation: 'nav/main'
+      mainNavigation: 'nav/main',
     }),
     isOpenBurger: {
-      get: function () {
-        return this.navOpen
+      get() {
+        return this.navOpen;
       },
-      set: function (val) {
-        this.$store.dispatch('nav/set', val)
-      }
-    }
+      set(val) {
+        this.$store.dispatch('nav/set', val);
+      },
+    },
   },
   methods: {
     ...mapActions({
       toggleSidebar: 'nav/toggle',
-      closeSidebar: 'nav/close'
-    })
-  }
-})
+      closeSidebar: 'nav/close',
+    }),
+  },
+});

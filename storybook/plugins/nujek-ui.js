@@ -1,7 +1,7 @@
-import Vue from 'vue'
-import Nujek from '@nujek/ui/plugin'
-import NjSection from '@nujek/ui/components/atoms/NjSection.vue'
-import NjBurger from '@nujek/ui/components/atoms/NjBurger.vue'
+import Vue from 'vue';
+import Nujek from '@nujek/ui/plugin';
+import NjSection from '@nujek/ui/components/atoms/NjSection.vue';
+import NjBurger from '@nujek/ui/components/atoms/NjBurger.vue';
 
 const settings = {
   NjSection: {
@@ -9,28 +9,28 @@ const settings = {
     props: {
       classes: {
         wrapper: 'bg-blue-600',
-        container: 'bg-red-600'
+        container: 'bg-red-600',
       },
       variants: {
         boxed: {
           wrapper: 'bg-gray-200 flex justify-center',
-          container: 'bg-red-400 max-w-screen-2xl'
+          container: 'bg-red-400 max-w-screen-2xl',
         },
         fullWidth: {
           wrapper: 'bg-yellow-200 w-full',
-          container: 'bg-yellow-400 w-full'
-        }
-      }
-    }
+          container: 'bg-yellow-400 w-full',
+        },
+      },
+    },
   },
   NjBurger: {
     component: NjBurger,
     props: {
       classes: {
-        bar: 'bg-yellow-500'
-      }
-    }
-  }
+        bar: 'bg-yellow-500',
+      },
+    },
+  },
   // NjNav: {
   //   component: NjNav,
   //   props: {
@@ -47,6 +47,6 @@ const settings = {
   //     }
   //   }
   // }
-}
+};
 
-Vue.use(Nujek, settings)
+Vue.use(Nujek, settings);

@@ -1,20 +1,27 @@
 {
   "compilerOptions": {
-    "target": "es2017",
+    "target": "es2019",
     "module": "esnext",
-    "lib": ["ESNext", "DOM"],
+    "lib": [
+          "esnext",
+          "dom",
+          "dom.iterable",
+          "scripthost",
+          "esnext.array"
+    ],
     "moduleResolution": "node",
     "esModuleInterop": true,
     "strict": true,
     "declaration": true,
-    "declarationDir": "./types",
+    "declarationDir": "dist",
     "rootDir": ".",
     "baseUrl": ".",
     "jsx": "preserve",
     "skipLibCheck": true,
     "noImplicitAny": false,
     "paths": {
-      "@nujek/shared": ["./packages/shared/src/index.ts"]
+      "@nujek/shared": ["./packages/shared/src/index.ts"],
+      "~/*": ["./*"]
     },
     "types": ["node", "@nuxt/types", "jest"]
   },

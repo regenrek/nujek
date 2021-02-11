@@ -1,5 +1,6 @@
-import lazySizes from 'lazysizes'
-import 'lazysizes/plugins/blur-up/ls.blur-up'
-lazySizes.cfg.blurupMode = 'auto'
+import lazySizes from 'lazysizes';
+import 'lazysizes/plugins/blur-up/ls.blur-up';
 
-export default lazySizes
+lazySizes.cfg.blurupMode = 'auto';
+
+export default lazySizes;

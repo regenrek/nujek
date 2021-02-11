@@ -10,8 +10,8 @@ export default {
   props: {
     bloks: {
       type: Array,
-      default: () => []
-    }
-  }
-}
+      default: () => [],
+    },
+  },
+};
 </script>

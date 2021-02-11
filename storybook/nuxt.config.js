@@ -1,4 +1,4 @@
-import path from 'path'
+import path from 'path';
 
 export default {
   components: [
@@ -6,20 +6,20 @@ export default {
     {
       path: '../packages/ui/components/bloks',
       global: true,
-      extensions: ['vue', 'js']
+      extensions: ['vue', 'js'],
     },
-    '~/components'
+    '~/components',
   ],
   css: ['@nujek/ui/css/nujek-ui.css'],
   storybook: {
     addons: ['@storybook/addon-storysource'],
     stories: [
-      //'~/packages/ui/components/**/*.stories.js',
-      '~/stories/**/*.stories.js'
-    ]
+      // '~/packages/ui/components/**/*.stories.js',
+      '~/stories/**/*.stories.js',
+    ],
   },
   tailwindcss: {
-    cssPath: '~/styles/tailwind.css'
+    cssPath: '~/styles/tailwind.css',
   },
   plugins: [{ src: '~/plugins/nujek-ui.js' }],
   buildModules: [
@@ -34,17 +34,17 @@ export default {
       {
         storyblokConfig: {},
         withConsole: true,
-        debug: true
-      }
-    ]
+        debug: true,
+      },
+    ],
   ],
   modules: ['nuxt-client-init-module'],
   build: {
     transpile: ['@nujek/shared', '@nujek/ui'],
     postcss: {
       plugins: {
-        'postcss-nested': {}
-      }
-    }
-  }
-}
+        'postcss-nested': {},
+      },
+    },
+  },
+};

@@ -1,28 +1,28 @@
-import NjBurger from '@nujek/ui/components/atoms/NjBurger'
-import '~/assets/css/components/burger-demo.css'
+import NjBurger from '@nujek/ui/components/atoms/NjBurger';
+import '~/assets/css/components/burger-demo.css';
 
 export default {
   title: 'NjBurger',
-  component: NjBurger
-}
+  component: NjBurger,
+};
 
 export const Burger = (arg, { argTypes }) => ({
   components: { NjBurger },
   data() {
     return {
-      isOpenBurger: false
-    }
+      isOpenBurger: false,
+    };
   },
-  template: '<NjBurger :open.sync="isOpenBurger" v-bind="$props" />'
-})
+  template: '<NjBurger :open.sync="isOpenBurger" v-bind="$props" />',
+});
 
 export const CustomBurger = (arg, { argTypes }) => ({
   components: { NjBurger },
   // props: Object.keys(argTypes),
   data() {
     return {
-      isOpenBurger: false
-    }
+      isOpenBurger: false,
+    };
   },
   template: `
     <div class="bg-gray-800 w-full min-h-screen">
@@ -33,16 +33,16 @@ export const CustomBurger = (arg, { argTypes }) => ({
         </ul>
       </NjBurger>
     </div>
-  `
-})
+  `,
+});
 
 export const CustomBurger2 = (arg, { argTypes }) => ({
   components: { NjBurger },
   // props: Object.keys(argTypes),
   data() {
     return {
-      isOpenBurger: false
-    }
+      isOpenBurger: false,
+    };
   },
   template: `
     <div class="bg-blue-800 w-full min-h-screen">
@@ -61,5 +61,5 @@ export const CustomBurger2 = (arg, { argTypes }) => ({
         </div> 
       </NjBurger>
     </div>
-  `
-})
+  `,
+});

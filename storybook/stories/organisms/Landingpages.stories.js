@@ -1,8 +1,8 @@
-import { mapState, mapGetters, mapActions } from 'vuex'
+import { mapState, mapGetters, mapActions } from 'vuex';
 
 export default {
-  title: 'Landingpages'
-}
+  title: 'Landingpages',
+};
 
 export const HeroNav = (arg, { argTypes }) => ({
   template: `
@@ -59,24 +59,24 @@ export const HeroNav = (arg, { argTypes }) => ({
   `,
   computed: {
     ...mapState({
-      navOpen: (state) => state.nav.navOpen
+      navOpen: (state) => state.nav.navOpen,
     }),
     ...mapGetters({
-      mainNavigation: 'nav/main'
+      mainNavigation: 'nav/main',
     }),
     isOpenBurger: {
-      get: function () {
-        return this.navOpen
+      get() {
+        return this.navOpen;
       },
-      set: function (val) {
-        this.$store.dispatch('nav/set', val)
-      }
-    }
+      set(val) {
+        this.$store.dispatch('nav/set', val);
+      },
+    },
   },
   methods: {
     ...mapActions({
       toggleSidebar: 'nav/toggle',
-      closeSidebar: 'nav/close'
-    })
-  }
-})
+      closeSidebar: 'nav/close',
+    }),
+  },
+});

@@ -1,0 +1,8 @@
+/* remove p block inside list items */
+.richtext li > p:first-child {
+  display: inline;
+  margin: 0;
+}
+.richtext.milestone-text p {
+  margin-top: 0;
+}

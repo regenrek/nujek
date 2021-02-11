@@ -48,19 +48,21 @@ const storyblokModule: Module<any> = async function storyblokModule({
   this.nuxt.hook('components:extend', (components) => {
     // Add Vue.filters
     this.addPlugin({
-      src: resolve(__dirname, 'filters/index.js'),
+      src: resolve(__dirname, '../templates', 'filters.js'),
+      fileName: join(ROOT_DIR, 'filters.js'),
       options: {}
     })
 
     if (withConsole) {
       logger.success({
-        message: '@nujek/core initialized'
+        message: '@nujek/storyblok filters added'
       })
     }
 
     // Add rich text renderer
     this.addPlugin({
-      src: resolve(__dirname, 'plugins/rich-text-renderer.js'),
+      src: resolve(__dirname, '../templates', 'rich-text-renderer.js'),
+      fileName: join(ROOT_DIR, 'rich-text-renderer.js'),
       options: {}
     })
 
@@ -85,8 +87,8 @@ const storyblokModule: Module<any> = async function storyblokModule({
     ]
 
     this.addPlugin({
-      src: resolve(__dirname, '../templates', 'plugins/dynamic-bloks.js'),
-      fileName: join(ROOT_DIR, 'plugins/dynamic-bloks.js'),
+      src: resolve(__dirname, '../templates', 'dynamic-bloks.js'),
+      fileName: join(ROOT_DIR, 'dynamic-bloks.js'),
       options: { debug, prefixes }
     })
 
@@ -104,7 +106,7 @@ const storyblokModule: Module<any> = async function storyblokModule({
   this.nuxt.hook('components:dirs', (dirs) => {
     // Add ./components dir to the list
     dirs.push({
-      path: join(__dirname, 'components')
+      path: join(__dirname, '../components')
     })
 
     if (withConsole) {

@@ -2,26 +2,24 @@ module.exports = {
   root: true,
   env: {
     browser: true,
-    node: true
+    node: true,
   },
   parserOptions: {
-    parser: 'babel-eslint'
+    parser: 'babel-eslint',
   },
   extends: [
-    'plugin:nuxt/recommended',
     'plugin:vue/recommended',
     'eslint:recommended',
-    'prettier/vue',
-    'plugin:prettier/recommended'
+    '@vue/typescript/recommended',
   ],
   globals: {
     $nuxt: true,
     page: true,
     browser: true,
     context: true,
-    jestPuppeteer: true
+    jestPuppeteer: true,
   },
-  plugins: ['nuxt', 'vue', 'prettier'],
+  plugins: ['nuxt', 'vue'],
   rules: {
     'new-cap': 'off',
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
@@ -36,13 +34,12 @@ module.exports = {
         html: {
           void: 'any',
           normal: 'always',
-          component: 'always'
+          component: 'always',
         },
         svg: 'always',
-        math: 'always'
-      }
+        math: 'always',
+      },
     ],
-    'comma-dangle': ['error', 'never'],
     'vue/max-attributes-per-line': 'off',
     'vue/no-v-html': 'off',
     'no-unused-vars': ['warn'],
@@ -51,6 +48,13 @@ module.exports = {
     'require-await': ['warn'],
     'handle-callback-err': ['warn'],
     'vue/custom-event-name-casing': ['off'],
-    'prettier/prettier': 2
-  }
-}
+    'import/no-extraneous-dependencies': ['off'],
+    'import/extensions': ['off'],
+    'import/prefer-export-default': ['off'],
+    'import/no-unresolved': ['off'],
+    'no-restricted-syntax': ['off'],
+    '@typescript-eslint/no-var-requires': ['off'],
+    'global-require': ['off'],
+    '@typescript-eslint/explicit-module-boundary-types': ['off']
+  },
+};

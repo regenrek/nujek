@@ -1,7 +1,7 @@
 {
   "name": "@nujek/shared",
   "description": "Nujek - Shared Components",
-  "version": "0.0.61",
+  "version": "0.0.75",
   "main": "dist/index.cjs.js",
   "types": "dist/index.d.ts",
   "module": "dist/index.esm.js",
