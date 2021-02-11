@@ -1,4 +1,4 @@
-import SbNavDefault from '@nujek/ui/components/organisms/Nav/SbNavDefault';
+import { SbNavDefault } from '@nujek/ui/dist/components';
 // import Vuex from 'vuex'
 // import registerNavStore from '@ui/store/nav'
 // import settingsMock from '../../mocks/settingsMock'

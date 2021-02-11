@@ -1,4 +1,4 @@
-import NjHeroVideo from '@nujek/ui/components/organisms/NjVideoBackground/NjVideoBackground';
+import { NjHeroVideo } from '@nujek/ui/dist/components';
 
 export default {
   title: 'NjHero',

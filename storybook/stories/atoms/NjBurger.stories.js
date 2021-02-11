@@ -1,4 +1,4 @@
-import NjBurger from '@nujek/ui/components/atoms/NjBurger';
+import { NjBurger } from '@nujek/ui/dist/components';
 import '~/assets/css/components/burger-demo.css';
 
 export default {

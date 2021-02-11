@@ -1,4 +1,4 @@
-import NjSection from '@nujek/ui/components/atoms/NjSection';
+import { NjSection } from '@nujek/ui/dist/components';
 
 export default {
   title: 'NjSection',

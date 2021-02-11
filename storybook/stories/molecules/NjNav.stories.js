@@ -1,4 +1,4 @@
-import NjNav from '@nujek/ui/components/molecules/NjNav/NjNav';
+import { NjNav } from '@nujek/ui/dist/components';
 import { mapState, mapGetters, mapActions } from 'vuex';
 
 export default {
