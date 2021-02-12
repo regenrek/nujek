@@ -116,7 +116,7 @@ configs.push(
         format: 'umd',
         name: umdName,
         globals
-      }
+      },
     ],
     plugins: [
       babel(babelConfig)
@@ -135,6 +135,16 @@ configs.push(
         format: 'umd',
         name: umdName,
         globals
+      },
+      {
+        file: 'packages/ui/dist/components.cjs.js',
+        format: 'cjs',
+        exports: 'named',
+        globals
+      },
+      {
+        file: 'packages/ui/dist/components.esm.js',
+        format: 'es'
       }
     ],
     plugins: [
