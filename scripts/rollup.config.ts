@@ -89,8 +89,7 @@ for (const {
           },
         },
       }),
-      builtins(),
-      babel(babelConfig)
+      builtins()
     ],
     external: ['@nujek/shared', 'vue', 'Vue', ...(external || [])],
   });
