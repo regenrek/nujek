@@ -89,7 +89,8 @@ for (const {
           },
         },
       }),
-      builtins()
+      builtins(),
+      babel(babelConfig)
     ],
     external: ['@nujek/shared', 'vue', 'Vue', ...(external || [])],
   });
@@ -118,7 +119,7 @@ configs.push(
       }
     ],
     plugins: [
-      babel()
+      babel(babelConfig)
     ],
     external: Object.keys(globals),
   },
