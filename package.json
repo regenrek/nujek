@@ -74,7 +74,6 @@
     "ts-jest": "^26.4.4",
     "typescript": "^4.1.3",
     "version-bump-prompt": "^6.1.0",
-    "vue": "^2.6.12",
     "vue-i18n": "^8.22.2",
     "vue-loader": "^15.9.6",
     "vue-template-compiler": "^2.6.12",
