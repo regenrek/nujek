@@ -8,33 +8,6 @@ import { babel } from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import replace from '@rollup/plugin-replace';
 import alias from '@rollup/plugin-alias';
-import node from 'rollup-plugin-node-resolve'
-
-
-
-const globals = {
-  '@nujek/shared': '@nujek/shared',
-  'lodash.get': 'get',
-  vue: 'Vue',
-  consola: 'Consola'
-};
-
-const babelConfig = {
-    // exclude: 'node_modules/**',
-    // babelHelpers: 'runtime',
-    // babelrc: false,
-    // presets: [['@babel/preset-env', { modules: false }]],
-    plugins: ['@babel/plugin-proposal-optional-chaining']
-}
-
-const vuePluginConfig = {
-    template: {
-        isProduction: true,
-        compilerOptions: {
-            whitespace: 'condense'
-        }
-    }
-}
 
 const configs = [];
 
@@ -90,9 +63,11 @@ for (const {
         },
       }),
       builtins(),
-      babel(babelConfig)
+      babel({
+        plugins: ['@babel/plugin-proposal-optional-chaining']
+      })
     ],
-    external: ['@nujek/shared', 'vue', 'Vue', ...(external || [])],
+    external: ['@nujek/shared', ...(external || [])],
   });
 
   configs.push({
@@ -106,6 +81,9 @@ for (const {
 }
 
 const umdName = 'NujekUi';
+const umdGlobals = {
+  '@nujek/shared': 'NujekShared',
+};
 
 configs.push(
   {
@@ -115,26 +93,30 @@ configs.push(
         file: 'packages/ui/dist/plugin.js',
         format: 'umd',
         name: umdName,
-        globals
+        globals: umdGlobals,
       }
     ],
     plugins: [
-      babel()
+      commonjs(),
+      babel({
+        plugins: ['@babel/plugin-proposal-optional-chaining']
+      })
     ],
-    external: Object.keys(globals),
+    external: ['@nujek/shared'],
   },
-
-
-  // Components.ts -> js
-
   {
     input: 'packages/ui/src/components.ts',
     output: [
       {
         file: 'packages/ui/dist/components.js',
-        format: 'umd',
+        format: 'esm',
         name: umdName,
-        globals
+        globals: umdGlobals
+      },     {
+        file: 'packages/ui/dist/components2.js',
+        format: 'esm',
+        name: umdName,
+        globals: umdGlobals
       }
     ],
     plugins: [
@@ -145,10 +127,13 @@ configs.push(
           },
         },
       }),
-      babel(babelConfig),
-      vue(vuePluginConfig),
+      babel({
+        plugins: ['@babel/plugin-proposal-optional-chaining']
+      }),
+      builtins(),
+      vue(),
     ],
-    external: Object.keys(globals),
+    external: ['@nujek/shared'],
   },
 );
 
@@ -161,7 +146,7 @@ const components = {
   'components/molecules/NjNav/NjNav': 'NjNav',
   'components/molecules/NjSidebar/NjSidebar': 'NjSidebar',
   'components/molecules/SbGrid': 'SbGrid',
-  // 'components/organisms/NjVideoBackground/NjVideoBackground': 'NjVideoBackground'
+  'components/organisms/NjVideoBackground/NjVideoBackground': 'NjVideoBackground'
 };
 
 const componentsConfig = Object.keys(components).map((component) => {
@@ -176,9 +161,9 @@ const componentsConfig = Object.keys(components).map((component) => {
       format: 'umd',
       name: componentName,
       exports: 'named',
-      globals
+      globals: umdGlobals,
     },
-    external: Object.keys(globals),
+    external: Object.keys(umdGlobals),
     plugins: [
       typescript({
         tsconfigOverride: {
@@ -187,9 +172,11 @@ const componentsConfig = Object.keys(components).map((component) => {
           },
         },
       }),
-      babel(babelConfig),
+      babel({
+        plugins: ['@babel/plugin-proposal-optional-chaining']
+      }),
       vue(),
-    ]
+    ],
   };
 }).flat();
 
