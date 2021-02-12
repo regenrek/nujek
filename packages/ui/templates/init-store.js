@@ -1,6 +1,6 @@
-import { registerNavStore } from './nav';
+import { registerNavStore } from './nav'
 
 export default (context) => {
-  const { store } = context;
-  registerNavStore(store);
-};
+  const { store } = context
+  registerNavStore(store)
+}

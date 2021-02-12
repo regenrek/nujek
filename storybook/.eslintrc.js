@@ -1,60 +1,7 @@
 module.exports = {
   root: true,
-  env: {
-    browser: true,
-    node: true,
-  },
-  parserOptions: {
-    parser: 'babel-eslint',
-  },
   extends: [
-    'plugin:vue/recommended',
-    '@vue/airbnb',
-    '@vue/typescript/recommended',
-  ],
-  globals: {
-    $nuxt: true,
-    page: true,
-    browser: true,
-    context: true,
-    jestPuppeteer: true,
-  },
-  plugins: ['nuxt', 'vue'],
-  rules: {
-    'new-cap': 'off',
-    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'vue/component-name-in-template-casing': ['off', 'PascalCase'],
-    'vue/component-definition-name-casing': ['off'],
-    'vue/attribute-hyphenation': ['warn'],
-    'vue/no-unused-components': ['warn'],
-    'vue/html-self-closing': [
-      'error',
-      {
-        html: {
-          void: 'any',
-          normal: 'always',
-          component: 'always',
-        },
-        svg: 'always',
-        math: 'always',
-      },
-    ],
-    'vue/max-attributes-per-line': 'off',
-    'vue/no-v-html': 'off',
-    'no-unused-vars': ['warn'],
-    eqeqeq: ['warn'],
-    'no-lonely-if': ['warn'],
-    'require-await': ['warn'],
-    'handle-callback-err': ['warn'],
-    'vue/custom-event-name-casing': ['off'],
-    'import/no-extraneous-dependencies': ['off'],
-    'import/extensions': ['off'],
-    'import/prefer-export-default': ['off'],
-    'import/no-unresolved': ['off'],
-    'no-restricted-syntax': ['off'],
-    '@typescript-eslint/no-var-requires': ['off'],
-    'global-require': ['off'],
-    '@typescript-eslint/explicit-module-boundary-types': ['off'],
-  },
-};
+    '@nuxtjs',
+    '@nuxtjs/eslint-config-typescript'
+  ]
+}

@@ -1,29 +1,16 @@
 {
   "compilerOptions": {
-    "target": "es2019",
-    "module": "esnext",
-    "lib": [
-          "esnext",
-          "dom",
-          "dom.iterable",
-          "scripthost",
-          "esnext.array"
-    ],
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "strict": true,
-    "declaration": true,
-    "declarationDir": "dist",
-    "rootDir": ".",
     "baseUrl": ".",
-    "jsx": "preserve",
-    "skipLibCheck": true,
-    "noImplicitAny": false,
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "types": ["node", "jest", "./src/types/global"],
     "paths": {
+      "~components/*": ["src/runtime/*"],
+      "~components": ["src/runtime"],
       "@nujek/shared": ["./packages/shared/src/index.ts"],
       "~/*": ["./*"]
     },
-    "types": ["node", "@nuxt/types", "jest"]
   },
   "include": ["packages"],
   "exclude": [

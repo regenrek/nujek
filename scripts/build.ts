@@ -8,13 +8,8 @@ function build() {
   consola.info('Clean up')
   exec('yarn run clean', { stdio: 'inherit' })
 
-  //consola.info('Generate Imports')
-  //exec('yarn run prepare', { stdio: 'inherit' })
-
   consola.info('Rollup')
-  exec('yarn run build:rollup', { stdio: 'inherit' })
-
-  consola.info('Fix types')
+  exec('yarn run build:siroc', { stdio: 'inherit' })
 }
 
 async function cli() {

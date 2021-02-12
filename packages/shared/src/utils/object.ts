@@ -3,7 +3,7 @@
  * @param {Object} props
  * @returns {Object} Sanitized object with defined values.
  */
-export function forwardProps(props) {
+export function forwardProps (props) {
   const pure = {}
   for (const prop in props) {
     if (props[prop] !== undefined) {

@@ -1,7 +1,7 @@
 /**
  * Fork from: https://github.com/vue-bulma/click-outside
  */
-function validate(binding) {
+function validate (binding) {
   if (typeof binding.value !== 'function') {
     // eslint-disable-next-line no-console
     console.warn(
@@ -15,7 +15,7 @@ function validate(binding) {
   return true
 }
 
-function isPopup(popupItem, elements) {
+function isPopup (popupItem, elements) {
   if (!popupItem || !elements) {
     return false
   }
@@ -36,7 +36,7 @@ function isPopup(popupItem, elements) {
   return false
 }
 
-function isServer(vNode) {
+function isServer (vNode) {
   return (
     typeof vNode.componentInstance !== 'undefined' &&
     vNode.componentInstance.$isServer
@@ -44,12 +44,12 @@ function isServer(vNode) {
 }
 
 const directive = {
-  bind(el, binding, vNode) {
-    if (!validate(binding)) return
+  bind (el, binding, vNode) {
+    if (!validate(binding)) { return }
 
     // Define Handler and cache it on the element
-    function handler(e) {
-      if (!vNode.context) return
+    function handler (e) {
+      if (!vNode.context) { return }
 
       // some components may have related popup item, on which we shall prevent the click outside event handler.
       const elements = e.path || (e.composedPath && e.composedPath())
@@ -70,11 +70,11 @@ const directive = {
     !isServer(vNode) && document.addEventListener('click', handler)
   },
 
-  update(el, binding) {
-    if (validate(binding)) el.__vueClickOutside__.callback = binding.value
+  update (el, binding) {
+    if (validate(binding)) { el.__vueClickOutside__.callback = binding.value }
   },
 
-  unbind(el, binding, vNode) {
+  unbind (el, binding, vNode) {
     // Remove Event Listeners
     !isServer(vNode) &&
       document.removeEventListener('click', el.__vueClickOutside__.handler)

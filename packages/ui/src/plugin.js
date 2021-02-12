@@ -22,11 +22,11 @@ export const getConfig = (component, props) => {
   return customProps
 }
 
-const install = function installNujek(vueInstance, settings) {
+const install = function installNujek (vueInstance, settings) {
   Vue.mixin({
     // Dependency injection forces us to explicitly require that function
     provide: {
-      $nujekConfig(componentName) {
+      $nujekConfig (componentName) {
         const componentSettings = settings[componentName || this.$options.name]
         if (componentSettings) {
           const { component, props } = componentSettings

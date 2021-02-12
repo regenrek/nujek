@@ -1,22 +1,7 @@
 {
   "name": "@nujek/storyblok",
-  "description": "Nujek - Storyblok Components",
   "version": "0.0.73",
-  "main": "dist/index.cjs.js",
-  "types": "dist/index.d.ts",
-  "module": "dist/index.esm.js",
-  "unpkg": "dist/index.umd.min.js",
-  "jsdelivr": "dist/index.umd.min.js",
-  "sideEffects": false,
-  "typings": "dist/index.d.ts",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/regenrek/nujek.git"
-  },
-  "files": [
-    "dist/*",
-    "templates/*"
-  ],
+  "description": "Nujek - Storyblok Components",
   "keywords": [
     "nuxt",
     "nuxtjs",
@@ -25,17 +10,28 @@
     "nuxt storyblok",
     "nuxtjs storyblok"
   ],
-  "author": "Kevin Regenrek <https://github.com/regenrek>",
-  "license": "MIT",
+  "homepage": "https://github.com/regenrek/nujek#readme",
   "bugs": {
     "url": "https://github.com/regenrek/nujek/issues"
   },
-  "homepage": "https://github.com/regenrek/nujek#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/regenrek/nujek.git"
+  },
+  "license": "MIT",
+  "author": "Kevin Regenrek <https://github.com/regenrek>",
+  "sideEffects": false,
+  "main": "dist/module.js",
+  "types": "dist/types.d.ts",
+  "files": [
+    "dist/*",
+    "templates/*"
+  ],
   "dependencies": {
-    "storyblok-nuxt": "^1.3.0",
-    "@nujek/nuxt-storyblok-queries": "^1.2.16",
     "@marvr/storyblok-rich-text-vue-renderer": "^2.0.1",
-    "vue-lazy-hydration": "^2.0.0-beta.4",
-    "@nujek/shared": "*"
+    "@nujek/nuxt-storyblok-queries": "^1.2.16",
+    "@nujek/shared": "*",
+    "storyblok-nuxt": "^1.3.0",
+    "vue-lazy-hydration": "^2.0.0-beta.4"
   }
 }

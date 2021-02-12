@@ -1,4 +1,4 @@
-export function getButtonLinkType(button) {
+export function getButtonLinkType (button) {
   switch (button.link?.linktype) {
     case 'url':
       return 'a'
@@ -9,7 +9,7 @@ export function getButtonLinkType(button) {
   }
 }
 
-export function getButtonLink(button) {
+export function getButtonLink (button) {
   switch (button.link?.linktype) {
     case 'url':
       return { href: button.link.url, target: 'blank' }
