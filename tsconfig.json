@@ -4,13 +4,7 @@
     "moduleResolution": "Node",
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "types": ["node", "jest", "./src/types/global"],
-    "paths": {
-      "~components/*": ["src/runtime/*"],
-      "~components": ["src/runtime"],
-      "@nujek/shared": ["./packages/shared/src/index.ts"],
-      "~/*": ["./*"]
-    },
+    "types": ["node", "jest", "./types/global"]
   },
   "include": ["packages"],
   "exclude": [

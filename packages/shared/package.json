@@ -21,7 +21,7 @@
   "license": "MIT",
   "author": "Kevin Regenrek <https://github.com/regenrek>",
   "sideEffects": false,
-  "main": "dist/module.js",
+  "main": "dist/index.js",
   "types": "dist/types.d.ts",
   "files": [
     "dist/*"

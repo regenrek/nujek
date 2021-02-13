@@ -1,18 +1,20 @@
 import assert from 'assert'
-import consola from 'consola'
 import { execSync as exec } from 'child_process'
+import consola from 'consola'
 
 assert(process.cwd() !== __dirname)
 
-function build() {
+function build () {
   consola.info('Clean up')
   exec('yarn run clean', { stdio: 'inherit' })
 
   consola.info('Rollup')
   exec('yarn run build:siroc', { stdio: 'inherit' })
+
+  exec('mkdist --src packages/ui/runtime --dist packages/ui/dist/runtime', { stdio: 'inherit' })
 }
 
-async function cli() {
+async function cli () {
   try {
     await build()
   } catch (e) {
@@ -23,4 +25,4 @@ async function cli() {
 
 export { build }
 
-if (require.main === module) cli()
+if (require.main === module) { cli() }

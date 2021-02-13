@@ -1,39 +1,39 @@
-const _ = require('lodash');
+const _ = require('lodash')
 
 module.exports = function () {
   return ({
-    theme, variants, e, addUtilities,
+    theme, variants, e, addUtilities
   }) => {
-    const defaultAspectRatioTheme = {};
-    const defaultAspectRatioVariants = ['responsive'];
+    const defaultAspectRatioTheme = {}
+    const defaultAspectRatioVariants = ['responsive']
 
-    const aspectRatioTheme = theme('aspectRatio', defaultAspectRatioTheme);
+    const aspectRatioTheme = theme('aspectRatio', defaultAspectRatioTheme)
     const aspectRatioVariants = variants(
       'aspectRatio',
-      defaultAspectRatioVariants,
-    );
+      defaultAspectRatioVariants
+    )
 
     const aspectRatioUtilities = _.fromPairs(
       _.map(aspectRatioTheme, (value, modifier) => {
-        const aspectRatio = _.isArray(value) ? value[0] / value[1] : value;
+        const aspectRatio = _.isArray(value) ? value[0] / value[1] : value
         return [
           `.${e(`aspect-ratio-${modifier}`)}`,
           {
             '&:before': {
               content: "''",
               float: 'left',
-              paddingBottom: `${(1 / aspectRatio) * 100}%`,
+              paddingBottom: `${(1 / aspectRatio) * 100}%`
             },
             '&:after': {
               content: "''",
               display: 'table',
-              clear: 'both',
-            },
-          },
-        ];
-      }),
-    );
+              clear: 'both'
+            }
+          }
+        ]
+      })
+    )
 
-    addUtilities(aspectRatioUtilities, aspectRatioVariants);
-  };
-};
+    addUtilities(aspectRatioUtilities, aspectRatioVariants)
+  }
+}

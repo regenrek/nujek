@@ -4,7 +4,7 @@ import { toPascalCase } from '@nujek/shared'
 
 import type { Module } from '@nuxt/types'
 
-const storyblokModule: Module<any> = async function storyblokModule({
+const storyblokModule: Module<any> = async function storyblokModule ({
   storyblokConfig = {},
   withConsole = false,
   enableStoryblokQueries = true,
@@ -25,7 +25,7 @@ const storyblokModule: Module<any> = async function storyblokModule({
     await this.requireModule(['storyblok-nuxt', storyblokConfig])
     logger.success({
       message: 'Storyblok modules ready',
-      additional: `Module '@nujek/storyblok-nuxt' registered.`,
+      additional: 'Module \'@nujek/storyblok-nuxt\' registered.',
       badge: true
     })
   }
@@ -40,7 +40,7 @@ const storyblokModule: Module<any> = async function storyblokModule({
     ])
     logger.success({
       message: 'Storyblok modules ready',
-      additional: `Module '@nujek/nuxt-storyblok-queries' registered.`,
+      additional: 'Module \'@nujek/nuxt-storyblok-queries\' registered.',
       badge: true
     })
   }
@@ -76,7 +76,7 @@ const storyblokModule: Module<any> = async function storyblokModule({
     const prefixes = [
       ...new Set(
         components
-          .filter((c) => !c.async)
+          .filter(c => !c.async)
           .map((c) => {
             const filename = c.filePath.split('\\').pop()
             const componentName = filename.replace('.vue', '')
@@ -96,7 +96,7 @@ const storyblokModule: Module<any> = async function storyblokModule({
       logger.success({
         message: 'prefixes for debug mode added',
         additional: `items as dynamic components (with prefixes: ${prefixes
-          .map((prefix) => `'${prefix}'`)
+          .map(prefix => `'${prefix}'`)
           .join(', ')})`,
         badge: true
       })
