@@ -9,9 +9,9 @@ function build () {
   exec('yarn run clean', { stdio: 'inherit' })
 
   consola.info('Rollup')
-  exec('yarn run build:siroc', { stdio: 'inherit' })
+  // exec('yarn run build:siroc', { stdio: 'inherit' })
 
-  exec('mkdist --src packages/ui/runtime --dist packages/ui/dist/runtime', { stdio: 'inherit' })
+  // exec('mkdist --src packages/ui/runtime --dist packages/ui/dist/runtime', { stdio: 'inherit' })
 }
 
 async function cli () {

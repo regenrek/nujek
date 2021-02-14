@@ -11,21 +11,26 @@ const uiModule: Module<any> = function uiModule ({
     nav: true
   }
 }) {
+  const { nuxt, addPlugin, addTemplate } = this
   const logger = consola.withScope('@nujek/ui')
   const ROOT_DIR = 'nujek'
 
-  this.nuxt.hook('components:extend', () => {
+  // Transpile and alias runtime
+  const runtimeDir = resolve(__dirname, 'runtime')
+  nuxt.options.build.transpile.push(runtimeDir, '@nuxt/ui')
+
+  nuxt.hook('components:extend', () => {
     if (addDefaultPostCssPlugins) {
       // Fix issue with postCSS that needs process.env.NODE_ENV
       /* istanbul ignore if */
-      if (!this.nuxt.options.dev && !process.env.NODE_ENV) {
+      if (!nuxt.options.dev && !process.env.NODE_ENV) {
         process.env.NODE_ENV = 'production'
       }
 
       /*
        ** Set PostCSS config
        */
-      const { postcss } = this.nuxt.options.build
+      const { postcss } = nuxt.options.build
 
       postcss.preset.stage = 1 // see https://tailwindcss.com/docs/using-with-preprocessors#future-css-features
       postcss.plugins = postcss.plugins || {}
@@ -44,14 +49,14 @@ const uiModule: Module<any> = function uiModule ({
     }
 
     if (storeTemplates.nav) {
-      this.addTemplate({
-        src: resolve(__dirname, '../templates', 'nav.js'),
+      addTemplate({
+        src: resolve(runtimeDir, 'nav.js'),
         fileName: join(ROOT_DIR, 'nav.js'),
         options: {}
       })
 
-      this.addPlugin({
-        src: join(__dirname, '../templates', 'init-store.js'),
+      addPlugin({
+        src: resolve(runtimeDir, 'init-store.js'),
         fileName: join(ROOT_DIR, 'init-store.js'),
         options: {}
       })
@@ -66,8 +71,8 @@ const uiModule: Module<any> = function uiModule ({
     }
 
     if (enableLazySizesPlugin) {
-      this.addPlugin({
-        src: join(__dirname, '../templates', 'lazysizes.js'),
+      addPlugin({
+        src: resolve(runtimeDir, 'lazysizes.js'),
         fileName: join(ROOT_DIR, 'lazysizes.js'),
         options: {}
       })
@@ -85,17 +90,19 @@ const uiModule: Module<any> = function uiModule ({
     }
   })
 
-  this.nuxt.hook('components:dirs', (dirs) => {
+  nuxt.hook('components:dirs', (dirs) => {
     // Add ./components dir to the list
     dirs.push({
-      path: join(__dirname, '../components')
+      path: resolve(runtimeDir, 'components')
     })
 
-    console.log({
-      message: '@nujek/ui',
-      additional: `ui components loaded ${join(__dirname, 'components')}`,
-      badge: true
-    })
+    if (withConsole) {
+      logger.success({
+        message: '@nujek/ui',
+        additional: `ui components loaded ${join(__dirname, 'components')}`,
+        badge: true
+      })
+    }
   })
 }
 

@@ -24,9 +24,9 @@
 import {
   hydrateOnInteraction,
   hydrateWhenIdle,
-  hydrateWhenVisible,
-} from 'vue-lazy-hydration';
-import { toPascalCase } from '@nujek/shared';
+  hydrateWhenVisible
+} from 'vue-lazy-hydration'
+import { toPascalCase } from '@nujek/shared'
 // inspiration for slot handling:
 // https://gist.github.com/loilo/73c55ed04917ecf5d682ec70a2a1b8e2
 export default {
@@ -34,7 +34,7 @@ export default {
   props: {
     name: {
       type: String,
-      required: true,
+      required: true
     },
     /**
      * options: [
@@ -46,32 +46,32 @@ export default {
      */
     hydration: {
       type: String,
-      default: 'WhenIdle',
-    },
+      default: 'WhenIdle'
+    }
   },
   computed: {
-    hydrate() {
-      return this[`hydrate${this.hydration}`] ?? null;
+    hydrate () {
+      return this[`hydrate${this.hydration}`] ?? null
     },
-    lazyComponent() {
+    lazyComponent () {
       const component = this.$nuxtDynamic.prefixes.includes(
-        toPascalCase(this.name),
-      );
+        toPascalCase(this.name)
+      )
 
       if (!component) {
         if (this.$nuxtDynamic.debug) {
-          return 'blok-debug';
+          return 'blok-debug'
         }
-        return '';
+        return ''
       }
 
-      return this.name;
-    },
+      return this.name
+    }
   },
   methods: {
     hydrateOnInteraction,
     hydrateWhenIdle,
-    hydrateWhenVisible,
-  },
-};
+    hydrateWhenVisible
+  }
+}
 </script>
