@@ -17,7 +17,7 @@ const uiModule: Module<any> = function uiModule ({
 
   // Transpile and alias runtime
   const runtimeDir = resolve(__dirname, 'runtime')
-  nuxt.options.build.transpile.push(runtimeDir, '@nuxt/ui')
+  nuxt.options.build.transpile.push(runtimeDir, '@nujek/ui')
 
   nuxt.hook('components:extend', () => {
     if (addDefaultPostCssPlugins) {

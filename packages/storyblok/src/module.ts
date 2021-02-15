@@ -126,12 +126,12 @@ const storyblokModule: Module<any> = async function storyblokModule ({
   nuxt.hook('components:dirs', (dirs) => {
     // Add ./components dir to the list
     dirs.push({
-      path: resolve(runtimeDir, '../components')
+      path: resolve(runtimeDir, 'components')
     })
 
     if (withConsole) {
       logger.success({
-        message: '@nujek/storyblok - components initialized'
+        message: `storyblok components loaded ${resolve(runtimeDir, 'components')}`
       })
     }
   })
