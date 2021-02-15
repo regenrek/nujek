@@ -1,6 +1,6 @@
 {
   "name": "@nujek/storyblok",
-  "version": "0.0.73",
+  "version": "0.0.78",
   "description": "Nujek - Storyblok Components",
   "keywords": [
     "nuxt",
@@ -24,8 +24,7 @@
   "main": "dist/module.js",
   "types": "dist/types.d.ts",
   "files": [
-    "dist/*",
-    "templates/*"
+    "dist/*"
   ],
   "dependencies": {
     "@marvr/storyblok-rich-text-vue-renderer": "^2.0.1",

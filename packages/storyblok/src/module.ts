@@ -66,7 +66,7 @@ const storyblokModule: Module<any> = async function storyblokModule ({
   nuxt.hook('components:extend', (components) => {
     // Add Vue.filters
     addPlugin({
-      src: resolve(runtimeDir, 'plugin.js'),
+      src: resolve(runtimeDir, 'filters.js'),
       fileName: join(ROOT_DIR, 'filters.js'),
       options: {}
     })
