@@ -1,9 +1,9 @@
-import { NjHeroVideo } from '@nujek/ui/dist/components';
+import { NjHeroVideo } from '~nujek-ui/components'
 
 export default {
   title: 'NjHero',
-  component: NjHeroVideo,
-};
+  component: NjHeroVideo
+}
 
 export const VideoHero = (arg, { argTypes }) => ({
   components: { NjHeroVideo },
@@ -19,8 +19,8 @@ export const VideoHero = (arg, { argTypes }) => ({
         Hero inner...
         </div>
       </NjVideoBackground>
-  `,
-});
+  `
+})
 
 export const VideoHeroWithContent = (arg, { argTypes }) => ({
   components: { NjHeroVideo },
@@ -59,8 +59,8 @@ export const VideoHeroWithContent = (arg, { argTypes }) => ({
           </div>
         </div>
     </NjVideoBackground>
-  `,
-});
+  `
+})
 
 export const VideoHeroWithContent2 = (arg, { argTypes }) => ({
   components: { NjHeroVideo },
@@ -91,5 +91,5 @@ export const VideoHeroWithContent2 = (arg, { argTypes }) => ({
           />
         </NjSection>
     </NjVideoBackground>
-  `,
-});
+  `
+})

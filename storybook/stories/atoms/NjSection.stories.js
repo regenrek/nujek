@@ -1,25 +1,25 @@
-import { NjSection } from '@nujek/ui/dist/components';
+import { NjSection } from '~nujek-ui/components'
 
 export default {
   title: 'NjSection',
-  component: NjSection,
-};
+  component: NjSection
+}
 
 export const Boxed = (arg, { argTypes }) => ({
   components: { NjSection },
   // props: Object.keys(argTypes),
   template: `<NjSection class="bg-blue-200" variant="boxed">
     My Boxed Section
-  </NjSection>`,
-});
+  </NjSection>`
+})
 
 export const Boxed2 = (arg, { argTypes }) => ({
   components: { NjSection },
   // props: Object.keys(argTypes),
   template: `<NjSection :variants="{ boxed: { wrapper: 'flex justify-center bg-blue-500',container: 'w-full max-w-md text-center bg-blue-200' } }" class="bg-blue-200" variant="boxed">
     My Custom <b>max-w-md</b> Boxed Section
-  </NjSection>`,
-});
+  </NjSection>`
+})
 
 export const FullWidth = (arg, { argTypes }) => ({
   components: { NjSection },
@@ -27,16 +27,16 @@ export const FullWidth = (arg, { argTypes }) => ({
   template: `
     <NjSection variant="fullWidth" class="bg-blue-200">
       My Full Width Section
-    </NjSection>`,
-});
+    </NjSection>`
+})
 
 export const WithBgImage = (arg, { argTypes }) => ({
   components: { NjSection },
   // props: Object.keys(argTypes),
   template: `<NjSection :fixedClasses="{ wrapper: 'flex bg-cover bg-no-repeat aspect-ratio-16/9' }" bgImage="https://placekitten.com/400/300" variant="boxedBgImage">
     My Section
-  </NjSection>`,
-});
+  </NjSection>`
+})
 
 export const Landingpage = (arg, { argTypes }) => ({
   components: { NjSection },
@@ -86,5 +86,5 @@ export const Landingpage = (arg, { argTypes }) => ({
           </div>
         </div>
       </NjSection>
-  </div>`,
-});
+  </div>`
+})

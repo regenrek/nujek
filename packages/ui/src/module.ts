@@ -17,6 +17,7 @@ const uiModule: Module<any> = function uiModule ({
 
   // Transpile and alias runtime
   const runtimeDir = resolve(__dirname, 'runtime')
+  nuxt.options.alias['~nujek-ui'] = runtimeDir
   nuxt.options.build.transpile.push(runtimeDir, '@nujek/ui')
 
   nuxt.hook('components:extend', () => {
@@ -99,7 +100,7 @@ const uiModule: Module<any> = function uiModule ({
     if (withConsole) {
       logger.success({
         message: '@nujek/ui',
-        additional: `ui components loaded ${join(__dirname, 'components')}`,
+        additional: `ui components loaded ${resolve(runtimeDir, 'components')}`,
         badge: true
       })
     }

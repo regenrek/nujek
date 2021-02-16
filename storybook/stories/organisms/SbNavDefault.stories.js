@@ -1,4 +1,4 @@
-import { SbNavDefault } from '@nujek/ui/dist/components';
+import { SbNavDefault } from '~nujek-ui/components'
 // import Vuex from 'vuex'
 // import registerNavStore from '@ui/store/nav'
 // import settingsMock from '../../mocks/settingsMock'
@@ -9,11 +9,11 @@ import { SbNavDefault } from '@nujek/ui/dist/components';
 
 export default {
   title: 'SbNavDefault',
-  component: SbNavDefault,
-};
+  component: SbNavDefault
+}
 
 export const NavDefault = (arg, { argTypes }) => ({
   components: { SbNavDefault },
   // props: Object.keys(argTypes),
-  template: '<SbNavDefault v-bind="$props" />',
-});
+  template: '<SbNavDefault v-bind="$props" />'
+})

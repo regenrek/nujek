@@ -1510,30 +1510,6 @@
     consola "^2.15.0"
     storyblok-js-client "^2.5.2"
 
-"@nujek/storyblok@^0.0.61":
-  version "0.0.61"
-  resolved "https://registry.npmjs.org/@nujek/storyblok/-/storyblok-0.0.61.tgz#f9c196f2aaa7403af7ed7b0b907f95bdbf2c8016"
-  integrity sha512-LBhTgOQwMzrrZJRZsTYJuLs0ONX3EN9Vbgh1mpAz4KDg7wlhyHwuLz+GvNZrOdQgcVVRzTN53bqJkXy0/PpWCw==
-  dependencies:
-    "@marvr/storyblok-rich-text-vue-renderer" "^2.0.1"
-    "@nujek/nuxt-storyblok-queries" "^1.2.16"
-    "@nujek/shared" "*"
-    storyblok-nuxt "^1.3.0"
-    vue-lazy-hydration "^2.0.0-beta.4"
-
-"@nujek/ui@^0.0.156":
-  version "0.0.156"
-  resolved "https://registry.npmjs.org/@nujek/ui/-/ui-0.0.156.tgz#fd665499f005445b7b7ec42cc7a609a86f9e35ba"
-  integrity sha512-nILGgqTQAyPyMuHIlWd5tZ3gxQC+GOcJzJIvkOMujSbyHVu/kPafhkcrjqFy4nf8hf3+DiNFWV94rBZXIW6i9w==
-  dependencies:
-    lazysizes "^5.3.0-beta1"
-    lodash.get "^4.4.2"
-    postcss-hexrgba "^2.0.1"
-    postcss-import "^12.0.1"
-    postcss-mixins "6.2.3"
-    postcss-nested "^4.2.3"
-    postcss-scss "^3.0.2"
-
 "@nuxt/babel-preset-app-edge@2.15.0-26884835.04646c5e":
   version "2.15.0-26884835.04646c5e"
   resolved "https://registry.npmjs.org/@nuxt/babel-preset-app-edge/-/babel-preset-app-edge-2.15.0-26884835.04646c5e.tgz#649157c86d3f00b98be25e1cfca4fcc4a3bd3fc1"

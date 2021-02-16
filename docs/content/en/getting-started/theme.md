@@ -19,7 +19,7 @@ To enable theming you need to create a plugin file in nuxtjs.
 // plugins/nujek-ui.js
 
 import Vue from 'vue'
-import Nujek from '@nujek/ui/plugin'
+import Nujek from '~nujek/ui/plugin'
 import NjSection from '@nujek/ui/components/atoms/NjSection.vue'
 
 const settings = {
@@ -28,6 +28,10 @@ const settings = {
 
 Vue.use(Nujek, settings)
 ```
+
+<alert>
+<b>New</b> in version 
+</alert>
 
 
 ## Example for a custom section

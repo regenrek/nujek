@@ -1,5 +1,5 @@
 <template>
-  <section ref="vidbg" class="vue-responsive-videobg">
+  <section ref="vidbg" class="nj-video-background">
     <video-poster
       v-if="current.poster || poster"
       :poster="current.poster || poster"
