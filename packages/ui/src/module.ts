@@ -94,7 +94,9 @@ const uiModule: Module<any> = function uiModule ({
   nuxt.hook('components:dirs', (dirs) => {
     // Add ./components dir to the list
     dirs.push({
-      path: resolve(runtimeDir, 'components')
+      path: resolve(runtimeDir, 'components'),
+      prefix: '',
+      pathPrefix: false
     })
 
     if (withConsole) {
