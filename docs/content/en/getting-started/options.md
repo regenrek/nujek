@@ -204,6 +204,13 @@ storyblokConfig: {
 
 ## `@nujek/ui`
 
+### nujeCss <badge>+v0.0.179</badge>
+
+* Type: `Boolean`
+* Default: `true`
+
+Add nujek css for component styling. Disable it if you don't want prestyled components
+
 ### addDefaultPostCssPlugins
 
 * Type: `Boolean`

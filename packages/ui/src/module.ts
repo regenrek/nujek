@@ -7,11 +7,12 @@ const uiModule: Module<any> = function uiModule ({
   addDefaultPostCssPlugins = true,
   enableLazySizesPlugin = true,
   withConsole = false,
+  nujekCss = true,
   storeTemplates = {
     nav: true
   }
 }) {
-  const { nuxt, addPlugin, addTemplate } = this
+  const { nuxt, addPlugin, addTemplate, options } = this
   const logger = consola.withScope('@nujek/ui')
   const ROOT_DIR = 'nujek'
 
@@ -19,6 +20,12 @@ const uiModule: Module<any> = function uiModule ({
   const runtimeDir = resolve(__dirname, 'runtime')
   nuxt.options.alias['~nujek-ui'] = runtimeDir
   nuxt.options.build.transpile.push(runtimeDir, '@nujek/ui')
+
+  nuxt.hook('build:before', () => {
+    if (nujekCss) {
+      options.css.unshift('@nujek/ui/css/nujek-ui.css')
+    }
+  })
 
   nuxt.hook('components:extend', () => {
     if (addDefaultPostCssPlugins) {
