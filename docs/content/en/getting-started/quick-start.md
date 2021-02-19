@@ -10,7 +10,7 @@ position: 2
 First, install @nujek modules and its recommend depencendy modules like
 
 ```bash
-yarn add -D @nujek/ui @nujek/storyblok @nujek/shared @nuxtjs/composition-api @nuxtjs/tailwindcss
+yarn add -D @nujek/ui @nujek/storyblok @nuxtjs/composition-api @nuxtjs/tailwindcss
 ```
 
 ## Module Setup
