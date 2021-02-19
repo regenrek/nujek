@@ -7,7 +7,7 @@ position: 2
 
 ## Install
 
-First, install @nujek modules and its recommend depencendy modules like
+First, install @nujek modules and its dependencies
 
 ```bash
 yarn add -D @nujek/ui @nujek/storyblok @nuxtjs/composition-api @nuxtjs/tailwindcss
