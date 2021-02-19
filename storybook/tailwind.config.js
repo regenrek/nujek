@@ -37,7 +37,7 @@ module.exports = {
   purge: {
     // Learn more on https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css
     enabled: process.env.NODE_ENV === 'production',
-    content: ['./packages/ui/components/**/*.vue', 'nuxt.config.js']
+    content: ['./packages/ui/dist/runtime/components/**/*.vue', 'nuxt.config.js']
   },
   plugins: [
     require('@tailwindcss/forms'),
