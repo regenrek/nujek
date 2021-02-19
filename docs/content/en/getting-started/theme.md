@@ -20,7 +20,7 @@ To enable theming you need to create a plugin file in nuxtjs.
 
 import Vue from 'vue'
 import Nujek from '~nujek/ui/plugin'
-import NjSection from '@nujek/ui/components/atoms/NjSection.vue'
+import { NjSection } from '~nujek-ui/components'
 
 const settings = {
   // your settings
@@ -44,8 +44,8 @@ In this example we adjust the `<NjSection>` with a new variant.
 // plugins/nujek-ui.js
 
 import Vue from 'vue'
-import Nujek from '@nujek/ui/plugin'
-import NjSection from '@nujek/ui/components/atoms/NjSection.vue'
+import Nujek from '~nujek-ui/ui/plugin'
+import { NjSection } from '~nujek-ui/components'
 
 const settings = {
   NjSection: {

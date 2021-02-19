@@ -122,7 +122,7 @@ We define a section as something which the user can see in his viewport. Mostly 
 ## Theme Configuration
 
 ```js
-import NjSection from '@nujek/ui/components/atoms/NjSection.vue'
+import { NjSection } from '~nujek-ui/components'
 
 const settings = {
   NjSection: {

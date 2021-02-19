@@ -67,7 +67,6 @@ take away some flexibility for complex/custom routes. So we decided to disable s
 Vue.js plugin for rendering the rich-text content.
 
 ```vue
-// @nujek/ui/components/atoms/SbRichtext
 <SbRichtext v-if="content" :text="content" class="prose lg:prose-lg" />
 ```
 

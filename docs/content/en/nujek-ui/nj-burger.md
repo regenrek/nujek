@@ -39,7 +39,7 @@ Basic example with <a href="/nujek-ui/nj-nav">NjNav</a>
 The following example will hide the Burger Button on default for smaller screens
 
 ```js
-import NjBurger from '@nujek/ui/components/atoms/NjBurger.vue'
+import { NjBurger } from '~nujek-ui/components'
 
 const settings = {
   NjBurger: {
