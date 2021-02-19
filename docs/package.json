@@ -7,7 +7,7 @@
     "build": "nuxt generate"
   },
   "devDependencies": {
-    "@nuxt/content-theme-docs": "^0.8.2",
-    "nuxt": "^2.14.12"
+    "@nuxt/content-theme-docs": "0.8.2",
+    "nuxt": "2.14.12"
   }
 }
