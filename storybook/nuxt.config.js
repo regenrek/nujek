@@ -1,7 +1,14 @@
 export default {
-  components: [{ path: '~/components', pathPrefix: false, prefix: '' }],
-
-  css: ['@nujek/ui/css/nujek-ui.css'],
+  components: [
+    { path: '~/components/bloks', global: true, extensions: ['vue', 'js'] },
+    {
+      path: '../packages/ui/dist/runtime/components/bloks',
+      global: true,
+      extensions: ['vue', 'js']
+    },
+    '~/components'
+  ],
+  css: ['@nujek/ui/dist/nujek-ui.css'],
   storybook: {
     addons: ['@storybook/addon-storysource'],
     stories: [

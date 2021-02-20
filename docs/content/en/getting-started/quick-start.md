@@ -42,17 +42,6 @@ export default {
 In <code>development</code> mode set <code>debug: true</code> for <code>@nujek/storyblok</code> module. Debugging allows you to get a visual representation of all available bloks from storyblok.
 </alert>
 
-## Styles
-
-Optionally but recommend you can add the nujek css styles to your project.
-
-
-```js[nuxt.config.js]
-{
-  css: ['@nujek/ui/css/nujek-ui.css']
-}
-```
-
 ## Vuex Store
 
 **Important:** Add a new file `index.js` to the `store/` directory to avoid an error on running the dev server. If you don't plan to use the store then set [storeTemplates.nav](https://nujek-docs.vercel.app/getting-started/options#storetemplatesnav) to `false`

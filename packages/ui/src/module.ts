@@ -23,7 +23,7 @@ const uiModule: Module<any> = function uiModule ({
 
   nuxt.hook('build:before', () => {
     if (nujekCss) {
-      options.css.unshift('@nujek/ui/css/nujek-ui.css')
+      options.css.unshift('@nujek/ui/dist/nujek-ui.css')
     }
   })
 
