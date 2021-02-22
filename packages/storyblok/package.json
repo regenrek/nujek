@@ -20,7 +20,6 @@
   },
   "license": "MIT",
   "author": "Kevin Regenrek <https://github.com/regenrek>",
-  "sideEffects": false,
   "main": "dist/module.js",
   "types": "dist/types.d.ts",
   "files": [
