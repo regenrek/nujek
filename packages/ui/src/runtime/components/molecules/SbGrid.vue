@@ -48,7 +48,7 @@
 <script>
 import get from 'lodash.get'
 const POST_TYPE = 'projekte'
-const SORT_BY = 'created_at:desc'
+const SORT_BY = ''
 const RESOLVE_RELATIONS = ''
 const PER_PAGE = 12
 const RESOLVE_LINKS = ''
