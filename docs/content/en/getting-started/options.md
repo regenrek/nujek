@@ -2,7 +2,7 @@
 title: Options
 description: ''
 category: Getting started
-position: 4
+position: 8
 ---
 
 You can configure `@nujek` in your `nuxt.config.js`. 
