@@ -42,6 +42,7 @@ const renameFiles = {
 
 async function init () {
   let targetDir = argv._[0]
+  console.log('hi')
   if (!targetDir) {
     /**
              * @type {{ projectName: string }}
