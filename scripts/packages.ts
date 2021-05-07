@@ -13,20 +13,26 @@ export interface PackageManifest {
 export const packages: PackageManifest[] = [
   {
     name: 'shared',
-    display: 'Shared utilities',
+    display: 'Shared utilities'
   },
   {
     name: 'ui',
     display: 'Ui',
     description: 'Nujek - UI components',
-    addon: true,
+    addon: true
   },
   {
     name: 'storyblok',
     display: 'Storyblok',
     description: 'Nujek - Storyblok module',
-    addon: true,
+    addon: true
   },
-];
+  {
+    name: 'create-app',
+    display: 'CreateApp',
+    description: 'Nujek - Create App',
+    addon: true
+  }
+]
 
-export const activePackages = packages.filter((i) => !i.deprecated);
+export const activePackages = packages.filter(i => !i.deprecated)
