@@ -18,8 +18,8 @@
     "*.{js,vue}": "eslint --fix"
   },
   "dependencies": {
-    "@nujek/storyblok": "^0.0.82",
-    "@nujek/ui": "^0.0.177",
+    "@nujek/storyblok": "latest",
+    "@nujek/ui": "latest",
     "lazysizes": "^5.3.0"
   },
   "devDependencies": {

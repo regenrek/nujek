@@ -7,6 +7,7 @@ import NjNav from './components/molecules/NjNav/NjNav.vue'
 import NjSidebar from './components/molecules/NjSidebar/NjSidebar.vue'
 import SbGrid from './components/molecules/SbGrid.vue'
 import NjVideoBackground from './components/organisms/NjVideoBackground/NjVideoBackground.vue'
+import NjOpeningHours from './components/organisms/NjOpeningHours/NjOpeningHours.vue'
 
 export {
   NjSection,
@@ -17,5 +18,6 @@ export {
   NjNav,
   NjSidebar,
   SbGrid,
-  NjVideoBackground
+  NjVideoBackground,
+  NjOpeningHours
 }
