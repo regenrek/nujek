@@ -9,8 +9,7 @@ Where Storyblok is solving the content problem - Nujek is solving the hassle to 
 
 ## Why does this exist?
 
-For every website we did we continuesly added features to our stack until we formed it to a framework called 'Nujek'. Its a best practices toolkit of how I want 
-
+For every website we did we added new features to our stack until we formed it to a framework called 'Nujek'.
 
 ## How does Nujek help my workflow?
 
