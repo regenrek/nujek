@@ -7,12 +7,13 @@ position: 3
 
 ## Install
 
-Scaffold your first project with one simple command.
+We recommend to scaffold your first project with the [nuxt-storyblok-starter](https://github.com/regenrek/nuxt-storyblok-starter) template we have built.
 
 <alert>Nujek requires Node.js >=12.0.0</alert>
+<alert>You need to install <code>degit</code> - <code>npm install -g degit</code></alert>
 
 ```bash
-yarn create @nujek/app
+npx degit regenrek/nuxt-storyblok-starter my-website
 ```
 
 ### Manual Setup
