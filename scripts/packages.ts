@@ -1,6 +1,6 @@
 export interface PackageManifest {
-  name: string;
-  display: string;
+  name?: string;
+  display?: string;
   addon?: boolean;
   author?: string;
   description?: string;

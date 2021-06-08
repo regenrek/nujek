@@ -1,6 +1,13 @@
 module.exports = {
   theme: {
     extend: {
+      aspectRatio: {
+        '1/1': [1, 1],
+        '16/9': [16, 9],
+        '4/3': [4, 3],
+        '3/4': [3, 4],
+        '9/16': [9, 16]
+      },
       colors: {
         primary: {
           50: '#fff5db',
@@ -16,5 +23,8 @@ module.exports = {
         }
       }
     }
-  }
+  },
+  plugins: [
+    require('./tailwind-plugins/aspect-ratio.js')()
+  ]
 }

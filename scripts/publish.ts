@@ -1,7 +1,7 @@
 import { execSync } from 'child_process'
 import path from 'path'
-import { activePackages } from './packages'
 import consola from 'consola'
+import { activePackages } from './packages'
 
 for (const { name } of activePackages) {
   execSync('npx bump patch --preid rc', {

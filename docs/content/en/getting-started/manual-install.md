@@ -34,7 +34,7 @@ const storyblokConfig = {
 
 export default {
   buildModules: [
-    '@nuxtjs/composition-api',
+    '@nuxtjs/composition-api/module',
     '@nuxtjs/tailwindcss',
     '@nujek/ui',
     [

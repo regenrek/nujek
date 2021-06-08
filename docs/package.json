@@ -7,7 +7,10 @@
     "build": "nuxt generate"
   },
   "devDependencies": {
+    "@nujek/storyblok": "^0.0.96",
+    "@nujek/ui": "^0.0.193",
     "@nuxt/content-theme-docs": "0.8.2",
+    "@nuxtjs/composition-api": "^0.24.4",
     "nuxt": "2.14.12"
   }
 }

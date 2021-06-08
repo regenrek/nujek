@@ -1,3 +1,18 @@
 .img {
-    display:block
+    display: block
+}
+
+#__layout .container {
+    max-width: 1900px !important;
+}
+
+/* reset prose */
+.no-prose figure {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.no-prose img {
+    margin-top: 0;
+    margin-bottom: 0;
 }

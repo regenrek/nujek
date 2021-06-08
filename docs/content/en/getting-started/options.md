@@ -204,7 +204,15 @@ storyblokConfig: {
 
 ## `@nujek/ui`
 
-### nujeCss <badge>+v0.0.179</badge>
+### autoloadComponents <badge>+v0.0.192</badge>
+
+* Type: `Boolean`
+* Default: `true`
+
+Autoload components via `nuxt/components` module. If you disable
+this option you will need to register your components locally.
+
+### nujekCss <badge>+v0.0.179</badge>
 
 * Type: `Boolean`
 * Default: `true`
