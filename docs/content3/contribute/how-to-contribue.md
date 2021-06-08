@@ -1,5 +1,5 @@
 ---
-title: How to contribue
+menuTitle: How to contribue
 description: ''
 category: contribue
 position: 99

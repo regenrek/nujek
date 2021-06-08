@@ -1,13 +1,17 @@
 {
+  "name": "@nujek/docs",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "nuxt",
-    "generate": "nuxt generate",
-    "now-build": "yarn generate",
-    "build": "nuxt generate"
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
   },
   "devDependencies": {
-    "@nuxt/content-theme-docs": "0.8.2",
-    "nuxt": "2.14.12"
+    "docus": "^0.1.5",
+    "nuxt": "^2.15.4",
+    "postcss": "^8.2.9",
+    "tailwindcss": "^2.0.4"
   }
 }

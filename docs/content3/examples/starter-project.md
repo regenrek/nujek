@@ -1,5 +1,5 @@
 ---
-title: Starter Project
+menuTitle: Starter Project
 description: ''
 category: Examples
 position: 1

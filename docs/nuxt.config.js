@@ -1,9 +1,5 @@
-import theme from '@nuxt/content-theme-docs'
+import { withDocus } from 'docus'
 
-export default theme({
-  css: ['~/assets/css/main.css'],
-  generate: {
-    routes: ['/'],
-    exclude: ['/example', '/fixture']
-  }
+export default withDocus({
+  css: ['~/assets/css/main.css']
 })

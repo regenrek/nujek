@@ -1,5 +1,5 @@
 ---
-title: Storybook
+menuTitle: Storybook
 description: ''
 category: Examples
 position: 2
