@@ -10,7 +10,8 @@ const uiModule: Module<any> = function uiModule ({
   nujekCss = true,
   storeTemplates = {
     nav: true
-  }
+  },
+  autoloadComponents = true
 }) {
   const { nuxt, addPlugin, addTemplate, options } = this
   const logger = consola.withScope('@nujek/ui')
@@ -98,22 +99,24 @@ const uiModule: Module<any> = function uiModule ({
     }
   })
 
-  nuxt.hook('components:dirs', (dirs) => {
-    // Add ./components dir to the list
-    dirs.push({
-      path: resolve(runtimeDir, 'components'),
-      prefix: '',
-      pathPrefix: false
-    })
-
-    if (withConsole) {
-      logger.success({
-        message: '@nujek/ui',
-        additional: `ui components loaded ${resolve(runtimeDir, 'components')}`,
-        badge: true
+  if (autoloadComponents) {
+    nuxt.hook('components:dirs', (dirs) => {
+      // Add ./components dir to the list
+      dirs.push({
+        path: resolve(runtimeDir, 'components'),
+        prefix: '',
+        pathPrefix: false
       })
-    }
-  })
+
+      if (withConsole) {
+        logger.success({
+          message: '@nujek/ui',
+          additional: `ui components loaded ${resolve(runtimeDir, 'components')}`,
+          badge: true
+        })
+      }
+    })
+  }
 }
 
 export default uiModule
