@@ -12,7 +12,7 @@ If you like to try out nujek and it's features and prefer a more out of the box 
 npx degit regenrek/nuxt-storyblok-starter my-website
 ```
 
-## 1.2 Import demo content
+## Import demo content
 
 <alert type="warning"><b>Notice:</b> This will be an upcoming feature. In progress.</alert>
 

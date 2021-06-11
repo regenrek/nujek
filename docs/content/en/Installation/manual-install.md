@@ -6,13 +6,13 @@ position: 11
 
 ## Install
 
-First, install a new nuxt project with *TailwindCSS* (Check TailwindCSS in cli install) included. Here are the options we recommend to choose from
+First, install a new nuxt project with **TailwindCSS** pre-installed.
 
 ```bash
 npx create-nuxt-app my-website
 ```
 
-After that, nstall @nujek modules and its dependencies
+Install @nujek modules and its dependencies.
 
 ```bash
 yarn add -D @nujek/ui @nujek/storyblok @nuxtjs/composition-api

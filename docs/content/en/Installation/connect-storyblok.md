@@ -17,14 +17,16 @@ position: 13
 3. Copy `.env.example` to `.env`
 4. Add token to your `env` file:
 
-.env
-```bash
+
+```bash[.env]
 SB_CLIENT_ACCESS_TOKEN=<your access token>
 ```
 
 ## Storyblok Management API
 
-If you plan to create stories with Storyblok from client side we luckily  have Storybloks Management API. To get it work you have to create an `oAuthToken` in your storyblok space. 
+<alert>**Notice:** If you don't plan to create stories in frontend skip this.</alert>
+
+If you plan to create stories with Storyblok from client side we luckily have Storybloks Management API. To get it work you have to create an `oAuthToken` in your storyblok space. 
 
 1. Create an [oAuthToken](http://app.storyblok.com/#!/me/account)
 2. Get your [Space ID](https://www.storyblok.com/faq/where-can-i-find-my-space-id)

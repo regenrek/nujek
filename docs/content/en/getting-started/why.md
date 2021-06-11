@@ -5,18 +5,54 @@ category: Getting started
 position: 2
 ---
 
+## Introduction
+
 Where Storyblok is solving the content problem - Nujek is solving the hassle to setup your Nuxt.js Website with Storyblok to make setup a breeze.
 
-## Why does this exist?
+## The need of managing content
+
+In most client website projects you will need a system where the author can manage the content (text, images, video, ...) in the easiest way possible. 
+For this use case content management systems were born. 
+
+Some time ago we built websites with wordpress to give our clients an easy way to manage content. As time flies, "better" things come up in terms of usability, speed, and security. So we found with Storyblok **a perfect match** to build our websites.
+
+Storyblok writes on their website:
+
+* <b><i>The world's first headless CMS that works for both developers & business users.</i></b>
+
+If you a wordpress developer you probably have worked with visual page builders like elementor, visual composer, beaver builder to name a few. Visual Page builders gives authors ultimate experience to see live website edits, work with modular sections or blocks and have the flexibility to reorder them.
+
+* <b><i>Storyblok offers a unique combination of visual editing tools and highly customizable content blocks...</b></i>
+
+Voila! Storyblok has a fast visual page builder built-in and additionally you will gain a big developer experience with it.
+
+
+* <b><i>The first component-based headless CMS</b></i>
+
+Yep. You able to code your vue, (react, angular) components and reflect them in storyblok.
+
+
+If you need more information about Storyblok head over to their [website](https://www.storyblok.com/features).
+
+## Why does Nujek this exist?
+
+In the above section we explain somehow why we tend to use storyblok but whats the existance of `nujek` now?
+### 1. Project Quickstart
+
+For every client website you start you will need probably to care about repetive tasks like setup boilerplate code. 
+
+**Task:** Connect Storyblok API in your project.
+
+> Add your access Token in a secure `.env` file
+
+**
+
+There are a lot of greate templates and components which have only . Like UI Kits, modular component
 
 For every website we did we added new features to our stack until we formed it to a framework called 'Nujek'.
 
 ## How does Nujek help my workflow?
 
-For every website you do you will need probably to care about the following tasks.
-
-* Add and configure Storyblok API in your project.
-With nujek you only need to your add your API in a secure `.env` file.
 
 
 * Code components 
