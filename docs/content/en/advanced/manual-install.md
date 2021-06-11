@@ -1,7 +1,7 @@
 ---
 title: Manual installation
 description: ''
-category: Getting started
+category: Advanced
 position: 4
 ---
 
