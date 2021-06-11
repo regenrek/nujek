@@ -2,7 +2,7 @@
 title: <SbRichtext>
 description: ''
 category: Nujek Ui
-position: 6
+position: 48
 ---
 
 Renders storyblok richtext field with [storyblok-rich-text-vue-renderer](/nujek-storyblok/packages#marvrstoryblok-rich-text-vue-renderer)

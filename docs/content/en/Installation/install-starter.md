@@ -1,39 +1,25 @@
 ---
-title: Installation
+title: Install Starter Template
 description: ''
-category: Getting started
-position: 3
+category: Installation
+position: 10
 ---
-
-Before you begin you need to **decide** if you want to use our starter template or start a storyblok project with nuxt from scratch.
-
-
-* [1. Nuxt Storyblok Starter template](#1-nuxt-storyblok-starter-template)
-* [2. Manual Installation](#2-manual-setup)
-
-
-<alert>Nujek requires Node.js >=12.0.0</alert>
-
-## 1. Nuxt Storyblok Starter template
 
 If you like to try out nujek and it's features and prefer a more out of the box solution then go for [nuxt-storyblok-starter](https://github.com/regenrek/nuxt-storyblok-starter) template.
 
 <alert>Requirement: <code>npm install -g degit</code></alert>
 
-### 1.1 Installation
-
-To install and use the template just use the following cmd. 
-
 ```bash
 npx degit regenrek/nuxt-storyblok-starter my-website
 ```
 
+## 1.2 Import demo content
 
-### 1.2 Import demo content
+<alert type="warning"><b>Notice:</b> This will be an upcoming feature. In progress.</alert>
 
 Just import our demo scheme and content to your space to quickstart the starter template.
 
-First install [`storyblok cli`](https://github.com/storyblok/storyblok)
+If you haven't done yet install [`storyblok cli`](https://github.com/storyblok/storyblok)
 ```
 npm i storyblok -g
 ```
@@ -48,11 +34,3 @@ You can also list your spaces including the space id with storyblok cli.
 ```
 storyblok spaces
 ```
-
-
-
-
-## 2. Manual Setup
-
-If you want to start your own template from scratch or you want to gain more control and know whats happen behind the scenes you can also look at the [manual install](/getting-started/manual-install) instructions.
-

@@ -2,7 +2,7 @@
 title: <NjSection>
 description: ''
 category: Nujek Ui
-position: 2
+position: 40
 ---
 
 This wrapper component is used to `position` and `size` the content within. By default, it renders a `div` element.

@@ -2,7 +2,7 @@
 title: <NjBurger>
 description: ''
 category: Nujek Ui
-position: 2
+position: 42
 ---
 
 A burger is a simple toggle which is mostly used for mobile menus.

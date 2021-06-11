@@ -1,8 +1,8 @@
 ---
 title: Theme
 description: ''
-category: Getting started
-position: 5
+category: Guides
+position: 30
 ---
 
 To adjust components to your project in terms of style, colors e.g. you will have to create different theme variants.

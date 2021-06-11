@@ -1,8 +1,8 @@
 ---
 title: Options
 description: ''
-category: Getting started
-position: 8
+category: Guides
+position: 31
 ---
 
 You can configure `@nujek` in your `nuxt.config.js`. 

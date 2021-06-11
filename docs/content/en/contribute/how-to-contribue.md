@@ -2,7 +2,7 @@
 title: How to contribue
 description: ''
 category: contribue
-position: 99
+position: 200
 ---
 
 ## Quick start

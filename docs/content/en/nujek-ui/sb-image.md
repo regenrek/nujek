@@ -2,7 +2,7 @@
 title: <SbImage>
 description: ''
 category: Nujek Ui
-position: 2
+position: 47
 ---
 
  If you want to show a storyblok asset from storyblok CDN it's recommend to use `<SbImage />`. For all other use cases (local image or image from remote source) <a href="/nujek-ui/nj-image">`<NjImage />`</a> can be used.

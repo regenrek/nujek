@@ -2,7 +2,7 @@
 title: Setup Storyblok
 description: ''
 category: Getting started
-position: 3
+position: 4
 ---
 
 ## Register at Storyblok

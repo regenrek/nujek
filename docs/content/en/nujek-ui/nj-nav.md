@@ -2,7 +2,7 @@
 title: <NjNav>
 description: ''
 category: Nujek Ui
-position: 2
+position: 43
 ---
 
 Build quickly website navigation menus with `NjNav`. 

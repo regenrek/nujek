@@ -1,8 +1,8 @@
 ---
 title: <BlokDebug>
 description: ''
-category: Nujek Ui
-position: 10
+category: Nujek Storyblok
+position: 61
 ---
 
 Blok components are used for storyblok dynamic bloks functionality. If you define a blok component in storyblok it will magically search for a related component in this folder and display it. We're using the `@nuxtjs/components`[Dynamic Components](https://github.com/nuxt/components#dynamic-components) feature.

@@ -2,7 +2,7 @@
 title: Packages
 description: ''
 category: Nujek Storyblok
-position: 4
+position: 60
 ---
 
 The `@nujek/storyblok` packages will install some useful nuxt modules to quickstart your project. This will help your development workflow.
