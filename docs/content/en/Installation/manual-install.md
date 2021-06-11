@@ -1,7 +1,6 @@
 ---
 title: Manual installation
-description: ''
-category: Installation
+category: installation
 position: 11
 ---
 

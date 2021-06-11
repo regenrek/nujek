@@ -1,8 +1,8 @@
 ---
-title: Setup Storyblok
+title: Connect Storyblok
 description: ''
-category: Getting started
-position: 4
+category: installation
+position: 13
 ---
 
 ## Register at Storyblok

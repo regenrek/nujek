@@ -13,7 +13,7 @@ For every website we did we added new features to our stack until we formed it t
 
 ## How does Nujek help my workflow?
 
-For every website you do you will need probabyl to care about the following tasks.
+For every website you do you will need probably to care about the following tasks.
 
 * Add and configure Storyblok API in your project.
 With nujek you only need to your add your API in a secure `.env` file.

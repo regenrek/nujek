@@ -1,7 +1,6 @@
 ---
 title: Install Starter Template
-description: ''
-category: Installation
+category: installation
 position: 10
 ---
 
