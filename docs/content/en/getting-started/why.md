@@ -36,7 +36,7 @@ If you need more information about Storyblok head over to their [website](https:
 
 ## Why does Nujek this exist?
 
-In the above section we explain somehow why we tend to use storyblok but whats the existance of `nujek` now?
+In the above section we explained somehow why we tend to use storyblok but whats the existance of `nujek` now?
 ### 1. Project Quickstart
 
 For every client website you start you will need probably to care about repetive tasks like setup boilerplate code. 
@@ -45,27 +45,24 @@ For every client website you start you will need probably to care about repetive
 
 > Add your access Token in a secure `.env` file
 
-**
+**Task:** Writing logic within pages which handles Storyblok Bloks in frontend
 
-There are a lot of greate templates and components which have only . Like UI Kits, modular component
+>Nujek Dynamik Blok components will handle Storyblok Blok rendering. You just define your scheme and content in Storyblok and it will get reflected in your frontend. 
 
-For every website we did we added new features to our stack until we formed it to a framework called 'Nujek'.
+### 2. Build components
 
-## How does Nujek help my workflow?
+**Task:** There are multiple ways to design your website. Starting component design from scratch, using a UI Kit e.g. Anyway this systems need manual work to connect this accordingly to storyblok cms.
 
-
-
-* Code components 
 We have prepared some common components which are ready to use with
-storyblok like [Image](#), [Section](#) and even powerful search and filterable [Grids](#).
-And more to come...
+storyblok like [Image](#), [Section](#) and even powerful search and filterable [Grids](#)
 
-* Connect and code components with
-Storyblok as it names say works with bloks. So you build your landingpages
-as blocks within a loop. We have prepared a visual setup so you just have
-to build these blocks in form of a vue component. As easy it is.
+**Task:** Preview content from Storyblok with debug components - even if they aren't yet implemented. 
 
-* Even more
+>Storyblok as it names say works with bloks. So you build your landingpages as blocks within a loop. > We have prepared a visual setup so you just have to build these blocks in form of a vue component. As easy it is.
+
+
+### 3. Other
+
 Nujek is just a module for nuxt which doesn't change anything in core so that means
 you basically have a nuxt project. So power it up with more modules, plugins or whatever
 you like. Include it in your own starter project. Everything is possible. We have
@@ -77,6 +74,8 @@ prepared some tutorials to see how you can gain more
 
 ## Stack
 
-## What about our technolgies?
-
 We tend to focus on a specific stack for constantly improvment.
+
+* Storyblok CMS
+* Nuxt.js
+* TailwindCSS

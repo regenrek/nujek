@@ -29,11 +29,6 @@ const settings = {
 Vue.use(Nujek, settings)
 ```
 
-<alert>
-<b>New</b> in version 
-</alert>
-
-
 ## Example for a custom section
 
 In this example we adjust the `<NjSection>` with a new variant.
