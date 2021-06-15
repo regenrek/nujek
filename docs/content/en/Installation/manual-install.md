@@ -10,6 +10,21 @@ First, install a new nuxt project with **TailwindCSS** pre-installed.
 
 ```bash
 npx create-nuxt-app my-website
+
+? Project name: nujek-landingpage
+? Programming language: JavaScript
+? Package manager: Yarn
+? UI framework: Tailwind CSS
+? Nuxt.js modules: (Press <space> to select, <a> to toggle all, <i> to invert se
+lection)
+? Linting tools: ESLint
+? Testing framework: None
+? Rendering mode: Universal (SSR / SSG)
+? Deployment target: Static (Static/JAMStack hosting)
+? Development tools: jsconfig.json (Recommended for VS Code if you're not using
+typescript)
+? Continuous integration: None
+? Version control system: None
 ```
 
 Install @nujek modules and its dependencies.
