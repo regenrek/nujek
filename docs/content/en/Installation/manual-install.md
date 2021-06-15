@@ -114,5 +114,25 @@ Since `nujek-ui.js` is a plugin file you need to activate it in your config file
 }
 ```
 
+## Add Tailwind Config
+
+Create a `tailwind.config.js` in the root directory of the project 
+
+```
+// tailwind.config.js
+module.exports = {
+  mode: 'jit',
+  purge: [],
+  darkMode: false, // or 'media' or 'class'
+  theme: {
+    extend: {},
+  },
+  variants: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
+
 
 Read more about Theming comoponents in [Theme Guide](/guides/theme)
