@@ -112,6 +112,10 @@ Since `nujek-ui.js` is a plugin file you need to activate it in your config file
 {
   plugins: [{ src: '~/plugins/nujek-ui.js' }],
 }
+
+
+Read more about Theming components in [Theme Guide](/guides/theme)
+
 ```
 
 ## Add Tailwind Config
@@ -133,6 +137,3 @@ module.exports = {
   plugins: [],
 }
 ```
-
-
-Read more about Theming comoponents in [Theme Guide](/guides/theme)
