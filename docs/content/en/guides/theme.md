@@ -19,7 +19,7 @@ To enable theming you need to create a plugin file in nuxtjs.
 // plugins/nujek-ui.js
 
 import Vue from 'vue'
-import Nujek from '~nujek/ui/plugin'
+import Nujek from '~nujek-ui/plugin'
 import { NjSection } from '~nujek-ui/components'
 
 const settings = {

@@ -96,7 +96,7 @@ my-project/
 
 ```js[plugins/nujek-ui.js]
 import Vue from 'vue'
-import Nujek from '~nujek/ui/plugin'
+import Nujek from '~nujek-ui/plugin'
 import { NjSection } from '~nujek-ui/components'
 
 const settings = {
