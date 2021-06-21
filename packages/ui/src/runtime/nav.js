@@ -47,6 +47,9 @@ export const registerNavStore = (store) => {
         main (state) {
           return state.settings.navigation
         },
+        aside (state) {
+          return state.settings.aside
+        },
         sub (state) {
           return state.settings.subnavigation
         },
