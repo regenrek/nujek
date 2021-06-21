@@ -99,13 +99,14 @@ const uiModule: Module<any> = function uiModule ({
       }
     }
 
-    if(enableSbUtils) {
+    if (enableSbUtils) {
       addPlugin({
         src: resolve(runtimeDir, 'sbutils.js'),
         fileName: join(ROOT_DIR, 'sbutils.js'),
         options: {}
       })
     }
+  })
 
   if (autoloadComponents) {
     nuxt.hook('components:dirs', (dirs) => {
