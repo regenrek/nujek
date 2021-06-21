@@ -8,6 +8,7 @@ const uiModule: Module<any> = function uiModule ({
   enableLazySizesPlugin = true,
   withConsole = false,
   nujekCss = true,
+  enableSbUtils = true,
   storeTemplates = {
     nav: true
   },
@@ -97,7 +98,14 @@ const uiModule: Module<any> = function uiModule ({
         })
       }
     }
-  })
+
+    if(enableSbUtils) {
+      addPlugin({
+        src: resolve(runtimeDir, 'sbutils.js'),
+        fileName: join(ROOT_DIR, 'sbutils.js'),
+        options: {}
+      })
+    }
 
   if (autoloadComponents) {
     nuxt.hook('components:dirs', (dirs) => {
