@@ -1,65 +1,61 @@
 export default (context, inject) => {
-  const getButtonLinkType = (button) => {
-    if (Array.isArray(button)) {
-      button = button[0]
-    }
+  // check if absolute (http/s) -> <a> or relative / -> <nuxt-link>
+  const isAbsolute = url => /^(?:[a-z]+:)?\/\//i.test(url)
 
-    switch (button?.link?.linktype) {
-      case 'url':
-        return button.link.url ? 'a' : 'div'
+  const arrayCheck = (field) => {
+    return Array.isArray(field) ? field[0] : field
+  }
+
+  const tag = (field) => {
+    field = arrayCheck(field)
+
+    switch (field?.link?.linktype) {
       case 'story':
-        return button.link.story &&
-                    typeof button.link.story === 'object' &&
-                    Object.keys(button.link.story).length
-          ? 'nuxt-link'
-          : 'div'
+        // @TODO If span is sent back there is something missing story linking
+        return (field?.link?.story === 'object' &&
+          Object.keys(field.link.story).length && 'nuxt-link') || 'span'
+      case 'url':
+        return isAbsolute(field?.link?.url) ? 'a' : 'nuxt-link'
       default:
-        return 'div'
+        return 'span'
     }
   }
 
-  const getButtonLabel = (button) => {
-    if (Array.isArray(button)) {
-      button = button[0]
-    }
-    return button?.label || button?.name || 'undefined on storyblok'
+  const label = (field) => {
+    field = arrayCheck(field)
+    return field?.label || field?.name || 'undefined on storyblok'
   }
 
-  const getButtonDescription = (button) => {
-    if (Array.isArray(button)) {
-      button = button[0]
-    }
-    return button?.description || ''
+  const description = (field) => {
+    field = arrayCheck(field)
+
+    return field?.description || ''
   }
 
-  const getFullSlug = (button) => {
-    if (Array.isArray(button)) {
-      button = button[0]
-    }
-    if (button?.link?.linktype === 'url') { return button.link.url || '' }
-    if (button?.link?.linktype === 'story') { return button.link.story?.fullSlug ? `/${button.link.story.fullSlug}` : '' }
+  const fullSlug = (field) => {
+    field = arrayCheck(field)
+    if (field?.link?.linktype === 'url') { return field.link.url || '' }
+    if (field?.link?.linktype === 'story') { return field.link.story?.fullSlug ? `/${field.link.story.fullSlug}` : '' }
     return ''
   }
 
-  const getButtonLink = (button) => {
-    if (Array.isArray(button)) {
-      button = button[0]
-    }
+  const linkTo = (field) => {
+    field = arrayCheck(field)
 
-    switch (button?.link?.linktype) {
+    switch (field?.link?.linktype) {
       case 'url':
-        return button.link.url
-          ? { href: button.link.url || '#', target: '_blank' }
-          : {}
+        return isAbsolute(field?.link?.url)
+          ? { href: field.link.url || '#', target: '_blank' }
+          : { to: field.link.url }
       case 'story':
-        return button.link.story &&
-                    typeof button.link.story === 'object' &&
-                    Object.keys(button.link.story).length
+        return field.link.story &&
+          typeof field.link.story === 'object' &&
+          Object.keys(field.link.story).length
           ? {
-              to: button.link.story?.fullSlug
-                ? `/${button.link.story.fullSlug}`
-                : button.link.story?.full_slug
-                  ? `/${button.link.story.full_slug}`
+              to: field.link.story?.fullSlug
+                ? `/${field.link.story.fullSlug}`
+                : field.link.story?.full_slug
+                  ? `/${field.link.story.full_slug}`
                   : ''
             }
           : {}
@@ -74,8 +70,8 @@ export default (context, inject) => {
         return item.url ? 'a' : 'div'
       case 'story':
         return item.story &&
-                    typeof item.story === 'object' &&
-                    Object.keys(item.story).length
+          typeof item.story === 'object' &&
+          Object.keys(item.story).length
           ? 'nuxt-link'
           : 'div'
       default:
@@ -89,8 +85,8 @@ export default (context, inject) => {
         return item.url ? { href: item.url || '#', target: '_blank' } : {}
       case 'story':
         return item.story &&
-                    typeof item.story === 'object' &&
-                    Object.keys(item.story).length
+          typeof item.story === 'object' &&
+          Object.keys(item.story).length
           ? {
               to: item.story?.fullSlug
                 ? `/${item.story.fullSlug}`
@@ -105,11 +101,11 @@ export default (context, inject) => {
   }
 
   const utils = {
-    getButtonLink,
-    getButtonLinkType,
-    getButtonLabel,
-    getButtonDescription,
-    getFullSlug,
+    linkTo,
+    tag,
+    label,
+    description,
+    fullSlug,
     getSliderItemLinkType,
     getSliderItemLink
   }

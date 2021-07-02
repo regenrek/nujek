@@ -9,6 +9,7 @@ const uiModule: Module<any> = function uiModule ({
   withConsole = false,
   nujekCss = true,
   enableSbUtils = true,
+  enableNujekPluginLocal = false,
   storeTemplates = {
     nav: true
   },
@@ -80,6 +81,22 @@ const uiModule: Module<any> = function uiModule ({
       }
     }
 
+    if (enableNujekPluginLocal) {
+      addPlugin({
+        src: resolve(runtimeDir, 'plugin.js'),
+        fileName: join(ROOT_DIR, 'nujek-plugin.js'),
+        options: {}
+      })
+    }
+
+    if (enableSbUtils) {
+      addPlugin({
+        src: resolve(runtimeDir, 'sbutils.js'),
+        fileName: join(ROOT_DIR, 'sbutils.js'),
+        options: {}
+      })
+    }
+
     if (enableLazySizesPlugin) {
       addPlugin({
         src: resolve(runtimeDir, 'lazysizes.js'),
@@ -97,14 +114,6 @@ const uiModule: Module<any> = function uiModule ({
           badge: true
         })
       }
-    }
-
-    if (enableSbUtils) {
-      addPlugin({
-        src: resolve(runtimeDir, 'sbutils.js'),
-        fileName: join(ROOT_DIR, 'sbutils.js'),
-        options: {}
-      })
     }
   })
 

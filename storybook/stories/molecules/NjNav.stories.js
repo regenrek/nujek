@@ -10,10 +10,7 @@ export const DefaultNav = (arg, { argTypes }) => ({
   components: { NjNav },
   template: `
     <div>
-      <NjNav class="bg-gray-200" v-bind="$props">
-        <template #burger-menu>
-          <NjBurger :open.sync="isOpenBurger" />
-        </template>
+      <NjNav :is-open-burger="isOpenBurger" class="bg-gray-200" v-bind="$props">
       </NjNav>
     
       <NjSidebar :show.sync="isOpenBurger" />

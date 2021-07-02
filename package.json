@@ -10,6 +10,7 @@
   "scripts": {
     "build": "yarn build:siroc",
     "build:siroc": "siroc build && mkdist --src packages/ui/src/runtime --dist packages/ui/dist/runtime && mkdist --src packages/storyblok/src/runtime --dist packages/storyblok/dist/runtime && yarn compile:css",
+    "build:ui": "siroc build && mkdist --src packages/ui/src/runtime --dist packages/ui/dist/runtime",
     "build:types": "tsc --emitDeclarationOnly && npm run types:fix",
     "publish:ci": "esno ./scripts/publish.ts",
     "publish:ciui": "esno ./scripts/publish-ui.ts",

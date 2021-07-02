@@ -1,11 +1,11 @@
 <template>
   <component
-    :is="getType"
-    v-bind="{ ...getLink }"
-    @click.capture="handleClick"
-    @click.capture.native="handleClick"
+    :is="tag"
+    v-bind="linkTo"
   >
-    <slot />
+    <slot>
+      {{ label }}
+    </slot>
   </component>
 </template>
 <script>
@@ -16,44 +16,18 @@
 // https://github.com/vuejs/vue/pull/11052
 
 export default {
-  name: 'NjNavItem',
   props: {
-    to: {
+    linkTo: {
       type: [String, Object],
       default: null
     },
-    type: {
+    tag: {
       type: String,
       default: ''
-    }
-  },
-  computed: {
-    getType () {
-      if (this.type === 'url') {
-        return 'a'
-      } if (this.to) {
-        return 'nuxt-link'
-      }
-
-      return 'span'
     },
-    getLink () {
-      if (this.type === 'url') {
-        return { href: this.to, target: '_blank' }
-      } if (this.to) {
-        return { to: `/${this.to}` }
-      }
-
-      return ''
-    }
-  },
-  methods: {
-    handleClick (e) {
-      if (this.getType === 'url') {
-        e.preventDefault()
-      } else {
-        this.$emit('onClick', e)
-      }
+    label: {
+      type: String,
+      default: ''
     }
   }
 }

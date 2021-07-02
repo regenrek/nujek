@@ -41,7 +41,20 @@ const mergeClasses = (classesA, classesB) => {
 }
 
 const Component = Vue.extend({
-  inject: ['$nujekConfig'],
+  inject: {
+    nujekConfig: {
+      from: '$nujekConfig',
+      default: () => {
+        return function () {
+          return {
+            variants: null,
+            classes: null,
+            fixedClasses: null
+          }
+        }
+      }
+    }
+  },
   props: {
     classes: {
       type: [String, Array, Object],
@@ -83,9 +96,10 @@ const Component = Vue.extend({
       // 2. use nujekConfig props
       // 3. use default props
       // 4. use empty
+
       return (
         (!!this.$options.propsData.classes && this.classes) ||
-        this.$nujekConfig()?.classes ||
+        this.nujekConfig()?.classes ||
         this.classes ||
         []
       )
@@ -93,7 +107,7 @@ const Component = Vue.extend({
     getVariants () {
       return (
         (!!this.$options.propsData.variants && this.variants) ||
-        this.$nujekConfig()?.variants ||
+        this.nujekConfig()?.variants ||
         this.fixedClasses ||
         []
       )
@@ -101,7 +115,7 @@ const Component = Vue.extend({
     getFixedClasses () {
       return (
         (!!this.$options.propsData.fixedClasses && this.fixedClasses) ||
-        this.$nujekConfig()?.fixedClasses ||
+        this.nujekConfig()?.fixedClasses ||
         this.fixedClasses ||
         []
       )
