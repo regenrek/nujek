@@ -97,3 +97,4 @@ sw.*
 
 storybook/.nuxt-storybook
 storybook/storybook-static
+dist

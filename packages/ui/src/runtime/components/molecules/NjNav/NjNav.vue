@@ -1,5 +1,6 @@
 <template>
   <div :class="getThemeClass('wrapper')">
+    HI FROM NAV 4
     <div :class="getThemeClass('container')">
       <slot name="header">
         <header :class="getThemeClass('header')">

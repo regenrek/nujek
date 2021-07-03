@@ -33,13 +33,25 @@ Install @nujek modules and its dependencies.
 yarn add -D @nujek/ui @nujek/storyblok @nuxtjs/composition-api
 ```
 
+## Storyblok Access Token 
+
+To consume content from your Storyblok Project you will need to connect your Storyblok `API Key` to nujek. We do this safely via `.env` file and call this environment variable in `nuxt.config.js`.
+
+Lets create an `.env` file in your project root directory and add the following line to it. 
+
+If you need more info how to obtain the Access Token from Storyblok then read this [guide](/connect-storyblok)
+
+```bash[.env]
+SB_CLIENT_ACCESS_TOKEN=<your access token>
+```
+
 ## Module Setup
 
 Add @nujek modules to your `nuxt.config.js` file
 
 ```js[nuxt.config.js]
 const storyblokConfig = {
-    accessToken: '<Storyblok access token>',
+    accessToken: process.env.SB_CLIENT_ACCESS_TOKEN, #  <- here we will use the SB Token from the .env file.
     defaultLanguage: 'en',
     cacheProvider: 'memory',
     version: 'auto',
