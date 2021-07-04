@@ -7,7 +7,12 @@ position: 11
 ## Install
 
 
-<iframe src="https://drive.google.com/file/d/1R6X9NZKDRlcPyIzvnXdyDGoq1dD-XTfG/preview" frameborder="0" style="overflow:hidden;width:100%" width="100%"></iframe>
+
+<video poster="https://res.cloudinary.com/ddbi0suli/video/upload/v1625376814/nujek/2021-07-03_18-28-04_tmv3zd.jpg" loop playsinline controls>
+  <source src="hhttps://res.cloudinary.com/ddbi0suli/video/upload/v1625376814/nujek/2021-07-03_18-28-04_tmv3zd.webm" type="video/webm" />
+  <source src="https://res.cloudinary.com/ddbi0suli/video/upload/v1625376814/nujek/2021-07-03_18-28-04_tmv3zd.mp4" type="video/mp4" />
+  <source src="https://res.cloudinary.com/ddbi0suli/video/upload/v1625376814/nujek/2021-07-03_18-28-04_tmv3zd.ogv" type="video/ogg" />
+</video>
 
 First, install a new nuxt project with **TailwindCSS** pre-installed.
 
