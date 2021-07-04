@@ -6,6 +6,9 @@ position: 11
 
 ## Install
 
+
+<iframe src="https://drive.google.com/file/d/1R6X9NZKDRlcPyIzvnXdyDGoq1dD-XTfG/preview" frameborder="0" style="overflow:hidden;width:100%" width="100%"></iframe>
+
 First, install a new nuxt project with **TailwindCSS** pre-installed.
 
 ```bash
