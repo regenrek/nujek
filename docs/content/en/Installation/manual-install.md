@@ -27,10 +27,11 @@ typescript)
 ? Version control system: None
 ```
 
-Install @nujek modules and its dependencies.
+* Install @nujek modules and its dependencies. 
+* **Notice:** Use Composition API v.0.24.4 at the moment since we experience a bug with newer versions.
 
 ```bash
-yarn add -D @nujek/ui @nujek/storyblok @nuxtjs/composition-api
+yarn add -D @nujek/ui @nujek/storyblok @nuxtjs/composition-api@0.24.4
 ```
 
 ## Storyblok Access Token 
