@@ -199,7 +199,7 @@ Generator will create the following files in a `nujek` project:
 
 Js Files have the following template:
 
-` <BlokCompnentName>.js` Template
+`<BlokCompnentName>.js` Template
 ```
 import { forwardProps } from '@nujek/shared'
 import %{{ComponentName}} from '~/components/%{{ComponentPathAndName}}'
@@ -333,6 +333,14 @@ For example:
   ]
 }
 ```
+
+# Todos
+
+* Release 0.1 with the given spec above
+
+Future:
+* Generate App Configuration for nuxt.config.js (components prefix settings e.g.)
+* Generate Storyblok Components with given schema.json file
 
 # Contribute
 
