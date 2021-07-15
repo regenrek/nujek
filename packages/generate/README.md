@@ -44,11 +44,13 @@ myschemafolder/
 
 # Specification
 
+## File generator
+
 The generate command will create at least two files per component definition in schema.json
 For a given schema.json you will get the following output
 <details>
   <summary>schema.json</summary>
-  
+
 ```
 {
   "components": [
@@ -75,7 +77,7 @@ For a given schema.json you will get the following output
       "preset_id": null,
       "real_name": "blok_content",
       "component_group_uuid": "c53a06a1-e18c-4d15-bdc4-efe29ef4a1bf",
-      "component_group_name": "bloks"
+      "component_group_name": "molecules"
     },
     {
       "name": "blok_hero",
@@ -114,7 +116,7 @@ For a given schema.json you will get the following output
       "preset_id": null,
       "real_name": "blok_hero",
       "component_group_uuid": "c53a06a1-e18c-4d15-bdc4-efe29ef4a1bf",
-      "component_group_name": "bloks"
+      "component_group_name": "organism"
     },
     {
       "name": "blok_slider",
@@ -143,7 +145,7 @@ For a given schema.json you will get the following output
       "preset_id": null,
       "real_name": "blok_slider",
       "component_group_uuid": "c53a06a1-e18c-4d15-bdc4-efe29ef4a1bf",
-      "component_group_name": "bloks"
+      "component_group_name": "organisms"
     },
     {
       "name": "blok_text_image",
@@ -161,11 +163,121 @@ For a given schema.json you will get the following output
       "preset_id": null,
       "real_name": "blok_text_image",
       "component_group_uuid": "c53a06a1-e18c-4d15-bdc4-efe29ef4a1bf",
-      "component_group_name": "bloks"
+      "component_group_name": "organisms"
     },
 }
 ```
 </details>
+
+Generator will create the following files in a `nujek` project:
+
+* The **name** of the component gets converted from Snake Case `blok_text_image` to PascalCase `BlokTextImage`. For the `.vue` components itself the `Blok` Prefix will be removed in the name.
+
+*  The folder structure will be created according the `component_group_name` which is defined for each component in the `schema.json`.
+
+* If none `"component_group_name"` is not set **or** the name equals `bloks` the components will be generated in the `compnents/` folder directly. 
+
+* For every `Blok` a `.js` file will be generated inside a `bloks` folder. This is mandatory.
+
+```
+ my-nujek-project/ 
+    components/
+      bloks/ # will create folder if not exists
+        BlokContent.js
+        BlokHero.js
+        BlokSlider.js
+        BlokTextImage.js
+    molecules/
+        Content.vue
+    organisms/
+        Hero.vue
+        Slider.vue
+        TextImage.vue
+```
+
+## Component content
+
+Js Files have the following template:
+
+` <BlokCompnentName>.js` Template
+```
+import { forwardProps } from '@nujek/shared'
+import %{{ComponentName}} from '~/components/%{{ComponentPathAndName}}'
+export default {
+  name: '%{{'Blok'+ComponentName}}',
+  props: ['blok'],
+  functional: true,
+  render (h, context) {
+    return h(TextImage, {
+      props: forwardProps(context.props.blok)
+    })
+  }
+}
+
+```
+Rendered
+```
+import { forwardProps } from '@nujek/shared'
+import TextImage from '~/components/TextImage'
+export default {
+  name: 'BlokTextImage',
+  props: ['blok'],
+  functional: true,
+  render (h, context) {
+    return h(TextImage, {
+      props: forwardProps(context.props.blok)
+    })
+  }
+}
+```
+
+`ComponentName.vue` Template
+```
+<template>
+  <div>
+    Hi from Blok
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    // prop definition according to schema.json
+  }
+}
+</script>
+<style lang="postcss" scoped></style>
+```
+
+`ComponentName.vue` Rendered
+```
+<template>
+  <div>
+    Hi from Blok
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    image: {
+      type: Object,
+      default: () => {}
+    },
+    title: {
+      type: String,
+      default: ''
+    },
+    variant: {
+      type: String,
+      default: ''
+    }
+  }
+}
+</script>
+<style lang="postcss" scoped></style>
+```
+
 
 # Schema Definition
 There are two possible schema definitions which `@nujek/generate can handle`
