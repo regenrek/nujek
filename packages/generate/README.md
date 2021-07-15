@@ -48,6 +48,7 @@ The generate command will create at least two files per component definition in 
 For a given schema.json you will get the following output
 <details>
   <summary>schema.json</summary>
+  
 ```
 {
   "components": [
