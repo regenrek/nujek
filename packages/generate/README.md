@@ -18,21 +18,21 @@ npx @nujek/generator [arguments]
 
 
 Create components from default directory /scheme/schema.json
-```
+```bash
 nujek-generate 
 ```
 
 Define a custom dir/file where you can find the schema
-```
+```bash
 nujek-generate --file custom/schema.json
 ```
 
-```
+```bash
 nujek-generate --dir myschemafolder
 ```
 * Notice: All *.json files inside `myschemafolder` will be parsed
 For example
-```
+```bash
 myschemafolder/
  - blok_richtext.json
  - blok_image.json
@@ -51,7 +51,7 @@ For a given schema.json you will get the following output
 <details>
   <summary>schema.json</summary>
 
-```
+```json
 {
   "components": [
     {
@@ -179,7 +179,7 @@ Generator will create the following files in a `nujek` project:
 
 * For every `Blok` a `.js` file will be generated inside a `bloks` folder. This is mandatory.
 
-```
+```bash
  my-nujek-project/ 
     components/
       bloks/ # will create folder if not exists
@@ -200,7 +200,7 @@ Generator will create the following files in a `nujek` project:
 Js Files have the following template:
 
 `<BlokCompnentName>.js` Template
-```
+```js
 import { forwardProps } from '@nujek/shared'
 import %{{ComponentName}} from '~/components/%{{ComponentPathAndName}}'
 export default {
@@ -216,7 +216,7 @@ export default {
 
 ```
 Rendered
-```
+```js
 import { forwardProps } from '@nujek/shared'
 import TextImage from '~/components/TextImage'
 export default {
@@ -232,7 +232,7 @@ export default {
 ```
 
 `ComponentName.vue` Template
-```
+```vue
 <template>
   <div>
     Hi from Blok
@@ -250,7 +250,7 @@ export default {
 ```
 
 `ComponentName.vue` Rendered
-```
+```vue
 <template>
   <div>
     Hi from Blok
@@ -282,7 +282,7 @@ export default {
 There are two possible schema definitions which `@nujek/generate can handle`
 
 ### Single 
-```
+```json
 {
     "name": "blok_content",
     "display_name": null,
@@ -291,7 +291,7 @@ There are two possible schema definitions which `@nujek/generate can handle`
 ```
 
 ### Multiple
-```
+```json
 {
   "components": [
     {
@@ -312,7 +312,7 @@ Content Types are filterable via `is_nestable === false` attribute.
 
 For example:
 
-```
+```json
 {
   "components": [
     {
