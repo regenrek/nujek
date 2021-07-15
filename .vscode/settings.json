@@ -1,0 +1,10 @@
+{
+    "emeraldwalk.runonsave": {
+        "commands": [
+            {
+                "match": "\\.vue$",
+                "cmd": "cd ../nujek-landingpage && yarn unj"
+            }
+        ]
+    }
+}

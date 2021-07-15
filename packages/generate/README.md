@@ -42,3 +42,61 @@ myschemafolder/
 ```
 
 
+# Specification
+
+The generate command will create at least two files per component definition in schema.json
+For a given schema.json you will get the following output
+```
+
+```
+
+
+# Schema Definition
+There are two possible schema definitions which `@nujek/generate can handle`
+
+Single 
+```
+{
+    "name": "blok_content",
+    "display_name": null,
+    // ...
+}
+```
+
+Multiple
+```
+{
+  "components": [
+    {
+      "name": "blok_content",
+      // ...
+    },
+    {
+      "name": "blok_hero",
+      // ...
+    },
+}
+```
+
+
+# Contribute
+
+Clone nujek repository
+
+```
+git@github.com:regenrek/nujek.git
+yarn 
+```
+
+### Build
+```
+cd packages/generator
+yarn build
+```
+
+### Run (untested)
+```
+cd packages/generator
+npx ./src/index.js 
+npx ./dist/index.js
+```
