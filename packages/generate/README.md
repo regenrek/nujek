@@ -278,7 +278,6 @@ export default {
 <style lang="postcss" scoped></style>
 ```
 
-
 # Schema Definition
 There are two possible schema definitions which `@nujek/generate can handle`
 
@@ -306,6 +305,34 @@ There are two possible schema definitions which `@nujek/generate can handle`
 }
 ```
 
+## Exclude content types
+With pregenerated schema files you will also get some overhead which are content type definitions and not components.
+
+Content Types are filterable via `is_nestable === false` attribute. 
+
+For example:
+
+```
+{
+  "components": [
+    {
+      "name": "blok_text_image",
+      "is_nestable": true
+      // other fields
+    },
+    {
+      "name": "content-page",
+      "is_nestable": true
+      // other fields
+    },
+    {
+      "name": "LandingPage",
+      "is_nestable": false
+      // other fields
+    }
+  ]
+}
+```
 
 # Contribute
 
