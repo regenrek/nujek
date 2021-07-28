@@ -1,3 +1,5 @@
+import { oneLine } from 'common-tags'
+
 export default (context, inject) => {
   // check if absolute (http/s) -> <a> or relative / -> <nuxt-link>
   const isAbsolute = url => /^(?:[a-z]+:)?\/\//i.test(url)
@@ -100,6 +102,14 @@ export default (context, inject) => {
     }
   }
 
+  const truncate = (text, length = 80) => {
+    if (text.length > length) {
+      return `${text.split('').splice(0, length).join('')}...`
+    } else {
+      return text
+    }
+  }
+
   const utils = {
     linkTo,
     tag,
@@ -107,7 +117,9 @@ export default (context, inject) => {
     description,
     fullSlug,
     getSliderItemLinkType,
-    getSliderItemLink
+    getSliderItemLink,
+    oneLine,
+    truncate
   }
 
   inject('sbutils', utils)
