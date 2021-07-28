@@ -122,6 +122,6 @@ export default (context, inject) => {
     truncate
   }
 
-  inject('sbutils', utils)
+  inject('$sbutils', utils)
   context.$sbutils = utils
 }
