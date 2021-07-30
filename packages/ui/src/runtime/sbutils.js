@@ -14,7 +14,7 @@ export default (context, inject) => {
     switch (field?.link?.linktype) {
       case 'story':
         // @TODO If span is sent back there is something missing story linking
-        return (field?.link?.story === 'object' &&
+        return (typeof field?.link?.story === 'object' &&
           Object.keys(field.link.story).length && 'nuxt-link') || 'span'
       case 'url':
         return isAbsolute(field?.link?.url) ? 'a' : 'nuxt-link'
@@ -122,6 +122,6 @@ export default (context, inject) => {
     truncate
   }
 
-  inject('$sbutils', utils)
+  inject('sbutils', utils)
   context.$sbutils = utils
 }
