@@ -1,5 +1,5 @@
 <template>
-  <nav :class="getThemeClass('nav')">
+  <component :is="tag" :class="getThemeClass('nav')" :aria-label="ariaLabel">
     <slot
       v-for="(navItem, index) in items"
       v-bind="{
@@ -11,21 +11,27 @@
       }"
       :class="getThemeClass('navItems')"
     >
-      <NjNavItem
+      <component
+        :is="navItemType"
         :link-to="$sbutils.linkTo(navItem)"
         :tag="$sbutils.tag(navItem)"
         :label="$sbutils.label(navItem)"
         :class="getThemeClass('navItem')"
       />
     </slot>
-  </nav>
+  </component>
 </template>
 
 <script>
+
 import Component from '../../../base/Component'
 const NjNavItems = Component.extend({
   name: 'NjNavItems',
   props: {
+    ariaLabel: {
+      type: String,
+      default: 'Nav'
+    },
     items: {
       type: Array,
       default () {
@@ -41,6 +47,26 @@ const NjNavItems = Component.extend({
           navItem: 'cursor-pointer hover:text-gray-400'
         }
       }
+    },
+    navType: {
+      type: String,
+      default: 'single',
+      validator: (propValue) => {
+        return ['dropdown', 'single']
+      }
+    },
+    tag: {
+      type: String,
+      default: 'nav',
+      validator: (propValue) => {
+        return ['nav', 'div']
+      }
+    }
+  },
+  computed: {
+    // @TODO: rename to NjNavDropdownItem
+    navItemType () {
+      return this.navType === 'dropdown' ? 'NjNavDropdownItemClick' : 'NjNavItem'
     }
   }
 })

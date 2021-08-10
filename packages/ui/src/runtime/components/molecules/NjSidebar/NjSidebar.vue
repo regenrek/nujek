@@ -17,6 +17,7 @@
   </div>
 </template>
 <script>
+
 import Component from '../../../base/Component'
 
 const NjSidebar = Component.extend({
@@ -37,7 +38,7 @@ const NjSidebar = Component.extend({
         backdrop:
           'fixed z-400 bg-black bg-opacity-75 w-full h-full left-0 top-0 fixed',
         sidenav:
-          'bg-white fixed left-0 top-0 z-500 duration-200 transition-transform h-full overflow-scroll'
+          'bg-white fixed left-0 top-0 z-700 duration-200 transition-transform h-full overflow-scroll'
       })
     }
   },

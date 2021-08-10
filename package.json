@@ -1,12 +1,14 @@
 {
   "name": "@nujek/monorepo",
+  "version": "1.0.0",
   "private": true,
+  "description": "Nujek - Build Websites with Nuxt.js and Storyblok",
+  "license": "MIT",
+  "author": "Kevin Regenrek",
   "workspaces": [
     "packages/*",
     "storybook"
   ],
-  "version": "1.0.0",
-  "description": "Nujek - Build Websites with Nuxt.js and Storyblok",
   "scripts": {
     "build": "yarn build:siroc",
     "build:siroc": "siroc build && mkdist --src packages/ui/src/runtime --dist packages/ui/dist/runtime && mkdist --src packages/storyblok/src/runtime --dist packages/storyblok/dist/runtime && yarn compile:css",
@@ -27,16 +29,14 @@
     "publish:ui": "yarn build && yarn publish:ciui",
     "clean-nm": "rm -rf node_modules && rm -rf packages/ui/node_modules && rm -rf packages/storyblok/node_modules && rm -rf storybook/node_modules && rm -rf storybook/.nuxt-storybook && rm -rf docs/node_modules && yarn && cd docs && yarn && cd .."
   },
-  "lint-staged": {
-    "*.{js,vue}": "eslint --fix"
-  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
     }
   },
-  "author": "Kevin Regenrek",
-  "license": "MIT",
+  "lint-staged": {
+    "*.{js,vue}": "eslint --fix"
+  },
   "devDependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.12.13",
     "@babel/preset-env": "^7.12.16",

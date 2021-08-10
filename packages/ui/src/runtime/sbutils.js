@@ -14,7 +14,7 @@ export default (context, inject) => {
     switch (field?.link?.linktype) {
       case 'story':
         // @TODO If span is sent back there is something missing story linking
-        return (typeof field?.link?.story === 'object' &&
+        return (field?.link?.story === 'object' &&
           Object.keys(field.link.story).length && 'nuxt-link') || 'span'
       case 'url':
         return isAbsolute(field?.link?.url) ? 'a' : 'nuxt-link'
