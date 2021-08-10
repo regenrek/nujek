@@ -23,7 +23,7 @@
             'text-gray-600 hover:bg-gray-50 hover:text-gray-900 flex items-center px-3 py-2 text-sm'
         }"
       >
-        <NjNavDropdownItemClick
+        <NjNavDropdownItem
           v-slot="{ isDropdownOpen }"
           :index="index"
           :link-to="linkTo"
@@ -40,6 +40,15 @@
                   duration-150
                 "
         >
+          <span class="relative z-700 flex h-full items-center">
+            <span class="flex flex-col">
+              <span class="flex flex-col items-center">
+                <span class="block leading-none">{{
+                  navItem.label
+                }}</span>
+              </span>
+            </span>
+          </span>
           <transition
             enter-active-class="transition ease-out duration-100"
             enter-class="transform opacity-0 scale-95"
@@ -60,7 +69,7 @@
               }"
             />
           </transition>
-        </NjNavDropdownItemClick>
+        </NjNavDropdownItem>
       </NjNavItems>
     </template>
   </NjSidebar>
