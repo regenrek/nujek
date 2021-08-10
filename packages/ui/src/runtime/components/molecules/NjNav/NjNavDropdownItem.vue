@@ -5,25 +5,19 @@
     v-bind="{ ...$attrs }"
     v-on="dropdownListener"
   >
-    <slot name="label">
-      <span class="relative flex h-full items-center">
-        <span class="flex flex-col">
-          <span class="flex flex-col items-center">
-            <span class="block leading-none">{{ label }}</span>
-          </span>
-        </span>
-      </span>
-    </slot>
     <slot
       v-bind="{
         linkTo,
         isDropdownOpen,
         activeIndex,
         activeDropdownIndex}"
-    />
+    >
+      {{ label }}
+    </slot>
   </component>
 </template>
 <script>
+
 export default {
   inheritAttrs: false,
   props: {
@@ -46,7 +40,7 @@ export default {
     eventModifier: {
       type: String,
       default: 'click',
-      validator: (propValue) => {
+      validator: () => {
         return ['click', 'hover', 'none']
       }
     }
@@ -76,15 +70,6 @@ export default {
         this.$listeners,
         customListener
       )
-
-      // this.isNone ||
-      // isClickable ?
-      // { click: toggleDropdown, click.native: toggleDropdown } :
-      // { mouseenter: openDropdown,
-      //   mouseenter.native: openDropdown,
-      //   mouseleave: closeDropdown,
-      //   mouseleave.native: closeDropdown
-      // }
     },
     hasDropdownItems () {
       return !!this.$slots.children
@@ -99,14 +84,6 @@ export default {
       return this.eventModifier === 'none' && {}
     }
   },
-  watch: {
-    isDropdownOpen (old, newValue) {
-      console.log('isdropdownopen', old, newValue)
-    },
-    activeIndex (old, newValue) {
-      console.log('activeIndex', old, newValue)
-    }
-  },
   methods: {
     toggleDropdown (index) {
       this.activeIndex = index
@@ -116,7 +93,6 @@ export default {
       this.$emit('toggle-dropdown', this.isDropdownOpen)
     },
     openDropdown (index) {
-      console.log('open dropdown', index)
       this.activeIndex = index
 
       this.isDropdownOpen = true
@@ -137,7 +113,6 @@ export default {
       }
     },
     hasSubItems (navItem) {
-      console.log('has subitems')
       return true
       // return !!navItem?.subNavigation?.length
     }
