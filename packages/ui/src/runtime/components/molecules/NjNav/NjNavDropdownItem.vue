@@ -9,7 +9,7 @@
       <span class="relative flex h-full items-center">
         <span class="flex flex-col">
           <span class="flex flex-col items-center">
-            <span class="block leading-none text-red-600">{{ label }}</span>
+            <span class="block leading-none">{{ label }}</span>
           </span>
         </span>
       </span>
