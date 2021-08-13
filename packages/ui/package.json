@@ -1,6 +1,6 @@
 {
   "name": "@nujek/ui",
-  "version": "2.0.11",
+  "version": "2.0.12",
   "description": "Nujek - UI Components",
   "keywords": [
     "nuxt",
@@ -37,6 +37,9 @@
   },
   "devDependencies": {
     "@types/lodash.get": "^4.4.6",
+    "common-tags": "^1.8.0"
+  },
+  "peerDependencies": {
     "common-tags": "^1.8.0"
   }
 }
