@@ -29,7 +29,7 @@
     "@marvr/storyblok-rich-text-vue-renderer": "^2.0.1",
     "@nujek/nuxt-storyblok-queries": "^1.2.16",
     "@nujek/shared": "*",
-    "@nuxtjs/composition-api": "^0.24.6",
+    "@nuxtjs/composition-api": "^0.26",
     "storyblok-nuxt": "^2.0.1",
     "vue-lazy-hydration": "^2.0.0-beta.4"
   }

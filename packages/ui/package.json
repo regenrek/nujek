@@ -1,6 +1,6 @@
 {
   "name": "@nujek/ui",
-  "version": "2.0.12",
+  "version": "2.0.13",
   "description": "Nujek - UI Components",
   "keywords": [
     "nuxt",
@@ -33,13 +33,10 @@
     "postcss-import": "^12.0.1",
     "postcss-mixins": "6.2.3",
     "postcss-nested": "^4.2.3",
-    "postcss-scss": "^3.0.2"
+    "postcss-scss": "^3.0.2",
+    "common-tags": "^1.8.0"
   },
   "devDependencies": {
-    "@types/lodash.get": "^4.4.6",
-    "common-tags": "^1.8.0"
-  },
-  "peerDependencies": {
-    "common-tags": "^1.8.0"
+    "@types/lodash.get": "^4.4.6"
   }
 }
