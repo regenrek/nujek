@@ -60,9 +60,9 @@ export default (context, inject) => {
                   ? `/${field.link.story.full_slug}`
                   : ''
             }
-          : {}
+          : false
       default:
-        return {}
+        return false
     }
   }
 
