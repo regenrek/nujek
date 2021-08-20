@@ -136,8 +136,6 @@ export default {
         }
 
         this.collection = stories
-
-        console.log('Collection fetched', this.collection)
       })
       .catch((res) => {
         error(res)

@@ -82,10 +82,6 @@ export default {
       type: Array,
       default: () => []
     }
-  },
-  mounted () {
-    console.log('all slots', this.$slots)
-    console.log('default slots', this.$slots.default)
   }
 }
 </script>
