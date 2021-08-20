@@ -89,9 +89,9 @@ export default (context, inject) => {
       case 'url':
         return field.url ? { href: field.url || '#', target: '_blank' } : {}
       case 'story':
-        return field.story &&
-          typeof field.story === 'object' &&
-          Object.keys(field.story).length &&
+        return field.link.story &&
+          typeof field.link.story === 'object' &&
+          Object.keys(field.link.story).length &&
         toNuxtLink(field.link.story.fullSlug || field.link.story.full_slug)
       default:
         return {}
