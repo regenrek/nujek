@@ -52,17 +52,16 @@ export default (context, inject) => {
       case 'story':
         return field.link.story &&
           typeof field.link.story === 'object' &&
-          Object.keys(field.link.story).length
-          ? {
-              to: field.link.story?.fullSlug
-                ? `/${field.link.story.fullSlug}`
-                : field.link.story?.full_slug
-                  ? `/${field.link.story.full_slug}`
-                  : ''
-            }
-          : {}
+          Object.keys(field.link.story).length &&
+            toNuxtLink(field.link.story.fullSlug || field.linkn.story.full_slug)
       default:
         return {}
+    }
+  }
+
+  const toNuxtLink = (link) => {
+    return {
+      to: '/' + (link || '')
     }
   }
 
@@ -119,7 +118,8 @@ export default (context, inject) => {
     getSliderItemLinkType,
     getSliderItemLink,
     oneLine,
-    truncate
+    truncate,
+    toNuxtLink
   }
 
   inject('sbutils', utils)
