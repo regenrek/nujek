@@ -48,18 +48,22 @@ export default (context, inject) => {
       case 'url':
         return isAbsolute(field?.link?.url)
           ? { href: field.link.url || '#', target: '_blank' }
-          : { to: field.link.url }
+          : toNuxtLink(field.link.url)
       case 'story':
         return field.link.story &&
           typeof field.link.story === 'object' &&
           Object.keys(field.link.story).length &&
-            toNuxtLink(field.link.story.fullSlug || field.linkn.story.full_slug)
+            toNuxtLink(field.link.story.fullSlug || field.link.story.full_slug)
       default:
         return {}
     }
   }
 
   const toNuxtLink = (link) => {
+    if (!link) {
+      return {}
+    }
+
     return {
       to: '/' + (link || '')
     }
@@ -80,22 +84,15 @@ export default (context, inject) => {
     }
   }
 
-  const getSliderItemLink = (item) => {
-    switch (item.linktype) {
+  const getSliderItemLink = (field) => {
+    switch (field.linktype) {
       case 'url':
-        return item.url ? { href: item.url || '#', target: '_blank' } : {}
+        return field.url ? { href: field.url || '#', target: '_blank' } : {}
       case 'story':
-        return item.story &&
-          typeof item.story === 'object' &&
-          Object.keys(item.story).length
-          ? {
-              to: item.story?.fullSlug
-                ? `/${item.story.fullSlug}`
-                : item.story?.full_slug
-                  ? `/${item.story.full_slug}`
-                  : ''
-            }
-          : {}
+        return field.story &&
+          typeof field.story === 'object' &&
+          Object.keys(field.story).length &&
+        toNuxtLink(field.link.story.fullSlug || field.link.story.full_slug)
       default:
         return {}
     }
