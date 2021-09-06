@@ -66,7 +66,7 @@ export default (context, inject) => {
 
     return {
       // remove first slash if exists
-      to: '/' + (link.replace(/\//, '') || '')
+      to: '/' + (link.replace(/^\//, '') || '')
     }
   }
 
