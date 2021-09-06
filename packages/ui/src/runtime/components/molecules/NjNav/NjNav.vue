@@ -46,16 +46,10 @@
     </div>
   </div>
 </template>
-<script lang="ts">
+<script>
 import Component from '../../../base/Component'
-
 const NjNav = Component.extend({
   name: 'NjNav',
-  data () {
-    return {
-      isOpenBurgerLocal: false
-    }
-  },
   props: {
     isOpenBurger: {
       type: Boolean,
@@ -119,10 +113,9 @@ const NjNav = Component.extend({
   computed: {
     isOpenBurgerComp: {
       get () {
-        return this.isOpenBurgerLocal
+        return this.isOpenBurger
       },
       set (val) {
-        this.isOpenBurgerLocal = val
         this.$emit('update:isOpenBurger', val)
       }
     }

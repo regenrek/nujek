@@ -53,7 +53,7 @@ export default (context, inject) => {
         return field.link.story &&
           typeof field.link.story === 'object' &&
           Object.keys(field.link.story).length &&
-            toNuxtLink(field.link.story.fullSlug || field.link.story.full_slug)
+          toNuxtLink(field.link.story.fullSlug || field.link.story.full_slug)
       default:
         return {}
     }
@@ -65,7 +65,8 @@ export default (context, inject) => {
     }
 
     return {
-      to: '/' + (link || '')
+      // remove first slash if exists
+      to: '/' + (link.replace(/\//, '') || '')
     }
   }
 
