@@ -47,6 +47,7 @@
   </div>
 </template>
 <script>
+
 import Component from '../../../base/Component'
 const NjNav = Component.extend({
   name: 'NjNav',
