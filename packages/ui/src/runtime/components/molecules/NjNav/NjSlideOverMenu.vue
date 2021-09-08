@@ -1,5 +1,5 @@
 <template>
-  <NjSidebar v-bind="{ ...$props, ...$attrs }">
+  <NjSidebar v-bind="{ ...$props, ...$attrs }" :show.sync="isOpenBurgerComp">
     <template v-for="(_, slotName) in $slots" #[slotName]>
       <slot :name="slotName" />
     </template>
@@ -82,6 +82,20 @@ export default {
     items: {
       type: Array,
       default: () => []
+    },
+    isOpenBurger: {
+      type: Boolean,
+      default: false
+    }
+  },
+  computed: {
+    isOpenBurgerComp: {
+      get () {
+        return this.isOpenBurger
+      },
+      set (val) {
+        this.$emit('update:isOpenBurger', val)
+      }
     }
   }
 }

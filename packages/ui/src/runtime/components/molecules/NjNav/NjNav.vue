@@ -87,7 +87,8 @@ const NjNav = Component.extend({
       type: Array,
       default () {
         return []
-      }
+      },
+      required: true
     },
     asideNavItems: {
       type: Array,
@@ -106,7 +107,7 @@ const NjNav = Component.extend({
       required: false
     },
     logoLink: {
-      type: String,
+      type: [String, Object],
       default: '/',
       required: false
     }

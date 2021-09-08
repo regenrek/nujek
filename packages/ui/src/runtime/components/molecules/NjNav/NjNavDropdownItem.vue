@@ -55,7 +55,6 @@ export default {
   computed: {
     dropdownListener () {
       const vm = this
-
       const customListener = {
         ...(vm.isClickable ? { click: () => vm.toggleDropdown(vm.index) } : null),
         ...(vm.isHover
@@ -91,6 +90,11 @@ export default {
       this.isDropdownOpen = !this.isDropdownOpen
 
       this.$emit('toggle-dropdown', this.isDropdownOpen)
+      if (this.isDropdownOpen) {
+        this.$emit('open-dropdown', index)
+      } else {
+        this.$emit('close-dropdown', index)
+      }
     },
     openDropdown (index) {
       this.activeIndex = index

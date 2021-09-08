@@ -19,11 +19,13 @@ export default {
   props: {
     linkTo: {
       type: [String, Object],
-      default: null
+      default: null,
+      required: true
     },
     tag: {
       type: String,
-      default: ''
+      default: '',
+      required: true
     },
     label: {
       type: String,

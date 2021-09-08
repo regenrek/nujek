@@ -36,7 +36,8 @@ const NjNavItems = Component.extend({
       type: Array,
       default () {
         return []
-      }
+      },
+      required: true
     },
     classes: {
       type: Object,
@@ -66,7 +67,7 @@ const NjNavItems = Component.extend({
   computed: {
     // @TODO: rename to NjNavDropdownItem
     navItemType () {
-      return this.navType === 'dropdown' ? 'NjNavDropdownItemClick' : 'NjNavItem'
+      return this.navType === 'dropdown' ? 'NjNavDropdownItem' : 'NjNavItem'
     }
   }
 })

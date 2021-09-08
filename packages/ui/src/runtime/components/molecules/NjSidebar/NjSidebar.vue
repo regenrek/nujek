@@ -8,7 +8,7 @@
       />
     </transition>
     <transition name="slide">
-      <div v-if="show" :class="getThemeClass('sidenav')" :style="getStyle">
+      <div v-if="show" :class="getThemeClass('sidenav')">
         <slot name="header" />
         <slot />
         <slot name="footer" />
@@ -23,11 +23,6 @@ import Component from '../../../base/Component'
 const NjSidebar = Component.extend({
   name: 'NjSidebar',
   props: {
-    width: {
-      type: String,
-      default: '300px',
-      required: false
-    },
     show: {
       type: Boolean,
       default: false
@@ -45,11 +40,6 @@ const NjSidebar = Component.extend({
   data: () => ({
     showBackdrop: false
   }),
-  computed: {
-    getStyle () {
-      return { width: this.width }
-    }
-  },
   methods: {
     handleClose () {
       this.$emit('update:show', false)
