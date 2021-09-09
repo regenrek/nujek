@@ -50,10 +50,14 @@ export default (context, inject) => {
           ? { href: field.link.url || '#', target: '_blank' }
           : toNuxtLink(field.link.url)
       case 'story':
-        return field.link.story &&
+        if (field.link.story &&
           typeof field.link.story === 'object' &&
-          Object.keys(field.link.story).length &&
-          toNuxtLink(field.link.story.fullSlug || field.link.story.full_slug)
+          Object.keys(field.link.story).length) {
+          return toNuxtLink(field.link.story.fullSlug || field.link.story.full_slug)
+        } else {
+          console.warn(`No url/story for type Link (${field.label})  found. Try publish the linked story first`)
+          return ''
+        }
       default:
         return {}
     }
