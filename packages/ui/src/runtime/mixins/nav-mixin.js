@@ -7,7 +7,11 @@ export default {
     }),
     ...mapGetters({
       mainNavItems: 'nav/main',
-      asideNavItems: 'nav/aside'
+      mainNavSubItems: 'nav/sub',
+      asideNavItems: 'nav/aside',
+      mobileNavItems: 'nav/mobile',
+      mobileSubNavItems: 'nav/mobileSub',
+      footerNavItems: 'nav/footer'
     }),
     isOpenBurger: {
       get () {
