@@ -88,7 +88,7 @@ const NjNav = Component.extend({
       default () {
         return []
       },
-      required: true
+      required: false
     },
     asideNavItems: {
       type: Array,
