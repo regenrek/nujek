@@ -1,30 +1,18 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "type": "chrome",
-            "request": "launch",
-            "name": "Launch Chrome against localhost",
-            "url": "http://localhost:8080",
-            "webRoot": "${workspaceFolder}"
-        },
-        {
-            "type": "chrome",
-            "request": "launch",
-            "name": "Storybook Debug",
-            "url": "http://localhost:3003",
-            "webRoot": "${workspaceFolder}/storybook",
-            "sourceMaps": true,
-            "sourceMapPathOverrides": {
-                "webpack:///*": "${webRoot}/*",
-                "webpack:///./*": "${webRoot}/*",
-                "webpack:///src/*": "${webRoot}/*",
-                "webpack:///./~/*": "${webRoot}/node_modules/*"
-            },
-            "breakOnLoad": true
-        }
-    ]
+    "type": "node",
+    "request": "launch",
+    "name": "Jest Tests",
+    "program": "${workspaceFolder}/node_modules/jest/bin/jest.js",
+    "args": [
+        "-i"
+    ],
+    "preLaunchTask": "build",
+    "internalConsoleOptions": "openOnSessionStart",
+    "outFiles": [
+        "${workspaceRoot}/dist/**/*"
+    ],
+    "env": {
+        "VUE_CLI_BABEL_TARGET_NODE": "true",
+        "VUE_CLI_BABEL_TRANSPILE_MODULES": "true"
+    }
 }

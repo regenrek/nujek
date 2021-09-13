@@ -1,6 +1,16 @@
 import Vue from 'vue'
 import get from 'lodash.get'
 
+const merge = (objFrom, objTo) => Object.keys(objFrom)
+  .reduce(
+    (merged, key) => {
+      merged[key] = objFrom[key] instanceof Object && !Array.isArray(objFrom[key])
+        ? merge(objFrom[key], merged[key] ?? {})
+        : objFrom[key]
+      return merged
+    }, { ...objTo }
+  )
+
 const mergeClasses = (classesA, classesB) => {
   let a = classesA
   let b = classesB
@@ -92,36 +102,24 @@ const Component = Vue.extend({
       return this.variant
     },
     getClasses () {
-      // 1. are component props set -> then use props
-      // 2. use nujekConfig props
-      // 3. use default props
-      // 4. use empty
-
-      return (
-        (!!this.$options.propsData.classes && this.classes) ||
-        this.nujekConfig()?.classes ||
-        this.classes ||
-        []
-      )
+      return this.getClassProp('classes')
     },
     getVariants () {
-      return (
-        (!!this.$options.propsData.variants && this.variants) ||
-        this.nujekConfig()?.variants ||
-        this.fixedClasses ||
-        []
-      )
+      return this.getClassProp('variants')
     },
     getFixedClasses () {
-      return (
-        (!!this.$options.propsData.fixedClasses && this.fixedClasses) ||
-        this.nujekConfig()?.fixedClasses ||
-        this.fixedClasses ||
-        []
-      )
+      return this.getClassProp('fixedClasses')
     }
   },
   methods: {
+    getClassProp (prop) {
+      return this.hasOverrideProp(prop)
+        ? merge(this[prop], this.nujekConfig()?.[prop] || {})
+        : merge(this.nujekConfig()?.[prop] || {}, this[prop])
+    },
+    hasOverrideProp (prop) {
+      return !!this.$options.propsData[prop]
+    },
     getThemeClass (elementName, overrideDefaultClasses = '') {
       let classes
 

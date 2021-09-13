@@ -6,5 +6,6 @@
                 "cmd": "cd ../nujek-landingpage && yarn unj"
             }
         ]
-    }
+    },
+    "jest.jestCommandLine": "${workspaceFolder}/node_modules/jest/bin/jest.j"
 }

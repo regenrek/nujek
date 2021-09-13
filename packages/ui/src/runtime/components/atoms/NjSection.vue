@@ -7,6 +7,7 @@
 </template>
 
 <script>
+
 import Component from '../../base/Component'
 
 const NjSection = Component.extend({

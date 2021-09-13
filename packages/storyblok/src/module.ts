@@ -22,6 +22,7 @@ const storyblokModule: Module<any> = async function storyblokModule ({
   // Transpile and alias runtime
   const runtimeDir = resolve(__dirname, 'runtime')
   nuxt.options.alias['~nujek-storyblok'] = runtimeDir
+  // @TODO: Transpiel nuxt or nujek storyblok?
   nuxt.options.build.transpile.push(runtimeDir, '@nuxt/storyblok')
 
   if (!storyblokConfig) {
