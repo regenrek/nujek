@@ -1,5 +1,5 @@
 <template>
-  <component :is="tag" :class="getThemeClass('wrapper')" :style="bgImageStyle">
+  <component :is="tag" :class="getThemeClass('wrapper')">
     <div :class="getThemeClass('container')">
       <slot />
     </div>
@@ -17,44 +17,23 @@ const NjSection = Component.extend({
       default: 'div',
       validator: value => ['div', 'section'].includes(value)
     },
-    bgImage: {
-      type: String,
-      default: ''
-    },
-    fixedClasses: {
-      type: Object,
-      default () {
-        return {
-          bgImage: 'w-full'
-        }
-      }
-    },
-    classes: {
-      type: Object,
-      default () {
-        return {}
-      }
-    },
     variants: {
       type: Object,
       default () {
         return {
           boxed: {
-            wrapper: 'flex justify-center w-full mx-auto',
-            container: 'w-full xl:max-w-7xl'
+            wrapper: 'flex justify-center',
+            container: 'max-w-3xl w-full mx-auto md:px-6 xl:px-8'
           },
           fullWidth: {
-            wrapper: 'w-full',
+            wrapper: 'flex justify-center',
             container: 'w-full'
+          },
+          constrained: {
+            wrapper: 'flex justify-center',
+            container: 'max-w-3xl w-full px-10'
           }
         }
-      }
-    }
-  },
-  computed: {
-    bgImageStyle () {
-      return {
-        ...(this.bgImage && { backgroundImage: `url(${this.bgImage})` })
       }
     }
   }

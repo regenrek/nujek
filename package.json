@@ -27,7 +27,9 @@
     "compile:css": "esno ./scripts/styles.js",
     "publish:all": "yarn build && yarn publish:ci",
     "publish:ui": "yarn build && yarn publish:ciui",
-    "clean-nm": "rm -rf node_modules && rm -rf packages/ui/node_modules && rm -rf packages/storyblok/node_modules && rm -rf storybook/node_modules && rm -rf storybook/.nuxt-storybook && rm -rf docs/node_modules && yarn && cd docs && yarn && cd .."
+    "clean-nm": "rm -rf node_modules && rm -rf packages/ui/node_modules && rm -rf packages/storyblok/node_modules && rm -rf storybook/node_modules && rm -rf storybook/.nuxt-storybook && rm -rf docs/node_modules && yarn && cd docs && yarn && cd ..",
+    "test": "vue-cli-service test:unit",
+    "test:watch": "vue-cli-service test:unit --watch"
   },
   "husky": {
     "hooks": {
