@@ -7,12 +7,8 @@ import type { Module } from '@nuxt/types'
 const storyblokModule: Module<any> = async function storyblokModule ({
   storyblokConfig = {},
   withConsole = false,
-  enableStoryblokQueries = true,
   enableStoryblokNuxt = true,
-  debug = false,
-  storyblokQueries = {
-    formatResponse: false
-  }
+  debug = false
 }) {
   const { nuxt, addPlugin, requireModule } = this
 
@@ -39,27 +35,6 @@ const storyblokModule: Module<any> = async function storyblokModule ({
       logger.success({
         message: 'Storyblok modules ready',
         additional: 'Module \'@nujek/storyblok-nuxt\' registered.',
-        badge: true
-      })
-    }
-  }
-
-  /**
-   * add nuxt-storyblok-queries
-   */
-  if (enableStoryblokQueries) {
-    await requireModule([
-      '@nujek/nuxt-storyblok-queries',
-      {
-        ...storyblokConfig,
-        ...storyblokQueries
-      }
-    ])
-
-    if (withConsole) {
-      logger.success({
-        message: 'Storyblok modules ready',
-        additional: 'Module \'@nujek/nuxt-storyblok-queries\' registered.',
         badge: true
       })
     }

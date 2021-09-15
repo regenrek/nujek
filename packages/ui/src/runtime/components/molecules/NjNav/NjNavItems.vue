@@ -45,7 +45,7 @@ const NjNavItems = Component.extend({
         return {
           nav: '',
           navItems: '',
-          navItem: 'cursor-pointer hover:text-gray-400'
+          navItem: 'cursor-pointer'
         }
       }
     },

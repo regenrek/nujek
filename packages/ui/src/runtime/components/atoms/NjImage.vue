@@ -1,7 +1,7 @@
 <template>
   <figure :class="[getThemeClass('figure'), hasAspectRatio]">
     <div :class="getThemeClass('aspectRatio')">
-      <picture v-if="src" :class="getThemeClass('picture')">
+      <picture v-if="src" :class="getThemeClass('picture')" class="block">
         <source
           v-if="src.webp"
           ref="webp"

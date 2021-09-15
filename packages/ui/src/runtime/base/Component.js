@@ -151,10 +151,6 @@ const Component = Vue.extend({
           return mergeClasses(fixedClasses, classes)
         }
 
-        // check if we have overwritten default prop via direct
-        // prop input -> for example <myc variants="{ ...}" />
-        // need to merge this too
-
         return classes
       }
 

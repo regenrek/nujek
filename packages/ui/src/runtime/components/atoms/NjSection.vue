@@ -24,7 +24,7 @@ const NjSection = Component.extend({
         return {
           boxed: {
             wrapper: 'flex justify-center',
-            container: 'max-w-3xl w-full mx-auto md:px-6 xl:px-8'
+            container: 'w-full mx-auto md:px-6 xl:px-8'
           },
           fullWidth: {
             wrapper: 'flex justify-center',
@@ -32,7 +32,7 @@ const NjSection = Component.extend({
           },
           constrained: {
             wrapper: 'flex justify-center',
-            container: 'max-w-3xl w-full px-10'
+            container: 'w-full px-10'
           }
         }
       }
