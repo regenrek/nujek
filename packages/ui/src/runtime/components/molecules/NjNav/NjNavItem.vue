@@ -3,9 +3,7 @@
     :is="tag"
     v-bind="linkTo"
   >
-    <slot>
-      {{ label }}
-    </slot>
+    <slot>{{ label }}</slot>
   </component>
 </template>
 <script>
