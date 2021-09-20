@@ -25,22 +25,14 @@ jobs:
       - name: checkout
         uses: actions/checkout@master
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: Setup
+        run: npm i -g pnpm @antfu/ni
 
-      - uses: actions/cache@v2
-        id: yarn-cache # check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
       - name: Install dependencies
-        run: yarn
+        run: ni
 
       - name: Test
-        run: yarn test:e2e
+        run: nr test:e2e
 
       - name: Coverage
         uses: codecov/codecov-action@v1
