@@ -58,7 +58,7 @@
     "@vue/cli-plugin-unit-jest": "latest",
     "@vue/cli-service": "latest",
     "@vue/test-utils": "latest",
-    "babel-eslint": "latest",
+    "@babel/eslint-parser": "latest",
     "babel-jest": "latest",
     "codecov": "latest",
     "eslint": "latest",

@@ -5,10 +5,8 @@
   "description": "Nujek - Build Websites with Nuxt.js and Storyblok",
   "license": "MIT",
   "author": "Kevin Regenrek",
-  "workspaces": [
-    "packages/*"
-  ],
   "scripts": {
+    "pub": "esno ./scripts/publish2.ts",
     "build": "yarn build:siroc",
     "build:siroc": "siroc build && mkdist --src packages/ui/src/runtime --dist packages/ui/dist/runtime && mkdist --src packages/storyblok/src/runtime --dist packages/storyblok/dist/runtime && yarn compile:css",
     "build:sb": "siroc build && mkdist --src packages/storyblok/src/runtime --dist packages/storyblok/dist/runtime",
@@ -24,7 +22,7 @@
     "compile:css": "esno ./scripts/styles.js",
     "publish:all": "yarn build && yarn publish:ci",
     "publish:ui": "yarn build && yarn publish:ciui",
-    "clean:nm": "rm -rf node_modules && rm -rf packages/ui/node_modules && rm -f packages/ui/yarn.lock && rm -rf packages/storyblok/node_modules && rm -f packages/storyblok/yarn.lock && rm -f yarn.lock && rm -f packages/bundle/yarn.lock && rm -rf packages/bundle/node_modules && yarn",
+    "clean:nm": "rm -rf node_modules && rm -rf packages/ui/node_modules && rm -f packages/ui/yarn.lock && rm -rf packages/storyblok/node_modules && rm -f packages/storyblok/yarn.lock && rm -f yarn.lock && rm -f packages/bundle/yarn.lock && rm -rf packages/bundle/node_modules",
     "lint": "yarn --cwd packages/ui lint && yarn --cwd packages/storyblok lint",
     "test:unit": "yarn --cwd packages/ui test:unit && yarn --cwd packages/storyblok test:unit",
     "test:e2e": "yarn --cwd packages/ui test:e2e && yarn --cwd packages/storyblok test:e2e"
@@ -39,6 +37,7 @@
   },
   "devDependencies": {
     "@babel/core": "latest",
+    "@babel/eslint-parser": "latest",
     "@babel/plugin-proposal-optional-chaining": "^7.12.13",
     "@babel/plugin-transform-modules-commonjs": "^7.15.4",
     "@babel/preset-env": "latest",
@@ -51,7 +50,7 @@
     "@vue/cli-plugin-babel": "^4.5.13",
     "@vue/cli-service": "^4.5.13",
     "babel-core": "7.0.0-bridge.0",
-    "babel-eslint": "latest",
+    "bumpp": "^7.1.1",
     "consola": "^2.15.0",
     "cross-env": "^7.0.3",
     "eslint": "^7.19.0",
