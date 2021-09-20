@@ -1,21 +1,24 @@
 import { join, resolve } from 'path'
 import consola from 'consola'
+import defu from 'defu'
 
 import type { Module } from '@nuxt/types'
 
-const uiModule: Module<any> = function uiModule ({
-  addDefaultPostCssPlugins = true,
-  enableLazySizesPlugin = true,
-  withConsole = false,
-  nujekCss = true,
-  enableSbUtils = true,
-  enableNujekPluginLocal = false,
-  storeTemplates = {
-    nav: true
-  },
-  autoloadComponents = true
-}) {
-  const { nuxt, addPlugin, addTemplate, options } = this
+const uiModule: Module<any> = function uiModule (moduleOptions) {
+  const defaults: any = {
+    withConsole: false,
+    nujekCss: false,
+    storeTemplates: {
+      nav: false
+    },
+    autoloadComponents: true,
+    enableSbUtils: true,
+    enableLazySizesPlugin: false,
+    enableRichTextRenderer: false
+  }
+
+  const { nuxt, addPlugin, addTemplate } = this
+  const options: any = defu(moduleOptions, nuxt.options.nujekUi, defaults)
   const logger = consola.withScope('@nujek/ui')
   const ROOT_DIR = 'nujek'
 
@@ -25,100 +28,62 @@ const uiModule: Module<any> = function uiModule ({
   nuxt.options.build.transpile.push(runtimeDir, '@nujek/ui')
 
   nuxt.hook('build:before', () => {
-    if (nujekCss) {
+    if (options.nujekCss) {
       options.css.unshift('@nujek/ui/dist/nujek-ui.css')
     }
   })
 
-  nuxt.hook('components:extend', () => {
-    if (addDefaultPostCssPlugins) {
-      // Fix issue with postCSS that needs process.env.NODE_ENV
-      /* istanbul ignore if */
-      if (!nuxt.options.dev && !process.env.NODE_ENV) {
-        process.env.NODE_ENV = 'production'
-      }
+  if (options.storeTemplates.nav) {
+    addTemplate({
+      src: resolve(runtimeDir, 'nav.js'),
+      fileName: join(ROOT_DIR, 'nav.js'),
+      options: {}
+    })
 
-      /*
-       ** Set PostCSS config
-       */
-      const { postcss } = nuxt.options.build
+    addPlugin({
+      src: resolve(runtimeDir, 'init-store.js'),
+      fileName: join(ROOT_DIR, 'init-store.js'),
+      options: {}
+    })
 
-      postcss.preset.stage = 1 // see https://tailwindcss.com/docs/using-with-preprocessors#future-css-features
-      postcss.plugins = postcss.plugins || {}
-
-      /* istanbul ignore if */
-      if (Array.isArray(postcss.plugins)) {
-        logger.error(
-          'Array syntax for postcss plugins is not supported with v3. Please use the object syntax: https://nuxtjs.org/guides/configuration-glossary/configuration-build#postcss'
-        )
-      } else if (typeof postcss.plugins === 'object') {
-        postcss.plugins['postcss-import'] = {}
-        postcss.plugins['postcss-mixins'] = {}
-        postcss.plugins['postcss-nested'] = {}
-        postcss.plugins['postcss-hexrgba'] = {}
-      }
-    }
-
-    if (storeTemplates.nav) {
-      addTemplate({
-        src: resolve(runtimeDir, 'nav.js'),
-        fileName: join(ROOT_DIR, 'nav.js'),
-        options: {}
-      })
-
-      addPlugin({
-        src: resolve(runtimeDir, 'init-store.js'),
-        fileName: join(ROOT_DIR, 'init-store.js'),
-        options: {}
-      })
-
-      if (withConsole) {
-        logger.success({
-          message: '@nujek/ui',
-          additional: `store initialzed ${resolve(__dirname, 'init-store.js')}`,
-          badge: true
-        })
-      }
-    }
-
-    if (enableNujekPluginLocal) {
-      addPlugin({
-        src: resolve(runtimeDir, 'plugin.js'),
-        fileName: join(ROOT_DIR, 'nujek-plugin.js'),
-        options: {}
+    if (options.withConsole) {
+      logger.success({
+        message: '@nujek/ui',
+        additional: `store initialzed ${resolve(__dirname, 'init-store.js')}`,
+        badge: true
       })
     }
+  }
 
-    if (enableSbUtils) {
-      addPlugin({
-        src: resolve(runtimeDir, 'sbutils.js'),
-        fileName: join(ROOT_DIR, 'sbutils.js'),
-        options: {}
+  if (options.enableSbUtils) {
+    addPlugin({
+      src: resolve(runtimeDir, 'sbutils.js'),
+      fileName: join(ROOT_DIR, 'sbutils.js'),
+      options: {}
+    })
+  }
+
+  if (options.enableLazySizesPlugin) {
+    addPlugin({
+      src: resolve(runtimeDir, 'lazysizes.js'),
+      fileName: join(ROOT_DIR, 'lazysizes.js'),
+      options: {}
+    })
+
+    if (options.withConsole) {
+      logger.success({
+        message: '@nujek/ui',
+        additional: `lazysizes initialzed ${resolve(
+          __dirname,
+          'lazysizes.js'
+        )}`,
+        badge: true
       })
     }
+  }
 
-    if (enableLazySizesPlugin) {
-      addPlugin({
-        src: resolve(runtimeDir, 'lazysizes.js'),
-        fileName: join(ROOT_DIR, 'lazysizes.js'),
-        options: {}
-      })
-
-      if (withConsole) {
-        logger.success({
-          message: '@nujek/ui',
-          additional: `lazysizes initialzed ${resolve(
-            __dirname,
-            'lazysizes.js'
-          )}`,
-          badge: true
-        })
-      }
-    }
-  })
-
-  if (autoloadComponents) {
-    nuxt.hook('components:dirs', (dirs) => {
+  if (options.autoloadComponents) {
+    nuxt.hook('components:dirs', (dirs: any) => {
       // Add ./components dir to the list
       dirs.push({
         path: resolve(runtimeDir, 'components'),
@@ -126,7 +91,7 @@ const uiModule: Module<any> = function uiModule ({
         pathPrefix: false
       })
 
-      if (withConsole) {
+      if (options.withConsole) {
         logger.success({
           message: '@nujek/ui',
           additional: `ui components loaded ${resolve(runtimeDir, 'components')}`,
@@ -134,6 +99,23 @@ const uiModule: Module<any> = function uiModule ({
         })
       }
     })
+  }
+
+  // Add rich text renderer
+  if (options.enableRichTextRenderer) {
+    addPlugin({
+      src: resolve(runtimeDir, 'rich-text-renderer.js'),
+      fileName: join(ROOT_DIR, 'rich-text-renderer.js'),
+      options: {}
+    })
+
+    if (options.withConsole) {
+      logger.success({
+        message: '@nujek/ui',
+        additional: 'rich-text-renderer added',
+        badge: true
+      })
+    }
   }
 }
 

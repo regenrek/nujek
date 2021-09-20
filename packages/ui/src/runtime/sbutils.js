@@ -1,5 +1,3 @@
-import { oneLine } from 'common-tags'
-
 export default (context, inject) => {
   // check if absolute (http/s) -> <a> or relative / -> <nuxt-link>
   const isAbsolute = url => /^(?:[a-z]+:)?\/\//i.test(url)
@@ -119,7 +117,6 @@ export default (context, inject) => {
     fullSlug,
     getSliderItemLinkType,
     getSliderItemLink,
-    oneLine,
     truncate,
     toNuxtLink
   }

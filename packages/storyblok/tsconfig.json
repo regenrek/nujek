@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "baseUrl": ".",
+        "moduleResolution": "Node",
+        "esModuleInterop": true,
+        "resolveJsonModule": true,
+        "noImplicitAny": false,
+        "allowJs": true,
+        "types": [
+            "node",
+            "jest"
+        ],
+        "paths": {
+            "~nujek-ui/*": [
+                "src/runtime/*"
+            ],
+            "~nujek-ui": [
+                "src/runtime"
+            ]
+        }
+    },
+    "exclude": [
+        "dist"
+    ]
+}

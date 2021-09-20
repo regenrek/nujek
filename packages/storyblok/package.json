@@ -18,6 +18,12 @@
     "type": "git",
     "url": "git+https://github.com/regenrek/nujek.git"
   },
+  "scripts": {
+    "test": "yarn lint && yarn jest --forceExit",
+    "lint": "eslint src tests",
+    "test:e2e": "jest test/e2e --forceExit",
+    "test:unit": "jest test/unit --forceExit"
+  },
   "license": "MIT",
   "author": "Kevin Regenrek <https://github.com/regenrek>",
   "main": "dist/module.js",
@@ -27,9 +33,40 @@
   ],
   "dependencies": {
     "@marvr/storyblok-rich-text-vue-renderer": "^2.0.1",
-    "@nujek/shared": "*",
-    "@nuxtjs/composition-api": "^0.26",
-    "storyblok-nuxt": "^2.0.1",
-    "vue-lazy-hydration": "^2.0.0-beta.4"
+    "@nujek/shared": "latest",
+    "@blokwise/blok": "latest"
+  },
+  "devDependencies": {
+    "@nuxtjs/composition-api": "latest",
+    "@babel/core": "latest",
+    "@babel/preset-env": "latest",
+    "@babel/preset-typescript": "latest",
+    "@nuxt/test-utils": "latest",
+    "@nuxt/types": "latest",
+    "@nuxt/typescript-build": "latest",
+    "@nuxt/typescript-runtime": "latest",
+    "@nuxtjs/eslint-config": "latest",
+    "@nuxtjs/eslint-config-typescript": "latest",
+    "@nuxtjs/tailwindcss": "^4.2.1",
+    "@types/fs-extra": "latest",
+    "@types/jest": "latest",
+    "@types/lodash.get": "latest",
+    "@vue/cli-plugin-babel": "latest",
+    "@vue/cli-plugin-eslint": "latest",
+    "@vue/cli-plugin-unit-jest": "latest",
+    "@vue/cli-service": "latest",
+    "@vue/test-utils": "latest",
+    "babel-eslint": "latest",
+    "babel-jest": "latest",
+    "codecov": "latest",
+    "eslint": "latest",
+    "jest": "latest",
+    "jsdom": "latest",
+    "jsdom-global": "latest",
+    "nuxt": "latest",
+    "standard-version": "latest",
+    "ts-loader": "^8",
+    "typescript": "latest",
+    "vue-jest": "latest"
   }
 }

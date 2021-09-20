@@ -6,8 +6,7 @@
   </component>
 </template>
 
-<script>
-
+<script lang="ts">
 import Component from '../../base/Component'
 
 const NjSection = Component.extend({

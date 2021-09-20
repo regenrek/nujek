@@ -1,7 +1,7 @@
 {
-  "name": "@nujek/ui",
-  "version": "2.0.31",
-  "description": "Nujek - UI Components",
+  "name": "@nujek/bundle",
+  "version": "0.0.1",
+  "description": "Nujek - Bundle Full",
   "keywords": [
     "nuxt",
     "nuxtjs",
@@ -10,12 +10,6 @@
     "nuxt storyblok",
     "nuxtjs storyblok"
   ],
-  "scripts": {
-    "test": "yarn lint && yarn jest --forceExit",
-    "lint": "eslint src tests",
-    "test:e2e": "jest test/e2e --forceExit",
-    "test:unit": "jest test/unit --forceExit"
-  },
   "homepage": "https://github.com/regenrek/nujek#readme",
   "bugs": {
     "url": "https://github.com/regenrek/nujek/issues"
@@ -24,19 +18,27 @@
     "type": "git",
     "url": "git+https://github.com/regenrek/nujek.git"
   },
+  "scripts": {
+    "test": "yarn lint && yarn jest --forceExit",
+    "lint": "eslint src tests",
+    "test:e2e": "jest test/e2e --forceExit",
+    "test:unit": "jest test/unit --forceExit"
+  },
   "license": "MIT",
   "author": "Kevin Regenrek <https://github.com/regenrek>",
   "main": "dist/module.js",
   "types": "dist/types.d.ts",
   "files": [
-    "dist/*",
-    "css/*"
+    "dist/*"
   ],
   "dependencies": {
-    "lazysizes": "^5.3.0-beta1",
-    "lodash.get": "^4.4.2"
+    "@marvr/storyblok-rich-text-vue-renderer": "^2.0.1",
+    "@nujek/shared": "latest",
+    "@blokwise/blok": "latest"
   },
   "devDependencies": {
+    "@nuxtjs/tailwindcss": "latest",
+    "@nuxtjs/composition-api": "latest",
     "@babel/core": "latest",
     "@babel/preset-env": "latest",
     "@babel/preset-typescript": "latest",
@@ -44,10 +46,8 @@
     "@nuxt/types": "latest",
     "@nuxt/typescript-build": "latest",
     "@nuxt/typescript-runtime": "latest",
-    "@nuxtjs/composition-api": "^0.29.0",
     "@nuxtjs/eslint-config": "latest",
     "@nuxtjs/eslint-config-typescript": "latest",
-    "@nuxtjs/tailwindcss": "^4.2.1",
     "@types/fs-extra": "latest",
     "@types/jest": "latest",
     "@types/lodash.get": "latest",
@@ -68,9 +68,5 @@
     "ts-loader": "^8",
     "typescript": "latest",
     "vue-jest": "latest"
-  },
-  "peerDependencies": {
-    "@nuxtjs/composition-api": "*",
-    "@nuxtjs/tailwindcss": "*"
   }
 }

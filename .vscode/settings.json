@@ -7,5 +7,9 @@
             }
         ]
     },
-    "jest.jestCommandLine": "${workspaceFolder}/node_modules/jest/bin/jest.j"
+    "jest.jestCommandLine": "${workspaceFolder}/node_modules/jest/bin/jest.j",
+    "favorites.resources": [
+        "node_modules/@blokwise",
+        "packages/storyblok"
+    ]
 }
