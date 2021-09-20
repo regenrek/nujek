@@ -8,10 +8,13 @@ run()
 
 function run() {
     for (const { name } of activePackages) {
+        
         execSync(`pnpm lint`, {
             stdio: 'inherit',
             cwd: path.join('packages', name)
         })
+
+        consola.success(`Package linted: @nujek/${name}`);
     }
 }
 

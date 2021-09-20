@@ -17,10 +17,10 @@
     "clean": "rimraf dist types typings packages/*/dist",
     "types:fix": "esno ./scripts/types-fix.ts",
     "lint:fix": "eslint --fix --ext .js,.jsx,.tsx,.vue",
-    "lint": "esno ./scripts/lint.js",
-    "test:unit": "esno ./scripts/test-unit.js",
-    "test:e2e": "esno ./scripts/test-e2e.js",
-    "compile:css": "esno ./scripts/styles.js",
+    "lint": "esno ./scripts/lint.ts",
+    "test:unit": "esno ./scripts/test-unit.ts",
+    "test:e2e": "esno ./scripts/test-e2e.ts",
+    "compile:css": "esno ./scripts/styles.ts",
     "build:types": "tsc --emitDeclarationOnly && npm run types:fix"
   },
   "husky": {
