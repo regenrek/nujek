@@ -1,6 +1,6 @@
 {
   "name": "@nujek/bundle",
-  "version": "0.0.1",
+  "version": "3.0.0",
   "description": "Nujek - Bundle Full",
   "keywords": [
     "nuxt",
@@ -34,7 +34,9 @@
   "dependencies": {
     "@marvr/storyblok-rich-text-vue-renderer": "^2.0.1",
     "@nujek/shared": "latest",
-    "@blokwise/blok": "latest"
+    "@blokwise/blok": "latest",
+    "@nujek/storyblok": "^3",
+    "@nujek/ui": "^3"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "latest",

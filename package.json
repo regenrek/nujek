@@ -17,15 +17,17 @@
     "publish:ci": "esno ./scripts/publish.ts",
     "publish:ciui": "yarn build:ui && esno ./scripts/publish-ui.ts",
     "publish:cisb": "yarn build:sb && esno ./scripts/publish-storyblok.ts",
-    "release": "esno ./scripts/release.js && git push --follow-tags",
+    "release": "bumpp --comit --push --tag",
     "clean": "rimraf dist types typings packages/*/dist",
-    "prepare:package": "esno ./scripts/update.ts",
     "types:fix": " esno ./scripts/types-fix.ts",
     "lint:fix": "eslint --fix --ext .js,.jsx,.tsx,.vue",
     "compile:css": "esno ./scripts/styles.js",
     "publish:all": "yarn build && yarn publish:ci",
     "publish:ui": "yarn build && yarn publish:ciui",
-    "clean:nm": "rm -rf node_modules && rm -rf packages/ui/node_modules && rm -f packages/ui/yarn.lock && rm -rf packages/storyblok/node_modules && rm -f packages/storyblok/yarn.lock && rm -f yarn.lock && rm -f packages/bundle/yarn.lock && rm -rf packages/bundle/node_modules && yarn"
+    "clean:nm": "rm -rf node_modules && rm -rf packages/ui/node_modules && rm -f packages/ui/yarn.lock && rm -rf packages/storyblok/node_modules && rm -f packages/storyblok/yarn.lock && rm -f yarn.lock && rm -f packages/bundle/yarn.lock && rm -rf packages/bundle/node_modules && yarn",
+    "lint": "yarn --cwd packages/ui lint && yarn --cwd packages/storyblok lint",
+    "test:unit": "yarn --cwd packages/ui test:unit && yarn --cwd packages/storyblok test:unit",
+    "test:e2e": "yarn --cwd packages/ui test:e2e && yarn --cwd packages/storyblok test:e2e"
   },
   "husky": {
     "hooks": {

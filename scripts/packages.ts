@@ -28,9 +28,9 @@ export const packages: PackageManifest[] = [
     addon: true
   },
   {
-    name: 'create-app',
-    display: 'CreateApp',
-    description: 'Nujek - Create App',
+    name: 'bundle',
+    display: 'Bundle',
+    description: 'Nujek - Bundle',
     addon: true
   }
 ]
