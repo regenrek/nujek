@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "test": "yarn lint && yarn jest --forceExit",
-    "lint": "eslint src tests",
+    "lint": "eslint --ext .ts --ext .vue --ext .js .",
     "test:e2e": "jest test/e2e --forceExit",
     "test:unit": "jest test/unit --forceExit"
   },

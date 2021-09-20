@@ -10,8 +10,6 @@ describe('Blok', () => {
     const page = await createPage('/')
     const html = await page.innerHTML('body')
 
-    console.log(html)
-
     expect(html).toContain('This is totally foo!')
     expect(html).toContain('This is a bar')
     expect(html).toContain('This bar is somewhat different')

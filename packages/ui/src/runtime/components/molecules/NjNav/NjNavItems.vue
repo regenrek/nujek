@@ -52,16 +52,15 @@ const NjNavItems = Component.extend({
     navType: {
       type: String,
       default: 'single',
-      validator: (propValue) => {
-        return ['dropdown', 'single']
-      }
+      validator: value =>
+        ['dropdown', 'single'].includes(value.toLowerCase())
+
     },
     tag: {
       type: String,
       default: 'nav',
-      validator: (propValue) => {
-        return ['nav', 'div']
-      }
+      validator: value =>
+        ['nav', 'div'].includes(value.toLowerCase())
     }
   },
   computed: {

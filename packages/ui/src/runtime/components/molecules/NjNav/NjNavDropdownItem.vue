@@ -115,10 +115,6 @@ export default {
       if (this.isDropdownOpen && this.mainNavigation?.[index]?.subNavigation) {
         return this.mainNavigation?.[index]?.subNavigation
       }
-    },
-    hasSubItems (navItem) {
-      return true
-      // return !!navItem?.subNavigation?.length
     }
   }
 }

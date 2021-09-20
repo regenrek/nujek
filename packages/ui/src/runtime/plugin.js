@@ -22,6 +22,7 @@ export const getConfig = (component, props) => {
   return customProps
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const install = function installNujek (vueInstance, settings) {
   Vue.mixin({
     // Dependency injection forces us to explicitly require that function

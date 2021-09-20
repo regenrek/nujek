@@ -53,6 +53,7 @@ export default (context, inject) => {
           Object.keys(field.link.story).length) {
           return toNuxtLink(field.link.story.fullSlug || field.link.story.full_slug)
         } else {
+          // eslint-disable-next-line no-console
           console.warn(`No url/story for type Link (${field.label})  found. Try publish the linked story first`)
           return ''
         }
