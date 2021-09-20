@@ -17,9 +17,9 @@
     "clean": "rimraf dist types typings packages/*/dist",
     "types:fix": "esno ./scripts/types-fix.ts",
     "lint:fix": "eslint --fix --ext .js,.jsx,.tsx,.vue",
-    "lint": "pnpm --cwd packages/ui lint && pnpm --cwd packages/storyblok lint",
-    "test:unit": "pnpm --cwd packages/ui test:unit && pnpm --cwd packages/storyblok test:unit",
-    "test:e2e": "pnpm --cwd packages/ui test:e2e && pnpm --cwd packages/storyblok test:e2e",
+    "lint": "esno ./scripts/lint.js",
+    "test:unit": "esno ./scripts/test-unit.js",
+    "test:e2e": "esno ./scripts/test-e2e.js",
     "compile:css": "esno ./scripts/styles.js",
     "build:types": "tsc --emitDeclarationOnly && npm run types:fix"
   },
