@@ -18,7 +18,7 @@ for (const { name } of activePackages) {
 }
 
 function releasePackage(name) {
-    execSync('bumpp --commit --push --tag', {
+    execSync(`bumpp patch --commit --push --tag @nujek/${name}-vX.X.X`, {
         stdio: 'inherit',
         cwd: path.join('packages', name)
     })
