@@ -14,22 +14,23 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-latest]
-        node: [14]
+        node-version: [12.x, 14.x]
+        os: [ubuntu-latest, windows-latest, macos-latest]
+      fail-fast: false
 
     steps:
-      - uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node }}
+      - uses: actions/checkout@v2
 
-      - name: checkout
-        uses: actions/checkout@master
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
 
       - name: Setup
         run: npm i -g pnpm @antfu/ni
 
       - name: Install dependencies
-        run: ni
+        run: nci
 
       - name: Test
         run: nr test:e2e
