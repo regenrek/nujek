@@ -10,12 +10,6 @@
     "nuxt storyblok",
     "nuxtjs storyblok"
   ],
-  "scripts": {
-    "test": "yarn lint && yarn jest --forceExit",
-    "lint": "eslint --ext .ts --ext .vue --ext .js .",
-    "test:e2e": "jest test/e2e --forceExit",
-    "test:unit": "jest test/unit --forceExit"
-  },
   "homepage": "https://github.com/regenrek/nujek#readme",
   "bugs": {
     "url": "https://github.com/regenrek/nujek/issues"
@@ -32,12 +26,19 @@
     "dist/*",
     "css/*"
   ],
+  "scripts": {
+    "test": "yarn lint && yarn jest --forceExit",
+    "lint": "eslint --ext .ts --ext .vue --ext .js .",
+    "test:e2e": "jest test/e2e --forceExit",
+    "test:unit": "jest test/unit --forceExit"
+  },
   "dependencies": {
     "lazysizes": "^5.3.0-beta1",
     "lodash.get": "^4.4.2"
   },
   "devDependencies": {
     "@babel/core": "latest",
+    "@babel/eslint-parser": "latest",
     "@babel/preset-env": "latest",
     "@babel/preset-typescript": "latest",
     "@nuxt/test-utils": "latest",
@@ -56,7 +57,6 @@
     "@vue/cli-plugin-unit-jest": "latest",
     "@vue/cli-service": "latest",
     "@vue/test-utils": "latest",
-    "@babel/eslint-parser": "latest",
     "babel-jest": "latest",
     "codecov": "latest",
     "eslint": "latest",

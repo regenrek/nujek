@@ -6,27 +6,24 @@ import { activePackages } from './packages'
 const args = process.argv.slice(2)
 
 for (const { name } of activePackages) {
-    // specific
-    if (args.includes(name)) {
-        releasePackage(name)  
-    }
-    
-    // all
-    if (args.length === 0) {
-        releasePackage(name)
-    }
-}
 
-function releasePackage(name) {
-    execSync(`bumpp patch --commit --push --tag nujek-${name}@`, {
+    execSync(`pnpm clean`)
+
+    // build
+    execSync(`rm -rf node_modules`, {
+        stdio: 'inherit'
+    })
+
+    execSync(`rm -rf packages/${name}/node_modules`, {
         stdio: 'inherit',
         cwd: path.join('packages', name)
     })
 
-    execSync('pnpm publish', {
+    execSync(`rm -rf packages/${name}/yarn.lock`, {
         stdio: 'inherit',
         cwd: path.join('packages', name)
     })
 
-    consola.success(`Package Published: @nujek/${name}`)
 }
+
+consola.success(`Packages cleared`)

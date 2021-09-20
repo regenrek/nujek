@@ -1,28 +1,28 @@
-import assert from 'assert'
-import { execSync as exec } from 'child_process'
+import { execSync } from 'child_process'
+import path from 'path'
 import consola from 'consola'
+import { activePackages } from './packages'
 
-assert(process.cwd() !== __dirname)
+const args = process.argv.slice(2)
+run()
 
-function build () {
-  consola.info('Clean up')
-  exec('yarn run clean', { stdio: 'inherit' })
+function run() {
+  for (const { name } of activePackages) {
 
-  consola.info('Rollup')
-  // exec('yarn run build:siroc', { stdio: 'inherit' })
+    execSync(`pnpm clean`)
 
-  // exec('mkdist --src packages/ui/runtime --dist packages/ui/dist/runtime', { stdio: 'inherit' })
-}
+    // build
+    execSync(`siroc build`, {
+      stdio: 'inherit'
+    })
 
-async function cli () {
-  try {
-    await build()
-  } catch (e) {
-    console.error(e)
-    process.exit(1)
+    execSync(`mkdist --src ./src/runtime --dist ./dist/runtime`, {
+      stdio: 'inherit',
+      cwd: path.join('packages', name)
+    })
+
+    consola.success(`Package Built: @nujek/${name}`)
   }
 }
 
-export { build }
-
-if (require.main === module) { cli() }
+export { run as build }
