@@ -43,6 +43,7 @@
     "@nuxt/typescript-runtime": "^2.0.1",
     "@nuxtjs/eslint-config": "latest",
     "@nuxtjs/eslint-config-typescript": "^5.0.0",
+    "@playwright/test": "^1.14.1",
     "@vue/cli-plugin-babel": "^4.5.13",
     "@vue/cli-service": "^4.5.13",
     "babel-core": "7.0.0-bridge.0",
