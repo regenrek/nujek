@@ -55,7 +55,7 @@
     "lint-staged": "^10.4.0",
     "mkdist": "^0.1.1",
     "nuxt-edge": "latest",
-    "playwright": "^1.8.1",
+    "playwright": "latest",
     "postcss": "^8.2.6",
     "rimraf": "^3.0.2",
     "rm": "^0.1.8",
