@@ -11,7 +11,8 @@ describe('module', () => {
           cacheProvider: 'memory'
         }
       }
-    }
+    },
+    setupTimeout: 120000
   })
 
   it('injects module @blokwise/blok', () => {
