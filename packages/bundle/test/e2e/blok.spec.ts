@@ -8,7 +8,8 @@ describe('Blok', () => {
       nujekStoryblok: {
         withConsole: true
       }
-    }
+    },
+    setupTimeout: 120000
   })
 
   it('loads bloks dynamically', async () => {
