@@ -25,7 +25,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-          
+
       - name: Cache pnpm modules
         uses: actions/cache@v2
         with:
@@ -40,10 +40,10 @@ jobs:
           run_install: true
 
       - name: Install dependencies
-        run: ni
+        run: pnpm install
 
       - name: Test
-        run: nr test:e2e
+        run: pnpm test:e2e
 
       - name: Coverage
         uses: codecov/codecov-action@v1
