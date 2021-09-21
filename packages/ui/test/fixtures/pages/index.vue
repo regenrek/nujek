@@ -1,14 +1,8 @@
 <template>
-  <Bloks :bloks="story.content" />
+  <div>Todo</div>
 </template>
 
 <script>
-import { story } from './../../__mocks__/story'
 export default {
-  data () {
-    return {
-      story
-    }
-  }
 }
 </script>
