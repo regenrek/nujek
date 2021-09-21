@@ -22,5 +22,8 @@
     },
     "exclude": [
         "dist"
+    ],
+    "include": [
+        "node_modules/@blokwise/blok/src/module.js"
     ]
 }

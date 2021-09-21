@@ -4,7 +4,7 @@ module.exports = {
     '^.+\\.vue$': 'vue-jest'
   },
   transformIgnorePatterns: [
-    'node_modules/(?!@blokwise)'
+    '<rootDir>/node_modules/(?!@blokwise)'
   ],
   collectCoverage: true,
   collectCoverageFrom: [

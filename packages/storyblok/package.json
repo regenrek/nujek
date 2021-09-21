@@ -32,19 +32,19 @@
     "dist/*"
   ],
   "dependencies": {
+    "@blokwise/blok": "latest",
     "@marvr/storyblok-rich-text-vue-renderer": "^2.0.1",
-    "@nujek/shared": "latest",
-    "@blokwise/blok": "latest"
+    "@nujek/shared": "latest"
   },
   "devDependencies": {
-    "@nuxtjs/composition-api": "latest",
     "@babel/core": "latest",
+    "@babel/eslint-parser": "latest",
     "@babel/preset-env": "latest",
-    "@babel/preset-typescript": "latest",
     "@nuxt/test-utils": "latest",
     "@nuxt/types": "latest",
     "@nuxt/typescript-build": "latest",
     "@nuxt/typescript-runtime": "latest",
+    "@nuxtjs/composition-api": "latest",
     "@nuxtjs/eslint-config": "latest",
     "@nuxtjs/eslint-config-typescript": "latest",
     "@nuxtjs/tailwindcss": "^4.2.1",
@@ -56,7 +56,6 @@
     "@vue/cli-plugin-unit-jest": "latest",
     "@vue/cli-service": "latest",
     "@vue/test-utils": "latest",
-    "@babel/eslint-parser": "latest",
     "babel-jest": "latest",
     "codecov": "latest",
     "eslint": "latest",
@@ -68,5 +67,8 @@
     "ts-loader": "^8",
     "typescript": "latest",
     "vue-jest": "latest"
+  },
+  "engines": {
+    "node": ">=14"
   }
 }
