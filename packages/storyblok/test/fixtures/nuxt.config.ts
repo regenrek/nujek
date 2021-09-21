@@ -8,7 +8,6 @@ module.exports = {
   buildModules: [
     '@nuxtjs/composition-api/module',
     '@nuxtjs/tailwindcss',
-    ['@blokwise/blok', { withConsole: true, prefix: '' }],
     nujekStoryblokModule
   ]
 }
