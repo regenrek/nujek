@@ -2,7 +2,7 @@ import defu from 'defu'
 
 import type { Module } from '@nuxt/types'
 
-const storyblokModule: Module<any> = async function storyblokModule (moduleOptions) {
+const nujekBundleModule: Module<any> = async function storyblokModule (moduleOptions) {
   const defaults: any = {
     nujekStoryblok: {},
     nujekUi: {},
@@ -19,8 +19,8 @@ const storyblokModule: Module<any> = async function storyblokModule (moduleOptio
   await requireModule('@nujek/ui', options.nujekUi)
 }
 
-export default storyblokModule
+export default nujekBundleModule
 
 // eslint-disable-next-line
 // @ts-ignore
-storyblokModule.meta = require('../package.json')
+nujekBundleModule.meta = require('../package.json')

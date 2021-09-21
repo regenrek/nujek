@@ -6,7 +6,10 @@ import type { Module } from '@nuxt/types'
 
 const storyblokModule: Module<any> = async function storyblokModule (moduleOptions) {
   const defaults: any = {
-    storyblokConfig: {},
+    storyblokConfig: {
+      accessToken: '',
+      cacheProvider: 'memory'
+    },
     withConsole: false,
     debug: false
   }
