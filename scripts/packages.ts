@@ -2,21 +2,25 @@ export interface PackageManifest {
   name?: string;
   deprecated?: boolean;
   disabled?: boolean;
+  tests?: boolean;
 }
 
 export const packages: PackageManifest[] = [
   {
     name: 'shared',
-    disabled: true
+    tests: false
   },
   {
-    name: 'ui'
+    name: 'ui',
+    tests: true,
   },
   {
-    name: 'storyblok'
+    name: 'storyblok',
+    tests: true,
   },
   {
-    name: 'bundle'
+    name: 'bundle',
+    tests: false
   }
 ]
 

@@ -1,18 +1,19 @@
 import { execSync } from 'child_process'
 import path from 'path'
-import consola from 'consola'
 import { activePackages } from './packages'
 
 const args = process.argv.slice(2)
 run()
 
 function run() {
-    for (const { name } of activePackages) {
-        execSync(`pnpm test:unit`, {
-            stdio: 'inherit',
-            cwd: path.join('packages', name)
-        })
+    for (const { name, tests } of activePackages) {
+        if (tests) {
+            execSync(`pnpm test:unit`, {
+                stdio: 'inherit',
+                cwd: path.join('packages', name)
+            })
+        }
     }
 }
 
-export { run as lint }
+export { run as testUnit }

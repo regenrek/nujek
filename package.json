@@ -64,5 +64,8 @@
     "standard-version": "latest",
     "ts-loader": "^8.0.17",
     "typescript": "^4.1.3"
+  },
+  "engines": {
+    "node": ">=14"
   }
 }

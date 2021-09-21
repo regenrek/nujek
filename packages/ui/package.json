@@ -72,5 +72,8 @@
   "peerDependencies": {
     "@nuxtjs/composition-api": "*",
     "@nuxtjs/tailwindcss": "*"
+  },
+  "engines": {
+    "node": ">=14"
   }
 }
