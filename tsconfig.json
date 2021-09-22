@@ -4,7 +4,7 @@
     "moduleResolution": "Node",
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "types": ["node", "jest", "./types/global"],
+    "types": ["node", "jest"],
     "allowJs": true
   },
   "include": ["packages"],

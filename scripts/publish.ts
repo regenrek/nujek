@@ -9,15 +9,13 @@ const releaseOnly = args.includes('--release-only')
 run()
 
 function releasePackage (name, releaseOnly) {
-  build()
-
   execSync(`bumpp patch --commit --push --tag nujek-${name}@`, {
     stdio: 'inherit',
     cwd: path.join('packages', name)
   })
 
   if (!releaseOnly) {
-    execSync('yarn publish', {
+    execSync('yarn publish --new-version --access public', {
       stdio: 'inherit',
       cwd: path.join('packages', name)
     })
@@ -27,13 +25,9 @@ function releasePackage (name, releaseOnly) {
 }
 
 function run () {
-  for (const { name } of activePackages) {
-    // build
-    execSync('siroc build', {
-      stdio: 'inherit',
-      cwd: path.join('packages', name)
-    })
+  build()
 
+  for (const { name } of activePackages) {
     // specific
     if (args.includes(name)) {
       releasePackage(name, releaseOnly)

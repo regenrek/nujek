@@ -22,8 +22,5 @@
     },
     "exclude": [
         "dist"
-    ],
-    "include": [
-        "node_modules/@nujek/blok/src/module.js"
     ]
 }

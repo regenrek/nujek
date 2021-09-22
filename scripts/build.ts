@@ -10,12 +10,12 @@ function run () {
     stdio: 'inherit'
   })
 
-  for (const { name } of activePackages) {
-    // build
-    execSync('siroc build', {
-      stdio: 'inherit'
-    })
+  // build
+  execSync('siroc build', {
+    stdio: 'inherit'
+  })
 
+  for (const { name } of activePackages) {
     execSync('mkdist --src ./src/runtime --dist ./dist/runtime', {
       stdio: 'inherit',
       cwd: path.join('packages', name)
