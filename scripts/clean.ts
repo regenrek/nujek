@@ -3,14 +3,9 @@ import path from 'path'
 import consola from 'consola'
 import { activePackages } from './packages'
 
+execSync('yarn clean')
+
 for (const { name } of activePackages) {
-  execSync('pnpm clean')
-
-  // build
-  execSync('rm -rf node_modules', {
-    stdio: 'inherit'
-  })
-
   execSync(`rm -rf packages/${name}/node_modules`, {
     stdio: 'inherit',
     cwd: path.join('packages', name)
@@ -21,5 +16,10 @@ for (const { name } of activePackages) {
     cwd: path.join('packages', name)
   })
 }
+
+// build
+execSync('rm -rf node_modules', {
+  stdio: 'inherit'
+})
 
 consola.success('Packages cleared')

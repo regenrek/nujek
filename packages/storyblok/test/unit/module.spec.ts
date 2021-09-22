@@ -17,15 +17,15 @@ describe('module', () => {
   })
 
   it('injects module @nujek/blok', () => {
-    expectModuleToBeCalledWith('requireModule', ['@nujek/blok', {
+    expectModuleToBeCalledWith('requireModule', '@nujek/blok', {
       withConsole: false,
       prefix: '',
       debug: false
-    }])
+    })
 
     expectModuleToBeCalledWith('requireModule', 'storyblok-nuxt', {
-        accessToken: 'notexistant',
-        cacheProvider: 'memory'
+      accessToken: 'notexistant',
+      cacheProvider: 'memory'
     })
   })
 })

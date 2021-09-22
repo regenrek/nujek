@@ -1,135 +1,135 @@
-import { join } from 'path'
-import { setupTest, getNuxt } from '@nuxt/test-utils'
+import { resolve } from 'path'
+import { setupTest, getNuxt, expectModuleToBeCalledWith } from '@nuxt/test-utils'
 
-// describe('module with default options', () => {
-//   setupTest({
-//     rootDir: 'test/fixtures',
-//     server: true,
-//     setupTimeout: 120000
-//   })
+describe('module with default options', () => {
+  setupTest({
+    rootDir: 'test/fixtures',
+    server: true,
+    setupTimeout: 120000
+  })
 
-//   it('injects all modules', () => {
-//     const buildModules = [{
-//       name: '@nuxtjs/composition-api/module'
-//     }, {
-//       name: '@nuxtjs/tailwindcss',
-//       options: {}
-//     }, {
-//       name: '@nujek/storyblok',
-//       options: {}
-//     }, {
-//       name: '@nujek/ui',
-//       options: {}
-//     }]
+  it('injects all modules', () => {
+    const buildModules = [{
+      name: '@nuxtjs/composition-api/module'
+    }, {
+      name: '@nuxtjs/tailwindcss',
+      options: {}
+    }, {
+      name: '@nujek/storyblok',
+      options: {}
+    }, {
+      name: '@nujek/ui',
+      options: {}
+    }]
 
-//     for (const module of buildModules) {
-//       if (module.options) {
-//         expectModuleToBeCalledWith('requireModule', module.name, module.options)
-//       } else {
-//         expectModuleToBeCalledWith('requireModule', module.name)
-//       }
-//     }
-//   })
-// })
+    for (const module of buildModules) {
+      if (module.options) {
+        expectModuleToBeCalledWith('requireModule', module.name, module.options)
+      } else {
+        expectModuleToBeCalledWith('requireModule', module.name)
+      }
+    }
+  })
+})
 
-// describe('@nujek/ui with options', () => {
-//   setupTest({
-//     rootDir: 'test/fixtures',
-//     server: true,
-//     config: {
-//       nujekUi: {
-//         withConsole: true
-//       }
-//     }
-//   })
+describe('@nujek/ui with options', () => {
+  setupTest({
+    rootDir: 'test/fixtures',
+    server: true,
+    config: {
+      nujekUi: {
+        withConsole: true
+      }
+    }
+  })
 
-//   it('injects module @nujek/ui', () => {
-//     expectModuleToBeCalledWith('requireModule', '@nujek/ui', {
-//       withConsole: true
-//     })
-//   })
-// })
+  it('injects module @nujek/ui', () => {
+    expectModuleToBeCalledWith('requireModule', '@nujek/ui', {
+      withConsole: true
+    })
+  })
+})
 
-// describe('@nujek/storyblok with options', () => {
-//   setupTest({
-//     rootDir: 'test/fixtures',
-//     server: true,
-//     config: {
-//       nujekStoryblok: {
-//         storyblokConfig: {
-//           accessToken: 'notexistant',
-//           cacheProvider: 'memory'
-//         }
-//       }
-//     }
-//   })
+describe('@nujek/storyblok with options', () => {
+  setupTest({
+    rootDir: 'test/fixtures',
+    server: true,
+    config: {
+      nujekStoryblok: {
+        storyblokConfig: {
+          accessToken: 'notexistant',
+          cacheProvider: 'memory'
+        }
+      }
+    }
+  })
 
-//   it('injects module @nujek/storyblok', () => {
-//     expectModuleToBeCalledWith('requireModule', '@nujek/storyblok', {
-//       storyblokConfig: {
-//         accessToken: 'notexistant',
-//         cacheProvider: 'memory'
-//       }
-//     })
-//   })
-// })
+  it('injects module @nujek/storyblok', () => {
+    expectModuleToBeCalledWith('requireModule', '@nujek/storyblok', {
+      storyblokConfig: {
+        accessToken: 'notexistant',
+        cacheProvider: 'memory'
+      }
+    })
+  })
+})
 
-// describe('withConsole override global', () => {
-//   setupTest({
-//     rootDir: 'test/fixtures',
-//     server: true,
-//     config: {
-//       nujekStoryblok: {
-//         withConsole: false
-//       },
-//       nujekUi: {
-//         withConsole: true
-//       },
-//       withConsole: true
-//     }
-//   })
+describe('withConsole override global', () => {
+  setupTest({
+    rootDir: 'test/fixtures',
+    server: true,
+    config: {
+      nujekStoryblok: {
+        withConsole: false
+      },
+      nujekUi: {
+        withConsole: true
+      },
+      withConsole: true
+    }
+  })
 
-//   it('injects module storyblok-nuxt', () => {
-//     const buildModules = [{
-//       name: '@nujek/storyblok',
-//       options: { withConsole: false }
-//     }, {
-//       name: '@nujek/ui',
-//       options: { withConsole: true }
-//     }]
+  it('injects module storyblok-nuxt', () => {
+    const buildModules = [{
+      name: '@nujek/storyblok',
+      options: { withConsole: false }
+    }, {
+      name: '@nujek/ui',
+      options: { withConsole: true }
+    }]
 
-//     for (const module of buildModules) {
-//       expectModuleToBeCalledWith('requireModule', module.name, module.options)
-//     }
-//   })
-// })
+    for (const module of buildModules) {
+      expectModuleToBeCalledWith('requireModule', module.name, module.options)
+    }
+  })
+})
 
-// describe('withConsole override global 2', () => {
-//   setupTest({
-//     rootDir: 'test/fixtures',
-//     server: true,
-//     config: {
-//       nujekUi: {
-//         withConsole: false
-//       },
-//       withConsole: true
-//     }
-//   })
+describe('withConsole override global 2', () => {
+  setupTest({
+    rootDir: 'test/fixtures',
+    server: true,
+    config: {
+      nujekUi: {
+        withConsole: false
+      },
+      withConsole: true
+    }
+  })
 
-//   it('injects module storyblok-nuxt', () => {
-//     const buildModules = [{
-//       name: '@nujek/storyblok',
-//       options: { withConsole: true }
-//     }, {
-//       name: '@nujek/ui',
-//       options: { withConsole: false }
-//     }]
+  it('injects module storyblok-nuxt', () => {
+    const buildModules = [{
+      name: '@nujek/storyblok',
+      options: { withConsole: true }
+    }, {
+      name: '@nujek/ui',
+      options: { withConsole: false }
+    }]
 
-//     for (const module of buildModules) {
-//       expectModuleToBeCalledWith('requireModule', module.name, module.options)
-//     }
-//   })
-// })
+    for (const module of buildModules) {
+      expectModuleToBeCalledWith('requireModule', module.name, module.options)
+    }
+  })
+})
 
 describe('tailwindcss module', () => {
   setupTest({
@@ -137,7 +137,7 @@ describe('tailwindcss module', () => {
     rootDir: 'test/fixtures',
     config: {
       tailwindcss: {
-        cssPath: join(__dirname, 'fixture', 'assets', 'tailwindcss.css')
+        cssPath: resolve('test/fixtures/assets', 'tailwind.css')
       },
       nujekUi: {
         nujekCss: false

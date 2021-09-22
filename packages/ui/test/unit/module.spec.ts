@@ -1,3 +1,4 @@
+import { resolve } from 'path'
 import { setupTest, expectModuleToBeCalledWith, getNuxt } from '@nuxt/test-utils'
 
 describe('module', () => {
@@ -48,6 +49,10 @@ describe('tailwindcss module', () => {
     config: {
       nujekUi: {
         nujekCss: false
+      },
+      tailwindcss: {
+        exposeConfig: true,
+        cssPath: resolve('test/fixtures/assets', 'tailwind.css')
       }
     }
   })
@@ -55,8 +60,6 @@ describe('tailwindcss module', () => {
   test('include custom tailwind.css file in project css', () => {
     const nuxt = getNuxt()
     expect(nuxt.options.css).toHaveLength(1)
-    console.log(nuxt.options)
-    console.log(nuxt.options.tailwindcss)
     expect(nuxt.options.css).toContain(nuxt.options.tailwindcss.cssPath)
   })
 })

@@ -17,7 +17,7 @@ function releasePackage (name, releaseOnly) {
   })
 
   if (!releaseOnly) {
-    execSync('pnpm publish', {
+    execSync('yarn publish', {
       stdio: 'inherit',
       cwd: path.join('packages', name)
     })

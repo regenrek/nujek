@@ -3,22 +3,20 @@ import path from 'path'
 import consola from 'consola'
 import { activePackages } from './packages'
 
-const args = process.argv.slice(2)
 run()
 
-function run() {
-  execSync('pnpm clean', {
+function run () {
+  execSync('yarn clean', {
     stdio: 'inherit'
   })
 
   for (const { name } of activePackages) {
-
     // build
-    execSync(`siroc build`, {
+    execSync('siroc build', {
       stdio: 'inherit'
     })
 
-    execSync(`mkdist --src ./src/runtime --dist ./dist/runtime`, {
+    execSync('mkdist --src ./src/runtime --dist ./dist/runtime', {
       stdio: 'inherit',
       cwd: path.join('packages', name)
     })
