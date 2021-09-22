@@ -26,16 +26,13 @@ const storyblokModule: Module<any> = async function storyblokModule (moduleOptio
   nuxt.options.build.transpile.push('@nujek/blok')
   nuxt.options.build.transpile.push('@nujek/dynamic')
 
-  console.log("DEBUG 1", options.debug)
-  console.log("DEBUG 1", options.withConsole)
-
-  await this.requireModule('@nujek/blok', { prefix: 'xxx', withConsole: options.withConsole, debug: options.debug })
+  await requireModule(['@nujek/blok', { prefix: '', withConsole: options.withConsole, debug: options.debug }])
 
   /**
    * add storyblok-nuxt module
    */
   if (options.storyblokConfig) {
-    await requireModule('storyblok-nuxt', options.storyblokConfig)
+    await requireModule(['storyblok-nuxt', options.storyblokConfig])
 
     if (options.withConsole) {
       logger.success({

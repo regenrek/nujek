@@ -32,8 +32,8 @@
     "dist/*"
   ],
   "dependencies": {
-    "@nujek/blok": "latest",
     "@marvr/storyblok-rich-text-vue-renderer": "^2.0.1",
+    "@nujek/blok": "latest",
     "@nujek/shared": "latest"
   },
   "devDependencies": {
@@ -47,7 +47,7 @@
     "@nuxtjs/composition-api": "latest",
     "@nuxtjs/eslint-config": "latest",
     "@nuxtjs/eslint-config-typescript": "latest",
-    "@nuxtjs/tailwindcss": "^4.2.1",
+    "@nuxtjs/tailwindcss": "latest",
     "@types/fs-extra": "latest",
     "@types/jest": "latest",
     "@types/lodash.get": "latest",
@@ -64,6 +64,7 @@
     "jsdom-global": "latest",
     "nuxt": "latest",
     "standard-version": "latest",
+    "storyblok-nuxt": "^2.0.1",
     "ts-loader": "^8",
     "typescript": "latest",
     "vue-jest": "latest"

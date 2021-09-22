@@ -7,9 +7,11 @@ const args = process.argv.slice(2)
 run()
 
 function run() {
-  for (const { name } of activePackages) {
+  execSync('pnpm clean', {
+    stdio: 'inherit'
+  })
 
-    execSync(`pnpm clean`)
+  for (const { name } of activePackages) {
 
     // build
     execSync(`siroc build`, {

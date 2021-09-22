@@ -34,7 +34,6 @@
   "dependencies": {
     "@marvr/storyblok-rich-text-vue-renderer": "^2.0.1",
     "@nujek/shared": "latest",
-    "@nujek/blok": "latest",
     "@nujek/storyblok": "^3",
     "@nujek/ui": "^3"
   },

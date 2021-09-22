@@ -1,4 +1,4 @@
-import { setupTest, expectModuleToBeCalledWith } from '@nuxt/test-utils'
+import { setupTest, expectModuleToBeCalledWith, getNuxt } from '@nuxt/test-utils'
 
 describe('module', () => {
   setupTest({
@@ -38,5 +38,25 @@ describe('module with nav config', () => {
         options: {}
       })
     }
+  })
+})
+
+describe('tailwindcss module', () => {
+  setupTest({
+    server: true,
+    rootDir: 'test/fixtures',
+    config: {
+      nujekUi: {
+        nujekCss: false
+      }
+    }
+  })
+
+  test('include custom tailwind.css file in project css', () => {
+    const nuxt = getNuxt()
+    expect(nuxt.options.css).toHaveLength(1)
+    console.log(nuxt.options)
+    console.log(nuxt.options.tailwindcss)
+    expect(nuxt.options.css).toContain(nuxt.options.tailwindcss.cssPath)
   })
 })

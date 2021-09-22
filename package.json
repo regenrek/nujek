@@ -11,7 +11,7 @@
     "release": "pnpm publish:ci --release-only",
     "clean:nm": "esno ./scripts/clean.ts",
     "build:sb": "pnpm build sb",
-    "build:ui": "pnpm build ui && yarn compile:css",
+    "build:ui": "pnpm build ui",
     "publish:ui": "pnpm publish:ci ui",
     "publish:sb": "pnpm publish:ci storyblok",
     "clean": "rimraf dist types typings packages/*/dist",
@@ -68,8 +68,5 @@
   },
   "engines": {
     "node": ">=14"
-  },
-  "dependencies": {
-    "@nujek/blok": "^1.4.5"
   }
 }

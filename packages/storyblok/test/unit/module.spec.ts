@@ -9,23 +9,23 @@ describe('module', () => {
         storyblokConfig: {
           accessToken: 'notexistant',
           cacheProvider: 'memory'
-        }
+        },
+        debug: false
       }
     },
     setupTimeout: 120000
   })
 
   it('injects module @nujek/blok', () => {
-    expectModuleToBeCalledWith('requireModule', '@nujek/blok', {
+    expectModuleToBeCalledWith('requireModule', ['@nujek/blok', {
       withConsole: false,
-      prefix: ''
-    })
-  })
+      prefix: '',
+      debug: false
+    }])
 
-  it('injects module storyblok-nuxt', () => {
     expectModuleToBeCalledWith('requireModule', 'storyblok-nuxt', {
-      accessToken: 'notexistant',
-      cacheProvider: 'memory'
+        accessToken: 'notexistant',
+        cacheProvider: 'memory'
     })
   })
 })

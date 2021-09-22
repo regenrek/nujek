@@ -6,5 +6,9 @@ module.exports = {
     '@nuxtjs/tailwindcss',
     '@nujek/storyblok',
     nujekUiModule
-  ]
+  ],
+  tailwindcss: {
+    jit: true,
+    exposeConfig: true
+  }
 }
