@@ -24,6 +24,6 @@
         "dist"
     ],
     "include": [
-        "node_modules/@blokwise/blok/src/module.js"
+        "node_modules/@nujek/blok/src/module.js"
     ]
 }

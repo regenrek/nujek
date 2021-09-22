@@ -15,8 +15,8 @@ describe('module', () => {
     setupTimeout: 120000
   })
 
-  it('injects module @blokwise/blok', () => {
-    expectModuleToBeCalledWith('requireModule', '@blokwise/blok', {
+  it('injects module @nujek/blok', () => {
+    expectModuleToBeCalledWith('requireModule', '@nujek/blok', {
       withConsole: false,
       prefix: ''
     })

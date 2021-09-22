@@ -9,7 +9,7 @@
     },
     "jest.jestCommandLine": "${workspaceFolder}/node_modules/jest/bin/jest.j",
     "favorites.resources": [
-        "node_modules/@blokwise",
+        "node_modules/@nujek",
         "packages/storyblok"
     ]
 }

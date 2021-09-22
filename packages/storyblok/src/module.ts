@@ -23,10 +23,13 @@ const storyblokModule: Module<any> = async function storyblokModule (moduleOptio
   nuxt.options.alias['~nujek-storyblok'] = runtimeDir
   nuxt.options.build.transpile.push(runtimeDir, '@nuxt/storyblok')
 
-  nuxt.options.build.transpile.push('@blokwise/blok')
-  nuxt.options.build.transpile.push('@blokwise/dynamic')
+  nuxt.options.build.transpile.push('@nujek/blok')
+  nuxt.options.build.transpile.push('@nujek/dynamic')
 
-  await this.requireModule('@blokwise/blok', { prefix: '', withConsole: options.withConsole })
+  console.log("DEBUG 1", options.debug)
+  console.log("DEBUG 1", options.withConsole)
+
+  await this.requireModule('@nujek/blok', { prefix: 'xxx', withConsole: options.withConsole, debug: options.debug })
 
   /**
    * add storyblok-nuxt module
@@ -44,6 +47,23 @@ const storyblokModule: Module<any> = async function storyblokModule (moduleOptio
   } else {
     logger.warn('Storyblok API Configuration is empty')
   }
+
+  nuxt.hook('components:dirs', (dirs: any) => {
+    // Add ./components dir to the list
+    dirs.push({
+      path: resolve(runtimeDir, 'components'),
+      prefix: '',
+      pathPrefix: false
+    })
+
+    if (options.withConsole) {
+      logger.success({
+        message: '@nujek/storyblok',
+        additional: `storyblok components loaded ${resolve(runtimeDir, 'components')}`,
+        badge: true
+      })
+    }
+  })
 }
 
 export default storyblokModule

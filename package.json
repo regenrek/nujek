@@ -9,7 +9,7 @@
     "build": "esno ./scripts/build.ts",
     "publish:ci": "esno ./scripts/publish.ts",
     "release": "pnpm publish:ci --release-only",
-    "clean:nm": "yarn ./scripts/clean.ts",
+    "clean:nm": "esno ./scripts/clean.ts",
     "build:sb": "pnpm build sb",
     "build:ui": "pnpm build ui && yarn compile:css",
     "publish:ui": "pnpm publish:ci ui",
@@ -68,5 +68,8 @@
   },
   "engines": {
     "node": ">=14"
+  },
+  "dependencies": {
+    "@nujek/blok": "^1.4.5"
   }
 }

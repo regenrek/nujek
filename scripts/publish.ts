@@ -8,43 +8,42 @@ const args = process.argv.slice(2)
 const releaseOnly = args.includes('--release-only')
 run()
 
-function releasePackage(name, releaseOnly) {
-    build()
+function releasePackage (name, releaseOnly) {
+  build()
 
-    execSync(`bumpp patch --commit --push --tag nujek-${name}@`, {
-        stdio: 'inherit',
-        cwd: path.join('packages', name)
+  execSync(`bumpp patch --commit --push --tag nujek-${name}@`, {
+    stdio: 'inherit',
+    cwd: path.join('packages', name)
+  })
+
+  if (!releaseOnly) {
+    execSync('pnpm publish', {
+      stdio: 'inherit',
+      cwd: path.join('packages', name)
     })
+  }
 
-    if (!releaseOnly) {
-        execSync('pnpm publish', {
-            stdio: 'inherit',
-            cwd: path.join('packages', name)
-        })
-    }
-
-    consola.success(`Package Published: @nujek/${name}`)
+  consola.success(`Package Published: @nujek/${name}`)
 }
 
-function run() {
-    for (const { name } of activePackages) {
+function run () {
+  for (const { name } of activePackages) {
+    // build
+    execSync('siroc build', {
+      stdio: 'inherit',
+      cwd: path.join('packages', name)
+    })
 
-        // build
-        execSync(`siroc build`, {
-            stdio: 'inherit',
-            cwd: path.join('packages', name)
-        })
-
-        // specific
-        if (args.includes(name)) {
-            releasePackage(name, releaseOnly)
-        }
-
-        // all
-        if (args.length === 0) {
-            releasePackage(name, releaseOnly)
-        }
+    // specific
+    if (args.includes(name)) {
+      releasePackage(name, releaseOnly)
     }
+
+    // all
+    if (args.length === 0) {
+      releasePackage(name, releaseOnly)
+    }
+  }
 }
 
 export { run as publish }
