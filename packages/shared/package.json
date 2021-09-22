@@ -1,34 +1,34 @@
 {
-    "name": "@nujek/shared",
-    "version": "0.0.123",
-    "description": "Nujek - Shared Components",
-    "keywords": [
-        "nuxt",
-        "nuxtjs",
-        "nuxt ui",
-        "nuxtjs ui",
-        "nuxt storyblok",
-        "nuxtjs storyblok"
-    ],
-    "homepage": "https://github.com/regenrek/nujek#readme",
-    "bugs": {
-        "url": "https://github.com/regenrek/nujek/issues"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/regenrek/nujek.git"
-    },
-    "license": "MIT",
-    "author": "Kevin Regenrek <https://github.com/regenrek>",
-    "main": "dist/index.js",
-    "types": "dist/types.d.ts",
-    "files": [
-        "dist/*"
-    ],
-    "scripts": {
-        "test": "yarn lint && yarn jest --forceExit",
-        "lint": "eslint --ext .ts --ext .vue --ext .js .",
-        "test:e2e": "jest test/e2e --forceExit",
-        "test:unit": "jest test/unit --forceExit"
-    }
+  "name": "@nujek/shared",
+  "version": "0.0.124",
+  "description": "Nujek - Shared Components",
+  "keywords": [
+    "nuxt",
+    "nuxtjs",
+    "nuxt ui",
+    "nuxtjs ui",
+    "nuxt storyblok",
+    "nuxtjs storyblok"
+  ],
+  "homepage": "https://github.com/regenrek/nujek#readme",
+  "bugs": {
+    "url": "https://github.com/regenrek/nujek/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/regenrek/nujek.git"
+  },
+  "license": "MIT",
+  "author": "Kevin Regenrek <https://github.com/regenrek>",
+  "main": "dist/index.js",
+  "types": "dist/types.d.ts",
+  "files": [
+    "dist/*"
+  ],
+  "scripts": {
+    "test": "yarn lint && yarn jest --forceExit",
+    "lint": "eslint --ext .ts --ext .vue --ext .js .",
+    "test:e2e": "jest test/e2e --forceExit",
+    "test:unit": "jest test/unit --forceExit"
+  }
 }
