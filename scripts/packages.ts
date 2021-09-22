@@ -1,38 +1,27 @@
 export interface PackageManifest {
   name?: string;
-  display?: string;
-  addon?: boolean;
-  author?: string;
-  description?: string;
-  external?: string[];
-  globals?: Record<string, string>;
-  manualImport?: boolean;
   deprecated?: boolean;
+  disabled?: boolean;
+  tests?: boolean;
 }
 
 export const packages: PackageManifest[] = [
   {
     name: 'shared',
-    display: 'Shared utilities'
+    tests: false
   },
   {
     name: 'ui',
-    display: 'Ui',
-    description: 'Nujek - UI components',
-    addon: true
+    tests: true,
   },
   {
     name: 'storyblok',
-    display: 'Storyblok',
-    description: 'Nujek - Storyblok module',
-    addon: true
+    tests: true,
   },
   {
-    name: 'create-app',
-    display: 'CreateApp',
-    description: 'Nujek - Create App',
-    addon: true
+    name: 'bundle',
+    tests: false
   }
 ]
 
-export const activePackages = packages.filter(i => !i.deprecated)
+export const activePackages = packages.filter(i => (!i.deprecated || i.disabled))

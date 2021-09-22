@@ -1,106 +1,51 @@
-import { join, resolve } from 'path'
+import { resolve } from 'path'
 import consola from 'consola'
-import { toPascalCase } from '@nujek/shared'
+import defu from 'defu'
 
 import type { Module } from '@nuxt/types'
 
-const storyblokModule: Module<any> = async function storyblokModule ({
-  storyblokConfig = {},
-  withConsole = false,
-  enableStoryblokNuxt = true,
-  debug = false
-}) {
-  const { nuxt, addPlugin, requireModule } = this
+const storyblokModule: Module<any> = async function storyblokModule (moduleOptions) {
+  const defaults: any = {
+    storyblokConfig: {
+      accessToken: '',
+      cacheProvider: 'memory'
+    },
+    withConsole: false,
+    debug: false
+  }
 
+  const { nuxt, requireModule } = this
+  const options: any = defu(moduleOptions, nuxt.options.nujekStoryblok, defaults)
   const logger = consola.withScope('@nujek/storyblok')
-  const ROOT_DIR = 'nujek'
 
   // Transpile and alias runtime
   const runtimeDir = resolve(__dirname, 'runtime')
   nuxt.options.alias['~nujek-storyblok'] = runtimeDir
-  // @TODO: Transpiel nuxt or nujek storyblok?
   nuxt.options.build.transpile.push(runtimeDir, '@nuxt/storyblok')
 
-  if (!storyblokConfig) {
-    logger.warn('Storyblok Configuration is empty')
-  }
+  nuxt.options.build.transpile.push('@nujek/blok')
+  nuxt.options.build.transpile.push('@nujek/dynamic')
+
+  await requireModule('@nujek/blok', { prefix: '', withConsole: options.withConsole, debug: options.debug })
 
   /**
    * add storyblok-nuxt module
    */
-  if (enableStoryblokNuxt) {
-    await requireModule(['storyblok-nuxt', storyblokConfig])
+  if (options.storyblokConfig) {
+    await requireModule('storyblok-nuxt', options.storyblokConfig)
 
-    if (withConsole) {
+    if (options.withConsole) {
       logger.success({
         message: 'Storyblok modules ready',
         additional: 'Module \'@nujek/storyblok-nuxt\' registered.',
         badge: true
       })
     }
+  } else {
+    logger.warn('Storyblok API Configuration is empty')
   }
 
-  nuxt.hook('components:extend', (components) => {
-    // Add Vue.filters
-    addPlugin({
-      src: resolve(runtimeDir, 'filters.js'),
-      fileName: join(ROOT_DIR, 'filters.js'),
-      options: {}
-    })
-
-    if (withConsole) {
-      logger.success({
-        message: '@nujek/storyblok filters added'
-      })
-    }
-
-    // Add rich text renderer
-    addPlugin({
-      src: resolve(runtimeDir, 'rich-text-renderer.js'),
-      fileName: join(ROOT_DIR, 'rich-text-renderer.js'),
-      options: {}
-    })
-
-    if (withConsole) {
-      logger.success({
-        message: '@nujek/storyblok - rich-text-renderer added'
-      })
-    }
-
-    // grab all possible prefixes
-    // @ts-ignore
-    // eslint-disable-next-line
-    const prefixes = [
-      ...new Set(
-        components
-          .filter(c => !c.async)
-          .map((c) => {
-            const filename = c.filePath.split('\\').pop()
-            const componentName = filename.replace('.vue', '')
-            const re = new RegExp(`${toPascalCase(componentName)}$`)
-            return c.pascalName.replace(re, '')
-          })
-      )
-    ]
-
-    addPlugin({
-      src: resolve(runtimeDir, 'dynamic-bloks.js'),
-      fileName: join(ROOT_DIR, 'dynamic-bloks.js'),
-      options: { debug, prefixes }
-    })
-
-    if (withConsole) {
-      logger.success({
-        message: 'prefixes for debug mode added',
-        additional: `items as dynamic components (with prefixes: ${prefixes
-          .map(prefix => `'${prefix}'`)
-          .join(', ')})`,
-        badge: true
-      })
-    }
-  })
-
-  nuxt.hook('components:dirs', (dirs) => {
+  nuxt.hook('components:dirs', (dirs: any) => {
     // Add ./components dir to the list
     dirs.push({
       path: resolve(runtimeDir, 'components'),
@@ -108,9 +53,11 @@ const storyblokModule: Module<any> = async function storyblokModule ({
       pathPrefix: false
     })
 
-    if (withConsole) {
+    if (options.withConsole) {
       logger.success({
-        message: `storyblok components loaded ${resolve(runtimeDir, 'components')}`
+        message: '@nujek/storyblok',
+        additional: `storyblok components loaded ${resolve(runtimeDir, 'components')}`,
+        badge: true
       })
     }
   })

@@ -1,0 +1,19 @@
+{
+    "extends": "../tsconfig.json",
+    "compilerOptions": {
+        "lib": [
+            "DOM"
+        ],
+        "paths": {
+            "~nujek-ui/*": [
+                "src/runtime/*"
+            ],
+            "~nujek-ui": [
+                "src/runtime"
+            ],
+            "~/*": [
+                "src/*"
+            ]
+        }
+    },
+}

@@ -1,0 +1,69 @@
+{
+  "name": "@nujek/bundle",
+  "version": "3.0.0",
+  "description": "Nujek - Bundle Full",
+  "keywords": [
+    "nuxt",
+    "nuxtjs",
+    "nuxt ui",
+    "nuxtjs ui",
+    "nuxt storyblok",
+    "nuxtjs storyblok"
+  ],
+  "homepage": "https://github.com/regenrek/nujek#readme",
+  "bugs": {
+    "url": "https://github.com/regenrek/nujek/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/regenrek/nujek.git"
+  },
+  "scripts": {
+    "test": "yarn lint && yarn jest --forceExit",
+    "lint": "eslint --ext .ts --ext .vue --ext .js .",
+    "test:e2e": "jest test/e2e --forceExit",
+    "test:unit": "jest test/unit --forceExit"
+  },
+  "license": "MIT",
+  "author": "Kevin Regenrek <https://github.com/regenrek>",
+  "main": "dist/module.js",
+  "types": "dist/types.d.ts",
+  "files": [
+    "dist/*"
+  ],
+  "dependencies": {
+    "@marvr/storyblok-rich-text-vue-renderer": "^2.0.1",
+    "@nujek/shared": "latest",
+    "@nujek/storyblok": "^3",
+    "@nujek/ui": "^3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/eslint-parser": "^7.15.7",
+    "@babel/preset-env": "^7.15.6",
+    "@babel/preset-typescript": "^7.15.0",
+    "@nuxt/test-utils": "^0.2.2",
+    "@nuxt/types": "^2.15.8",
+    "@nuxt/typescript-build": "^2.1.0",
+    "@nuxt/typescript-runtime": "^2.1.0",
+    "@nuxtjs/composition-api": "^0.29.2",
+    "@nuxtjs/eslint-config-typescript": "^6.0.1",
+    "@nuxtjs/tailwindcss": "^4.2.1",
+    "@types/fs-extra": "^9.0.13",
+    "@types/jest": "^27.0.2",
+    "@types/lodash.get": "^4.4.6",
+    "@vue/cli-plugin-babel": "^4.5.13",
+    "@vue/cli-plugin-eslint": "^4.5.13",
+    "@vue/cli-plugin-unit-jest": "^4.5.13",
+    "@vue/test-utils": "^1.2.2",
+    "codecov": "^3.8.3",
+    "jest": "^27.2.1",
+    "jsdom": "^17.0.0",
+    "jsdom-global": "^3.0.2",
+    "nuxt": "^2.15.8",
+    "playwright": "^1.15.0",
+    "ts-loader": "^8",
+    "typescript": "^4.4.3",
+    "vue-jest": "^3.0.7"
+  }
+}

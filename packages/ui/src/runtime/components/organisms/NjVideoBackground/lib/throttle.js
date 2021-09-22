@@ -5,6 +5,7 @@ export default (callback, limit) => {
   return (...args) => {
     if (timeoutHandler === 'null') {
       timeoutHandler = setTimeout(() => {
+        // eslint-disable-next-line node/no-callback-literal
         callback(...args)
         timeoutHandler = 'null'
       }, limit)

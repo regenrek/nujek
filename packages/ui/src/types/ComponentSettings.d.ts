@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/named
 import Vue, { PropOptions } from 'vue'
 import ComponentName from './ComponentName'
 
