@@ -1,6 +1,6 @@
 {
   "name": "@nujek/storyblok",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Nujek - Storyblok Components",
   "keywords": [
     "nuxt",
@@ -18,12 +18,6 @@
     "type": "git",
     "url": "git+https://github.com/regenrek/nujek.git"
   },
-  "scripts": {
-    "test": "yarn lint && yarn jest --forceExit",
-    "lint": "eslint --ext .ts --ext .vue --ext .js .",
-    "test:e2e": "jest test/e2e --forceExit",
-    "test:unit": "jest test/unit --forceExit"
-  },
   "license": "MIT",
   "author": "Kevin Regenrek <https://github.com/regenrek>",
   "main": "dist/module.js",
@@ -31,6 +25,15 @@
   "files": [
     "dist/*"
   ],
+  "scripts": {
+    "test": "yarn lint && yarn jest --forceExit",
+    "lint": "eslint --ext .ts --ext .vue --ext .js .",
+    "test:e2e": "jest test/e2e --forceExit",
+    "test:unit": "jest test/unit --forceExit"
+  },
+  "dependencies": {
+    "axios": "^0.21.4"
+  },
   "devDependencies": {
     "@babel/core": "^7.15.5",
     "@babel/eslint-parser": "^7.15.7",
@@ -67,8 +70,5 @@
   },
   "engines": {
     "node": ">=14"
-  },
-  "dependencies": {
-    "axios": "^0.21.4"
   }
 }
