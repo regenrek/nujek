@@ -14,6 +14,7 @@
     "build:ui": "yarn build ui",
     "publish:ui": "yarn publish:ci ui",
     "publish:sb": "yarn publish:ci storyblok",
+    "publish:bundle": "yarn publish:ci bundle",
     "clean": "rimraf dist types typings packages/*/dist",
     "types:fix": "esno ./scripts/types-fix.ts",
     "lint:fix": "eslint --fix --ext .js,.jsx,.tsx,.vue",

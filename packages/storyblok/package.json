@@ -32,7 +32,8 @@
     "test:unit": "jest test/unit --forceExit"
   },
   "dependencies": {
-    "axios": "^0.21.4"
+    "axios": "^0.21.4",
+    "@nujek/blok": "latest"
   },
   "devDependencies": {
     "@babel/core": "^7.15.5",
@@ -40,7 +41,6 @@
     "@babel/preset-env": "^7.15.6",
     "@babel/preset-typescript": "^7.15.0",
     "@marvr/storyblok-rich-text-vue-renderer": "^2.0.1",
-    "@nujek/blok": "latest",
     "@nujek/shared": "latest",
     "@nuxt/test-utils": "^0.2.2",
     "@nuxt/types": "^2.15.8",

@@ -23,9 +23,6 @@ const storyblokModule: Module<any> = async function storyblokModule (moduleOptio
   nuxt.options.alias['~nujek-storyblok'] = runtimeDir
   nuxt.options.build.transpile.push(runtimeDir, '@nuxt/storyblok')
 
-  nuxt.options.build.transpile.push('@nujek/blok')
-  nuxt.options.build.transpile.push('@nujek/dynamic')
-
   await requireModule('@nujek/blok', { prefix: '', withConsole: options.withConsole, debug: options.debug })
 
   /**
@@ -46,7 +43,6 @@ const storyblokModule: Module<any> = async function storyblokModule (moduleOptio
   }
 
   nuxt.hook('components:dirs', (dirs: any) => {
-    // Add ./components dir to the list
     dirs.push({
       path: resolve(runtimeDir, 'components'),
       prefix: '',

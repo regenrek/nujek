@@ -12,15 +12,15 @@ export const packages: PackageManifest[] = [
   },
   {
     name: 'ui',
-    tests: true,
+    tests: true
   },
   {
     name: 'storyblok',
-    tests: true,
+    tests: true
   },
   {
     name: 'bundle',
-    tests: false
+    tests: true
   }
 ]
 
