@@ -1,6 +1,6 @@
 {
   "name": "@nujek/storyblok",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "description": "Nujek - Storyblok Components",
   "keywords": [
     "nuxt",
@@ -32,10 +32,10 @@
     "test:unit": "jest test/unit --forceExit"
   },
   "dependencies": {
-    "@nujek/blok": "latest",
-    "storyblok-nuxt": "^2.0.1",
     "@marvr/storyblok-rich-text-vue-renderer": "^2.0.1",
-    "axios": "^0.21.4"
+    "@nujek/blok": "latest",
+    "axios": "^0.21.4",
+    "storyblok-nuxt": "^2.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.15.5",
