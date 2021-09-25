@@ -15,7 +15,7 @@ function releasePackage (name, releaseOnly) {
   })
 
   if (!releaseOnly) {
-    execSync('yarn publish --new-version --access public', {
+    execSync('yarn publish --access public', {
       stdio: 'inherit',
       cwd: path.join('packages', name)
     })
