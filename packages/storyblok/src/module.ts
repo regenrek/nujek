@@ -21,7 +21,7 @@ const storyblokModule: Module<any> = async function storyblokModule (moduleOptio
   // Transpile and alias runtime
   const runtimeDir = resolve(__dirname, 'runtime')
   nuxt.options.alias['~nujek-storyblok'] = runtimeDir
-  nuxt.options.build.transpile.push(runtimeDir, '@nuxt/storyblok')
+  nuxt.options.build.transpile.push(runtimeDir, '@nujek/storyblok')
 
   await requireModule('@nujek/blok', { prefix: '', withConsole: options.withConsole, debug: options.debug })
 
