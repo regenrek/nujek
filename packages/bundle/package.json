@@ -35,7 +35,9 @@
     "@marvr/storyblok-rich-text-vue-renderer": "^2.0.1",
     "@nujek/shared": "latest",
     "@nujek/storyblok": "^3",
-    "@nujek/ui": "^3"
+    "@nujek/ui": "^3",
+    "@nuxtjs/composition-api": "^0.29.2",
+    "@nuxtjs/tailwindcs": "^4.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.15.5",
@@ -46,9 +48,7 @@
     "@nuxt/types": "^2.15.8",
     "@nuxt/typescript-build": "^2.1.0",
     "@nuxt/typescript-runtime": "^2.1.0",
-    "@nuxtjs/composition-api": "^0.29.2",
     "@nuxtjs/eslint-config-typescript": "^6.0.1",
-    "@nuxtjs/tailwindcss": "^4.2.1",
     "@types/fs-extra": "^9.0.13",
     "@types/jest": "^27.0.2",
     "@types/lodash.get": "^4.4.6",
