@@ -29,7 +29,7 @@ const storyblokModule: Module<any> = async function storyblokModule (moduleOptio
    * add storyblok-nuxt module
    */
   if (options.storyblokConfig) {
-    await requireModule('storyblok-nuxt', options.storyblokConfig)
+    await requireModule(['storyblok-nuxt', options.storyblokConfig])
 
     if (options.withConsole) {
       logger.success({
