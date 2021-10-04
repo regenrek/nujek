@@ -33,7 +33,6 @@
   },
   "dependencies": {
     "@marvr/storyblok-rich-text-vue-renderer": "^2.0.1",
-    "@nujek/blok": "latest",
     "axios": "^0.21.4",
     "storyblok-nuxt": "^2.0.1"
   },
@@ -42,7 +41,7 @@
     "@babel/eslint-parser": "^7.15.7",
     "@babel/preset-env": "^7.15.6",
     "@babel/preset-typescript": "^7.15.0",
-    "@nujek/shared": "latest",
+    "@nujek/shared": "^0.0.125",
     "@nuxt/test-utils": "^0.2.2",
     "@nuxt/types": "^2.15.8",
     "@nuxt/typescript-build": "^2.1.0",

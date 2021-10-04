@@ -32,24 +32,26 @@
     <div class="hidden sm:block">
       <!-- tabs content -->
       <div class="tabs-content">
-        <slot v-bind="{ activeTab: localValue}">
-          <div v-for="(tab, index) in tabs" v-show="index === activeTab" :key="index">
-            <component v-bind="{ ...tab.props }" :is="tab.component">
-              <!-- pass through normal slots -->
-              <template v-for="(_, slotName) in $slots" #[slotName]>
-                slotName: {{ slotName }}
-                <slot :name="slotName" />
-              </template>
+        <slot>
+          <client-only>
+            <div v-for="tab in tabs" v-show="tab.current" :key="tab.component">
+              <component v-bind="{ ...tab.props }" :is="tab.component">
+                <!-- pass through normal slots -->
+                <template v-for="(_, slotName) in $slots" #[slotName]>
+                  slotName: {{ slotName }}
+                  <slot :name="slotName" />
+                </template>
 
-              <!-- pass through scoped slots -->
-              <template
-                v-for="(_, scopedSlotName) in $scopedSlots"
-                #[scopedSlotName]="slotData"
-              >
-                <slot :name="scopedSlotName" v-bind="slotData" />
-              </template>
-            </component>
-          </div>
+                <!-- pass through scoped slots -->
+                <template
+                  v-for="(_, scopedSlotName) in $scopedSlots"
+                  #[scopedSlotName]="slotData"
+                >
+                  <slot :name="scopedSlotName" v-bind="slotData" />
+                </template>
+              </component>
+            </div>
+          </client-only>
         </slot>
       </div>
     </div>
@@ -57,46 +59,15 @@
 </template>
 
 <script>
-const isEqual = () => JSON.stringify(a) === JSON.stringify(b)
-
 export default {
   props: {
-    value: {
-      type: Number,
-      default: 0
-    },
     tabs: {
       type: Array,
       default: () => []
-    },
-    activeTab: {
-      type: Number,
-      default: 0
-    }
-  },
-  data () {
-    return {
-      localValue: this.value
-    }
-  },
-  watch: {
-    value (value) {
-      if (isEqual(value, this.localValue)) {
-        return
-      }
-      this.localValue = value
-    },
-    localValue (localValue) {
-      if (isEqual(this.value, localValue)) {
-        return
-      }
-      this.$emit('input', localValue)
     }
   },
   methods: {
     onChangeCurrent (tab) {
-      console.log('onclick', tab)
-
       this.tabs.forEach((t) => {
         if (t.component !== tab.component) {
           t.current = false
@@ -108,36 +79,3 @@ export default {
   }
 }
 </script>
-
-<style lang="postcss" scoped>
-.tabs-nav-item.is-active {
-  font-weight: 600;
-  position: relative;
-  &:after {
-    content: '';
-    position: absolute;
-    bottom: -0rem;
-    @apply bg-red-700;
-    left: 0;
-    width: 100%;
-    height: 2px;
-  }
-}
-
-.tabs-nav-item {
-  padding-left: 0;
-}
-
-.tabs-nav-item:before {
-  position: relative;
-  background: transparent;
-  left: 0;
-  top: 0;
-  height: auto;
-  width: auto;
-}
-
-.tabs-nav {
-  padding-bottom: 0;
-}
-</style>

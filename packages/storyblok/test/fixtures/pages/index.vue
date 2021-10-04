@@ -1,7 +1,5 @@
 <template>
-  <div class="index">
-    <Blok class="blok" :blok="story.content" />
-  </div>
+  <Blok class="blok" :blok="story.content" />
 </template>
 
 <script>

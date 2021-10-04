@@ -1,4 +1,4 @@
-import { resolve } from 'path'
+import { resolve, join } from 'path'
 import consola from 'consola'
 import defu from 'defu'
 
@@ -14,16 +14,15 @@ const storyblokModule: Module<any> = async function storyblokModule (moduleOptio
     debug: false
   }
 
-  const { nuxt, requireModule } = this
+  const { nuxt, requireModule, addPlugin } = this
   const options: any = defu(moduleOptions, nuxt.options.nujekStoryblok, defaults)
   const logger = consola.withScope('@nujek/storyblok')
+  const ROOT_DIR = 'nujek'
 
   // Transpile and alias runtime
   const runtimeDir = resolve(__dirname, 'runtime')
   nuxt.options.alias['~nujek-storyblok'] = runtimeDir
   nuxt.options.build.transpile.push(runtimeDir, '@nujek/storyblok')
-
-  await requireModule('@nujek/blok', { prefix: '', withConsole: options.withConsole, debug: options.debug })
 
   /**
    * add storyblok-nuxt module
@@ -42,9 +41,26 @@ const storyblokModule: Module<any> = async function storyblokModule (moduleOptio
     logger.warn('Storyblok API Configuration is empty')
   }
 
+  addPlugin({
+    src: resolve(runtimeDir, 'plugin.js'),
+    fileName: join(ROOT_DIR, 'storyblok-nujek.js'),
+    options: { debug: options.debug }
+  })
+
   nuxt.hook('components:dirs', (dirs: any) => {
+    // remove default ~/components (if exists) autoload and replace
+    // it with prefix "" and pathPrefix false option.
+    const index = dirs.indexOf('~/components')
+    if (index > -1) {
+      dirs.splice(index, 1)
+    }
+
     dirs.push({
       path: resolve(runtimeDir, 'components'),
+      prefix: '',
+      pathPrefix: false
+    }, {
+      path: '~/components',
       prefix: '',
       pathPrefix: false
     })
@@ -52,7 +68,7 @@ const storyblokModule: Module<any> = async function storyblokModule (moduleOptio
     if (options.withConsole) {
       logger.success({
         message: '@nujek/storyblok',
-        additional: `storyblok components loaded ${resolve(runtimeDir, 'components')}`,
+        additional: `storyblok components loaded ${resolve(runtimeDir, 'components')} and ~/components with {prefix: '', pathPrefix: false}`,
         badge: true
       })
     }

@@ -87,9 +87,6 @@ describe('Blok Debug', () => {
 
   it('loads bloks dynamically with debug blok', async () => {
     await createPage('/')
-    // const html = await page.innerHTML('body')
-
-    console.log(requests)
 
     const positiveRequest = requests.find(request => request.match('/_ipx/s_300x200/2000px-Aconcagua2016.jpg'))
     expect(positiveRequest).toBeTruthy()

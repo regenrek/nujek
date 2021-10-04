@@ -28,15 +28,13 @@
 </template>
 
 <script>
+
 export default {
   props: {
     blokProps: {
       type: Object,
       default: () => {}
     }
-  },
-  created () {
-    console.log('proplist', this.blokProps)
   },
   methods: {
     getProp (prop) {

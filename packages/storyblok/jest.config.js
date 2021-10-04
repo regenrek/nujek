@@ -9,7 +9,7 @@ module.exports = {
   collectCoverage: true,
   collectCoverageFrom: [
     'src/**/*.{js,vue}',
-    '!src/runtime/dynamic-bloks.js'
+    '!src/runtime/plugin.js'
   ],
   moduleNameMapper: {
     '~nujek-ui/(.*)': '<rootDir>/src/runtime/$1',

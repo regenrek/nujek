@@ -52,18 +52,12 @@ describe('Blok Debug', () => {
     const page = await createPage('/debug')
     const html = await page.innerHTML('body')
 
-    // textimage blok
-    console.log('HTML', html)
-
     // check if component name exists
-    expect(html).toContain('blok_image_2')
+    expect(html).toContain('BlokTextImage2.vue')
     expect(html).toContain('blokTextImage2')
 
     // check if props will be shown
-    expect(html).toContain('BlokTextImage Title')
-    expect(html).toContain('title_tag')
-
-    expect(html).toContain('BlokImage Title')
-    expect(html).toContain('image')
+    expect(html).toContain('BlokImage2.vue')
+    expect(html).toContain('blok_image_2')
   })
 })
