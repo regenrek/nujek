@@ -1,6 +1,6 @@
 {
   "name": "@nujek/ui",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "Nujek - UI Components",
   "keywords": [
     "nuxt",
@@ -27,8 +27,8 @@
     "css/*"
   ],
   "scripts": {
-    "test": "yarn lint && yarn jest --forceExit",
     "lint": "eslint --ext .ts --ext .vue --ext .js .",
+    "test": "yarn lint && yarn jest --forceExit",
     "test:e2e": "jest test/e2e --forceExit",
     "test:unit": "jest test/unit --forceExit"
   },
