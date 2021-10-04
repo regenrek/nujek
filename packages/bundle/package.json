@@ -1,6 +1,6 @@
 {
   "name": "@nujek/bundle",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "description": "Nujek - Bundle Full",
   "keywords": [
     "nuxt",
@@ -26,8 +26,8 @@
     "dist/*"
   ],
   "scripts": {
-    "test": "yarn lint && yarn jest --forceExit",
     "lint": "eslint --ext .ts --ext .vue --ext .js .",
+    "test": "yarn lint && yarn jest --forceExit",
     "test:e2e": "jest test/e2e --forceExit",
     "test:unit": "jest test/unit --forceExit"
   },
