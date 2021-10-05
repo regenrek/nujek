@@ -26,8 +26,8 @@
     "dist/*"
   ],
   "scripts": {
-    "test": "yarn lint && yarn jest --forceExit",
     "lint": "eslint --ext .ts --ext .vue --ext .js .",
+    "test": "yarn lint && yarn jest --forceExit",
     "test:e2e": "jest test/e2e --forceExit",
     "test:unit": "jest test/unit --forceExit"
   }

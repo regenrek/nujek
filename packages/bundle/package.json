@@ -37,7 +37,9 @@
     "@nujek/storyblok": "^3",
     "@nujek/ui": "^3",
     "@nuxtjs/composition-api": "^0.29.2",
-    "@nuxtjs/tailwindcss": "^4.2.1"
+    "@nuxtjs/tailwindcss": "^4.2.1",
+    "@tailwindcss/aspect-ratio": "^0.2.1",
+    "@tailwindcss/forms": "^0.3.4"
   },
   "devDependencies": {
     "@babel/core": "^7.15.5",
