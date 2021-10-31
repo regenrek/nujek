@@ -3,6 +3,7 @@
     :is="componentId"
     :component="componentId"
     v-bind="attrs"
+    :blok="blok"
     v-on="$listeners"
   >
     <!-- pass through blok slots -->
