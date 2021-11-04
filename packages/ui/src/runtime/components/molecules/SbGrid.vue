@@ -31,7 +31,7 @@
     </slot>
 
     <slot name="footer" v-bind="{ isLastPage, nextPage }">
-      <template v-if="!blok.is_finite && !displayLimit !== -1">
+      <template v-if="!blok.is_finite && displayLimit === -1">
         <div v-if="!isLastPage" class="flex justify-center">
           <button
             label="Load More"
