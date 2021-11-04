@@ -38,7 +38,7 @@
             :disabled="$fetchState.pending"
             @click="nextPage"
           >
-            {{ $fetchState.pending ? '...' : 'Mehr laden' }}
+            {{ $fetchState.pending ? "..." : "Mehr laden" }}
           </button>
         </div>
       </template>
@@ -46,74 +46,82 @@
   </div>
 </template>
 <script>
-import get from 'lodash.get'
-const POST_TYPE = 'projekte'
-const SORT_BY = ''
-const RESOLVE_RELATIONS = ''
-const PER_PAGE = 12
-const RESOLVE_LINKS = ''
-const CARD_STYLE_DEFAULT = 'NjCard'
-const GRID_COLUMNS = Array.from({ length: 12 }, (_, i) => i + 1)
+import get from "lodash.get";
+const POST_TYPE = "projekte";
+const SORT_BY = "created_at:desc";
+const RESOLVE_RELATIONS = "";
+const PER_PAGE = 12;
+const RESOLVE_LINKS = "";
+const CARD_STYLE_DEFAULT = "NjCard";
+const GRID_COLUMNS = Array.from({ length: 12 }, (_, i) => i + 1);
 
 export default {
-  name: 'SbGrid',
+  name: "CustomSbGrid",
   props: {
     blok: {
       type: Object,
       default: () => ({
-        post_type: '',
+        post_type: "",
         posts_per_page: 12,
-        sort_by: '',
-        resolve_relations: '',
+        sort_by: "",
+        resolve_relations: "",
         is_finite: false,
         style: CARD_STYLE_DEFAULT,
-        excluding_slugs: ''
-      })
+        excluding_slugs: "",
+      }),
     },
     searchTerm: {
       type: String,
-      default: ''
+      default: "",
     },
     filterQuery: {
       type: Object,
-      default: () => ({})
+      default: () => ({}),
+    },
+    excludeByPropValue: {
+      type: Object,
+      default: () => ({}),
     },
     columns: {
       type: Number,
       default: 3,
-      validator: value => GRID_COLUMNS.includes(value)
+      validator: (value) => GRID_COLUMNS.includes(value),
     },
     disableFetch: {
       type: Boolean,
-      default: false
+      default: false,
     },
     dataSource: {
       type: Array,
-      default () {
-        return []
-      }
+      default() {
+        return [];
+      },
     },
     tag: {
       type: String,
-      validator: value => ['ul', 'div', 'section'].includes(value),
-      default: 'ul'
-    }
+      validator: (value) => ["ul", "div", "section"].includes(value),
+      default: "ul",
+    },
+    debugMode: {
+      type: Boolean,
+      default: false,
+    },
   },
-  data () {
+  data() {
     return {
       collection: [],
       extendCollection: false,
       pagination: {
         page: 1,
-        total: 0
-      }
-    }
+        total: 0,
+      },
+    };
   },
-  async fetch () {
+  async fetch() {
     if (this.disableFetch) {
-      return
+      return;
     }
-    const { $storyblok, error } = this.$nuxt.context
+    const { $storyblok, error } = this.$nuxt.context;
     await $storyblok
       .getStoryCollection(this.blok.post_type || POST_TYPE, {
         excluding_slugs: this.blok.excluding_slugs,
@@ -123,77 +131,103 @@ export default {
         per_page: this.blok.posts_per_page || PER_PAGE,
         search_term: this.searchTerm,
         filter_query: this.filterQuery,
-        page: this.pagination.page
+        page: this.pagination.page,
       })
       .then((res) => {
-        this.pagination.page++
-        const { stories } = res
-        this.pagination.total = res.total
+        this.pagination.page++;
+        const { stories } = res;
+        this.pagination.total = res.total;
         if (this.extendCollection) {
-          this.collection.push(...stories)
-          this.extendCollection = false
-          return
+          this.collection.push(...stories);
+          this.extendCollection = false;
+
+          return;
         }
 
-        this.collection = stories
+        this.collection = stories;
+        try {
+          if (this.excludeByPropValue) {
+            this.collection = this.collection.filter(
+              function (item) {
+                if (
+                  item.content[this.excludeByPropValue.name] !==
+                  this.excludeByPropValue.value
+                ) {
+                  return item;
+                }
+              }.bind(this)
+            );
+          }
+        } catch (error) {
+          console.error(error);
+        }
+        if (debugMode) {
+          console.log("Collection fetched", this.collection);
+        }
       })
       .catch((res) => {
-        error(res)
-      })
+        error(res);
+      });
   },
   computed: {
-    gridCasses () {
-      const mdCols = `md:grid-cols-${parseFloat(0.5 * this.columns).toFixed()}`
-      const lgCols = `lg:grid-cols-${this.columns}`
-      return [mdCols, lgCols]
+    gridCasses() {
+      const mdCols = `md:grid-cols-${parseFloat(0.5 * this.columns).toFixed()}`;
+      const lgCols = `lg:grid-cols-${this.columns}`;
+      return [mdCols, lgCols];
     },
-    isLastPage () {
-      return this.collection.length === this.pagination.total
+    isLastPage() {
+      return this.collection.length === this.pagination.total;
     },
-    cardName () {
-      return this.blok.style || CARD_STYLE_DEFAULT
-    }
+    cardName() {
+      return this.blok.style || CARD_STYLE_DEFAULT;
+    },
   },
   watch: {
     blok: {
       deep: true,
-      handler () {
-        this.pagination.page = 1
-        this.$fetch()
-      }
+      handler() {
+        this.pagination.page = 1;
+        this.$fetch();
+      },
     },
     searchTerm: {
-      handler () {
-        this.pagination.page = 1
-        this.$fetch()
-      }
+      handler() {
+        this.pagination.page = 1;
+        this.$fetch();
+      },
     },
     filterQuery: {
       deep: true,
-      handler () {
+      handler() {
         // TODO: Install lodash and compare newValue to oldValue
-        this.pagination.page = 1
-        this.$fetch()
-      }
+        this.pagination.page = 1;
+        this.$fetch();
+      },
     },
-    'pagination.total': {
+    "pagination.total": {
       deep: true,
-      handler (newVal) {
-        this.$emit('totalStories', newVal)
-      }
-    }
+      handler(newVal) {
+        this.$emit("totalStories", newVal);
+      },
+    },
   },
   methods: {
-    nextPage () {
-      this.extendCollection = true
-      this.$fetch()
+    nextPage() {
+      this.extendCollection = true;
+      this.$fetch();
     },
-    image (item) {
-      return get(item, 'content.featuredImage', null)
+    image(item) {
+      return get(item, "content.featuredImage", null);
     },
-    gridItem (item) {
-      return get(item, 'content.component', null)
-    }
-  }
-}
+    gridItem(item) {
+      return get(item, "content.component", null);
+    },
+    checkIfExcludedByProp(item) {
+      return (
+        item[this.excludeByPropValue.name] ===
+        this.this.excludeByPropValue.value
+      );
+    },
+  },
+};
 </script>
