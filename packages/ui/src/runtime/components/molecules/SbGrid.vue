@@ -161,9 +161,9 @@ export default {
         } catch (error) {
           console.error(error);
         }
-        if (debugMode) {
-          console.log("Collection fetched", this.collection);
-        }
+        this.debugMode
+          ? console.log("Collection fetched", this.collection)
+          : "";
       })
       .catch((res) => {
         error(res);
