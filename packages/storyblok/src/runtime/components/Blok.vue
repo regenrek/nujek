@@ -35,6 +35,7 @@
 </template>
 
 <script>
+
 import { toPascalCase } from '@nujek/shared'
 /**
  * Pass slots through from parent to child components:
@@ -62,7 +63,7 @@ export default {
       const isObject = value => typeof value === 'object' && value !== null
       const isBlok = value => 'component' in value
       return Object.fromEntries(
-        Object.entries(this.blok).filter(
+        Object.entries(isBlok(this.blok) ? this.blok : this.blok.content).filter(
           ([prop, value]) =>
             isArray(value) && isObject(value[0]) && isBlok(value[0])
         )
@@ -75,14 +76,14 @@ export default {
       }
     },
     componentId () {
-      const c = toPascalCase(this.blok.component)
+      const c = toPascalCase(this.blok.component || this.blok.content?.component)
 
       if (this.$options.components[c]) {
         return c
       }
 
       if (this.$storyblokNujek.debug) {
-        return this.blok.bloks ? 'BlokDebugContentType' : 'BlokDebug'
+        return this.blok.bloks || this.blok.content?.bloks ? 'BlokDebugContentType' : 'BlokDebug'
       }
 
       return false
