@@ -13,12 +13,8 @@
           <li :key="item.uuid" class="w-full">
             <component
               :is="gridItem(item) | dashify"
-              v-if="gridItem(item)"
               :blok="{ ...item.content }"
             />
-            <pre v-else>
-              {{ item.name }}
-            </pre>
           </li>
         </slot>
       </template>
@@ -31,7 +27,7 @@
     </slot>
 
     <slot name="footer" v-bind="{ isLastPage, nextPage }">
-      <template v-if="!blok.is_finite && displayLimit === -1">
+      <template v-if="!query.is_finite && displayLimit === -1">
         <div v-if="!isLastPage" class="flex justify-center">
           <button
             label="Load More"
@@ -58,7 +54,7 @@ const GRID_COLUMNS = Array.from({ length: 12 }, (_, i) => i + 1)
 export default {
   name: 'CustomSbGrid',
   props: {
-    blok: {
+    query: {
       type: Object,
       default: () => ({
         post_type: '',
@@ -126,58 +122,46 @@ export default {
       return
     }
     const { $storyblok, error } = this.$nuxt.context
-    await $storyblok
-      .getStoryCollection(this.blok.post_type || POST_TYPE, {
-        excluding_slugs: this.blok.excluding_slugs,
-        sort_by: this.blok.sort_by || SORT_BY,
-        resolve_relations: this.blok.resolve_relations || RESOLVE_RELATIONS,
-        resolve_links: this.blok.resolve_links || RESOLVE_LINKS,
-        per_page: this.blok.posts_per_page || PER_PAGE,
+    const res = await $storyblok.getStoryCollection(
+      this.query.post_type || POST_TYPE,
+      {
+        excluding_slugs: this.query.excluding_slugs,
+        sort_by: this.query.sort_by || SORT_BY,
+        resolve_relations: this.query.resolve_relations || RESOLVE_RELATIONS,
+        resolve_links: this.query.resolve_links || RESOLVE_LINKS,
+        per_page: this.query.posts_per_page || PER_PAGE,
         search_term: this.searchTerm,
         filter_query: this.filterQuery,
         page: this.pagination.page
-      })
-      .then((res) => {
-        this.pagination.page++
-        const { stories } = res
-        this.pagination.total = res.total
-        if (this.extendCollection) {
-          this.collection.push(...stories)
-          this.extendCollection = false
+      }
+    )
+    this.pagination.page++
+    const { stories } = res
+    this.pagination.total = res.total
+    if (this.extendCollection) {
+      this.collection.push(...stories)
+      this.extendCollection = false
+      return
+    }
 
-          return
-        }
-
-        this.collection = stories
-        try {
-          if (this.excludeByPropValue) {
-            this.collection = this.collection.filter(
-              function (item) {
-                if (
-                  item.content[this.excludeByPropValue.name] !==
-                  this.excludeByPropValue.value
-                ) {
-                  return item
-                }
-              }.bind(this)
-            )
+    this.collection = stories
+    if (this.excludeByPropValue.name && this.excludeByPropValue.name) {
+      this.collection = this.collection.filter(
+        function (item) {
+          if (
+            item.content[this.excludeByPropValue.name] !==
+            this.excludeByPropValue.value
+          ) {
+            return item
           }
-        } catch (error) {
-          console.error(error)
-        }
-        this.debugMode ? console.log('Collection fetched', this.collection) : {}
-        console.log('limit', this.displayLimit)
-        this.displayLimit !== -1
-          ? (this.collection = this.collection.slice(0, this.displayLimit))
-          : {}
+        }.bind(this)
+      )
+    }
 
-        this.debugMode
-          ? console.log('Collection being displayed', this.collection)
-          : {}
-      })
-      .catch((res) => {
-        error(res)
-      })
+    this.collection =
+      this.displayLimit > 0
+        ? this.collection.slice(0, this.displayLimit)
+        : this.collection
   },
   computed: {
     gridCasses() {
@@ -189,11 +173,11 @@ export default {
       return this.collection.length === this.pagination.total
     },
     cardName() {
-      return this.blok.style || CARD_STYLE_DEFAULT
+      return this.query.style || CARD_STYLE_DEFAULT
     }
   },
   watch: {
-    blok: {
+    query: {
       deep: true,
       handler() {
         this.pagination.page = 1
