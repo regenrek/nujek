@@ -1,5 +1,5 @@
 <template>
-  <figure :class="[getThemeClass('figure'), hasAspectRatio]">
+  <figure :class="[getClassesforFigure, hasAspectRatio]">
     <div :class="getThemeClass('aspectRatio')">
       <picture v-if="src" :class="getThemeClass('picture')" class="block">
         <source
@@ -7,8 +7,8 @@
           ref="webp"
           :data-srcset="src.webp"
           type="image/webp"
-        >
-        <source v-if="srcset" ref="srcset" :data-srcset="srcset">
+        />
+        <source v-if="srcset" ref="srcset" :data-srcset="srcset" />
 
         <img
           v-bind="$attrs"
@@ -19,11 +19,11 @@
             getThemeClass('image'),
             !disableLazyLoad && 'lazyload blur-up'
           ]"
-        >
+        />
       </picture>
 
       <template v-else>
-        <img v-if="usePlaceholder" :src="placeholderImage">
+        <img v-if="usePlaceholder" :src="placeholderImage" />
       </template>
     </div>
     <slot v-bind="{ caption, copyright }" name="content">
@@ -36,7 +36,7 @@
 
 <script>
 import get from 'lodash.get'
-import Component from '../../base/Component'
+import Component from '@nujek/ui/dist/runtime/base/Component.js'
 
 const NjImage = Component.extend({
   components: {},
@@ -68,16 +68,20 @@ const NjImage = Component.extend({
     },
     classes: {
       type: Object,
-      default () {
+      default() {
         return {
           aspectRatio: '',
           image: 'object-cover'
         }
       }
+    },
+    imagePosition: {
+      type: String,
+      default: ''
     }
   },
   watch: {
-    src () {
+    src() {
       // not needed if lazyload is disabeld
       if (this.disableLazyLoad) {
         return
@@ -87,27 +91,38 @@ const NjImage = Component.extend({
     }
   },
   computed: {
-    srcImg () {
+    srcImg() {
       return typeof this.src === 'string'
         ? this.src
         : get(this.src, 'opt', null)
-          ? this.src.opt
-          : null
+        ? this.src.opt
+        : null
     },
-    srcAlt () {
+    srcAlt() {
       if (this.src.alt) {
         return this.src.alt
       }
       return 'imagemage'
     },
-    srcset () {
+    srcset() {
       return get(this.src, 'srcset', false)
     },
-    hasAspectRatio () {
+    hasAspectRatio() {
       return (
         /aspect-ratio-/.test(this.getThemeClass('aspectRatio')) &&
         'has-aspect-ratio'
       )
+    },
+    getClassesforFigure() {
+      if (this.imagePosition === 'top') {
+        return `flex content-start ${this.getThemeClass('figure')}`
+      } else if (this.imagePosition === 'center') {
+        return `flex content-center ${this.getThemeClass('figure')}`
+      } else if (this.imagePosition === 'bottom') {
+        return `flex content-end ${this.getThemeClass('figure')}`
+      } else {
+        return `${this.getThemeClass('figure')}`
+      }
     }
   }
 })
