@@ -8,65 +8,65 @@ export default {
   props: {
     src: {
       type: Object,
-      default: null,
+      default: null
     },
     srcSets: {
       type: Array,
       default() {
-        return [720, 1440, 2160];
-      },
+        return [720, 1440, 2160]
+      }
     },
     quality: {
       type: String,
-      default: "70",
+      default: '70'
     },
     resize: {
       type: Object,
       default() {
         return {
-          width: "1440",
-          height: "0",
-        };
-      },
+          width: '1440',
+          height: '0'
+        }
+      }
     },
     facialDetection: {
       type: Boolean,
-      default: false,
+      default: false
     },
     fitIn: {
       type: Boolean,
-      default: false,
+      default: false
     },
     filters: {
       type: Array,
-      default: () => [],
+      default: () => []
     },
     useLegacyImgService: {
       type: Boolean,
-      default: false,
+      default: false
     },
     imagePosition: {
       type: String,
-      default: "",
-    },
+      default: ''
+    }
   },
   computed: {
     getFilterString() {
-      let filterString = "filters";
+      let filterString = 'filters'
       if (this.filters.length) {
         this.filters.forEach(function (filter) {
           if (filter.name && filter.value) {
-            filterString = `${filterString}:${filter.name}(${filter.value})`;
+            filterString = `${filterString}:${filter.name}(${filter.value})`
           }
-        });
+        })
       }
-      return filterString !== "filters" ? filterString : "";
+      return filterString !== 'filters' ? filterString : ''
     },
     getHeightWidth() {
-      return `${this.resize.width}x${this.resize.height}`;
+      return `${this.resize.width}x${this.resize.height}`
     },
     image() {
-      const filename = this.src?.filename || null;
+      const filename = this.src?.filename || null
       if (this.useLegacyImgService) {
         return filename
           ? {
@@ -85,50 +85,50 @@ export default {
               ),
               srcset: this.srcSets
                 .map((width, index) => {
-                  let size = "";
+                  let size = ''
                   if (index > 0) {
-                    size = ` ${index + 1}x`;
+                    size = ` ${index + 1}x`
                   }
                   return (
                     this.transformImage(
                       filename,
                       `${this.fitInC}${width}x0/${this.facial}filters:quality(${this.quality})`
                     ) + size
-                  );
+                  )
                 })
-                .join(", "),
+                .join(', ')
             }
-          : null;
+          : null
       } else {
         return filename && this.filters?.length !== 0
           ? `${filename}/m/${this.getHeightWidth}/${this.getFilterString}`
           : filename
           ? `${filename}/m/${this.getHeightWidth}`
-          : "";
+          : ''
       }
     },
     facial() {
-      return (this.facialDetection && "smart/") || "";
+      return (this.facialDetection && 'smart/') || ''
     },
     fitInC() {
-      return (this.fitIn && "fit-in/") || "";
-    },
+      return (this.fitIn && 'fit-in/') || ''
+    }
   },
   methods: {
     transformImage(image, option) {
       if (!image) {
-        return "";
+        return ''
       }
       if (!option) {
-        return "";
+        return ''
       }
 
-      const imageService = "//img2.storyblok.com/";
+      const imageService = '//img2.storyblok.com/'
       const path = image
-        .replace(/^https?:/i, "")
-        .replace("//a.storyblok.com", "");
-      return imageService + option + path;
-    },
-  },
-};
+        .replace(/^https?:/i, '')
+        .replace('//a.storyblok.com', '')
+      return imageService + option + path
+    }
+  }
+}
 </script>
