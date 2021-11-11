@@ -17,7 +17,7 @@
           :data-src="srcImg"
           :class="[
             getThemeClass('image'),
-            !disableLazyLoad && 'lazyload blur-up'
+            !disableLazyLoad ? 'lazyload blur-up' : '',
           ]"
         />
       </picture>
@@ -35,8 +35,8 @@
 </template>
 
 <script>
-import get from 'lodash.get'
-import Component from '@nujek/ui/dist/runtime/base/Component.js'
+import get from "lodash.get";
+import Component from "@nujek/ui/dist/runtime/base/Component.js";
 
 const NjImage = Component.extend({
   components: {},
@@ -44,88 +44,88 @@ const NjImage = Component.extend({
   props: {
     src: {
       type: [String, Object],
-      default: null
+      default: null,
     },
     disableLazyLoad: {
       type: Boolean,
-      default: false
+      default: false,
     },
     caption: {
       type: String,
-      default: ''
+      default: "",
     },
     copyright: {
       type: String,
-      default: ''
+      default: "",
     },
     usePlaceholder: {
       type: Boolean,
-      default: true
+      default: true,
     },
     placeholderImage: {
       type: String,
-      default: ''
+      default: "",
     },
     classes: {
       type: Object,
       default() {
         return {
-          aspectRatio: '',
-          image: 'object-cover'
-        }
-      }
+          aspectRatio: "",
+          image: "object-cover",
+        };
+      },
     },
     imagePosition: {
       type: String,
-      default: ''
-    }
+      default: "",
+    },
   },
   watch: {
     src() {
       // not needed if lazyload is disabeld
       if (this.disableLazyLoad) {
-        return
+        return;
       }
-      this.$refs.webp.srcset = ''
-      this.$refs.srcset.srcset = ''
-    }
+      this.$refs.webp.srcset = "";
+      this.$refs.srcset.srcset = "";
+    },
   },
   computed: {
     srcImg() {
-      return typeof this.src === 'string'
+      return typeof this.src === "string"
         ? this.src
-        : get(this.src, 'opt', null)
+        : get(this.src, "opt", null)
         ? this.src.opt
-        : null
+        : null;
     },
     srcAlt() {
       if (this.src.alt) {
-        return this.src.alt
+        return this.src.alt;
       }
-      return 'imagemage'
+      return "imagemage";
     },
     srcset() {
-      return get(this.src, 'srcset', false)
+      return get(this.src, "srcset", false);
     },
     hasAspectRatio() {
       return (
-        /aspect-ratio-/.test(this.getThemeClass('aspectRatio')) &&
-        'has-aspect-ratio'
-      )
+        /aspect-ratio-/.test(this.getThemeClass("aspectRatio")) &&
+        "has-aspect-ratio"
+      );
     },
     getClassesforFigure() {
-      if (this.imagePosition === 'top') {
-        return `flex content-start ${this.getThemeClass('figure')}`
-      } else if (this.imagePosition === 'center') {
-        return `flex content-center ${this.getThemeClass('figure')}`
-      } else if (this.imagePosition === 'bottom') {
-        return `flex content-end ${this.getThemeClass('figure')}`
+      if (this.imagePosition === "top") {
+        return `flex content-start ${this.getThemeClass("figure")}`;
+      } else if (this.imagePosition === "center") {
+        return `flex content-center ${this.getThemeClass("figure")}`;
+      } else if (this.imagePosition === "bottom") {
+        return `flex content-end ${this.getThemeClass("figure")}`;
       } else {
-        return `${this.getThemeClass('figure')}`
+        return `${this.getThemeClass("figure")}`;
       }
-    }
-  }
-})
+    },
+  },
+});
 
-export default NjImage
+export default NjImage;
 </script>
