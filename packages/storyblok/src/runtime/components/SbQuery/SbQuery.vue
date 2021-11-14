@@ -7,11 +7,11 @@
       v-if="isLoaded"
     >
       <div v-if="collection.length">
-        <template v-for="item in filteredCollection">
+        <template v-for="story in filteredCollection">
           <slot
-            v-bind="item"
+            v-bind="story"
           >
-            <Blok :blok="item" />
+            <Blok :blok="story" />
           </slot>
         </template>
       </div>
@@ -74,10 +74,6 @@ export default {
     filterQuery: {
       type: Object,
       default: () => ({})
-    },
-    excludeByPropValue: {
-      type: [Boolean, Object],
-      default: false
     },
     disableFetch: {
       type: Boolean,
