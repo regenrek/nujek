@@ -76,6 +76,7 @@ export default {
       }
     },
     componentId () {
+      console.log(this.blok)
       const c = toPascalCase(this.blok.component || this.blok.content?.component)
 
       if (this.$options.components[c]) {
@@ -83,7 +84,7 @@ export default {
       }
 
       if (this.$storyblokNujek.debug) {
-        return this.blok.bloks || this.blok.content?.bloks ? 'BlokDebugContentType' : 'BlokDebug'
+        return this.blok.content ? 'BlokDebugContentType' : 'BlokDebug'
       }
 
       return false

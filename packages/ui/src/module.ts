@@ -108,6 +108,7 @@ const uiModule: Module<any> = function uiModule (moduleOptions) {
       fileName: join(ROOT_DIR, 'rich-text-renderer.js'),
       options: {}
     })
+    nuxt.options.build.transpile.push('@marvr/storyblok-rich-text-vue-renderer')
 
     if (options.withConsole) {
       logger.success({

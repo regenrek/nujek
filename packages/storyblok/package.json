@@ -34,6 +34,7 @@
   "dependencies": {
     "@marvr/storyblok-rich-text-vue-renderer": "^2.0.1",
     "@nujek/shared": "latest",
+    "@nuxtjs/i18n": "^7.2.0",
     "axios": "^0.21.4",
     "storyblok-nuxt": "^2.0.1"
   },

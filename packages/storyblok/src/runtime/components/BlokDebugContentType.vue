@@ -62,6 +62,7 @@
 </template>
 
 <script>
+
 import { toPascalCase } from '@nujek/shared'
 
 export default {
@@ -82,7 +83,7 @@ export default {
           current: true,
           props: {
             blokProps: this.blok,
-            componentName: this.toPascalCase(this.blok?.component),
+            componentName: this.toPascalCase(this.blok?.component || this.blok?.content?.component),
             componentPath: 'components/content-types',
             type: 'Content Type'
           }
@@ -102,7 +103,7 @@ export default {
           href: '#blok-debug-code-preview',
           current: false,
           props: {
-            componentName: this.toPascalCase(this.blok?.component),
+            componentName: this.toPascalCase(this.blok?.component || this.blok?.content?.component),
             type: 'content-types'
           }
         }
@@ -111,7 +112,7 @@ export default {
   },
   computed: {
     componentName () {
-      return this.blok?.component
+      return this.blok?.component || this.blok?.content?.component
     }
   },
   methods: {
