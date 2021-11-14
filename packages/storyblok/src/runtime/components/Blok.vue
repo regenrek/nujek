@@ -76,7 +76,6 @@ export default {
       }
     },
     componentId () {
-      console.log(this.blok)
       const c = toPascalCase(this.blok.component || this.blok.content?.component)
 
       if (this.$options.components[c]) {
